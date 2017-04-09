@@ -1,0 +1,22 @@
+svg {
+	background-color: ghostwhite;
+}
+
+path {
+	stroke: black;
+	stroke-width: 1;
+	fill: none;
+}
+
+.axis {
+	font-size: 6pt;
+}
+
+.axis path {
+	stroke: lightgray;
+	stroke-width: .5;
+}
+
+.x.axis .tick text{
+	display: none;
+}
