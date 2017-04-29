@@ -9,12 +9,14 @@ path {
 }
 
 .axis {
-	font-size: 6pt;
+	font-size: 5pt;
+	color: gray;
+	fill: gray;
 }
 
 .axis path {
-	stroke: lightgray;
-	stroke-width: .5;
+	stroke: gray;
+	stroke-width: .7;
 }
 
 .x.axis .tick text{

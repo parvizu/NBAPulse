@@ -15,8 +15,8 @@ export default class Root extends Component {
 
 		this.state = {
 			specs: {
-				width: 650,
-				height: 300,
+				width: 1200,
+				height: 50,
 				padding: 25,
 				xParam: 'sec',
 				yParam: 'dif'
@@ -48,16 +48,21 @@ export default class Root extends Component {
 	render() {
 		return (
 			<div>
-				<h1> Line Chart </h1>
+				<h1>NBA Pulse Chart </h1>
 				<a href="" onClick={this.handleNewSizeSpecs} value="height">-</a> Height <a href="" onClick={this.handleNewSizeSpecs} value="height" >+</a>
 				<br />
 				<a href="" onClick={this.handleNewSizeSpecs} value="width">-</a> Width <a href="" onClick={this.handleNewSizeSpecs} value="width" >+</a>
 				<br />
 				<a href="" onClick={this.handleNewSizeSpecs} value="padding">-</a> Padding <a href="" onClick={this.handleNewSizeSpecs} value="padding" >+</a>
 				<br />
+				<br />
+
 				<BasketballChart gameLog={this.state.data.gameLog} specs={this.state.specs} />
 			</div>
 		);
 	}
 	
 }
+
+
+// THIS GOES INSIDE RENDER RETURN()

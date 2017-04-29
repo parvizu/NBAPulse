@@ -1,0 +1,76 @@
+body {
+	background-color: black;
+	color: white;
+}
+
+.player-name {
+	display: inline-block;
+	vertical-align: top;
+	width: 150px;	
+	margin: 0px;
+	padding: 0px;
+	padding-top: 15px;
+}
+
+.chart-container {
+	display: inline-block;
+	background-color: ghostwhite;
+}
+
+
+
+
+.period-end {
+	fill: lightgray;
+	width: 5px;
+}
+
+.half {
+	width: 5px;
+}
+
+
+
+.play rect {
+	fill: none;
+	width: 3px;
+	stroke: none;
+}
+
+rect.rebound {
+	fill: green;
+	stroke: none;
+
+}
+
+rect.foul {
+	fill: red;
+	stroke: noe;
+}
+
+rect.turnover {
+	fill: red;
+	stroke: none;
+}
+
+rect.made-fg,
+rect.made-ft {
+	fill: green;
+	stroke: none;
+}
+
+rect.missed-fg,
+rect.missed-ft {
+	fill: red;
+	stroke: none;
+}
+
+rect.assist {
+	fill: green;
+	stroke: none;
+}
+
+rect.steal {
+	fill: green;
+	stroke: green;
+}
