@@ -9,7 +9,7 @@ body {
 	width: 150px;	
 	margin: 0px;
 	padding: 0px;
-	padding-top: 15px;
+	padding-top: 5px;
 }
 
 .chart-container {
@@ -45,7 +45,7 @@ rect.rebound {
 }
 
 rect.foul {
-	fill: none;
+	fill: black;
 	stroke: none;
 }
 
@@ -55,15 +55,17 @@ rect.turnover {
 }
 
 rect.made-fg,
-rect.made-ft {
+rect.made-ft,
+rect.made-3pt {
 	fill: green;
 	stroke: none;
 }
 
 rect.missed-fg,
-rect.missed-ft {
+rect.missed-ft,
+rect.missed-3pt {
 	fill: none;
-	/*stroke: green;*/
+	stroke: green;
 }
 
 rect.assist {
@@ -72,11 +74,21 @@ rect.assist {
 }
 
 rect.steal {
-	fill: none;
+	fill: purple;
 	stroke: none;
 }
 
 rect.block {
-	fill: none;
+	fill: brown;
 	stroke: none;
+}
+
+rect.positive {
+	/*fill: green;*/
+	/*stroke: none;*/
+}
+
+rect.negative {
+	/*fill: red;*/
+	/*stroke: none;*/
 }

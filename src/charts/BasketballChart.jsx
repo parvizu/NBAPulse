@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import StatControl from './StatControl';
 import PulseChart from './PulseChart';
 
+import styles from './StatControl.css';
+
 // import gameLogDummy from '../../data/samples/PlaybyPlay_OKCvHOU-Game5.json';
 // import gameLogDummy from '../../data/samples/PlaybyPlay_GSWvPOR-Game4.json';
 
@@ -25,6 +27,28 @@ export default class BasketballChart extends Component {
 		this.getPlayerLog = this.getPlayerLog.bind(this);
 		this.getPlayerInSeries = this.getPlayerInSeries.bind(this);
 		this.createBasicTimeLog = this.createBasicTimeLog.bind(this);
+
+		this.state = {
+			made: '',
+			missed: '',
+			assist: '',
+			rebound: '',
+			steal: '',
+			block: '',
+			turnover: '',
+			foul: ''
+		};
+
+		this.handleStatClick = this.handleStatClick.bind(this);
+	}
+
+	handleStatClick(stat) {
+		
+		let newState = {};
+		newState[stat] = this.state[stat] === '' ? 'stat-hidden' : '';
+
+		this.setState(newState);
+
 	}
 
 	createBasicTimeLog (periods) {
@@ -99,34 +123,34 @@ export default class BasketballChart extends Component {
 				play.text = 'foul';
 			} else if (description.indexOf('REBOUND') !== -1) {
 				play.type = 2;
-				play.text = 'rebound';
+				play.text = 'rebound positive';
 			} else if (description.indexOf('Free Throw') !== -1) {
 				if (description.indexOf('MISS') !== -1) {
 					play.type = 3;
-					play.text = 'missed-ft';
+					play.text = 'missed-ft negative';
 				} else {
 					play.type = 4;
-					play.text = 'made-ft';
+					play.text = 'made-ft positive';
 				}
 			} else if (description.indexOf('3PT') !== -1 ) {
 				if (description.indexOf('MISS') !== -1) {
 					play.type = 5;
-					play.text = 'missed-3pt';
+					play.text = 'missed-3pt negative';
 				} else {
 					play.type = 6;
-					play.text = 'made-3pt';
+					play.text = 'made-3pt positive';
 				}
 			} else if (description.indexOf('Dunk') !== -1 || description.indexOf('Jumper') !== -1 || description.indexOf('Shot') !== -1 || description.indexOf('Layup') !== -1) {
 				if (description.indexOf('MISS') !== -1) {
 					play.type = 7;
-					play.text = 'missed-fg';
+					play.text = 'missed-fg negative';
 				} else {
 					play.type = 8;
-					play.text = 'made-fg';
+					play.text = 'made-fg positive';
 				}
 			} else if (description.indexOf('Turnover') !== -1) {
 				play.type = 9;
-				play.text = 'turnover';
+				play.text = 'turnover negative';
 			} 
 
 			return play;
@@ -144,15 +168,15 @@ export default class BasketballChart extends Component {
 			} else if (description.indexOf('AST') !== -1) {
 				// player2
 				play.type = 10;
-				play.text = 'assist';
+				play.text = 'assist positive';
 			} else if (description.indexOf('BLK') !== -1) {
 				// player3
 				play.type = 11;
-				play.text = 'block';
-			} else if (description.indexOf('STEAL') !== -1) {
-				// player3
+				play.text = 'block positive';
+			} else if (description.indexOf('STL') !== -1) {
+				// player2
 				play.type = 12;
-				play.text = 'steal';
+				play.text = 'steal positive';
 			}
 
 			return play;
@@ -191,10 +215,10 @@ export default class BasketballChart extends Component {
 		parsedPlays.push(parsePlayerActions(prefix, play));
 
 		play = getSecondaryPlayType(playText);
-		if (play.type === 12 || play.type === 11) {
+		if (play.type === 11) {
 			prefix = 'PLAYER3';
 			parsedPlays.push(parsePlayerActions(prefix, play));
-		} else if (play.type == 10) {
+		} else if (play.type === 12 || play.type == 10) {
 			prefix = 'PLAYER2';
 			parsedPlays.push(parsePlayerActions(prefix, play));
 		}
@@ -230,6 +254,7 @@ export default class BasketballChart extends Component {
 					playerLog={playerLog} 
 					label={"Game "+(i+1)}
 					key={playerId+"_"+i}
+					selectedStats={this.state}
 					/>
 			)
 		});
@@ -238,12 +263,50 @@ export default class BasketballChart extends Component {
 
 	}
 
+	getGameMatchup(gameFile, playersHomeTeam, playersAwayTeam) {
+		const seriesGameRawData = require('../../data/samples/'+gameFile);
+		this.timeLog = this.createBasicTimeLog(4);
+		const gameLog = this.processGameLog(seriesGameRawData);
+		
+		const homeTeamCharts = playersHomeTeam.map((player,i) => {
+			const playerLog = this.getPlayerLog(player.playerId, gameLog);
+
+			return (
+				<PulseChart timeLog={this.timeLog}
+					specs={this.props.specs} 
+					playerId={player.playerId} 
+					playerLog={playerLog} 
+					label={player.playerName}
+					key={player.playerId+"_"+i}
+					selectedStats={this.state}
+					/>
+			);
+		});
+
+		const awayTeamCharts = playersAwayTeam.map((player,i) => {
+			const playerLog = this.getPlayerLog(player.playerId, gameLog);
+
+			return (
+				<PulseChart timeLog={this.timeLog}
+					specs={this.props.specs} 
+					playerId={player.playerId} 
+					playerLog={playerLog} 
+					label={player.playerName}
+					key={player.playerId+"_"+i}
+					selectedStats={this.state}
+					/>
+			);
+		});
+
+		return [].concat(homeTeamCharts).concat([(<br />)]).concat(awayTeamCharts);
+	}
+
 
 	render() {
 
 		// <LineChart data={this.props.gameLog} specs={this.props.specs} />
 
-		// 			
+		// 	PLAYERS		
 			// Harden: 201935
 			// Westbrook: 201566
 			// Oladipo: 203506
@@ -255,62 +318,79 @@ export default class BasketballChart extends Component {
 
 			// Lillard: 203081
 			// McCollum: 203468
-			// <PulseChart gameLog={this.gamelog}
-			// 	timeLog={this.timeLog}
-			// 	specs={this.props.specs} 
-			// 	playerId={201939} 
-			// 	playerLog={this.getPlayerLog(201939)} 
-			// 	playerName="Steph Curry"
-			// 	/>
 
-			// <PulseChart gameLog={this.gamelog}
-			// 	timeLog={this.timeLog}
-			// 	specs={this.props.specs} 
-			// 	playerId={201142} 
-			// 	playerLog={this.getPlayerLog(201142)} 
-			// 	playerName="Kevin Durant"
-			// 	/>
+		const seriesFiles = {
+			OKCvHOU: [
+				'PlaybyPlay_OKCvHOU-Game1.json',
+				'PlaybyPlay_OKCvHOU-Game2.json',
+				'PlaybyPlay_OKCvHOU-Game3.json',
+				'PlaybyPlay_OKCvHOU-Game4.json',
+				'PlaybyPlay_OKCvHOU-Game5.json'],
 
-			// <PulseChart gameLog={this.gamelog}
-			// 	timeLog={this.timeLog}
-			// 	specs={this.props.specs} 
-			// 	playerId={203110} 
-			// 	playerLog={this.getPlayerLog(203110)} 
-			// 	playerName="Draymond Green"
-			// 	/>
+			GSWvPOR: [
+				'PlaybyPlay_GSWvPOR-Game1.json',
+				'PlaybyPlay_GSWvPOR-Game2.json',
+				'PlaybyPlay_GSWvPOR-Game3.json',
+				'PlaybyPlay_GSWvPOR-Game4.json']
+		}
 
-			// <br />
+		const okcPlayers = [{
+			playerId: 201566,
+			playerName: "Russell Westbrook"
+		}];
 
-			// <PulseChart gameLog={this.gamelog}
-			// 	timeLog={this.timeLog}
-			// 	specs={this.props.specs} 
-			// 	playerId={203081} 
-			// 	playerLog={this.getPlayerLog(203081)} 
-			// 	playerName="Damian Lillard"
-			// 	/>
+		const houPlayers = [{
+			playerId: 201935,
+			playerName: "James Harden"
+		}];
 
-			// <PulseChart gameLog={this.gamelog}
-			// 	timeLog={this.timeLog}
-			// 	specs={this.props.specs} 
-			// 	playerId={203468} 
-			// 	playerLog={this.getPlayerLog(203468)} 
-			// 	playerName="CJ McCollum"
-			// 	/>
+		const gswPlayers = [{
+			playerId: 201939,
+			playerName: "Steph Curry"
+		},{
+			playerId: 201142,
+			playerName: "Kevin Durant"
+		},{
+			playerId: 203110,
+			playerName: "Draymond Green"
+		},{
+			playerId: 202691,
+			playerName: "Klay Thompson"
+		}];
+		const porPlayers = [{
+			playerId: 203468,
+			playerName: "CJ McCollum"
+		},{
+			playerId: 203081,
+			playerName: "Damien Lillard"
+		}];
 
-		const seriesFiles = ['PlaybyPlay_OKCvHOU-Game1.json',
-			'PlaybyPlay_OKCvHOU-Game2.json',
-			'PlaybyPlay_OKCvHOU-Game3.json',
-			'PlaybyPlay_OKCvHOU-Game4.json',
-			'PlaybyPlay_OKCvHOU-Game5.json'];
 
+		// <h3> Game 2 Matchup </h3>
+		// {this.getGameMatchup(seriesFiles.OKCvHOU[1],okcPlayers,houPlayers)}
+		// <hr />
+		// <h3> Russell Westbrook </h3>
+		// { this.getPlayerInSeries(201566,"Russell Westbrook", seriesFiles.OKCvHOU) }
+		// <br />
+		// <h3> James Harden </h3>
+		// { this.getPlayerInSeries(201935,"James Harden", seriesFiles.OKCvHOU) }
+
+
+		// <h3> Game 1 Matchup </h3>
+				// {this.getGameMatchup(seriesFiles.GSWvPOR[0],gswPlayers,porPlayers)}
 		return (
 			<div>
-				<StatControl />
-				<h3> Russell Westbrook </h3>
-				{ this.getPlayerInSeries(201566,"Russell Westbrook", seriesFiles) }
+				<StatControl handleStatClick={this.handleStatClick} selectedStats={this.state}/>
+
+				
+
+				<hr />
+				<br /><br />
+				<h3> {gswPlayers[3].playerName} </h3>
+				{ this.getPlayerInSeries(gswPlayers[3].playerId, gswPlayers[3].playerName, seriesFiles.GSWvPOR) }
 				<br />
-				<h3> James Harden </h3>
-				{ this.getPlayerInSeries(201935,"James Harden", seriesFiles) }
+				<h3> {porPlayers[0].playerName} </h3>
+				{ this.getPlayerInSeries(porPlayers[0].playerId,porPlayers[0].playerName, seriesFiles.GSWvPOR) }
 			</div>
 		)
 	}

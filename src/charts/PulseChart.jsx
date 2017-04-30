@@ -135,7 +135,6 @@ export default class PulseChart extends Component {
 						return 'translate('+xScale(b.momentId)+',0)';
 					},
 					class: (b) => {
-						// return b.gameClock !== '6:00'? 'period-end '+ b.breakType : b.breakType;
 						return 'period-end ' + b.breakType;
 					},
 					height: height
@@ -155,7 +154,15 @@ export default class PulseChart extends Component {
 				.append('rect')
 					.attr({
 						class: (p) => {
-							return p.playText
+							let stat = p.playText.split(' ')[0];
+
+							if (stat === 'made-fg' || stat === 'made-ft' || stat === 'made-3pt') {
+								stat = 'made';
+							} else if (stat === 'missed-fg' || stat === 'missed-ft' || stat === 'missed-3pt') {
+								stat = 'missed';
+							}
+
+							return p.playText +" "+this.props.selectedStats[stat];
 						},
 						height: barHeight,
 						alt: (p) => {
