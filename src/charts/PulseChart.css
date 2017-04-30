@@ -1,9 +1,9 @@
 body {
-	background-color: black;
+	background-color: rgba(0,0,0,.8);
 	color: white;
 }
 
-.player-name {
+.chart-label {
 	display: inline-block;
 	vertical-align: top;
 	width: 150px;	
@@ -25,8 +25,9 @@ body {
 	width: 5px;
 }
 
-.half {
-	width: 5px;
+.mid-quarter {
+	width: .5;
+	fill: lightgray;
 }
 
 
@@ -38,14 +39,14 @@ body {
 }
 
 rect.rebound {
-	fill: green;
+	fill: dodgerblue;
 	stroke: none;
 
 }
 
 rect.foul {
-	fill: red;
-	stroke: noe;
+	fill: none;
+	stroke: none;
 }
 
 rect.turnover {
@@ -61,16 +62,21 @@ rect.made-ft {
 
 rect.missed-fg,
 rect.missed-ft {
-	fill: red;
-	stroke: none;
+	fill: none;
+	/*stroke: green;*/
 }
 
 rect.assist {
-	fill: green;
+	fill: orange;
 	stroke: none;
 }
 
 rect.steal {
-	fill: green;
-	stroke: green;
+	fill: none;
+	stroke: none;
+}
+
+rect.block {
+	fill: none;
+	stroke: none;
 }

@@ -1,73 +1,40 @@
 import React, { Component } from 'react';
-// import LineChart from './LineChart';
 
+import StatControl from './StatControl';
 import PulseChart from './PulseChart';
 
-import gameLogDummy from '../../data/samples/PlaybyPlay_OKCvHOU-Game5.json';
+// import gameLogDummy from '../../data/samples/PlaybyPlay_OKCvHOU-Game5.json';
 // import gameLogDummy from '../../data/samples/PlaybyPlay_GSWvPOR-Game4.json';
 
-const headers =["GAME_ID", "EVENTNUM", "EVENTMSGTYPE", "EVENTMSGACTIONTYPE", "PERIOD", "WCTIMESTRING", "PCTIMESTRING", "HOMEDESCRIPTION", "NEUTRALDESCRIPTION", "VISITORDESCRIPTION", "SCORE", "SCOREMARGIN", "PERSON1TYPE", "PLAYER1_ID", "PLAYER1_NAME", "PLAYER1_TEAM_ID", "PLAYER1_TEAM_CITY", "PLAYER1_TEAM_NICKNAME", "PLAYER1_TEAM_ABBREVIATION", "PERSON2TYPE", "PLAYER2_ID", "PLAYER2_NAME", "PLAYER2_TEAM_ID", "PLAYER2_TEAM_CITY", "PLAYER2_TEAM_NICKNAME", "PLAYER2_TEAM_ABBREVIATION", "PERSON3TYPE", "PLAYER3_ID", "PLAYER3_NAME", "PLAYER3_TEAM_ID", "PLAYER3_TEAM_CITY", "PLAYER3_TEAM_NICKNAME", "PLAYER3_TEAM_ABBREVIATION", "momentId"];
+// fetch("http://stats.nba.com/stats/playbyplayv2?GameID=0041600165&StartPeriod=00&EndPeriod=03")
+//   .then(resp => resp.json())
+// 
 
-const eventTypes = {
-	1: 'fg',
-	2: 'fg miss',
-	3: 'free throw',
-	4: 'rebound',
-	5: 'turnover',
-	6: 'foul',
-	7: 'violation',
-	8: 'substitute',
-	9: 'timeout',
-	10: '',
-	11: '',
-	12: 'start period',
-	13: 'end period'
-}
+const headers =["GAME_ID", "EVENTNUM", "EVENTMSGTYPE", "EVENTMSGACTIONTYPE", "PERIOD", "WCTIMESTRING", "PCTIMESTRING", "HOMEDESCRIPTION", "NEUTRALDESCRIPTION", "VISITORDESCRIPTION", "SCORE", "SCOREMARGIN", "PERSON1TYPE", "PLAYER1_ID", "PLAYER1_NAME", "PLAYER1_TEAM_ID", "PLAYER1_TEAM_CITY", "PLAYER1_TEAM_NICKNAME", "PLAYER1_TEAM_ABBREVIATION", "PERSON2TYPE", "PLAYER2_ID", "PLAYER2_NAME", "PLAYER2_TEAM_ID", "PLAYER2_TEAM_CITY", "PLAYER2_TEAM_NICKNAME", "PLAYER2_TEAM_ABBREVIATION", "PERSON3TYPE", "PLAYER3_ID", "PLAYER3_NAME", "PLAYER3_TEAM_ID", "PLAYER3_TEAM_CITY", "PLAYER3_TEAM_NICKNAME", "PLAYER3_TEAM_ABBREVIATION", "momentId"];
 
 export default class BasketballChart extends Component {
 	
 	constructor(props) {
 		super(props);
 
-
-		this.getMomentEvents = this.getMomentEvents.bind(this);
 		this.processEvent = this.processEvent.bind(this);
 		this.processGameLog = this.processGameLog.bind(this);
 
 		this.timeLog = [];
-		this.gamelog = this.createGameLog(4);
-
-		// TODO: This needs to be replace with a prop probably
-		this.gameDataRaw = gameLogDummy;
-		this.gameEvents;
-
-		// this.gamelog = 
-
-		this.state = {
-			gameLog: this.processGameLog(gameLogDummy)
-		};
 
 		this.getPlayerLog = this.getPlayerLog.bind(this);
+		this.getPlayerInSeries = this.getPlayerInSeries.bind(this);
+		this.createBasicTimeLog = this.createBasicTimeLog.bind(this);
 	}
 
-	createGameLog (periods) {
+	createBasicTimeLog (periods) {
 		let basicLog = [];
 		let momentId = 0;
 
 		for (let q = 1; q<=periods; q++) {
 			for (let m = 12; m >= 0; m--) {
-				if (m == 12) {
+				if (m == 12) {					
 					basicLog.push({
-							momentId: momentId,
-							quarter: q,
-							gameClock: "12:00",
-							plays: "",
-							players: [],
-							score: "",
-							margin: 0
-						});
-					
-					this.timeLog.push({
 						gameClock: "12:00",
 						momentId: momentId++,
 						quarter: q
@@ -75,19 +42,8 @@ export default class BasketballChart extends Component {
 
 				} else {
 					for (let s = 59; s>= 0; s--) {
-						// let minute = m<10 ? "0"+m : m;
 						let second = s<10 ? "0"+s : s;
 						basicLog.push({
-							momentId: momentId,
-							quarter: q,
-							gameClock: m+":"+second,
-							plays: "",
-							players: [],
-							score: "",
-							margin: 0
-						});
-
-						this.timeLog.push({
 							gameClock: m+":"+second,
 							momentId: momentId++,
 							quarter: q
@@ -101,59 +57,11 @@ export default class BasketballChart extends Component {
 		return basicLog;
 	}
 
-	getMomentEvents(moment) {
-		for (let e = 1; e<this.gameEvents.length; e++) {
-			let event = this.gameEvents[e];
-
-			if (event['PERIOD'] > moment.quarter)
-				break;
-
-			let players = {};
-			if (event['PERIOD'] === moment.quarter && event['PCTIMESTRING'] === moment.gameClock) {				
-
-				[1,2,3].forEach(i=> {
-					let prefix = 'PLAYER'+i;
-
-					if (event[prefix+'_ID'] !== 0) {
-						moment.players[event[prefix+'_ID']] = {
-							playerid: event[prefix+'_ID'],
-							playerName: event[prefix+'_NAME'],
-							teamId: event[prefix+'_TEAM_ID'],
-							teamCity: event[prefix+'_TEAM_CITY'],
-							teamNickname: event[prefix+'_TEAM_NICKNAME'],
-							teamAbbreviation: event[prefix+'_TEAM_ABBREVIATION'],
-							personType: event['PERSON'+i+'TYPE'],
-							playTypeId: event['EVENTMSGTYPE'],
-							playTypeText: eventTypes[event['EVENTMSGTYPE']],
-							actionTypeId: event['EVENTMSGACTIONTYPE']
-						};						
-					}
-				});
-				
-				
-				let playText = '';
-				if (event['HOMEDESCRIPTION'])
-					playText += event['HOMEDESCRIPTION'] + ' ';
-				else if (event['NEUTRALDESCRIPTION']) 
-					playText += event['NEUTRALDESCRIPTION'] + ' ';
-				else if (event['VISITORDESCRIPTION'])
-					playText += event['VISITORDESCRIPTION'];
-
-				moment.plays += playText.trim()+'. ';
-
-				moment.score = event['SCORE'];
-				moment.margin = event['SCOREMARGIN'];
-			}
-		}
-
-		moment.plays = moment.plays.trim();
-	}
-
 	processGameLog(gameData) {
 		let gameLog = [];
 		let refactoredEvents = [];
-		
-		this.gameDataRaw.resultSets[0].rowSet.forEach(event => {
+
+		gameData.resultSets[0].rowSet.forEach(event => {
 			let brokenDown = {};
 			event.forEach((stat,i) => {
 				brokenDown[headers[i]] = stat;
@@ -162,18 +70,6 @@ export default class BasketballChart extends Component {
 		});
 
 		return gameLog;
-	}
-
-	getPlayerLog(playerId) {
-
-		let playerPlays = []
-		this.state.gameLog.forEach((event) => {
-			if (event.playerId == playerId) {
-				playerPlays.push(event);
-			}
-		});
-
-		return playerPlays;
 	}
 
 	processEvent(event) {
@@ -307,84 +203,114 @@ export default class BasketballChart extends Component {
 	}
 
 
+	getPlayerLog(playerId, gameLog) {
+
+		let playerPlays = []
+		gameLog.forEach((event) => {
+			if (event.playerId == playerId) {
+				playerPlays.push(event);
+			}
+		});
+
+		return playerPlays;
+	}
+
+	getPlayerInSeries(playerId, playerName, series) {
+		let playerSeriesCharts = series.map((gameFile, i) => {
+
+			const seriesGameRawData = require('../../data/samples/'+gameFile);
+			this.timeLog = this.createBasicTimeLog(4);
+			const gameLog = this.processGameLog(seriesGameRawData);
+			const playerLog = this.getPlayerLog(playerId, gameLog);
+
+			return (
+				<PulseChart timeLog={this.timeLog}
+					specs={this.props.specs} 
+					playerId={playerId} 
+					playerLog={playerLog} 
+					label={"Game "+(i+1)}
+					key={playerId+"_"+i}
+					/>
+			)
+		});
+
+		return playerSeriesCharts;
+
+	}
+
+
 	render() {
 
 		// <LineChart data={this.props.gameLog} specs={this.props.specs} />
 
-		// Harden: 201935
-		// Westbrook: 201566
-		// Oladipo: 203506
-		// Beverly: 201976
+		// 			
+			// Harden: 201935
+			// Westbrook: 201566
+			// Oladipo: 203506
+			// Beverly: 201976
 
-		// Curry: 201939
-		// Durant: 201142
-		// Green: 203110
+			// Curry: 201939
+			// Durant: 201142
+			// Green: 203110
 
-		// Lillard: 203081
-		// McCollum: 203468
+			// Lillard: 203081
+			// McCollum: 203468
+			// <PulseChart gameLog={this.gamelog}
+			// 	timeLog={this.timeLog}
+			// 	specs={this.props.specs} 
+			// 	playerId={201939} 
+			// 	playerLog={this.getPlayerLog(201939)} 
+			// 	playerName="Steph Curry"
+			// 	/>
 
-		// <PulseChart gameLog={this.gamelog}
-				// 	timeLog={this.timeLog}
-				// 	specs={this.props.specs} 
-				// 	playerId={201939} 
-				// 	playerLog={this.getPlayerLog(201939)} 
-				// 	playerName="Steph Curry"
-				// 	/>
+			// <PulseChart gameLog={this.gamelog}
+			// 	timeLog={this.timeLog}
+			// 	specs={this.props.specs} 
+			// 	playerId={201142} 
+			// 	playerLog={this.getPlayerLog(201142)} 
+			// 	playerName="Kevin Durant"
+			// 	/>
 
-				// <PulseChart gameLog={this.gamelog}
-				// 	timeLog={this.timeLog}
-				// 	specs={this.props.specs} 
-				// 	playerId={201142} 
-				// 	playerLog={this.getPlayerLog(201142)} 
-				// 	playerName="Kevin Durant"
-				// 	/>
+			// <PulseChart gameLog={this.gamelog}
+			// 	timeLog={this.timeLog}
+			// 	specs={this.props.specs} 
+			// 	playerId={203110} 
+			// 	playerLog={this.getPlayerLog(203110)} 
+			// 	playerName="Draymond Green"
+			// 	/>
 
-				// <PulseChart gameLog={this.gamelog}
-				// 	timeLog={this.timeLog}
-				// 	specs={this.props.specs} 
-				// 	playerId={203110} 
-				// 	playerLog={this.getPlayerLog(203110)} 
-				// 	playerName="Draymond Green"
-				// 	/>
+			// <br />
 
-				// <br />
+			// <PulseChart gameLog={this.gamelog}
+			// 	timeLog={this.timeLog}
+			// 	specs={this.props.specs} 
+			// 	playerId={203081} 
+			// 	playerLog={this.getPlayerLog(203081)} 
+			// 	playerName="Damian Lillard"
+			// 	/>
 
-				// <PulseChart gameLog={this.gamelog}
-				// 	timeLog={this.timeLog}
-				// 	specs={this.props.specs} 
-				// 	playerId={203081} 
-				// 	playerLog={this.getPlayerLog(203081)} 
-				// 	playerName="Damian Lillard"
-				// 	/>
+			// <PulseChart gameLog={this.gamelog}
+			// 	timeLog={this.timeLog}
+			// 	specs={this.props.specs} 
+			// 	playerId={203468} 
+			// 	playerLog={this.getPlayerLog(203468)} 
+			// 	playerName="CJ McCollum"
+			// 	/>
 
-				// <PulseChart gameLog={this.gamelog}
-				// 	timeLog={this.timeLog}
-				// 	specs={this.props.specs} 
-				// 	playerId={203468} 
-				// 	playerLog={this.getPlayerLog(203468)} 
-				// 	playerName="CJ McCollum"
-				// 	/>
+		const seriesFiles = ['PlaybyPlay_OKCvHOU-Game1.json',
+			'PlaybyPlay_OKCvHOU-Game2.json',
+			'PlaybyPlay_OKCvHOU-Game3.json',
+			'PlaybyPlay_OKCvHOU-Game4.json',
+			'PlaybyPlay_OKCvHOU-Game5.json'];
 
 		return (
 			<div>
-
-
-				<PulseChart gameLog={this.gamelog}
-					timeLog={this.timeLog}
-					specs={this.props.specs} 
-					playerId={201935} 
-					playerLog={this.getPlayerLog(201935)} 
-					playerName="James Harden"
-					/>
-
-				<PulseChart gameLog={this.gamelog}
-					timeLog={this.timeLog}
-					specs={this.props.specs} 
-					playerId={201566} 
-					playerLog={this.getPlayerLog(201566)} 
-					playerName="Russell Westbrook"
-					/>
-
+				<StatControl />
+				<h3> Russell Westbrook </h3>
+				{ this.getPlayerInSeries(201566,"Russell Westbrook", seriesFiles) }
+				<br />
+				<h3> James Harden </h3>
+				{ this.getPlayerInSeries(201935,"James Harden", seriesFiles) }
 			</div>
 		)
 	}

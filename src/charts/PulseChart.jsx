@@ -76,10 +76,22 @@ export default class PulseChart extends Component {
 				momentId: 0,
 			},
 			{
+				gameClock: '6:00',
+				quarter:1,
+				breakType: 'mid-quarter',
+				momentId: 360,
+			},
+			{
 				gameClock: '0:00',
 				quarter:1,
 				breakType: 'quarter',
 				momentId: 720,
+			},
+			{
+				gameClock: '6:00',
+				quarter:2,
+				breakType: 'mid-quarter',
+				momentId: 1081,
 			},
 			{
 				gameClock: '0:00',
@@ -88,10 +100,22 @@ export default class PulseChart extends Component {
 				momentId: 1441,
 			},
 			{
+				gameClock: '6:00',
+				quarter:3,
+				breakType: 'mid-quarter',
+				momentId: 1802,
+			},
+			{
 				gameClock: '0:00',
 				quarter:3,
 				breakType: 'quarter',
 				momentId: 2163,
+			},
+			{
+				gameClock: '6:00',
+				quarter:4,
+				breakType: 'mid-quarter',
+				momentId: 2523,
 			},
 			{
 				gameClock: '0:00',
@@ -111,7 +135,8 @@ export default class PulseChart extends Component {
 						return 'translate('+xScale(b.momentId)+',0)';
 					},
 					class: (b) => {
-						return 'period-end '+ b.breakType;
+						// return b.gameClock !== '6:00'? 'period-end '+ b.breakType : b.breakType;
+						return 'period-end ' + b.breakType;
 					},
 					height: height
 				});
@@ -139,7 +164,11 @@ export default class PulseChart extends Component {
 					})
 			.on('mouseover', (p) => {
 				this.handlePlayHover(p.momentId, p.fullPlay);
+			})
+			.on('mouseout', (p) => {
+				this.handlePlayHover(p.momentId, "");
 			});
+
 
 
 		return node.toReact();
@@ -151,7 +180,7 @@ export default class PulseChart extends Component {
 
 		return (
 			<div>
-				<h4 className="player-name"> {this.props.playerName} </h4>
+				<h4 className="chart-label"> {this.props.label} </h4>
 				<div className="chart-container">{ this.createPulseChart() }</div>
 				<div id="play-text">{this.state.selectedPlay.fullPlay}</div>
 			</div>
