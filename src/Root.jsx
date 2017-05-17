@@ -16,7 +16,7 @@ export default class Root extends Component {
 		this.state = {
 			specs: {
 				width: 1200,
-				height: 100,
+				height: 150,
 				padding: 25,
 				xParam: 'sec',
 				yParam: 'dif'
