@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import StatControl from './StatControl';
 import PulseChart from './PulseChart';
+import CordChart from './CordChart';
 
 import styles from './StatControl.css';
 
@@ -11,6 +12,9 @@ import styles from './StatControl.css';
 // fetch("http://stats.nba.com/stats/playbyplayv2?GameID=0041600165&StartPeriod=00&EndPeriod=03")
 //   .then(resp => resp.json())
 // 
+
+import games from '../../data/games.json';
+import teams from '../../data/teams.json';
 
 const headers =["GAME_ID", "EVENTNUM", "EVENTMSGTYPE", "EVENTMSGACTIONTYPE", "PERIOD", "WCTIMESTRING", "PCTIMESTRING", "HOMEDESCRIPTION", "NEUTRALDESCRIPTION", "VISITORDESCRIPTION", "SCORE", "SCOREMARGIN", "PERSON1TYPE", "PLAYER1_ID", "PLAYER1_NAME", "PLAYER1_TEAM_ID", "PLAYER1_TEAM_CITY", "PLAYER1_TEAM_NICKNAME", "PLAYER1_TEAM_ABBREVIATION", "PERSON2TYPE", "PLAYER2_ID", "PLAYER2_NAME", "PLAYER2_TEAM_ID", "PLAYER2_TEAM_CITY", "PLAYER2_TEAM_NICKNAME", "PLAYER2_TEAM_ABBREVIATION", "PERSON3TYPE", "PLAYER3_ID", "PLAYER3_NAME", "PLAYER3_TEAM_ID", "PLAYER3_TEAM_CITY", "PLAYER3_TEAM_NICKNAME", "PLAYER3_TEAM_ABBREVIATION", "momentId"];
 
@@ -36,17 +40,44 @@ export default class BasketballChart extends Component {
 			steal: '',
 			block: '',
 			turnover: '',
-			foul: ''
+			foul: 'stat-hidden',
+			periods: 4
 		};
 
 		this.handleStatClick = this.handleStatClick.bind(this);
+		this.getSelectedStats = this.getSelectedStats.bind(this);
+		this.getCordChart = this.getCordChart.bind(this);
+		this.getPlayerInGame = this.getPlayerInGame.bind(this);
+		this.getTeamLog = this.getTeamLog.bind(this);
+		this.getTeamInGame = this.getTeamInGame.bind(this);
 	}
 
-	handleStatClick(stat) {
+	getMaxPeriods(gameList) {
+		return Math.max.apply(Math,gameList.map((gameFileName) => {
+			let gameData = require('../../data/samples/'+gameFileName);
+			return gameData.parameters.EndPeriod;
+		}));
+	}
+
+	getSelectedStats() {
+		let selectedStats = [];
+
+		for (let i = 0; i<Object.keys(this.state).length; i++) {
+			let stat = Object.keys(this.state)[i];
+			let statClass = this.state[stat];
+			if (statClass === '') {
+				selectedStats.push(stat);
+			}
+		}
+		return selectedStats;
+	}
+
+	handleStatClick(stats) {
 		
 		let newState = {};
-		newState[stat] = this.state[stat] === '' ? 'stat-hidden' : '';
-
+		stats.forEach(stat => {
+			newState[stat] = this.state[stat] === '' ? 'stat-hidden' : '';
+		});
 		this.setState(newState);
 
 	}
@@ -123,34 +154,34 @@ export default class BasketballChart extends Component {
 				play.text = 'foul';
 			} else if (description.indexOf('REBOUND') !== -1) {
 				play.type = 2;
-				play.text = 'rebound positive';
+				play.text = 'rebound';
 			} else if (description.indexOf('Free Throw') !== -1) {
 				if (description.indexOf('MISS') !== -1) {
 					play.type = 3;
-					play.text = 'missed-ft negative';
+					play.text = 'missed-ft';
 				} else {
 					play.type = 4;
-					play.text = 'made-ft positive';
+					play.text = 'made-ft';
 				}
 			} else if (description.indexOf('3PT') !== -1 ) {
 				if (description.indexOf('MISS') !== -1) {
 					play.type = 5;
-					play.text = 'missed-3pt negative';
+					play.text = 'missed-3pt';
 				} else {
 					play.type = 6;
-					play.text = 'made-3pt positive';
+					play.text = 'made-3pt';
 				}
 			} else if (description.indexOf('Dunk') !== -1 || description.indexOf('Jumper') !== -1 || description.indexOf('Shot') !== -1 || description.indexOf('Layup') !== -1) {
 				if (description.indexOf('MISS') !== -1) {
 					play.type = 7;
-					play.text = 'missed-fg negative';
+					play.text = 'missed-fg';
 				} else {
 					play.type = 8;
-					play.text = 'made-fg positive';
+					play.text = 'made-fg';
 				}
 			} else if (description.indexOf('Turnover') !== -1) {
 				play.type = 9;
-				play.text = 'turnover negative';
+				play.text = 'turnover';
 			} 
 
 			return play;
@@ -168,15 +199,15 @@ export default class BasketballChart extends Component {
 			} else if (description.indexOf('AST') !== -1) {
 				// player2
 				play.type = 10;
-				play.text = 'assist positive';
+				play.text = 'assist';
 			} else if (description.indexOf('BLK') !== -1) {
 				// player3
 				play.type = 11;
-				play.text = 'block positive';
+				play.text = 'block';
 			} else if (description.indexOf('STL') !== -1) {
 				// player2
 				play.type = 12;
-				play.text = 'steal positive';
+				play.text = 'steal';
 			}
 
 			return play;
@@ -239,11 +270,27 @@ export default class BasketballChart extends Component {
 		return playerPlays;
 	}
 
+	getTeamLog(teamId, gameLog, players) {
+
+		return gameLog.filter( event => {
+			if (typeof players === 'undefined') {
+				return teamId === event.teamId;
+			} else {
+				const playerIds = players.map( p => {
+					return p.playerId;
+				})
+				return playerIds.includes(event.playerId);
+			}
+		});
+	}
+
 	getPlayerInSeries(playerId, playerName, series) {
+
+		const maxPeriods = this.getMaxPeriods(series);
 		let playerSeriesCharts = series.map((gameFile, i) => {
 
 			const seriesGameRawData = require('../../data/samples/'+gameFile);
-			this.timeLog = this.createBasicTimeLog(4);
+			this.timeLog = this.createBasicTimeLog(maxPeriods);
 			const gameLog = this.processGameLog(seriesGameRawData);
 			const playerLog = this.getPlayerLog(playerId, gameLog);
 
@@ -255,6 +302,7 @@ export default class BasketballChart extends Component {
 					label={"Game "+(i+1)}
 					key={playerId+"_"+i}
 					selectedStats={this.state}
+					periods={maxPeriods}
 					/>
 			)
 		});
@@ -265,7 +313,7 @@ export default class BasketballChart extends Component {
 
 	getGameMatchup(gameFile, playersHomeTeam, playersAwayTeam) {
 		const seriesGameRawData = require('../../data/samples/'+gameFile);
-		this.timeLog = this.createBasicTimeLog(4);
+		this.timeLog = this.createBasicTimeLog(seriesGameRawData.parameters.EndPeriod);
 		const gameLog = this.processGameLog(seriesGameRawData);
 		
 		const homeTeamCharts = playersHomeTeam.map((player,i) => {
@@ -279,6 +327,7 @@ export default class BasketballChart extends Component {
 					label={player.playerName}
 					key={player.playerId+"_"+i}
 					selectedStats={this.state}
+					periods={seriesGameRawData.parameters.EndPeriod}
 					/>
 			);
 		});
@@ -294,6 +343,7 @@ export default class BasketballChart extends Component {
 					label={player.playerName}
 					key={player.playerId+"_"+i}
 					selectedStats={this.state}
+					periods={seriesGameRawData.parameters.EndPeriod}
 					/>
 			);
 		});
@@ -301,98 +351,152 @@ export default class BasketballChart extends Component {
 		return [].concat(homeTeamCharts).concat([(<br />)]).concat(awayTeamCharts);
 	}
 
+	getCordChart(player, gameFile) {
+
+		const seriesGameRawData = require('../../data/samples/'+gameFile);
+		this.timeLog = this.createBasicTimeLog(seriesGameRawData.parameters.EndPeriod);
+		const gameLog = this.processGameLog(seriesGameRawData);
+
+		const playerLog = this.getPlayerLog(player.playerId, gameLog);
+
+		const selected = this.getSelectedStats();
+		console.log(selected);
+
+		return (
+			<CordChart timeLog={this.timeLog}
+				specs={this.props.specs}
+				playerId={player.playerId}
+				playerLog={playerLog}
+				label={player.playerName}
+				key={"cord_" + player.playerId}
+				selectedStats={selected}
+				periods={seriesGameRawData.parameters.EndPeriod}
+				/>
+			);
+	}
+
+	getPlayerInGame(position, player, gameFile) {
+		const seriesGameRawData = require('../../data/samples/'+gameFile);
+		this.timeLog = this.createBasicTimeLog(seriesGameRawData.parameters.EndPeriod);
+		const gameLog = this.processGameLog(seriesGameRawData);
+
+		const playerLog = this.getPlayerLog(player.playerId, gameLog);
+		const selected = this.getSelectedStats();
+
+		const pulseChart = (
+			<PulseChart timeLog={this.timeLog}
+					specs={this.props.specs}
+					playerId={player.playerId}
+					playerLog={playerLog}
+					label={player.playerName}
+					key={player.playerId+"_game"}
+					selectedStats={this.state}
+					periods={seriesGameRawData.parameters.EndPeriod}
+					height={25}
+					/>);
+
+		const top = position ==='top' ? pulseChart : null;
+		const bottom = position ==='bottom' ? pulseChart : null;
+
+		const classes = 'cord-chart-container '+position;
+		return (
+			<div className="player-container">
+				{top}
+				<div className={classes} >
+					<CordChart timeLog={this.timeLog}
+						specs={this.props.specs}
+						playerId={player.playerId}
+						playerLog={playerLog}
+						label={player.playerName}
+						key={"cord_" + player.playerId}
+						selectedStats={selected}
+						periods={seriesGameRawData.parameters.EndPeriod}
+						height={100}
+						/>
+				</div>
+				{bottom}
+			</div>
+		);
+	}
+
+
+	getTeamInGame(position, team, gameFile, players) {
+		const seriesGameRawData = require('../../data/samples/'+gameFile);
+		this.timeLog = this.createBasicTimeLog(seriesGameRawData.parameters.EndPeriod);
+		const gameLog = this.processGameLog(seriesGameRawData);
+
+		const teamLog = this.getTeamLog(team.teamId, gameLog, players);
+		const selected = this.getSelectedStats();
+
+		const pulseChart = (
+			<PulseChart timeLog={this.timeLog}
+					specs={this.props.specs}
+					playerId={team.teamId}
+					playerLog={teamLog}
+					label={team.teamName}
+					key={team.teamId+"_game"}
+					selectedStats={this.state}
+					periods={seriesGameRawData.parameters.EndPeriod}
+					height={50}
+					/>);
+
+		const top = position ==='top' ? pulseChart : null;
+		const bottom = position ==='bottom' ? pulseChart : null;
+
+		const classes = 'cord-chart-container '+position;
+		return (
+			<div className="player-container">
+				{top}
+				<div className={classes} >
+					<CordChart timeLog={this.timeLog}
+						specs={this.props.specs}
+						playerId={team.teamId}
+						playerLog={teamLog}
+						label={team.teamName}
+						key={"cord_" + team.teamId}
+						selectedStats={selected}
+						periods={seriesGameRawData.parameters.EndPeriod}
+						height={250}
+						/>
+				</div>
+				{bottom}
+			</div>
+		);
+	}
+
+
+
 
 	render() {
 
 		// <LineChart data={this.props.gameLog} specs={this.props.specs} />
 
-		// 	PLAYERS		
-			// Harden: 201935
-			// Westbrook: 201566
-			// Oladipo: 203506
-			// Beverly: 201976
+		// <div>
+		// 	{ this.getPlayerInGame('none',teams.sas.players[0],games.GSWvSAS[0])}
+		// </div>
 
-			// Curry: 201939
-			// Durant: 201142
-			// Green: 203110
-
-			// Lillard: 203081
-			// McCollum: 203468
-
-		const seriesFiles = {
-			OKCvHOU: [
-				'PlaybyPlay_OKCvHOU-Game1.json',
-				'PlaybyPlay_OKCvHOU-Game2.json',
-				'PlaybyPlay_OKCvHOU-Game3.json',
-				'PlaybyPlay_OKCvHOU-Game4.json',
-				'PlaybyPlay_OKCvHOU-Game5.json'],
-
-			GSWvPOR: [
-				'PlaybyPlay_GSWvPOR-Game1.json',
-				'PlaybyPlay_GSWvPOR-Game2.json',
-				'PlaybyPlay_GSWvPOR-Game3.json',
-				'PlaybyPlay_GSWvPOR-Game4.json']
-		}
-
-		const okcPlayers = [{
-			playerId: 201566,
-			playerName: "Russell Westbrook"
-		}];
-
-		const houPlayers = [{
-			playerId: 201935,
-			playerName: "James Harden"
-		}];
-
-		const gswPlayers = [{
-			playerId: 201939,
-			playerName: "Steph Curry"
-		},{
-			playerId: 201142,
-			playerName: "Kevin Durant"
-		},{
-			playerId: 203110,
-			playerName: "Draymond Green"
-		},{
-			playerId: 202691,
-			playerName: "Klay Thompson"
-		}];
-		const porPlayers = [{
-			playerId: 203468,
-			playerName: "CJ McCollum"
-		},{
-			playerId: 203081,
-			playerName: "Damien Lillard"
-		}];
-
-
-		// <h3> Game 2 Matchup </h3>
-		// {this.getGameMatchup(seriesFiles.OKCvHOU[1],okcPlayers,houPlayers)}
-		// <hr />
-		// <h3> Russell Westbrook </h3>
-		// { this.getPlayerInSeries(201566,"Russell Westbrook", seriesFiles.OKCvHOU) }
-		// <br />
-		// <h3> James Harden </h3>
-		// { this.getPlayerInSeries(201935,"James Harden", seriesFiles.OKCvHOU) }
-
-
-		// <h3> Game 1 Matchup </h3>
-				// {this.getGameMatchup(seriesFiles.GSWvPOR[0],gswPlayers,porPlayers)}
+		// <div>
+		// 	{ this.getPlayerInGame('none',teams.gsw.players[0],games.GSWvSAS[0])}
+		// </div>
+		// <div>
+		// 	{ this.getPlayerInGame('none',teams.gsw.players[1],games.GSWvSAS[0])}
+		// </div>
+		// <div>
+		// 	{ this.getTeamInGame('bottom', teams.gsw, games.GSWvSAS[0]) }
+		// </div>
 		return (
 			<div>
 				<StatControl handleStatClick={this.handleStatClick} selectedStats={this.state}/>
 
-				
-
 				<hr />
-				<br /><br />
-				<h3> {gswPlayers[3].playerName} </h3>
-				{ this.getPlayerInSeries(gswPlayers[3].playerId, gswPlayers[3].playerName, seriesFiles.GSWvPOR) }
-				<br />
-				<h3> {porPlayers[0].playerName} </h3>
-				{ this.getPlayerInSeries(porPlayers[0].playerId,porPlayers[0].playerName, seriesFiles.GSWvPOR) }
+				<div>
+					{ this.getTeamInGame('top', teams.sas, games.GSWvSAS[0]) }
+				</div>
+
+
+				<br /><br /><br />
 			</div>
-		)
+		);
 	}
 }
 

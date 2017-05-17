@@ -4,19 +4,6 @@ export default class StatControl extends Component {
 	
 	constructor(props) {
 		super(props);
-
-
-		// this.state = {
-		// 	made: '',
-		// 	missed: '',
-		// 	assist: '',
-		// 	rebound: '',
-		// 	steal: '',
-		// 	block: '',
-		// 	turnover: '',
-		// 	foul: ''
-		// }
-
 		this.handleClick = this.handleClick.bind(this);
 	}
 
@@ -24,13 +11,7 @@ export default class StatControl extends Component {
 		e.preventDefault();
 
 		let stat = e.target.getAttribute('value');
-
-		// let newState = {};
-		// newState[stat] = this.state[stat] === '' ? 'stat-hidden' : '';
-
-		// this.setState(newState);
-
-		this.props.handleStatClick(stat);
+		this.props.handleStatClick([stat]);
 	}
 
 

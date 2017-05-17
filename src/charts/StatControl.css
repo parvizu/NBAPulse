@@ -59,8 +59,8 @@
 }
 
 .stat-foul {
-	background-color: black;
-	border-color: black;
+	background-color: gray;
+	border-color: gray;
 }
 
 .stat-hidden {
@@ -73,4 +73,70 @@
 rect.stat-hidden {
 	fill: none;
 	stroke: none;
+}
+
+.player-container {
+	margin: 0;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.cord-chart-container {
+	margin: 0;
+}
+
+.cord-chart-container.top {
+	margin-top: 3px;
+}
+
+.cord-chart-container.bottom {
+	margin-bottom: 3px;
+}
+
+.cord-event text {
+	font-size: 8pt;
+	font-family: Helvetica;
+}
+
+.event-missed text {
+	fill: green;
+}
+
+.event-made text {
+	fill: ghostwhite;
+}
+
+
+
+.stat-string {
+	stroke-width: 1;
+}
+
+.stat-string.made,
+.stat-string.missed {
+	stroke: green;
+}
+
+.stat-string.assist {
+	stroke: orange;
+}
+
+.stat-string.rebound {
+	stroke: dodgerblue;
+}
+
+.stat-string.foul {
+	stroke: gray;
+}
+
+.stat-string.steal {
+	stroke: purple;
+}
+
+.stat-string.turnover {
+	stroke: red;
+}
+
+.stat-string.block {
+	stroke: brown;
 }
