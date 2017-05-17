@@ -51,7 +51,9 @@ export default class PulseChart extends Component {
 		const node = ReactFauxDom.createElement('div');
 
 		const { width, height, padding, xParam, yParam } = this.props.specs;
-		const barHeight = height-10;
+
+		const chartHeight = this.props.height ? this.props.height: height;
+		const barHeight = chartHeight;
 
 		// Scales & Axis definition
 		const xScale = d3.scale.linear()
@@ -61,73 +63,38 @@ export default class PulseChart extends Component {
 		const svg = d3.select(node).append('svg')
 			.attr({
 				width: width,
-				height: height,
+				height: chartHeight,
 				class: 'pulse-chart'
 			});
 
 
-		// TODO: Hardcoding for. Eventually will need to dinamically create them from the game specs. 
-		// 		i.e. if the game went to overtime.
-		const periodEnds = [
-			{
+		//	Adding the quarter breaks
+		let periodBreaks = [{
 				gameClock: '12:00',
 				quarter:1,
 				breakType: 'quarter',
 				momentId: 0,
-			},
-			{
-				gameClock: '6:00',
-				quarter:1,
-				breakType: 'mid-quarter',
-				momentId: 360,
-			},
-			{
-				gameClock: '0:00',
-				quarter:1,
-				breakType: 'quarter',
-				momentId: 720,
-			},
-			{
-				gameClock: '6:00',
-				quarter:2,
-				breakType: 'mid-quarter',
-				momentId: 1081,
-			},
-			{
-				gameClock: '0:00',
-				quarter:2,
-				breakType: 'half',
-				momentId: 1441,
-			},
-			{
-				gameClock: '6:00',
-				quarter:3,
-				breakType: 'mid-quarter',
-				momentId: 1802,
-			},
-			{
-				gameClock: '0:00',
-				quarter:3,
-				breakType: 'quarter',
-				momentId: 2163,
-			},
-			{
-				gameClock: '6:00',
-				quarter:4,
-				breakType: 'mid-quarter',
-				momentId: 2523,
-			},
-			{
-				gameClock: '0:00',
-				quarter:4,
-				breakType: 'half',
-				momentId: 2884,
-			}
-		];
+			}];
 
+		for (let i = 1; i<=this.props.periods; i++) {
+			// half quarter mark
+			periodBreaks.push({
+				gameClock: '6:00',
+				quarter:i+1,
+				breakType: 'mid-quarter',
+				momentId: i>1 ? ((i*2)-1) * 361 : 361,
+			});
+			// end quarter mark
+			periodBreaks.push({
+				gameClock: '0:00',
+				quarter:i,
+				breakType: (i%2) === 0 ? 'quarter' : 'half',
+				momentId: 721 * i,
+			})
+		}
 
 		svg.selectAll('rect.period-end')
-			.data(periodEnds)
+			.data(periodBreaks)
 			.enter()
 			.append('rect')
 				.attr({
@@ -137,7 +104,7 @@ export default class PulseChart extends Component {
 					class: (b) => {
 						return 'period-end ' + b.breakType;
 					},
-					height: height
+					height: chartHeight
 				});
 
 		// Adding player actions
@@ -147,7 +114,7 @@ export default class PulseChart extends Component {
 			.append('g')
 				.attr({
 					transform: (p) => {
-						return 'translate('+xScale(p['momentId'])+','+((height/2)-(barHeight/2))+')';
+						return 'translate('+xScale(p['momentId'])+','+((chartHeight/2)-(barHeight/2))+')';
 					},
 					class: 'play'
 				})
@@ -155,13 +122,6 @@ export default class PulseChart extends Component {
 					.attr({
 						class: (p) => {
 							let stat = p.playText.split(' ')[0];
-
-							if (stat === 'made-fg' || stat === 'made-ft' || stat === 'made-3pt') {
-								stat = 'made';
-							} else if (stat === 'missed-fg' || stat === 'missed-ft' || stat === 'missed-3pt') {
-								stat = 'missed';
-							}
-
 							return p.playText +" "+this.props.selectedStats[stat];
 						},
 						height: barHeight,

@@ -41,11 +41,12 @@ body {
 rect.rebound {
 	fill: dodgerblue;
 	stroke: none;
+	color: ghostwhite;
 
 }
 
 rect.foul {
-	fill: black;
+	fill: gray;
 	stroke: none;
 }
 
@@ -58,14 +59,16 @@ rect.made-fg,
 rect.made-ft,
 rect.made-3pt {
 	fill: green;
-	stroke: none;
+	stroke: green;
+	color: green;
 }
 
 rect.missed-fg,
 rect.missed-ft,
 rect.missed-3pt {
-	fill: none;
+	fill: ghostwhite;
 	stroke: green;
+	color: ghostwhite;
 }
 
 rect.assist {
