@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import BasketballChart from './charts/BasketballChart';
 
-import gameData from './gameLog-dummy.json';
+// import gameData from './gameLog-dummy.json';
 
 // const data = [{x:0,y:0},{x:1,y:3},{x:2,y:4},{x:3,y:6},{x:4,y:9},{x:5,y:-5},{x:6,y:-2}];
 
@@ -16,12 +16,11 @@ export default class Root extends Component {
 		this.state = {
 			specs: {
 				width: 1200,
-				height: 50,
+				height: 100,
 				padding: 25,
 				xParam: 'sec',
 				yParam: 'dif'
-			},
-			data: gameData
+			}
 		};
 
 		this.handleNewSizeSpecs = this.handleNewSizeSpecs.bind(this);
@@ -57,7 +56,7 @@ export default class Root extends Component {
 				<br />
 				<br />
 
-				<BasketballChart gameLog={this.state.data.gameLog} specs={this.state.specs} />
+				<BasketballChart specs={this.state.specs} />
 			</div>
 		);
 	}
