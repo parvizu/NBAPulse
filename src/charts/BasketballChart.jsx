@@ -129,15 +129,7 @@ export default class BasketballChart extends Component {
 
 	processEvent(event) {
 		let parsedPlays = [];
-		let playText;
-
-		if (event['HOMEDESCRIPTION'] !== null ) {
-			playText = event['HOMEDESCRIPTION'];
-		} else if (event['VISITORDESCRIPTION'] !== null) {
-			playText = event['VISITORDESCRIPTION'];
-		} else {
-			playText = event['NEUTRALDESCRIPTION'];
-		}
+		const playText = [event['HOMEDESCRIPTION'], event['VISITORDESCRIPTION'],event['NEUTRALDESCRIPTION']].join(', ');
 
 
 		const getPrimaryPlayType = (description) => {
@@ -240,18 +232,14 @@ export default class BasketballChart extends Component {
 			};
 		}
 
-
-		let prefix = 'PLAYER1';
 		let play = getPrimaryPlayType(playText);
-		parsedPlays.push(parsePlayerActions(prefix, play));
+		parsedPlays.push(parsePlayerActions('PLAYER1', play));
 
 		play = getSecondaryPlayType(playText);
 		if (play.type === 11) {
-			prefix = 'PLAYER3';
-			parsedPlays.push(parsePlayerActions(prefix, play));
+			parsedPlays.push(parsePlayerActions('PLAYER3', play));
 		} else if (play.type === 12 || play.type == 10) {
-			prefix = 'PLAYER2';
-			parsedPlays.push(parsePlayerActions(prefix, play));
+			parsedPlays.push(parsePlayerActions('PLAYER2', play));
 		}
 
 		return parsedPlays;
@@ -311,44 +299,28 @@ export default class BasketballChart extends Component {
 
 	}
 
-	getGameMatchup(gameFile, playersHomeTeam, playersAwayTeam) {
-		const seriesGameRawData = require('../../data/samples/'+gameFile);
-		this.timeLog = this.createBasicTimeLog(seriesGameRawData.parameters.EndPeriod);
-		const gameLog = this.processGameLog(seriesGameRawData);
+	getGameMatchup(game, homeTeam, playersHomeTeam, awayTeam, playersAwayTeam) {
 		
-		const homeTeamCharts = playersHomeTeam.map((player,i) => {
-			const playerLog = this.getPlayerLog(player.playerId, gameLog);
-
-			return (
-				<PulseChart timeLog={this.timeLog}
-					specs={this.props.specs} 
-					playerId={player.playerId} 
-					playerLog={playerLog} 
-					label={player.playerName}
-					key={player.playerId+"_"+i}
-					selectedStats={this.state}
-					periods={seriesGameRawData.parameters.EndPeriod}
-					/>
-			);
+		const homePlayers = playersHomeTeam.map(player => {
+			return (<div>{ this.getPlayerInGame('none',homeTeam.players[player], game) }</div>);
 		});
 
-		const awayTeamCharts = playersAwayTeam.map((player,i) => {
-			const playerLog = this.getPlayerLog(player.playerId, gameLog);
+		const awayPlayers = playersAwayTeam.map(player => {
+			return (<div>{ this.getPlayerInGame('none', awayTeam.players[player], game) }</div>);
+		})
 
-			return (
-				<PulseChart timeLog={this.timeLog}
-					specs={this.props.specs} 
-					playerId={player.playerId} 
-					playerLog={playerLog} 
-					label={player.playerName}
-					key={player.playerId+"_"+i}
-					selectedStats={this.state}
-					periods={seriesGameRawData.parameters.EndPeriod}
-					/>
-			);
-		});
+		this.getTeamInGame('bottom', homeTeam, game, playersHomeTeam);
 
-		return [].concat(homeTeamCharts).concat([(<br />)]).concat(awayTeamCharts);
+
+		return (
+			<div>
+				{ homePlayers}
+				<div> {this.getTeamInGame('bottom', homeTeam, game, playersHomeTeam) }</div>
+				<hr />
+				<div> {this.getTeamInGame('top', awayTeam, game, playersAwayTeam) }</div>
+				{awayPlayers}
+			</div>
+		);
 	}
 
 	getCordChart(player, gameFile) {
@@ -420,10 +392,14 @@ export default class BasketballChart extends Component {
 	}
 
 
-	getTeamInGame(position, team, gameFile, players) {
+	getTeamInGame(position, team, gameFile, playersIndex) {
 		const seriesGameRawData = require('../../data/samples/'+gameFile);
 		this.timeLog = this.createBasicTimeLog(seriesGameRawData.parameters.EndPeriod);
 		const gameLog = this.processGameLog(seriesGameRawData);
+
+		const players = playersIndex.map(i => {
+			return team.players[i];
+		});
 
 		const teamLog = this.getTeamLog(team.teamId, gameLog, players);
 		const selected = this.getSelectedStats();
@@ -467,32 +443,22 @@ export default class BasketballChart extends Component {
 
 
 
+
+
 	render() {
 
 		// <LineChart data={this.props.gameLog} specs={this.props.specs} />
 
-		// <div>
-		// 	{ this.getPlayerInGame('none',teams.sas.players[0],games.GSWvSAS[0])}
-		// </div>
-
-		// <div>
-		// 	{ this.getPlayerInGame('none',teams.gsw.players[0],games.GSWvSAS[0])}
-		// </div>
-		// <div>
-		// 	{ this.getPlayerInGame('none',teams.gsw.players[1],games.GSWvSAS[0])}
-		// </div>
-		// <div>
-		// 	{ this.getTeamInGame('bottom', teams.gsw, games.GSWvSAS[0]) }
-		// </div>
 		return (
 			<div>
 				<StatControl handleStatClick={this.handleStatClick} selectedStats={this.state}/>
 
-				<hr />
-				<div>
-					{ this.getTeamInGame('top', teams.sas, games.GSWvSAS[0]) }
-				</div>
-
+				{ this.getGameMatchup(games.BOSvCLE[0],
+						teams.bos,
+						[0,1],
+						teams.cle,
+						[0,1]
+						) }
 
 				<br /><br /><br />
 			</div>
