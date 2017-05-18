@@ -21,6 +21,10 @@
 		"PlaybyPlay_BOSvWIZ-Game6.json",
 		"PlaybyPlay_BOSvWIZ-Game7.json"],
 
+	"BOSvCLE": [
+		"PlaybyPlay_BOSvCLE-Game1.json"
+	],
+
 	"CLEvIND": [
 		"PlaybyPlay_CLEvIND-Game1.json",
 		"PlaybyPlay_CLEvIND-Game2.json",
