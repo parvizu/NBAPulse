@@ -36,6 +36,7 @@ export default class PulseChart extends Component {
 		};
 
 		this.handlePlayHover = this.handlePlayHover.bind(this);
+		this.createChart = this.createChart.bind(this);
 	}
 
 	handlePlayHover(momentId,fullPlay) {
@@ -47,10 +48,10 @@ export default class PulseChart extends Component {
 		});
 	}
 
-	createPulseChart() {
+	createChart() {
 		const node = ReactFauxDom.createElement('div');
 
-		const { width, height, padding, xParam, yParam } = this.props.specs;
+		const { width, height, padding } = this.props.specs;
 
 		const chartHeight = this.props.height ? this.props.height: height;
 		const barHeight = chartHeight;
@@ -148,7 +149,7 @@ export default class PulseChart extends Component {
 		return (
 			<div>
 				<h4 className="chart-label"> {this.props.label} </h4>
-				<div className="chart-container">{ this.createPulseChart() }</div>
+				<div className="chart-container">{ this.createChart() }</div>
 				<div id="play-text">{this.state.selectedPlay.fullPlay}</div>
 			</div>
 		);

@@ -1,0 +1,26 @@
+svg {
+	background-color: ghostwhite;
+}
+
+.scoring-margin path {
+	stroke: black;
+	stroke-width: 1;
+	fill: gray;
+}
+
+.scoring-margin .axis {
+	font-size: 5pt;
+	color: gray;
+	fill: gray;
+}
+
+.scoring-margin .axis path {
+	stroke: black;
+	stroke-width: 1;
+	fill: none;
+}
+
+.scoring-margin  .x.axis .tick text{
+	display: none;
+	text-anchor: start;
+}

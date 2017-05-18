@@ -3,11 +3,9 @@ import React, { Component } from 'react';
 import StatControl from './StatControl';
 import PulseChart from './PulseChart';
 import CordChart from './CordChart';
+import ScoringMarginChart from './ScoringMarginChart';
 
 import styles from './StatControl.css';
-
-// import gameLogDummy from '../../data/samples/PlaybyPlay_OKCvHOU-Game5.json';
-// import gameLogDummy from '../../data/samples/PlaybyPlay_GSWvPOR-Game4.json';
 
 // fetch("http://stats.nba.com/stats/playbyplayv2?GameID=0041600165&StartPeriod=00&EndPeriod=03")
 //   .then(resp => resp.json())
@@ -50,6 +48,7 @@ export default class BasketballChart extends Component {
 		this.getPlayerInGame = this.getPlayerInGame.bind(this);
 		this.getTeamLog = this.getTeamLog.bind(this);
 		this.getTeamInGame = this.getTeamInGame.bind(this);
+		this.createScoringChart = this.createScoringChart.bind(this);
 	}
 
 	getMaxPeriods(gameList) {
@@ -73,13 +72,11 @@ export default class BasketballChart extends Component {
 	}
 
 	handleStatClick(stats) {
-		
 		let newState = {};
 		stats.forEach(stat => {
 			newState[stat] = this.state[stat] === '' ? 'stat-hidden' : '';
 		});
 		this.setState(newState);
-
 	}
 
 	createBasicTimeLog (periods) {
@@ -163,7 +160,7 @@ export default class BasketballChart extends Component {
 					play.type = 6;
 					play.text = 'made-3pt';
 				}
-			} else if (description.indexOf('Dunk') !== -1 || description.indexOf('Jumper') !== -1 || description.indexOf('Shot') !== -1 || description.indexOf('Layup') !== -1) {
+			} else if (description.indexOf('Dunk') !== -1 || description.indexOf('Jumper') !== -1 || (description.indexOf('Shot') !== -1 && description.indexOf('Shot Clock') === -1)|| description.indexOf('Layup') !== -1) {
 				if (description.indexOf('MISS') !== -1) {
 					play.type = 7;
 					play.text = 'missed-fg';
@@ -171,7 +168,7 @@ export default class BasketballChart extends Component {
 					play.type = 8;
 					play.text = 'made-fg';
 				}
-			} else if (description.indexOf('Turnover') !== -1) {
+			} else if (description.indexOf('Turnover') !== -1 || description.indexOf('Shot Clock') !== -1) {
 				play.type = 9;
 				play.text = 'turnover';
 			} 
@@ -219,7 +216,8 @@ export default class BasketballChart extends Component {
 				momentId: momentId,
 				eventId: event['EVENTNUM'],
 				quarter: event['PERIOD'],
-				clock: event['PCTIMESTRING'],			
+				clock: event['PCTIMESTRING'],
+				margin: event['SCOREMARGIN'] !== null && event['SCOREMARGIN'] !== 'TIE' ? parseInt(event['SCOREMARGIN']) : 0,
 				fullPlay: playText,
 				playType: play.type,
 				playText: play.text,
@@ -244,7 +242,6 @@ export default class BasketballChart extends Component {
 
 		return parsedPlays;
 	}
-
 
 	getPlayerLog(playerId, gameLog) {
 
@@ -273,7 +270,6 @@ export default class BasketballChart extends Component {
 	}
 
 	getPlayerInSeries(playerId, playerName, series) {
-
 		const maxPeriods = this.getMaxPeriods(series);
 		let playerSeriesCharts = series.map((gameFile, i) => {
 
@@ -296,7 +292,6 @@ export default class BasketballChart extends Component {
 		});
 
 		return playerSeriesCharts;
-
 	}
 
 	getGameMatchup(game, homeTeam, playersHomeTeam, awayTeam, playersAwayTeam) {
@@ -315,12 +310,26 @@ export default class BasketballChart extends Component {
 		return (
 			<div>
 				{ homePlayers}
-				<div> {this.getTeamInGame('bottom', homeTeam, game, playersHomeTeam) }</div>
-				<hr />
-				<div> {this.getTeamInGame('top', awayTeam, game, playersAwayTeam) }</div>
+				<div> {
+					this.getTeamInGame('bottom', homeTeam, game, playersHomeTeam) 
+				}</div>
+				{ this.createScoringChart(game) }
+				<div> {
+					this.getTeamInGame('top', awayTeam, game, playersAwayTeam) 
+				}</div>
 				{awayPlayers}
 			</div>
 		);
+	}
+
+	getSinglePlayerMatchup(game, homePlayer, awayPlayer) {
+		return (
+			<div>
+				{ this.getPlayerInGame('bottom', homePlayer, game) }
+				{ this.createScoringChart(game) }
+				{ this.getPlayerInGame('top', awayPlayer, game) }
+			</div>
+		)
 	}
 
 	getCordChart(player, gameFile) {
@@ -391,7 +400,6 @@ export default class BasketballChart extends Component {
 		);
 	}
 
-
 	getTeamInGame(position, team, gameFile, playersIndex) {
 		const seriesGameRawData = require('../../data/samples/'+gameFile);
 		this.timeLog = this.createBasicTimeLog(seriesGameRawData.parameters.EndPeriod);
@@ -440,8 +448,41 @@ export default class BasketballChart extends Component {
 		);
 	}
 
+	createScoringChart(gameFile) {
+		const seriesGameRawData = require('../../data/samples/'+gameFile);
+		// if (typeof timeLog === 'undefined') {
+		const timeLog = this.createBasicTimeLog(seriesGameRawData.parameters.EndPeriod);
+		// }
+
+		const gameLog = this.processGameLog(seriesGameRawData);
+
+		const scoringLog = gameLog.filter(p=> {
+			return [4,6,8].includes(p.playType) || p.momentId === 0;
+		});
+
+		scoringLog.push({
+			momentId: timeLog.length,
+			margin: 0
+		});
+		scoringLog.push({
+			momentId: timeLog.length+1,
+			margin: 0
+		});
+
+		return (
+			<div className="game-scoring-margin">
+				<ScoringMarginChart 
+					specs={this.props.specs}
+					timeLog={timeLog}
+					scoringLog={scoringLog}
+					periods={seriesGameRawData.parameters.EndPeriod}
+					height={150}
+				/>
+			</div>
+		)
 
 
+	}
 
 
 
@@ -453,14 +494,26 @@ export default class BasketballChart extends Component {
 			<div>
 				<StatControl handleStatClick={this.handleStatClick} selectedStats={this.state}/>
 
-				{ this.getGameMatchup(games.BOSvCLE[0],
-						teams.bos,
-						[0,1],
-						teams.cle,
-						[0,1]
-						) }
+				{ 
+					// this.getGameMatchup(games.OKCvHOU[3],
+					// teams.okc,
+					// [0],
+					// teams.hou,
+					// [0]
+					// ) 
+				}		
+
+				{
+
+					this.getSinglePlayerMatchup(games.GSWvUTA[0],
+						teams.gsw.players[0],
+						teams.uta.players[0])
+				}	
 
 				<br /><br /><br />
+				
+
+				
 			</div>
 		);
 	}

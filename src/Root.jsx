@@ -2,12 +2,6 @@ import React, { Component } from 'react';
 
 import BasketballChart from './charts/BasketballChart';
 
-// import gameData from './gameLog-dummy.json';
-
-// const data = [{x:0,y:0},{x:1,y:3},{x:2,y:4},{x:3,y:6},{x:4,y:9},{x:5,y:-5},{x:6,y:-2}];
-
-// const data2 = [{x:0,y:45},{x:1,y:300},{x:2,y:76},{x:3,y:150},{x:4,y:-51}];
-
 export default class Root extends Component {
 
 	constructor(props) {

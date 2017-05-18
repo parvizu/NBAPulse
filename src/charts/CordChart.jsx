@@ -13,7 +13,7 @@ export default class CordChart extends Component {
 		super(props);
 
 		this.getStatSeries = this.getStatSeries.bind(this);
-		this.createCordChart = this.createCordChart.bind(this);
+		this.createChart = this.createChart.bind(this);
 	}
 
 	getStatSeries(stat) {
@@ -31,7 +31,7 @@ export default class CordChart extends Component {
 
 
 
-	createCordChart() {
+	createChart() {
 		const node = ReactFauxDom.createElement('div');
 
 		const { width, height, padding, xParam, yParam } = this.props.specs;
@@ -196,7 +196,7 @@ export default class CordChart extends Component {
 		return (
 			<div>
 				<h4 className="chart-label"> {this.props.label} </h4>
-				<div className="chart-container">{ this.createCordChart() }</div>
+				<div className="chart-container">{ this.createChart() }</div>
 			</div>
 		);
 	}
