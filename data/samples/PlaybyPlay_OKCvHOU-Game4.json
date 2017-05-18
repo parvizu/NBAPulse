@@ -2,8 +2,8 @@
   "resource": "playbyplay",
   "parameters": {
     "GameID": "0041600164",
-    "StartPeriod": 0,
-    "EndPeriod": 3
+    "StartPeriod": 1,
+    "EndPeriod": 4
   },
   "resultSets": [{
     "name": "PlayByPlay",

@@ -121,5 +121,14 @@
 			"playerId": 201586,
 			"playerName": "Serge Ibaka"
 		}]
+	},
+	"wiz": {
+		"teamId": 1610612764,
+		"teamName": "Wizards",
+		"teamCity": "Washington",
+		"players": [{
+			"playerId": 202322,
+			"playerName": "John Wall"
+		}]
 	}
 }
