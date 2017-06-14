@@ -22,8 +22,11 @@
 		"PlaybyPlay_BOSvWIZ-Game7.json"],
 
 	"BOSvCLE": [
-		"PlaybyPlay_BOSvCLE-Game1.json"
-	],
+		"PlaybyPlay_BOSvCLE-Game1.json",
+		"PlaybyPlay_BOSvCLE-Game2.json",
+		"PlaybyPlay_BOSvCLE-Game3.json",
+		"PlaybyPlay_BOSvCLE-Game4.json",
+		"PlaybyPlay_BOSvCLE-Game5.json"],
 
 	"CLEvIND": [
 		"PlaybyPlay_CLEvIND-Game1.json",
@@ -45,7 +48,16 @@
 
 	"GSWvSAS": [
 		"PlaybyPlay_GSWvSAS-Game1.json",
-		"PlaybyPlay_GSWvSAS-Game2.json"],
+		"PlaybyPlay_GSWvSAS-Game2.json",
+		"PlaybyPlay_GSWvSAS-Game3.json",
+		"PlaybyPlay_GSWvSAS-Game4.json"],
+
+	"GSWvCLE": [
+		"PlaybyPlay_GSWvCLE-Game1.json",
+		"PlaybyPlay_GSWvCLE-Game2.json",
+		"PlaybyPlay_GSWvCLE-Game3.json",
+		"PlaybyPlay_GSWvCLE-Game4.json",
+		"PlaybyPlay_GSWvCLE-Game5.json"],
 
 	"SASvHOU": [
 		"PlaybyPlay_SASvHOU-Game1.json",

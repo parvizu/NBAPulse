@@ -51,6 +51,9 @@
 		},{
 			"playerId": 202691,
 			"playerName": "Klay Thompson"
+		},{
+			"playerId": 2738,
+			"playerName": "Andre Iguodala"
 		}]
 	},
 	"por": {
@@ -90,6 +93,12 @@
 		},{
 			"playerId": 201567,
 			"playerName": "Kevin Love"
+		},{
+			"playerId": 2747,
+			"playerName": "JR Smith"
+		},{
+			"playerId": 202684,
+			"playerName": "Tristan Thompson"
 		}]
 	},
 	"sas": {
