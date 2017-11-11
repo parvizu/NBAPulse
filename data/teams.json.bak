@@ -1,0 +1,290 @@
+{
+	"2017": {
+		"okc": {
+			"teamId": 1610612760,
+			"teamName": "Thunder",
+			"teamCity": "Oklahoma City",
+			"players": [{
+				"playerId": 201566,
+				"playerName": "Russell Westbrook"
+			}]
+		},
+		"hou": {
+			"teamId": 1610612745,
+			"teamName": "Rockets",
+			"teamCity": "Houston",
+			"players": [{
+				"playerId": 201935,
+				"playerName": "James Harden"
+			}]
+		},
+		"uta": {
+			"teamId": 1610612762,
+			"teamName": "Jazz",
+			"teamCity": "Utah",
+			"players": [{
+				"playerId": 202330,
+				"playerName": "Gordon Hayward"
+			}]
+		},
+		"ind": {
+			"teamId": 1610612754,
+			"teamName": "Pacers",
+			"teamCity": "Indiana",
+			"players": [{
+				"playerId": 202331,
+				"playerName": "Paul George"
+			}]
+		},
+		"gsw": {
+			"teamId": 1610612744,
+			"teamName": "Warriors",
+			"teamCity": "Golden State",
+			"players": [{
+				"playerId": 201939,
+				"playerName": "Steph Curry"
+			},{
+				"playerId": 201142,
+				"playerName": "Kevin Durant"
+			},{
+				"playerId": 203110,
+				"playerName": "Draymond Green"
+			},{
+				"playerId": 202691,
+				"playerName": "Klay Thompson"
+			},{
+				"playerId": 2738,
+				"playerName": "Andre Iguodala"
+			}]
+		},
+		"por": {
+			"teamId": 1610612757,
+			"teamName": "Trailblazers",
+			"teamCity": "Portland",
+			"players": [{
+				"playerId": 203468,
+				"playerName": "CJ McCollum"
+			},{
+				"playerId": 203081,
+				"playerName": "Damien Lillard"
+			}]
+		},
+		"bos": {
+			"teamId": 1610612738,
+			"teamName": "Celtics",
+			"teamCity": "Boston",
+			"players": [{
+				"playerId": 202738,
+				"playerName": "Isaiah Thomas"
+			},{
+				"playerId": 1627759,
+				"playerName": "Jaylen Brown"
+			}]
+		},
+		"cle": {
+			"teamId": 1610612739,
+			"teamName": "Cavaliers",
+			"teamCity": "Cleveland",
+			"players": [{
+				"playerId": 2544,
+				"playerName": "LeBron James"
+			},{
+				"playerId": 202681,
+				"playerName": "Kyrie Irving"
+			},{
+				"playerId": 201567,
+				"playerName": "Kevin Love"
+			},{
+				"playerId": 2747,
+				"playerName": "JR Smith"
+			},{
+				"playerId": 202684,
+				"playerName": "Tristan Thompson"
+			}]
+		},
+		"sas": {
+			"teamId": 1610612759,
+			"teamName": "Spurs",
+			"teamCity": "San Antonio",
+			"players": [{
+				"playerId": 202695,
+				"playerName": "Kawhi Leonard"
+			},{
+				"playerId": 200746,
+				"playerName": "LaMarcus Aldridge"
+			},{
+				"playerId": 1938,
+				"playerName": "Manu Ginobili"
+			}]
+		},
+		"tor": {
+			"teamId": 1610612761,
+			"teamName": "Raptors",
+			"teamCity": "Toronto",
+			"players": [{
+				"playerId": 201942,
+				"playerName": "DeMar DeRozan"
+			},{
+				"playerId": 200768,
+				"playerName": "Kyle Lowry"
+			},{
+				"playerId": 201586,
+				"playerName": "Serge Ibaka"
+			}]
+		},
+		"wiz": {
+			"teamId": 1610612764,
+			"teamName": "Wizards",
+			"teamCity": "Washington",
+			"players": [{
+				"playerId": 202322,
+				"playerName": "John Wall"
+			}]
+		}
+	},
+
+	"2018": {
+		"okc": {
+			"teamId": 1610612760,
+			"teamName": "Thunder",
+			"teamCity": "Oklahoma City",
+			"players": [{
+				"playerId": 201566,
+				"playerName": "Russell Westbrook"
+			},{
+				"playerId": 202331,
+				"playerName": "Paul George"
+			}]
+		},
+		"hou": {
+			"teamId": 1610612745,
+			"teamName": "Rockets",
+			"teamCity": "Houston",
+			"players": [{
+				"playerId": 201935,
+				"playerName": "James Harden"
+			}]
+		},
+		"uta": {
+			"teamId": 1610612762,
+			"teamName": "Jazz",
+			"teamCity": "Utah",
+			"players": []
+		},
+		"ind": {
+			"teamId": 1610612754,
+			"teamName": "Pacers",
+			"teamCity": "Indiana",
+			"players": []
+		},
+		"gsw": {
+			"teamId": 1610612744,
+			"teamName": "Warriors",
+			"teamCity": "Golden State",
+			"players": [{
+				"playerId": 201939,
+				"playerName": "Steph Curry"
+			},{
+				"playerId": 201142,
+				"playerName": "Kevin Durant"
+			},{
+				"playerId": 203110,
+				"playerName": "Draymond Green"
+			},{
+				"playerId": 202691,
+				"playerName": "Klay Thompson"
+			},{
+				"playerId": 2738,
+				"playerName": "Andre Iguodala"
+			}]
+		},
+		"por": {
+			"teamId": 1610612757,
+			"teamName": "Trailblazers",
+			"teamCity": "Portland",
+			"players": [{
+				"playerId": 203468,
+				"playerName": "CJ McCollum"
+			},{
+				"playerId": 203081,
+				"playerName": "Damien Lillard"
+			}]
+		},
+		"bos": {
+			"teamId": 1610612738,
+			"teamName": "Celtics",
+			"teamCity": "Boston",
+			"players": [{
+				"playerId": 202681,
+				"playerName": "Kyrie Irving"
+			},{
+				"playerId": 1627759,
+				"playerName": "Jaylen Brown"
+			},{
+				"playerId": 202330,
+				"playerName": "Gordon Hayward"
+			}]
+		},
+		"cle": {
+			"teamId": 1610612739,
+			"teamName": "Cavaliers",
+			"teamCity": "Cleveland",
+			"players": [{
+				"playerId": 2544,
+				"playerName": "LeBron James"
+			},{
+				"playerId": 201567,
+				"playerName": "Kevin Love"
+			},{
+				"playerId": 2747,
+				"playerName": "JR Smith"
+			},{
+				"playerId": 202684,
+				"playerName": "Tristan Thompson"
+			},{
+				"playerId": 202738,
+				"playerName": "Isaiah Thomas"
+			}]
+		},
+		"sas": {
+			"teamId": 1610612759,
+			"teamName": "Spurs",
+			"teamCity": "San Antonio",
+			"players": [{
+				"playerId": 202695,
+				"playerName": "Kawhi Leonard"
+			},{
+				"playerId": 200746,
+				"playerName": "LaMarcus Aldridge"
+			},{
+				"playerId": 1938,
+				"playerName": "Manu Ginobili"
+			}]
+		},
+		"tor": {
+			"teamId": 1610612761,
+			"teamName": "Raptors",
+			"teamCity": "Toronto",
+			"players": [{
+				"playerId": 201942,
+				"playerName": "DeMar DeRozan"
+			},{
+				"playerId": 200768,
+				"playerName": "Kyle Lowry"
+			},{
+				"playerId": 201586,
+				"playerName": "Serge Ibaka"
+			}]
+		},
+		"wiz": {
+			"teamId": 1610612764,
+			"teamName": "Wizards",
+			"teamCity": "Washington",
+			"players": [{
+				"playerId": 202322,
+				"playerName": "John Wall"
+			}]
+		}
+	}
+	
+}

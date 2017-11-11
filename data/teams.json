@@ -1,5 +1,5 @@
 {
-	"okc": {
+	"OKC": {
 		"teamId": 1610612760,
 		"teamName": "Thunder",
 		"teamCity": "Oklahoma City",
@@ -8,16 +8,19 @@
 			"playerName": "Russell Westbrook"
 		}]
 	},
-	"hou": {
+	"HOU": {
 		"teamId": 1610612745,
 		"teamName": "Rockets",
 		"teamCity": "Houston",
 		"players": [{
 			"playerId": 201935,
 			"playerName": "James Harden"
+		},{
+			"playerId": 201569,
+			"playerName": "Eric Gordon"
 		}]
 	},
-	"uta": {
+	"UTA": {
 		"teamId": 1610612762,
 		"teamName": "Jazz",
 		"teamCity": "Utah",
@@ -26,7 +29,7 @@
 			"playerName": "Gordon Hayward"
 		}]
 	},
-	"ind": {
+	"IND": {
 		"teamId": 1610612754,
 		"teamName": "Pacers",
 		"teamCity": "Indiana",
@@ -35,7 +38,7 @@
 			"playerName": "Paul George"
 		}]
 	},
-	"gsw": {
+	"GSW": {
 		"teamId": 1610612744,
 		"teamName": "Warriors",
 		"teamCity": "Golden State",
@@ -56,7 +59,7 @@
 			"playerName": "Andre Iguodala"
 		}]
 	},
-	"por": {
+	"POR": {
 		"teamId": 1610612757,
 		"teamName": "Trailblazers",
 		"teamCity": "Portland",
@@ -68,7 +71,7 @@
 			"playerName": "Damien Lillard"
 		}]
 	},
-	"bos": {
+	"BOS": {
 		"teamId": 1610612738,
 		"teamName": "Celtics",
 		"teamCity": "Boston",
@@ -80,7 +83,7 @@
 			"playerName": "Jaylen Brown"
 		}]
 	},
-	"cle": {
+	"CLE": {
 		"teamId": 1610612739,
 		"teamName": "Cavaliers",
 		"teamCity": "Cleveland",
@@ -101,7 +104,7 @@
 			"playerName": "Tristan Thompson"
 		}]
 	},
-	"sas": {
+	"SAS": {
 		"teamId": 1610612759,
 		"teamName": "Spurs",
 		"teamCity": "San Antonio",
@@ -116,7 +119,7 @@
 			"playerName": "Manu Ginobili"
 		}]
 	},
-	"tor": {
+	"TOR": {
 		"teamId": 1610612761,
 		"teamName": "Raptors",
 		"teamCity": "Toronto",
@@ -131,13 +134,34 @@
 			"playerName": "Serge Ibaka"
 		}]
 	},
-	"wiz": {
+	"WAS": {
 		"teamId": 1610612764,
 		"teamName": "Wizards",
 		"teamCity": "Washington",
 		"players": [{
 			"playerId": 202322,
 			"playerName": "John Wall"
+		},{
+			"playerId": 203078,
+			"playerName": "Bradley Beal"
+		},{
+			"playerId": 203490,
+			"playerName": "Otto Porter Jr."
+		},{
+			"playerId": 101162,
+			"playerName": "Marcin Gortat"
+		}]
+	},
+	"MIN": {
+		"teamId": 1610612750,
+		"teamName": "TImberwolves",
+		"teamCity": "Minnesota",
+		"players": [{
+			"playerId": 1626157,
+			"playerName": "Karl-Anthony Towns"
+		},{
+			"playerId": 203952,
+			"playerName": "Andrew Wiggins"
 		}]
 	}
 }

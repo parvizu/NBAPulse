@@ -5,6 +5,56 @@
 		"StartPeriod": 1,
 		"EndPeriod": 4
 	},
+	"lineups": {
+		"homeTeam": {
+			"teamId": 1610612744,
+			"teamName": "Warriors",
+			"teamAbbreviation": "GSW",
+			"starters": [
+				{
+					"playerId": 201939,
+					"playerName": "Steph Curry"
+				},{
+					"playerId": 201142,
+					"playerName": "Kevin Durant"
+				},{
+					"playerId": 203110,
+					"playerName": "Draymond Green"
+				},{
+					"playerId": 202691,
+					"playerName": "Klay Thompson"
+				},{
+					"playerId": 2585,
+					"playerName": "Zaza Pachulia"
+				}
+			],
+			"bench": []
+		},
+		"awayTeam": {
+			"teamId": 1610612739,
+			"teamName": "Cavaliers",
+			"teamAbbreviation": "CLE",
+			"starters":[
+				{
+					"playerId": 2544,
+					"playerName": "LeBron James"
+				},{
+					"playerId": 202681,
+					"playerName": "Kyrie Irving"
+				},{
+					"playerId": 201567,
+					"playerName": "Kevin Love"
+				},{
+					"playerId": 2747,
+					"playerName": "JR Smith"
+				},{
+					"playerId": 202684,
+					"playerName": "Tristan Thompson"
+				}
+			],
+			"bench": []
+		}
+	},
 	"resultSets": [{
 		"name": "PlayByPlay",
 		"headers": ["GAME_ID", "EVENTNUM", "EVENTMSGTYPE", "EVENTMSGACTIONTYPE", "PERIOD", "WCTIMESTRING", "PCTIMESTRING", "HOMEDESCRIPTION", "NEUTRALDESCRIPTION", "VISITORDESCRIPTION", "SCORE", "SCOREMARGIN", "PERSON1TYPE", "PLAYER1_ID", "PLAYER1_NAME", "PLAYER1_TEAM_ID", "PLAYER1_TEAM_CITY", "PLAYER1_TEAM_NICKNAME", "PLAYER1_TEAM_ABBREVIATION", "PERSON2TYPE", "PLAYER2_ID", "PLAYER2_NAME", "PLAYER2_TEAM_ID", "PLAYER2_TEAM_CITY", "PLAYER2_TEAM_NICKNAME", "PLAYER2_TEAM_ABBREVIATION", "PERSON3TYPE", "PLAYER3_ID", "PLAYER3_NAME", "PLAYER3_TEAM_ID", "PLAYER3_TEAM_CITY", "PLAYER3_TEAM_NICKNAME", "PLAYER3_TEAM_ABBREVIATION"],
