@@ -1,0 +1,27 @@
+*** TO DO ***
+
+
+[ ]  Add substitution/on court display in the String Chart
+
+
+------- Substitutions ------
+
+[ ]  Handle when the player is on the court at the end of the game
+[ ]  Hanled when the player is subbed in during a quarter break
+		* The log has no registry of this cases (might have to be manual)
+		* This happens when there is a 'sub-out' when it was on the beanch
+		* Doesn't necessarilly mean that the player got subbed in in the previous qtr break
+		
+
+
+
+
+
+-------- Scoring Chart ----------
+[ ] Make the axis lines display behind the scoring path but the axis numbers should be on top of it.
+
+
+
+
+-------- Series Scoring ----------
+[ ] Select the maximum scoring margin for the whole series and use that as the range for every game so they are better to compare to each other

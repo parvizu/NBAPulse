@@ -25,6 +25,7 @@ export default class ScoringMarginChart extends Component {
 			.domain([0,this.props.timeLog.length])
 			.range([0,width-5]);
 
+		// TODO: determine which is the away and which is the home team to define the order and orientation of the chart.
 		const determineLimits = () => {
 			
 			const limits = d3.extent(this.props.scoringLog, d => {
@@ -33,14 +34,11 @@ export default class ScoringMarginChart extends Component {
 
 			const limit = (limits[0] * -1) > limits[1] ? limits[0] * -1 : limits[1];
 
-			return [
-				limit < 8 ? 8 : limit+2,
-				limit < 8 ? -8 : (limit*-1)-2
-			]
+			return limit < 8 ? 8 : limit+2;
 		}
-		const domainLimits = determineLimits();
+		const domainLimit = determineLimits();
 		const yScale = d3.scale.linear()
-			.domain([domainLimits[0],domainLimits[1]])
+			.domain([domainLimit,(domainLimit*-1)])
 			.range([0, chartHeight]);
 
 		const line = d3.svg.line()
@@ -48,7 +46,6 @@ export default class ScoringMarginChart extends Component {
 				return xScale(d.momentId);
 			})
 			.y(d => {
-				console.log(d.eventId + " | " + d.momentId + " | " +d.margin);
 				return yScale(d.margin);
 			})
 			.interpolate('step-after');
@@ -60,32 +57,85 @@ export default class ScoringMarginChart extends Component {
 				class: 'scoring-margin'
 			});
 
+		let ticks = domainLimit > 10 ? domainLimit/2 : 8;
+
+		const yAxis = d3.svg.axis()
+			.scale(yScale)
+			.orient('right')
+			.ticks(ticks)
+			.innerTickSize([width])
+			.outerTickSize([0])
+			.tickFormat("");
+			
+		svg.append('g')
+			.attr({
+				class: 'y axis axisLeft',
+				transform: 'translate(0,0)'
+			})
+			.call(yAxis)
+
+		// Scoring path
 		svg.append('path')
 			.attr({
 				d: line(this.props.scoringLog),
 				class: 'scoring-margin-path'
 			});
+			
+		// Adding tick labels
+		yAxis.orient('right')
+			.innerTickSize([0])
+			.outerTickSize([0])
+			.tickFormat(d=>{
+				return d >= 0 ? d : d*-1;
+			});
+		svg.append('g')
+			.attr({
+				class: 'y axis axisLeftLabels',
+				transform: 'translate(0,0)'
+			})
+			.call(yAxis)
+		svg.selectAll('.axisLeftLabels .tick text')
+			.attr({
+				'transform': d => {
+					const yAdjust = d >= 0 ? 4 : -4;
+					return 'translate(7,'+ yAdjust+')';
+				}
+			});
 
+		
+		yAxis.orient('left');
+		svg.append('g')
+			.attr({
+				class: 'y axis axisRightLabels',
+				transform: 'translate('+xScale(2885)+',0)'
+			})
+			.call(yAxis);
+		svg.selectAll('.axisRightLabels .tick text')
+			.attr({
+				'transform': d => {
+					const yAdjust = d >= 0 ? 4 : -4;
+					return 'translate(-5,'+ yAdjust+')';
+				}
+			});
+
+
+		// Adding X Axis
 		const xAxis = d3.svg.axis()
-			.scale(xScale);
+			.scale(xScale)
+			.ticks(0);
 
 		svg.append('g')
 			.attr({
 				class: 'x axis',
 				transform: 'translate(0,'+yScale(0)+')'
 			})
-			.call(xAxis);
+			.call(xAxis)
+			.selectAll(".tick text")
+				.attr({
+					transform: 'translate(10,0)'
+				});
 
-		const yAxis = d3.svg.axis()
-			.scale(yScale)
-			.orient('left');
-
-		svg.append('g')
-			.attr({
-				class: 'y axis',
-				transform: 'translate(1,0)'
-			})
-			.call(yAxis);
+		
 
 		//	Adding the quarter breaks
 		let periodBreaks = [{
@@ -132,7 +182,7 @@ export default class ScoringMarginChart extends Component {
 	render() {
 		return (
 			<div className="scoring-margin-chart-container">
-				<h4 className="chart-label"> Score: </h4>
+				<h4 className="chart-label"> {this.props.label} </h4>
 				<div className="chart-container">
 					{ this.createChart() }
 				</div>

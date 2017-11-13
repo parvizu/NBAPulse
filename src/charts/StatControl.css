@@ -1,3 +1,8 @@
+.main-container {
+	margin: 0 auto;
+	text-align: center;
+}
+
 #stat-control {
 	width: 100%;
 	text-align: center;
@@ -109,7 +114,7 @@ rect.stat-hidden {
 
 
 .stat-string {
-	stroke-width: 1;
+	stroke-width: .5;
 }
 
 .stat-string.made,
@@ -139,4 +144,9 @@ rect.stat-hidden {
 
 .stat-string.block {
 	stroke: brown;
+}
+
+
+.game-scoring-margin {
+	margin-top: 5px;
 }

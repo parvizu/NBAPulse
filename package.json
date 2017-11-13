@@ -8,7 +8,7 @@
     "build": "webpack --progress --color",
     "start": "webpack --watch  --progress --color",
     "lint": "eslint src",
-    "devmode": "npm run build && webpack-dev-server"
+    "devmode": "webpack-dev-server --port 8811 --hot"
   },
   "keywords": [
     "nba",

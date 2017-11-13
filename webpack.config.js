@@ -25,11 +25,15 @@ module.exports = {
 	          test: /\.woff2?$|\.ttf$|\.eot$|\.otf$|\.jpg$|\.png$|\.svg$/,
 	          loader: 'file-loader?name=[name].[ext]'
 	        },
-	        { test: /\.json$/, loader: "json-loader" },
+	        {
+				test: /\.json$/,
+				loader: "json-loader",
+				exclude: __dirname+'/data/samples',
+	        },
 		]
 	},
 	resolve: {
-    	extensions: ['.js', '.jsx', '.json'],
+		extensions: ['.js', '.jsx'],
   	},
 
 	// https://webpack.github.io/docs/configuration.html#devtool

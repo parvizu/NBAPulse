@@ -1,0 +1,28 @@
+.team-details {
+    display: inline-block;
+    vertical-align: bottom;
+    width: 40%;
+}
+
+.game-details-team-logo {
+    height: 150px;
+    overflow: hidden;
+}
+
+.game-details-team-logo img {
+    opacity: .5;
+    width: 400px;
+    position: relative;
+    top: -100px;
+    right: 0;
+    z-index: -2;
+}
+
+.game-details {
+	display: inline-block;
+	width: 20%;
+}
+
+.game-details h3 {
+	display: inline-block;
+}

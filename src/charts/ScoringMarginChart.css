@@ -4,23 +4,36 @@ svg {
 
 .scoring-margin path {
 	stroke: black;
-	stroke-width: 1;
-	fill: gray;
+	stroke-width: .5;
+	fill: rgba(0,0,0,.5);
 }
 
 .scoring-margin .axis {
 	font-size: 5pt;
-	color: gray;
-	fill: gray;
+	fill: darkgray;
+	font-family: Helvetica;
 }
 
 .scoring-margin .axis path {
-	stroke: black;
-	stroke-width: 1;
+	stroke: lightgray;
+	stroke-width: 2;
 	fill: none;
 }
 
 .scoring-margin  .x.axis .tick text{
 	display: none;
 	text-anchor: start;
+}
+
+.scoring-margin .y.axis .tick line {
+	stroke: lightgray;
+	stroke-width: .5;
+}
+
+.scoring-margin .y.axis path.domain {
+	display: none;
+}
+
+.scoring-margin .y.axisRightLabels .tick text {
+	fill: lightgray;
 }

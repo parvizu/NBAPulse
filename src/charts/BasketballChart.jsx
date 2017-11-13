@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 
+import GameDetails from '../GameDetails';
+import TeamsMenu from '../TeamsMenu';
+
 import StatControl from './StatControl';
 import PulseChart from './PulseChart';
 import CordChart from './CordChart';
 import ScoringMarginChart from './ScoringMarginChart';
 
+
 import styles from './StatControl.css';
 
-// fetch("http://stats.nba.com/stats/playbyplayv2?GameID=0041600165&StartPeriod=00&EndPeriod=03")
-//   .then(resp => resp.json())
-// 
+// import games from '../../data/games-updated.json';
 
-import games from '../../data/games.json';
-import teams from '../../data/teams.json';
 
 const headers =["GAME_ID", "EVENTNUM", "EVENTMSGTYPE", "EVENTMSGACTIONTYPE", "PERIOD", "WCTIMESTRING", "PCTIMESTRING", "HOMEDESCRIPTION", "NEUTRALDESCRIPTION", "VISITORDESCRIPTION", "SCORE", "SCOREMARGIN", "PERSON1TYPE", "PLAYER1_ID", "PLAYER1_NAME", "PLAYER1_TEAM_ID", "PLAYER1_TEAM_CITY", "PLAYER1_TEAM_NICKNAME", "PLAYER1_TEAM_ABBREVIATION", "PERSON2TYPE", "PLAYER2_ID", "PLAYER2_NAME", "PLAYER2_TEAM_ID", "PLAYER2_TEAM_CITY", "PLAYER2_TEAM_NICKNAME", "PLAYER2_TEAM_ABBREVIATION", "PERSON3TYPE", "PLAYER3_ID", "PLAYER3_NAME", "PLAYER3_TEAM_ID", "PLAYER3_TEAM_CITY", "PLAYER3_TEAM_NICKNAME", "PLAYER3_TEAM_ABBREVIATION", "momentId"];
 
@@ -21,27 +21,39 @@ export default class BasketballChart extends Component {
 	constructor(props) {
 		super(props);
 
-		this.processEvent = this.processEvent.bind(this);
-		this.processGameLog = this.processGameLog.bind(this);
-
 		this.timeLog = [];
 
+		this.state = {
+			teamSelected: 'GSW',
+			gameSelected: 'g1',
+			selections: {
+				made: '',
+				missed: '',
+				assist: '',
+				rebound: '',
+				steal: '',
+				block: '',
+				turnover: '',
+				foul: 'stat-hidden',
+				periods: 4
+			},
+			game: {
+				file: '',
+				periods: 4,
+				timeLog: {},
+				rawData: {},
+				gameLog: {},
+				scoringLog: {}
+			}
+		};
+
+		this.loadGame = this.loadGame.bind(this);
+		this.processEvent = this.processEvent.bind(this);
+		this.processGameLog = this.processGameLog.bind(this);
 		this.getPlayerLog = this.getPlayerLog.bind(this);
 		this.getPlayerInSeries = this.getPlayerInSeries.bind(this);
 		this.createBasicTimeLog = this.createBasicTimeLog.bind(this);
-
-		this.state = {
-			made: '',
-			missed: '',
-			assist: '',
-			rebound: '',
-			steal: '',
-			block: '',
-			turnover: '',
-			foul: 'stat-hidden',
-			periods: 4
-		};
-
+		this.setGameData = this.setGameData.bind(this);
 		this.handleStatClick = this.handleStatClick.bind(this);
 		this.getSelectedStats = this.getSelectedStats.bind(this);
 		this.getCordChart = this.getCordChart.bind(this);
@@ -49,6 +61,52 @@ export default class BasketballChart extends Component {
 		this.getTeamLog = this.getTeamLog.bind(this);
 		this.getTeamInGame = this.getTeamInGame.bind(this);
 		this.createScoringChart = this.createScoringChart.bind(this);
+		this.getPlayerInSeries = this.getPlayerInSeries.bind(this);
+		this.getGame = this.getGame.bind(this);
+		this.onSelectGame = this.onSelectGame.bind(this);
+	}
+
+	componentWillMount() {
+		this.setGameData(this.props.games.s2018.season.team.GSW.g1.data);
+	}
+
+	setGameData(gameFile) {
+		this.setState({
+			game: this.loadGame(gameFile)
+		});
+	}
+
+	loadGame(gameFile) {
+		let game = {};
+
+		game['file'] = gameFile;
+		game['rawData'] = require('../../data/2018/'+game.file);
+		game['periods'] = game.rawData.parameters.EndPeriod;
+		game['timeLog'] = this.createBasicTimeLog(game.periods);
+		game['gameLog'] = this.processGameLog(game.rawData, game.timeLog);
+		game['scoringLog'] = game.gameLog.filter(p=> {
+			return [4,6,8].includes(p.playType) || p.momentId === 0;
+		});
+
+		game.scoringLog.push({
+			momentId: game.timeLog.length,
+			margin: 0
+		});
+		game.scoringLog.push({
+			momentId: game.timeLog.length+1,
+			margin: 0
+		});
+
+		return game;
+	}
+
+	getGame(gameFile) {
+		
+		if (this.state.game.file !== gameFile) {
+			this.setGameData(gameFile)
+		}	
+
+		return this.state.game;
 	}
 
 	getMaxPeriods(gameList) {
@@ -61,9 +119,9 @@ export default class BasketballChart extends Component {
 	getSelectedStats() {
 		let selectedStats = [];
 
-		for (let i = 0; i<Object.keys(this.state).length; i++) {
-			let stat = Object.keys(this.state)[i];
-			let statClass = this.state[stat];
+		for (let i = 0; i<Object.keys(this.state.selections).length; i++) {
+			let stat = Object.keys(this.state.selections)[i];
+			let statClass = this.state.selections[stat];
 			if (statClass === '') {
 				selectedStats.push(stat);
 			}
@@ -72,11 +130,13 @@ export default class BasketballChart extends Component {
 	}
 
 	handleStatClick(stats) {
-		let newState = {};
+		let newState = this.state.selections;
 		stats.forEach(stat => {
-			newState[stat] = this.state[stat] === '' ? 'stat-hidden' : '';
+			newState[stat] = this.state.selections[stat] === '' ? 'stat-hidden' : '';
 		});
-		this.setState(newState);
+		this.setState({
+			'selections':newState
+		});
 	}
 
 	createBasicTimeLog (periods) {
@@ -109,7 +169,7 @@ export default class BasketballChart extends Component {
 		return basicLog;
 	}
 
-	processGameLog(gameData) {
+	processGameLog(gameData, timeLog) {
 		let gameLog = [];
 		let refactoredEvents = [];
 
@@ -118,13 +178,13 @@ export default class BasketballChart extends Component {
 			event.forEach((stat,i) => {
 				brokenDown[headers[i]] = stat;
 			});
-			gameLog = gameLog.concat(this.processEvent(brokenDown));
+			gameLog = gameLog.concat(this.processEvent(brokenDown, timeLog));
 		});
 
 		return gameLog;
 	}
 
-	processEvent(event) {
+	processEvent(event, timeLog) {
 		let parsedPlays = [];
 		const playText = [event['HOMEDESCRIPTION'], event['VISITORDESCRIPTION'],event['NEUTRALDESCRIPTION']].join(', ');
 
@@ -171,7 +231,10 @@ export default class BasketballChart extends Component {
 			} else if (description.indexOf('Turnover') !== -1 || description.indexOf('Shot Clock') !== -1) {
 				play.type = 9;
 				play.text = 'turnover';
-			} 
+			} else if (description.indexOf('SUB:') !== -1) {
+				play.type = 13;
+				play.text = 'sub-out';
+			}
 
 			return play;
 		}
@@ -197,15 +260,19 @@ export default class BasketballChart extends Component {
 				// player2
 				play.type = 12;
 				play.text = 'steal';
+			} else if (description.indexOf('SUB:') !== -1) {
+				play.type = 14;
+				play.text = 'sub-in';
 			}
 
 			return play;
 		}
 
-		const parsePlayerActions = (playernum, play)  => {
+		const parsePlayerActions = (playernum, play, timeLog)  => {
 			let momentId = -1;
-			for (let i = 0; i<this.timeLog.length; i++) {
-				let moment = this.timeLog[i];
+
+			for (let i = 0; i<timeLog.length; i++) {
+				let moment = timeLog[i];
 				if (moment.quarter === event['PERIOD'] && moment.gameClock === event['PCTIMESTRING']) {
 					momentId = moment.momentId;
 					break;
@@ -231,16 +298,97 @@ export default class BasketballChart extends Component {
 		}
 
 		let play = getPrimaryPlayType(playText);
-		parsedPlays.push(parsePlayerActions('PLAYER1', play));
+		parsedPlays.push(parsePlayerActions('PLAYER1', play, timeLog));
 
 		play = getSecondaryPlayType(playText);
 		if (play.type === 11) {
-			parsedPlays.push(parsePlayerActions('PLAYER3', play));
-		} else if (play.type === 12 || play.type == 10) {
-			parsedPlays.push(parsePlayerActions('PLAYER2', play));
+			parsedPlays.push(parsePlayerActions('PLAYER3', play, timeLog));
+		} else if (play.type === 12 || play.type == 10  || play.type === 14) {
+			parsedPlays.push(parsePlayerActions('PLAYER2', play, timeLog));
 		}
 
 		return parsedPlays;
+	}
+
+	processGameSustitutions(gameFile) {
+		let gameData = this.getGame(gameFile);
+		let playersGameTime = {};
+
+		['homeTeam','awayTeam'].forEach(team => {
+			gameData.rawData.lineups[team].starters.forEach(p => {
+			if (typeof playersGameTime[p.playerId] === 'undefined') {
+					playersGameTime[p.playerId] = [gameData.gameLog[0]];
+					
+				}
+			});	
+		});
+		
+
+		gameData.gameLog.forEach(play => {
+			if (play.playType === 13 || play.playType === 14) {
+				if (typeof playersGameTime[play.playerId] === 'undefined') {
+					playersGameTime[play.playerId] = [];
+				}
+
+				playersGameTime[play.playerId].push(play);
+			}
+		})
+
+		let lbj = playersGameTime[2544];
+
+		let subIn = -1,
+			subOut = -1,
+			inGame = false;
+		let substitutions = [];
+		lbj.forEach((play,i) => {
+			if (i === 0 && play.playType === 0) {
+				subIn = play.momentId;
+				inGame = true;
+			}
+
+			// If player is in the game
+			if (inGame) {
+				if (play.playType === 13) {
+					subOut = play.momentId; 
+					inGame = false;
+				} else if (play.playType === 14) {
+					subIn = play.quarter*720+play.quarter;
+					subOut = -1;
+				}
+
+			} else {
+				// If player is on the bench
+				if (play.playType === 14) {
+					subIn = play.momentId;
+					inGame = true;
+					subOut = -1;
+				} else if (play.playType === 13) {
+					subIn = ((play.quarter-1)*720+(play.quarter))-1;
+					subOut = play.momentId;
+				}
+			}
+
+
+			if (subIn !== -1 && subOut !== -1) {
+				substitutions.push({
+					in: subIn,
+					out: subOut
+				});
+
+				subIn = -1;
+				subOut = -1;
+			}
+
+			console.log(substitutions);
+
+		})
+
+
+
+
+
+
+		return playersGameTime;
 	}
 
 	getPlayerLog(playerId, gameLog) {
@@ -258,7 +406,7 @@ export default class BasketballChart extends Component {
 	getTeamLog(teamId, gameLog, players) {
 
 		return gameLog.filter( event => {
-			if (typeof players === 'undefined') {
+			if (players.length === 0) {
 				return teamId === event.teamId;
 			} else {
 				const playerIds = players.map( p => {
@@ -285,7 +433,7 @@ export default class BasketballChart extends Component {
 					playerLog={playerLog} 
 					label={"Game "+(i+1)}
 					key={playerId+"_"+i}
-					selectedStats={this.state}
+					selectedStats={this.state.selections}
 					periods={maxPeriods}
 					/>
 			)
@@ -294,85 +442,114 @@ export default class BasketballChart extends Component {
 		return playerSeriesCharts;
 	}
 
-	getGameMatchup(game, homeTeam, playersHomeTeam, awayTeam, playersAwayTeam) {
-		
-		const homePlayers = playersHomeTeam.map(player => {
-			return (<div>{ this.getPlayerInGame('none',homeTeam.players[player], game) }</div>);
+	getGamePlayersMatchup(game, homeTeam, playersHomeTeam, awayTeam, playersAwayTeam) {
+		const gameData = this.getGame(game);
+		const homePlayers = playersHomeTeam.length === 0 ? null : playersHomeTeam.map(player => {
+			return (<div>{ this.getPlayerInGame('none',homeTeam.players[player], gameData) }</div>);
 		});
 
-		const awayPlayers = playersAwayTeam.map(player => {
-			return (<div>{ this.getPlayerInGame('none', awayTeam.players[player], game) }</div>);
-		})
+		const awayPlayers = playersAwayTeam.length === 0 ? null : playersAwayTeam.map(player => {
+			return (<div>{ this.getPlayerInGame('none', awayTeam.players[player], gameData) }</div>);
+		});
 
-		this.getTeamInGame('bottom', homeTeam, game, playersHomeTeam);
-
+		
 
 		return (
 			<div>
-				{ homePlayers}
+				{ 
+					homePlayers
+				}
 				<div> {
-					this.getTeamInGame('bottom', homeTeam, game, playersHomeTeam) 
+					// this.getTeamInGame('none', homeTeam, gameData, playersHomeTeam) 
 				}</div>
-				{ this.createScoringChart(game) }
+				{ this.createScoringChart(gameData) }
 				<div> {
-					this.getTeamInGame('top', awayTeam, game, playersAwayTeam) 
+					// this.getTeamInGame('none', awayTeam, gameData, playersAwayTeam) 
 				}</div>
-				{awayPlayers}
+				{
+					awayPlayers
+				}
 			</div>
 		);
 	}
 
-	getSinglePlayerMatchup(game, homePlayer, awayPlayer) {
+	getGameTeamMatchup(game, homeTeam, playersHomeTeam, awayTeam, playersAwayTeam) {
+		const gameData = this.getGame(game);
+		const homePlayers = playersHomeTeam.length === 0 ? null : playersHomeTeam.map(player => {
+			return (<div>{ this.getPlayerInGame('none',homeTeam.players[player], gameData) }</div>);
+		});
+
+		const awayPlayers = playersAwayTeam.length === 0 ? null : playersAwayTeam.map(player => {
+			return (<div>{ this.getPlayerInGame('none', awayTeam.players[player], gameData) }</div>);
+		});
+
+		
+
 		return (
 			<div>
-				{ this.getPlayerInGame('bottom', homePlayer, game) }
-				{ this.createScoringChart(game) }
-				{ this.getPlayerInGame('top', awayPlayer, game) }
+				{ 
+					// homePlayers
+				}
+				<div> {
+					this.getTeamInGame('none', homeTeam, gameData, playersHomeTeam) 
+				}</div>
+				{ this.createScoringChart(gameData) }
+				<div> {
+					this.getTeamInGame('none', awayTeam, gameData, playersAwayTeam) 
+				}</div>
+				{
+					// awayPlayers
+				}
+			</div>
+		);
+	}
+
+	getSinglePlayerMatchup(gameFile, homePlayer, awayPlayer) {
+
+		const gameData = this.getGame(gameFile);
+		return (
+			<div>
+				{ this.getPlayerInGame('bottom', homePlayer, gameData) }
+				{ this.createScoringChart(gameData) }
+				{ this.getPlayerInGame('top', awayPlayer, gameData) }
 			</div>
 		)
 	}
 
-	getCordChart(player, gameFile) {
+	getCordChart(player, gameData) {
 
-		const seriesGameRawData = require('../../data/samples/'+gameFile);
-		this.timeLog = this.createBasicTimeLog(seriesGameRawData.parameters.EndPeriod);
-		const gameLog = this.processGameLog(seriesGameRawData);
-
-		const playerLog = this.getPlayerLog(player.playerId, gameLog);
-
+		const playerLog = this.getPlayerLog(player.playerId, gameData.gameLog);
 		const selected = this.getSelectedStats();
-		console.log(selected);
 
 		return (
-			<CordChart timeLog={this.timeLog}
+			<CordChart timeLog={gameData.timeLog}
 				specs={this.props.specs}
 				playerId={player.playerId}
 				playerLog={playerLog}
 				label={player.playerName}
 				key={"cord_" + player.playerId}
 				selectedStats={selected}
-				periods={seriesGameRawData.parameters.EndPeriod}
+				periods={gameData.periods}
 				/>
 			);
 	}
 
-	getPlayerInGame(position, player, gameFile) {
-		const seriesGameRawData = require('../../data/samples/'+gameFile);
-		this.timeLog = this.createBasicTimeLog(seriesGameRawData.parameters.EndPeriod);
-		const gameLog = this.processGameLog(seriesGameRawData);
+	getPlayerInGame(position, player, gameData, label) {
 
-		const playerLog = this.getPlayerLog(player.playerId, gameLog);
+		const playerLog = this.getPlayerLog(player.playerId, gameData.gameLog);
 		const selected = this.getSelectedStats();
 
+		const playerLabel = typeof label === 'undefined' ? player.playerName : label;
+
 		const pulseChart = (
-			<PulseChart timeLog={this.timeLog}
+			<PulseChart timeLog={gameData.timeLog}
 					specs={this.props.specs}
 					playerId={player.playerId}
 					playerLog={playerLog}
-					label={player.playerName}
+					label={playerLabel}
 					key={player.playerId+"_game"}
-					selectedStats={this.state}
-					periods={seriesGameRawData.parameters.EndPeriod}
+					selectedStats={selected}
+					periods={gameData.periods}
 					height={25}
 					/>);
 
@@ -384,14 +561,14 @@ export default class BasketballChart extends Component {
 			<div className="player-container">
 				{top}
 				<div className={classes} >
-					<CordChart timeLog={this.timeLog}
+					<CordChart timeLog={gameData.timeLog}
 						specs={this.props.specs}
 						playerId={player.playerId}
 						playerLog={playerLog}
-						label={player.playerName}
+						label={playerLabel}
 						key={"cord_" + player.playerId}
 						selectedStats={selected}
-						periods={seriesGameRawData.parameters.EndPeriod}
+						periods={gameData.periods}
 						height={100}
 						/>
 				</div>
@@ -400,27 +577,24 @@ export default class BasketballChart extends Component {
 		);
 	}
 
-	getTeamInGame(position, team, gameFile, playersIndex) {
-		const seriesGameRawData = require('../../data/samples/'+gameFile);
-		this.timeLog = this.createBasicTimeLog(seriesGameRawData.parameters.EndPeriod);
-		const gameLog = this.processGameLog(seriesGameRawData);
+	getTeamInGame(position, team, gameData, playersIndex) {
 
 		const players = playersIndex.map(i => {
 			return team.players[i];
 		});
 
-		const teamLog = this.getTeamLog(team.teamId, gameLog, players);
+		const teamLog = this.getTeamLog(team.teamId, gameData.gameLog, players);
 		const selected = this.getSelectedStats();
 
 		const pulseChart = (
-			<PulseChart timeLog={this.timeLog}
+			<PulseChart timeLog={gameData.timeLog}
 					specs={this.props.specs}
 					playerId={team.teamId}
 					playerLog={teamLog}
 					label={team.teamName}
 					key={team.teamId+"_game"}
-					selectedStats={this.state}
-					periods={seriesGameRawData.parameters.EndPeriod}
+					selectedStats={selected}
+					periods={gameData.periods}
 					height={50}
 					/>);
 
@@ -432,14 +606,14 @@ export default class BasketballChart extends Component {
 			<div className="player-container">
 				{top}
 				<div className={classes} >
-					<CordChart timeLog={this.timeLog}
+					<CordChart timeLog={gameData.timeLog}
 						specs={this.props.specs}
 						playerId={team.teamId}
 						playerLog={teamLog}
 						label={team.teamName}
 						key={"cord_" + team.teamId}
 						selectedStats={selected}
-						periods={seriesGameRawData.parameters.EndPeriod}
+						periods={gameData.periods}
 						height={250}
 						/>
 				</div>
@@ -448,69 +622,148 @@ export default class BasketballChart extends Component {
 		);
 	}
 
-	createScoringChart(gameFile) {
-		const seriesGameRawData = require('../../data/samples/'+gameFile);
-		// if (typeof timeLog === 'undefined') {
-		const timeLog = this.createBasicTimeLog(seriesGameRawData.parameters.EndPeriod);
-		// }
+	createScoringChart(gameData, config) {
 
-		const gameLog = this.processGameLog(seriesGameRawData);
-
-		const scoringLog = gameLog.filter(p=> {
-			return [4,6,8].includes(p.playType) || p.momentId === 0;
-		});
-
-		scoringLog.push({
-			momentId: timeLog.length,
-			margin: 0
-		});
-		scoringLog.push({
-			momentId: timeLog.length+1,
-			margin: 0
-		});
+		if (typeof config === 'undefined') {
+			config = {
+				height:200,
+				label: ''
+			};
+		}
 
 		return (
 			<div className="game-scoring-margin">
 				<ScoringMarginChart 
 					specs={this.props.specs}
-					timeLog={timeLog}
-					scoringLog={scoringLog}
-					periods={seriesGameRawData.parameters.EndPeriod}
-					height={150}
+					timeLog={gameData.timeLog}
+					scoringLog={gameData.scoringLog}
+					periods={gameData.periods}
+					height={config.height}
+					label={config.label}
 				/>
 			</div>
 		)
-
-
 	}
 
+	getSeriesScoring(series) {
+		return series.map((gameFile,i) => {
+			const gameData = this.loadGame(gameFile);
+			const config = {
+				height: 80,
+				label: 'Game '+(i+1)
+			};
+			return this.createScoringChart(gameData, config);
+		})
+	}
 
-
-	render() {
-
-		// <LineChart data={this.props.gameLog} specs={this.props.specs} />
+	getPlayerInSeries(series, player) {
+		const playerGames = series.map((gameFile,i) => {
+			const gameData = this.loadGame(gameFile);
+			const config = {
+				height: 80,
+				label: 'Game '+(i+1)
+			};
+			const gameLabel = 'Game '+(i+1)
+			return this.getPlayerInGame('none', player, gameData, gameLabel);
+		});
 
 		return (
 			<div>
-				<StatControl handleStatClick={this.handleStatClick} selectedStats={this.state}/>
+				<h3> {player.playerName} </h3>
+				{playerGames}
+			</div>
+		)
+	}
 
-				{ 
-					// this.getGameMatchup(games.OKCvHOU[3],
-					// teams.okc,
-					// [0],
-					// teams.hou,
-					// [0]
-					// ) 
-				}		
+	onSelectGame(gameKey, gameData) {
+		console.log(gameData);
+
+		this.setGameData(gameData);
+
+		this.setState({
+			gameSelected: gameKey
+		});
+	}
+
+
+	// getPlayerPlayingTime(playerId, rawGameLog) {
+	// 	let playingTime = [];
+
+
+	// 	const subs = rawGameLog.filter(p=> {
+	// 		return (p['HOMEDESCRIPTION'].indexOf('SUB:') !== -1 || p['VISITORDESCRIPTION'].indexOf('SUB:') !== -1) && (p['PLAYER1_ID'] === playerId || p['PLAYER2_ID'] === playerId);
+	// 	});
+		
+	// 	if ()
+	// }
+
+
+	render() {
+		// const gameSelected = this.props.games.s2018.season.team.GSW.g5.data;
+		const gameSelectedFile = this.state.game.file;
+		const homeTeam = gameSelectedFile.split("_")[2].substr(3,3);
+		const awayTeam = gameSelectedFile.split("_")[2].substr(0,3);
+		const homePlayers = this.props.teams.rosters.s2018[homeTeam];
+		const awayPlayers = this.props.teams.rosters.s2018[awayTeam];
+		const teamGames = this.props.games.s2018.season.team[this.state.teamSelected];
+
+		return (
+			<div className="main-container">
+				
+				<TeamsMenu
+					teamSelected={this.state.teamSelected} 
+					teamList={this.props.teams.teamList}
+					teamLogos={this.props.teams.teamLogos}
+					gamesData={teamGames}
+					gameSelected={this.state.gameSelected}
+					onSelectGame={this.onSelectGame} />
+
+				<GameDetails 
+					homeTeam={homeTeam}
+					homeRoster={homePlayers}
+					awayRoster={awayPlayers}
+					awayTeam={awayTeam}
+					gameData={this.props.game}
+					teamsData={this.props.teams} />
+
+				<StatControl handleStatClick={this.handleStatClick} selectedStats={this.state.selections}/>
+
 
 				{
+					// this.processGameSustitutions(games.GSWvCLE[4])
 
-					this.getSinglePlayerMatchup(games.GSWvUTA[0],
-						teams.gsw.players[0],
-						teams.uta.players[0])
-				}	
+					// this.createScoringChart(this.loadGame(games.GSWvCLE[2]), { height: 300})
 
-				<br /><br /><br />
+
+					// Game Matchup with Individual Players
+					this.getGamePlayersMatchup(gameSelectedFile,
+						homePlayers,
+						[0,1],
+						awayPlayers,
+						[0,1]
+					) 
+
+					// this.getSinglePlayerMatchup(games.GSWvCLE[3],
+					// 	teams.gsw.players[0],
+					// 	teams.cle.players[0])
+				
+
+
+					// this.getSeriesScoring([gameSelected])
+				
+				
+
+					// this.getPlayerInSeries(games.GSWvCLE, teams.gsw.players[2])
+				
+
+					// Game Matchup by team
+					// this.getGameTeamMatchup(gameSelected,
+					// 	homeTeam,
+					// 	[],
+					// 	awayTeam,
+					// 	[]
+					// ) 
+				}
 				
 
 				

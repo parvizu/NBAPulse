@@ -372,7 +372,7 @@
 			},
 			"MIN": {
 				"teamId": 1610612750,
-				"teamName": "TImberwolves",
+				"teamName": "Timberwolves",
 				"teamCity": "Minnesota",
 				"players": [{
 					"playerId": 1626157,
@@ -383,6 +383,105 @@
 				},{
 					"playerId": 202710,
 					"playerName": "Jimmy Butler"
+				}]
+			},
+			"NOP": {
+				"teamId": 1610612740,
+				"teamName": "Pelicans",
+				"teamCity": "New Orleans",
+				"players": [{
+					"playerId": 203076,
+					"playerName": "Anthony Davis"
+				},{
+					"playerId": 202326,
+					"playerName": "DeMarcus Cousins"
+				},{
+					"playerId": 201950,
+					"playerName": "Jrue Holiday"
+				},{
+					"playerId": 202734,
+					"playerName": "E'Twaun Moore"
+				},{
+					"playerId": 201967,
+					"playerName": "Dante Cunningham"
+				},{
+					"playerId": 203121,
+					"playerName": "Darius Miller"
+				},{
+					"playerId": 202348,
+					"playerName": "Jordan Crawford"
+				},{
+					"playerId": 2754,
+					"playerName": "Tony Allen"
+				},{
+					"playerId": 203546,
+					"playerName": "Ian Clark"
+				}]
+			},
+			"MEM": {
+				"teamId": 1610612763,
+				"teamName": "Grizzlies",
+				"teamCity": "Memphis",
+				"players": [{
+					"playerId": 201188,
+					"playerName": "Marc Gasol"
+				},{
+					"playerId": 201144,
+					"playerName": "Mike Conley"
+				},{
+					"playerId": 203516,
+					"playerName": "James Ennis III"
+				},{
+					"playerId": 1626150,
+					"playerName": "Andrew Harrison"
+				},{
+					"playerId": 1626185,
+					"playerName": "Jarell Martin"
+				},{
+					"playerId": 201936,
+					"playerName": "Tyreke Evans"
+				},{
+					"playerId": 201148,
+					"playerName": "Brandan Wright"
+				},{
+					"playerId": 201596,
+					"playerName": "Mario Chalmers"
+				},{
+					"playerId": 202718,
+					"playerName": "Chandler Parsons"
+				}]
+			},
+			"DAL": {
+				"teamId": 1610612742,
+				"teamName": "Mavericks",
+				"teamCity": "Dallas",
+				"players": [{
+					"playerId": 1717,
+					"playerName": "Dirk Nowitzki"
+				},{
+					"playerId": 203084,
+					"playerName": "Harrison Barnes"
+				},{
+					"playerId": 202083,
+					"playerName": "Wesley Matthews"
+				},{
+					"playerId": 1628372,
+					"playerName": "Dennis Smith Jr."
+				},{
+					"playerId": 203457,
+					"playerName": "Nerlens Noel"
+				},{
+					"playerId": 200826,
+					"playerName": "J.J. Barea"
+				},{
+					"playerId": 1627812,
+					"playerName": "Yogi Ferrell"
+				},{
+					"playerId": 1627827,
+					"playerName": "Dorian Finney-Smith"
+				},{
+					"playerId": 203939,
+					"playerName": "Dwight Powell"
 				}]
 			}
 		}
