@@ -1,28 +1,198 @@
 .team-details {
     display: inline-block;
     vertical-align: bottom;
-    width: 40%;
+    width: 20%;
+}
+
+.team-players-list {
+    width: 275px;
 }
 
 .game-details-team-logo {
     height: 150px;
-    overflow: hidden;
+    /*overflow: hidden;*/
+    position: relative;
 }
 
-.game-details-team-logo img {
+/*.game-details-team-logo img {
     opacity: .5;
     width: 400px;
     position: relative;
     top: -100px;
     right: 0;
     z-index: -2;
-}
+}*/
 
 .game-details {
 	display: inline-block;
-	width: 20%;
+	width: 60%;
 }
 
 .game-details h3 {
 	display: inline-block;
+}
+
+.game-details-team-logo::before {
+    content: " ";
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top: -100px;
+    left: 86px;
+    background-repeat: no-repeat;
+    background-size: 400px;
+    opacity: .5;
+    z-index: -1;
+    display: none;
+}
+
+
+.game-details-team-logo.ATL::before {
+	background-image: url(/ATL.svg);
+}
+
+.game-details-team-logo.BKN::before {
+	background-image: url(/BKN.svg);
+}
+
+.game-details-team-logo.BOS::before {
+	background-image: url(/BOS.svg);
+}
+
+.game-details-team-logo.CHA::before {
+	background-image: url(/CHA.svg);
+}
+
+.game-details-team-logo.CHI::before {
+	background-image: url(/CHI.svg);
+}
+
+.game-details-team-logo.CLE::before {
+	background-image: url(/CLE.svg);
+}
+
+.game-details-team-logo.DAL::before {
+	background-image: url(/DAL.svg);
+}
+
+.game-details-team-logo.DEN::before {
+	background-image: url(/DEN.svg);
+}
+
+.game-details-team-logo.DET::before {
+	background-image: url(/DET.svg);
+}
+
+.game-details-team-logo.GSW::before {
+	background-image: url(/GSW.svg);
+}
+
+.game-details-team-logo.HOU::before {
+	background-image: url(/HOU.svg);
+}
+
+.game-details-team-logo.IND::before {
+	background-image: url(/IND.svg);
+}
+
+.game-details-team-logo.LAC::before {
+	background-image: url(/LAC.svg);
+}
+
+.game-details-team-logo.LAL::before {
+	background-image: url(/LAL.svg);
+}
+
+.game-details-team-logo.MEM::before {
+	background-image: url(/MEM.svg);
+}
+
+.game-details-team-logo.MIA::before {
+	background-image: url(/MIA.svg);
+}
+
+.game-details-team-logo.MIL::before {
+	background-image: url(/MIL.svg);
+}
+
+.game-details-team-logo.MIN::before {
+	background-image: url(/MIN.svg);
+}
+
+.game-details-team-logo.NOP::before {
+	background-image: url(/NOP.svg);
+}
+
+.game-details-team-logo.NYK::before {
+	background-image: url(/NYK.svg);
+}
+
+.game-details-team-logo.OKC::before {
+	background-image: url(/OKC.svg);
+}
+
+.game-details-team-logo.ORL::before {
+	background-image: url(/ORL.svg);
+}
+
+.game-details-team-logo.PHI::before {
+	background-image: url(/PHI.svg);
+}
+
+.game-details-team-logo.PHX::before {
+	background-image: url(/PHX.svg);
+}
+
+.game-details-team-logo.POR::before {
+	background-image: url(/POR.svg);
+}
+
+.game-details-team-logo.SAC::before {
+	background-image: url(/SAC.svg);
+}
+
+.game-details-team-logo.SAS::before {
+	background-image: url(/SAS.svg);
+}
+
+.game-details-team-logo.TOR::before {
+	background-image: url(/TOR.svg);
+}
+
+.game-details-team-logo.UTA::before {
+	background-image: url(/UTA.svg);
+}
+
+.game-details-team-logo.WAS::before {
+	background-image: url(/WAS.svg);
+}
+
+
+
+li.team-details-player-item {
+    display: inline-block;
+    margin: 2px;
+    width: 46px;
+    font-size: 8pt;
+    height: 30px;
+    overflow: hidden;
+    background-color: ghostwhite;
+    color: black;
+    /*border-radius: 2px;*/
+    padding: 2px;
+    text-align: center;
+}
+
+li.team-details-player-item.selected {
+	background-color: darkorange;
+	color: white;
+}
+
+li.team-details-player-item:hover {
+    cursor: pointer;
+}
+
+li.team-details-player-item img {
+	width: 100%;
+	display: none;
 }

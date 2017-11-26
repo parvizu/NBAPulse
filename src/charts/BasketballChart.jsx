@@ -10,6 +10,9 @@ import ScoringMarginChart from './ScoringMarginChart';
 
 
 import styles from './StatControl.css';
+import styles2 from './BasketballChart.css'
+
+
 
 // import games from '../../data/games-updated.json';
 
@@ -43,7 +46,40 @@ export default class BasketballChart extends Component {
 				timeLog: {},
 				rawData: {},
 				gameLog: {},
-				scoringLog: {}
+				scoringLog: {},
+				substitutions: {}
+			},
+			playersSelected: {
+				"ATL": [1,6],
+				"BKN": [4],
+				"BOS": [0,2,1],
+				"CHA": [2],
+				"CHI": [1,0],
+				"CLE": [0,2],
+				"DAL": [0,3],
+				"DEN": [1,3],
+				"DET": [0,2],
+				"GSW": [0,1,2,3],
+				"HOU": [2,3],
+				"IND": [4,7],
+				"LAC": [1,0],
+				"LAL": [3,7,1],
+				"MEM": [0,3],
+				"MIA": [3,0],
+				"MIL": [1],
+				"MIN": [3,4,0],
+				"NOP": [2,0],
+				"NYK": [0,2],
+				"OKC": [2,1,3],
+				"ORL": [4,0],
+				"PHI": [0,1],
+				"PHX": [2],
+				"POR": [2],
+				"SAC": [6,4],
+				"SAS": [4,0],
+				"TOR": [2,1],
+				"UTA": [0,3],
+				"WAS": [2,4]
 			}
 		};
 
@@ -64,6 +100,11 @@ export default class BasketballChart extends Component {
 		this.getPlayerInSeries = this.getPlayerInSeries.bind(this);
 		this.getGame = this.getGame.bind(this);
 		this.onSelectGame = this.onSelectGame.bind(this);
+		this.onSelectTeam = this.onSelectTeam.bind(this);
+		this.onSelectPlayer = this.onSelectPlayer.bind(this);
+
+		this._processTeamSubstitutions = this._processTeamSubstitutions.bind(this);
+		this._processGameSubstitutions = this._processGameSubstitutions.bind(this);
 	}
 
 	componentWillMount() {
@@ -71,8 +112,14 @@ export default class BasketballChart extends Component {
 	}
 
 	setGameData(gameFile) {
+
+		let loadedGame = this.loadGame(gameFile);
+		const subs = this._processGameSubstitutions(loadedGame);
+
+		loadedGame['substitutions'] = subs;
+
 		this.setState({
-			game: this.loadGame(gameFile)
+			game: loadedGame
 		});
 	}
 
@@ -310,87 +357,6 @@ export default class BasketballChart extends Component {
 		return parsedPlays;
 	}
 
-	processGameSustitutions(gameFile) {
-		let gameData = this.getGame(gameFile);
-		let playersGameTime = {};
-
-		['homeTeam','awayTeam'].forEach(team => {
-			gameData.rawData.lineups[team].starters.forEach(p => {
-			if (typeof playersGameTime[p.playerId] === 'undefined') {
-					playersGameTime[p.playerId] = [gameData.gameLog[0]];
-					
-				}
-			});	
-		});
-		
-
-		gameData.gameLog.forEach(play => {
-			if (play.playType === 13 || play.playType === 14) {
-				if (typeof playersGameTime[play.playerId] === 'undefined') {
-					playersGameTime[play.playerId] = [];
-				}
-
-				playersGameTime[play.playerId].push(play);
-			}
-		})
-
-		let lbj = playersGameTime[2544];
-
-		let subIn = -1,
-			subOut = -1,
-			inGame = false;
-		let substitutions = [];
-		lbj.forEach((play,i) => {
-			if (i === 0 && play.playType === 0) {
-				subIn = play.momentId;
-				inGame = true;
-			}
-
-			// If player is in the game
-			if (inGame) {
-				if (play.playType === 13) {
-					subOut = play.momentId; 
-					inGame = false;
-				} else if (play.playType === 14) {
-					subIn = play.quarter*720+play.quarter;
-					subOut = -1;
-				}
-
-			} else {
-				// If player is on the bench
-				if (play.playType === 14) {
-					subIn = play.momentId;
-					inGame = true;
-					subOut = -1;
-				} else if (play.playType === 13) {
-					subIn = ((play.quarter-1)*720+(play.quarter))-1;
-					subOut = play.momentId;
-				}
-			}
-
-
-			if (subIn !== -1 && subOut !== -1) {
-				substitutions.push({
-					in: subIn,
-					out: subOut
-				});
-
-				subIn = -1;
-				subOut = -1;
-			}
-
-			console.log(substitutions);
-
-		})
-
-
-
-
-
-
-		return playersGameTime;
-	}
-
 	getPlayerLog(playerId, gameLog) {
 
 		let playerPlays = []
@@ -455,20 +421,22 @@ export default class BasketballChart extends Component {
 		
 
 		return (
-			<div>
-				{ 
-					homePlayers
-				}
-				<div> {
+			<div className="main-visualization-container">
+				<div className={"home-players-visualization-container team-bg " + homeTeam.teamKey}>
+					{ homePlayers }
+				</div>
+				<div> 
+				{
 					// this.getTeamInGame('none', homeTeam, gameData, playersHomeTeam) 
-				}</div>
-				{ this.createScoringChart(gameData) }
+				}
+				</div>
+					{ this.createScoringChart(gameData) }
 				<div> {
 					// this.getTeamInGame('none', awayTeam, gameData, playersAwayTeam) 
 				}</div>
-				{
-					awayPlayers
-				}
+				<div className={"away-players-visualization-container team-bg " + awayTeam.teamKey}>
+					{ awayPlayers }
+				</div>
 			</div>
 		);
 	}
@@ -626,7 +594,7 @@ export default class BasketballChart extends Component {
 
 		if (typeof config === 'undefined') {
 			config = {
-				height:200,
+				height:250,
 				label: ''
 			};
 		}
@@ -685,17 +653,352 @@ export default class BasketballChart extends Component {
 		});
 	}
 
+	onSelectTeam(teamId) {
+		console.log(teamId);
 
-	// getPlayerPlayingTime(playerId, rawGameLog) {
-	// 	let playingTime = [];
+		this.setState({
+			teamSelected: teamId,
+			gameSelected: 'g1',
+		});
 
+		// this._processTeamPlayers(teamId);
 
-	// 	const subs = rawGameLog.filter(p=> {
-	// 		return (p['HOMEDESCRIPTION'].indexOf('SUB:') !== -1 || p['VISITORDESCRIPTION'].indexOf('SUB:') !== -1) && (p['PLAYER1_ID'] === playerId || p['PLAYER2_ID'] === playerId);
-	// 	});
+	}
+
+	onSelectPlayer(teamAbbr, playerNum) {
+		let currentPlayers = this.state.playersSelected;
+
+		if (!(teamAbbr in currentPlayers)) {
+			currentPlayers[teamAbbr] = [];
+		}
+
+		let index = currentPlayers[teamAbbr].indexOf(playerNum);
+		if (index > -1) {
+			currentPlayers[teamAbbr].splice(index, 1);
+		} else {
+			currentPlayers[teamAbbr].push(playerNum);
+		}
+
+		console.log(teamAbbr, currentPlayers[teamAbbr]);
+
+		this.setState({
+			playersSelected: currentPlayers
+		});
+	}
+
+	_processTeamPlayers(teamId) {
+
+		let teamPlayers = {};
+		let teamPlayersList = [];
+		let teamGames = this.props.games.s2018.season.team[teamId];
+		let games =Object.keys(teamGames).map(gameKey => {
+			return teamGames[gameKey].data;
+		})
+
+		let checkPlayer = (teamSelected, playerTeamCity, playerId, playerName) => {
+			if (playerTeamCity === teamSelected && playerTeamCity !== null) {
+				if (!(playerId in teamPlayers)) {
+					teamPlayers[playerId] = {
+						"playerId": playerId,
+						"playerName": playerName
+					};
+					teamPlayersList.push({
+						"playerId": playerId,
+						"playerName": playerName
+					});
+				}
+			}
+		}
 		
-	// 	if ()
-	// }
+		games.forEach(gameFile => {
+			let gameData = require('../../data/2018/'+gameFile);
+			gameData.resultSets[0].rowSet.forEach(row => {
+				for (let i = 1; i<=3; i++) {
+					let playerId = row[headers.indexOf('PLAYER'+i+'_ID')];
+					let playerName = row[headers.indexOf('PLAYER'+i+'_NAME')];
+					let playerTeamCity = row[headers.indexOf('PLAYER'+i+'_TEAM_ABBREVIATION')];
+
+					checkPlayer(teamId, playerTeamCity, playerId, playerName);
+				}
+			});
+		});
+
+		console.log(teamPlayersList);
+
+	}
+
+	_processTeamSubstitutions(game, teamDescIndex) {
+		// const game = this.state.game;
+		const data = game.rawData.resultSets[0].rowSet;
+
+		let quarters = {};
+
+		data.forEach(row => {
+			// EVENTNUM 12 means start of period
+			if (row[2] === 12) {
+				quarters['q'+row[4]]= {
+					start: row[1],
+					end: -1
+				};
+			}
+
+			// EVENTNUM 13 means end of period
+			if (row[2] === 13) {
+				quarters['q'+row[4]].end = row[1]
+			}
+		})
+
+		let rowData = data.filter(row => {
+			// process Home Subs
+			return (row[teamDescIndex] !== null && row[teamDescIndex].search('SUB') > -1)
+		});
+
+		let filtered = {};
+		rowData.forEach(row => {
+			// Get substitution moments for each player from Play by Play.
+			const playerOut = row[13],
+				  playerIn = row[20];
+
+
+			if (!(playerOut in filtered)) {
+				filtered[playerOut] = []
+			}
+
+			if (!(playerIn in filtered)) {
+				filtered[playerIn] = []
+			}
+
+			filtered[playerOut].push({
+				action: 'out',
+				out: row[1],
+				in: '',
+				desc: row[teamDescIndex],
+				period: row[4],
+				clock: row[6]
+			});
+
+			filtered[playerIn].push({
+				action: 'in',
+				out: '',
+				in: row[1],
+				desc: row[teamDescIndex],
+				period: row[4],
+				clock: row[6]
+			});
+		});
+
+		let processed = {}
+		Object.keys(filtered).forEach(player => {
+			// Creating onCourt moments for each player
+			processed[player] = [];
+			let subs = filtered[player];
+			let temp = {};
+
+			for(let i=0; i<subs.length; i++) {
+				// if (i===0 && subs[i].action === 'out' && subs[i].period === 1) {
+				// 	processed[player].push({
+				// 		in: quarters['q'+subs[i].period].start,
+				// 		clockIn: '12:00',
+				// 		out: subs[i].out,
+				// 		clockOut: subs[i].clock,
+				// 		period: subs[i].period,
+				// 		play: subs[i].desc,
+				// 		test: 'test'
+				// 	});
+				// }
+
+				if (subs[i].action === 'in') {
+					temp['type'] = 'court';
+					temp['in'] = subs[i].in;
+					temp['clockIn'] = subs[i].clock;
+					temp['play'] = subs[i].desc;
+					temp['period'] = subs[i].period;
+
+					if (i+1 === subs.length || subs[i+1].action === 'in') {
+						// Last substitution of the player and taken out at the end of period or end of game.
+						temp['out'] = quarters['q'+subs[i].period].end;
+						temp['clockOut'] = '0:00';
+						
+						processed[player].push({
+							type: temp['type'],
+							in: temp['in'],
+							clockIn: temp['clockIn'],
+							out: temp['out'],
+							clockOut: temp['clockOut'],
+							period: temp['period'],
+							play: temp['play']
+						});
+						temp = {};
+
+					}
+
+				} else if (subs[i].action === 'out') {
+					//  Player subbed out during game
+					temp['out'] = subs[i].out;
+					// temp['period'] = subs[i].period;
+					temp['clockOut'] = subs[i].clock;
+					
+					if (!('in' in temp )) {
+						// Player subbed in during period break or game start
+						temp['type'] = 'court';
+						temp['in'] = quarters['q'+subs[i].period].start;
+						temp['clockIn'] = '12:00';
+						temp['play'] = subs[i].desc;
+						temp['period'] = subs[i].period;
+					}
+				}
+
+				// Regular substitution completed. Saving.
+				if ('in' in temp && 'out' in temp) {
+					processed[player].push({
+						type: 'court',
+						in: temp['in'],
+						clockIn: temp['clockIn'],
+						out: temp['out'],
+						clockOut: temp['clockOut'],
+						period: temp['period'],
+						play: temp['play']
+					});
+					temp = {};
+				}
+			}
+
+			// console.log("COURT",processed[player]);
+
+			let playerActivity = [];
+			let playerSubs = processed[player];
+			const numPeriods = Object.keys(quarters).length;
+			temp = {};
+
+			playerSubs.forEach((act, i) => {
+
+				// Player is not a starter
+				if (i === 0 && act.in !== 2) {
+					if (act.period !== 1) {
+						for (let p = 1; p<act.period; p++) {
+							temp = {
+								type: 'bench',
+								in: quarters['q'+p].start,
+								clockIn: '12:00',
+								out: quarters['q'+p].end,
+								clockOut: '0:00',
+								period: p,
+								play: 'On bench for the quarter'
+							};
+
+							if (!this._confirmBenchForQuarter(player, temp, data)) {
+								temp['type'] = 'court';
+								temp['play'] = 'Played the whole quarter';
+							}
+
+							playerActivity.push(temp);
+							temp = {};
+						}
+					}
+
+					temp = {
+						type: 'bench',
+						in: quarters['q'+act.period].start,
+						clockIn: '12:00',
+						out: act.in,
+						clockOut: act.clockIn,
+						period: act.period,
+						play: act.desc
+					};
+
+					playerActivity.push(temp);
+					temp = {};
+				}
+
+				playerActivity.push(act);
+
+				temp['type'] = 'bench';
+				temp['in'] = act.out;
+				temp['clockIn'] = act.clockOut;
+
+
+				// if activity is the last one of player
+				if (i+1 === playerSubs.length) {
+					temp['type'] = 'bench';
+					temp['in'] = act.out;
+					temp['clockIn'] = act.clockOut;
+					temp['out'] = quarters['q'+act.period].end;
+					temp['clockOut'] = '0:00';
+					temp['period'] = act.period,
+					temp['play'] = act.desc;
+
+					if (act.clockOut !== '0:00') {
+						playerActivity.push(temp);
+						temp = {};
+					}
+
+					if (act.period+1 !== numPeriods) {
+						for (let p = act.period+1; p<=numPeriods; p++) {
+							temp = {
+								type: 'bench',
+								in: quarters['q'+p].start,
+								clockIn: '12:00',
+								out: quarters['q'+p].end,
+								clockOut: '0:00',
+								period: p,
+								play: 'On bench for the quarter'
+							};
+
+							if (!this._confirmBenchForQuarter(player, temp, data)) {
+								temp['type'] = 'court';
+								temp['play'] = 'Played the whole quarter';
+							}
+
+
+							playerActivity.push(temp);
+							temp = {};
+						}
+					}
+					
+				} else {
+					temp['type'] = 'bench';
+					temp['in'] = act.out;
+					temp['clockIn'] = act.clockOut;
+					temp['out'] = playerSubs[i+1].in;
+					temp['clockOut'] = playerSubs[i+1].clockIn;
+					temp['period'] = playerSubs[i+1].period,
+					temp['play'] = playerSubs[i+1].desc;
+
+					playerActivity.push(temp);
+					temp = {};
+				}
+
+				
+
+
+
+			});
+
+			// console.log("BENCH", playerActivity);
+			processed[player] = playerActivity;
+		});
+
+		console.log(processed);
+		// return processed;
+
+	}
+
+	_confirmBenchForQuarter(playerId, playerInfo, rowSets) {
+		playerId = parseInt(playerId);
+		let playerPlays = rowSets.filter(row => {
+			let isPlayer = (row[13] === playerId || row[20] === playerId || row[27] === playerId);
+			return row[1] >= playerInfo.in && row[1] <= playerInfo.out && isPlayer;
+		});
+
+		return playerPlays.length === 0;
+	} 
+
+	_processGameSubstitutions(game) {
+		return {
+			home: this._processTeamSubstitutions(game, 7),
+			away: this._processTeamSubstitutions(game, 9)
+		}
+	}
 
 
 	render() {
@@ -706,9 +1009,11 @@ export default class BasketballChart extends Component {
 		const homePlayers = this.props.teams.rosters.s2018[homeTeam];
 		const awayPlayers = this.props.teams.rosters.s2018[awayTeam];
 		const teamGames = this.props.games.s2018.season.team[this.state.teamSelected];
+		const homePlayersSelected = this.state.playersSelected[homeTeam];
+		const awayPlayersSelected = this.state.playersSelected[awayTeam];
 
 		return (
-			<div className="main-container">
+			<div>
 				
 				<TeamsMenu
 					teamSelected={this.state.teamSelected} 
@@ -716,31 +1021,35 @@ export default class BasketballChart extends Component {
 					teamLogos={this.props.teams.teamLogos}
 					gamesData={teamGames}
 					gameSelected={this.state.gameSelected}
-					onSelectGame={this.onSelectGame} />
+					onSelectGame={this.onSelectGame} 
+					onSelectTeam={this.onSelectTeam} />
 
 				<GameDetails 
 					homeTeam={homeTeam}
 					homeRoster={homePlayers}
+					homePlayersSelected={homePlayersSelected}
 					awayRoster={awayPlayers}
 					awayTeam={awayTeam}
+					awayPlayersSelected={awayPlayersSelected}
 					gameData={this.props.game}
-					teamsData={this.props.teams} />
+					teamsData={this.props.teams}  
+					onSelectPlayer={this.onSelectPlayer} />
 
 				<StatControl handleStatClick={this.handleStatClick} selectedStats={this.state.selections}/>
 
+				
+
 
 				{
-					// this.processGameSustitutions(games.GSWvCLE[4])
-
 					// this.createScoringChart(this.loadGame(games.GSWvCLE[2]), { height: 300})
 
 
 					// Game Matchup with Individual Players
 					this.getGamePlayersMatchup(gameSelectedFile,
 						homePlayers,
-						[0,1],
+						homePlayersSelected,
 						awayPlayers,
-						[0,1]
+						awayPlayersSelected
 					) 
 
 					// this.getSinglePlayerMatchup(games.GSWvCLE[3],

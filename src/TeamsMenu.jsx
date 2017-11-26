@@ -14,7 +14,8 @@ export default class TeamsMenu extends Component {
 	handleSelectTeam(e) {
 		e.preventDefault();
 
-
+		let teamId = e.target.attributes['data-team'].value;
+		this.props.onSelectTeam(teamId);
 	}
 	
 	handleSelectGame(e) {
@@ -76,7 +77,11 @@ export default class TeamsMenu extends Component {
 			}
 
 			return (
-				<li key={team +"-menu-logo"} className={classes}>
+				<li key={team +"-menu-logo"}
+					className={classes} 
+					data-team={team}
+					onClick={this.handleSelectTeam} >
+					
 					<img className="logo" src={this.props.teamLogos[team]} alt={team} />
 				</li>
 			);

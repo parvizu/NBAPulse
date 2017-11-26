@@ -4,17 +4,49 @@ body {
 }
 
 .chart-label {
-	display: inline-block;
-	vertical-align: top;
-	width: 150px;	
-	margin: 0px;
-	padding: 0px;
-	padding-top: 5px;
+    display: inline-block;
+    vertical-align: top;
+    width: 275px;
+    margin: 0px;
+    padding: 0px;
+    /* padding-top: 5px; */
+    height: 100px;
+    overflow: hidden;
+    text-align: left;
+    position: relative;
+    background: rgba(10,10,10,.2);
 }
+
+.player-label h4 {
+    margin: 0px;
+    top: 80px;
+    position: relative;
+    left: 9px;
+}
+
+.player-label img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 80px;
+    z-index: -2;
+}
+
 
 .chart-container {
 	display: inline-block;
-	background-color: ghostwhite;
+	/*background-color: ghostwhite;*/
+}
+
+.chart-container::before {
+    background-color: ghostwhite;
+    position: absolute;
+    content: " ";
+    /*top: 0;*/
+    /*left: 275px;*/
+    width: 1200px;
+    height: 100%;
+    z-index: -10;
 }
 
 

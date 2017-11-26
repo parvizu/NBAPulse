@@ -1,6 +1,8 @@
 .main-container {
-	margin: 0 auto;
-	text-align: center;
+    margin: 0 auto;
+    /* text-align: center; */
+    width: 1475px;
+    padding: 20px;
 }
 
 #stat-control {
@@ -84,6 +86,7 @@ rect.stat-hidden {
 	margin: 0;
 	margin-top: 10px;
 	margin-bottom: 10px;
+	position: relative;
 }
 
 .cord-chart-container {

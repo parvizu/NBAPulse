@@ -193,9 +193,13 @@ export default class CordChart extends Component {
 
 
 	render() {
+		const imgUrl = 'https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/'+this.props.playerId+'.png'
 		return (
 			<div>
-				<h4 className="chart-label"> {this.props.label} </h4>
+				<div className="chart-label player-label"> 
+					<h4>{this.props.label}</h4>
+					<img src={imgUrl} />
+				</div>
 				<div className="chart-container">{ this.createChart() }</div>
 			</div>
 		);

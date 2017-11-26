@@ -1,6 +1,6 @@
 .teams-select-menu-container {
     width: 1115px;
-    text-align: center;
+    /* text-align: center; */
     margin: 0 auto;
     margin-bottom: 15px;
 }
@@ -9,9 +9,10 @@
     overflow: hidden;
     height: 100px;
     /* vertical-align: bottom; */
-    border-bottom: solid 1px;
+    /* border-bottom: solid 1px; */
     /* padding-bottom: 2px; */
     /* background-color: blue; */
+    text-align: center;
 }
 
 .team-logo {
@@ -40,11 +41,18 @@
 .team-logo:hover .logo {
     filter: grayscale(0%);
     width: 145px;
-    z-index: -3;
     position: relative;
     left: -53px;
     cursor: pointer;
     top: -15px;
+}
+
+.team-logo.selected .logo {
+	z-index: -5;
+}
+
+.team-logo:hover .logo {
+	z-index: -3;
 }
 
 .team-logo .logo {
@@ -60,11 +68,13 @@
 
 
 .team-games-list {
-    text-align: left;
-    /* width: 1050px; */
+    text-align: center;
+    width: 1050px;
     /* background-color: blue; */
-    padding: 0px 32px;
-    margin-top: 5px;
+    padding: 5px 0px;
+    /* margin-top: 5px; */
+    border-top: solid 1px white;
+    margin-left: 32px;
 }
 
 
@@ -77,17 +87,21 @@ li.team-games-item {
     text-align: center;
     color: black;
     font-family: helvetica;
-    margin-right: 1px;
+    /* margin-right: 1px; */
     vertical-align: middle;
-    padding-top: 5px;
+    padding-top: 7px;
+    border-bottom: 3px solid white;
 }
 
 li.team-games-item:hover {
 	cursor: pointer;
+    border-bottom-color: darkorange;
 }
 
 li.team-games-item.selected {
-	background-color: darkorange;
+    /*background-color: darkorange;*/
+    border-bottom-color: darkorange;
+    color: darkorange;
 }
 
 li.team-games-item.home {

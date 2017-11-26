@@ -5,6 +5,8 @@ import BasketballChart from './charts/BasketballChart';
 import games from '../data/games-updated.json';
 import teams from '../data/teams-updated.json';
 
+import styles from './Root.css';
+
 // Preloading team logos to avoid having to load them each time.
 teams.teamList.forEach(function(team) {
 	var teamLogo = []
@@ -51,9 +53,18 @@ export default class Root extends Component {
 	}
 
 	render() {
+
+		var nbaLogo = require('./img/logos/nbaLogo.svg'),
+			twitterLink = require('./img/twitter-256.png');
+
 		return (
-			<div>
-				<h1>NBA Pulse - 2017 Finals.</h1>
+			<div className="main-container">
+				<div id="header">
+					<div id="updated">v0.8 (11/17/17)</div>
+					<img src={nbaLogo} /> 
+					<h1> Game Pulse</h1> <a href="http://www.parvizu.com" target="_blank" id="madeby">by Pablo Arvizu</a> <a href="https://twitter.com/sirgalahad88" target="_blank" id="twitterLink"><img src={twitterLink} /></a>
+					<div className="addthis_sharing_toolbox"></div>
+				</div>
 
 				<BasketballChart specs={this.state.specs} teams={teamsData} games={gamesData} />
 			</div>
