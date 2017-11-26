@@ -1,19 +1,39 @@
 *** TO DO ***
 
 
-[ ]  Add substitution/on court display in the String Chart
+------- Game Menu -------
+[X]  Add game list for each team when selecting
+[ ]
+
+
+
+
+------- Game Details --------
+[ ] Add scores and Game details
+[ ] Add quarter by quarter score breakdown
+[ ]
+
+
+
+------- Player Details ------
+
+[ ] Take out player card from chart component. Those two should be independent of each other
+[ ] Create player card with photo, position, game stats.
+[ ] Add team colors to player card to differentiate them.
 
 
 ------- Substitutions ------
 
-[ ]  Handle when the player is on the court at the end of the game
-[ ]  Hanled when the player is subbed in during a quarter break
+[X]  Handle when the player is on the court at the end of the game
+[X]  Hanled when the player is subbed in during a quarter break
 		* The log has no registry of this cases (might have to be manual)
 		* This happens when there is a 'sub-out' when it was on the beanch
 		* Doesn't necessarilly mean that the player got subbed in in the previous qtr break
-		
+[ ] Set the description for "bench" moment using the subbed out play description. 
 
 
+------- String Chart -------
+[ ]  Add substitution/on court display in the String Chart
 
 
 
@@ -25,3 +45,10 @@
 
 -------- Series Scoring ----------
 [ ] Select the maximum scoring margin for the whole series and use that as the range for every game so they are better to compare to each other
+
+
+
+-------- BACK END ----------
+[ ] Add the data base to save game data
+[ ] Create API end points to handle all queries (Python Flasks or Meteor?)
+[ ] Create procedure that will automatically download the latest game data

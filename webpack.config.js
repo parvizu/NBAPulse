@@ -28,7 +28,7 @@ module.exports = {
 	        {
 				test: /\.json$/,
 				loader: "json-loader",
-				exclude: __dirname+'/data/samples',
+				exclude: /(\/samples)/,
 	        },
 		]
 	},
@@ -37,5 +37,6 @@ module.exports = {
   	},
 
 	// https://webpack.github.io/docs/configuration.html#devtool
-    devtool: '#inline-source-map'
+    devtool: 'eval-source-map'
+    // devtool: 'inline-source-map'
 }
