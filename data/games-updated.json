@@ -259,6 +259,10 @@
 						"details" : {},
 						"data": "pbp_20171018_CHADET.json"
 					},
+					"g9": {
+						"details" : {},
+						"data": "pbp_20171103_MILDET.json"
+					},
 					"g17": {
 						"details" : {},
 						"data": "pbp_20171120_CLEDET.json"
@@ -550,6 +554,50 @@
 					"g1": {
 						"details" : {},
 						"data": "pbp_20171018_MILBOS.json"
+					},
+					"g2": {
+						"details" : {},
+						"data": "pbp_20171020_CLEMIL.json"
+					},
+					"g3": {
+						"details" : {},
+						"data": "pbp_20171021_PORMIL.json"
+					},
+					"g4": {
+						"details" : {},
+						"data": "pbp_20171023_CHAMIL.json"
+					},
+					"g5": {
+						"details" : {},
+						"data": "pbp_20171026_BOSMIL.json"
+					},
+					"g6": {
+						"details" : {},
+						"data": "pbp_20171029_MILATL.json"
+					},
+					"g7": {
+						"details" : {},
+						"data": "pbp_20171031_OKCMIL.json"
+					},
+					"g8": {
+						"details" : {},
+						"data": "pbp_20171101_MILCHA.json"
+					},
+					"g9": {
+						"details" : {},
+						"data": "pbp_20171103_MILDET.json"
+					},
+					"g10": {
+						"details" : {},
+						"data": "pbp_20171107_MILCLE.json"
+					},
+					"g11": {
+						"details" : {},
+						"data": "pbp_20171110_MILSAS.json"
+					},
+					"g12": {
+						"details" : {},
+						"data": "pbp_20171111_LALMIL.json"
 					}
 				},
 				"MIN": {
@@ -662,6 +710,10 @@
 					"g1": {
 						"details" : {},
 						"data": "pbp_20171018_MINSAS.json"
+					},
+					"g11": {
+						"details" : {},
+						"data": "pbp_20171110_MILSAS.json"
 					}
 				},
 				"TOR": {
