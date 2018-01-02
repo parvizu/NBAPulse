@@ -87,6 +87,7 @@ rect.stat-hidden {
 	margin-top: 10px;
 	margin-bottom: 10px;
 	position: relative;
+	font-family: Helvetica;
 }
 
 .cord-chart-container {

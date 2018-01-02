@@ -1,7 +1,13 @@
+.game-menu-container {
+    width: 1050px;
+    margin: 0 auto;
+}
+
+
 .team-details {
     display: inline-block;
     vertical-align: bottom;
-    width: 20%;
+    width: 25%;
 }
 
 .team-players-list {
@@ -24,8 +30,10 @@
 }*/
 
 .game-details {
-	display: inline-block;
-	width: 60%;
+    display: inline-block;
+    width: 50%;
+    vertical-align: top;
+    text-align: center;
 }
 
 .game-details h3 {

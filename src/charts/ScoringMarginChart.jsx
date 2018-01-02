@@ -57,7 +57,7 @@ export default class ScoringMarginChart extends Component {
 				class: 'scoring-margin'
 			});
 
-		let ticks = domainLimit > 10 ? domainLimit/2 : 8;
+		let ticks = domainLimit > 14 ? domainLimit/2 : 10;
 
 		const yAxis = d3.svg.axis()
 			.scale(yScale)

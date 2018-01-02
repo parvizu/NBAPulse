@@ -4,6 +4,7 @@ import ReactFauxDom from 'react-faux-dom';
 const d3 = require('d3');
 
 import styles from './PulseChart.css';
+import styles2 from './CordChart.css';
 
 
 export default class CordChart extends Component {
@@ -124,6 +125,24 @@ export default class CordChart extends Component {
 					height: chartHeight
 				});
 
+		svg.selectAll('.player-substitution')
+			.data(this.props.playerSubs)
+			.enter()
+			.append('rect')
+				.attr({
+					transform: s => {
+						return 'translate('+xScale(s.momentIn+1)+',0)';
+					},
+					class: s => {
+						return 'substitution-'+s.type;
+					},
+					width: s => {
+						// console.log(scale);
+						return xScale((s.momentOut-1) - s.momentIn);
+					},
+					height: chartHeight
+				});
+
 		const renderAddStatMoments = (stats,statName) => {
 			let moments = svg.selectAll('.event-'+statName)
 				.data(stats)
@@ -193,12 +212,51 @@ export default class CordChart extends Component {
 
 
 	render() {
-		const imgUrl = 'https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/'+this.props.playerId+'.png'
+		const imgUrl = 'https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/'+this.props.playerId+'.png';
+
+		console.log(this.props.playerStats);
+		const stats = this.props.playerStats;
 		return (
 			<div>
 				<div className="chart-label player-label"> 
 					<h4>{this.props.label}</h4>
 					<img src={imgUrl} />
+					<div className="player-stats">
+						<div className="player-stat player-points">
+							{stats.points}
+							<div className="player-stat-label">PTS</div>
+						</div>
+						<div>
+							<div>
+								<div className="player-stat player-assists">
+									{stats.assist}
+									<div className="player-stat-label">AST</div>
+								</div>
+								<div className="player-stat player-rebounds">
+									{stats.rebound}
+									<div className="player-stat-label">REB</div>
+								</div>
+								<div className="player-stat player-steals ">
+									{stats.steal}
+									<div className="player-stat-label">STL</div>
+								</div>
+							</div>
+							<div>
+								<div className="player-stat player-blocks">
+									{stats.block}
+									<div className="player-stat-label">BLK</div>
+								</div>
+								<div className="player-stat player-turnovers">
+									{stats.turnover}
+									<div className="player-stat-label">TOV</div>
+								</div>
+								<div className="player-stat player-fouls">
+									{stats.foul}
+									<div className="player-stat-label">PF</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 				<div className="chart-container">{ this.createChart() }</div>
 			</div>

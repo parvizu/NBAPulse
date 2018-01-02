@@ -2,3 +2,73 @@
 	font-size: 9pt;
 	font-family: Helvetica;
 }
+
+.player-stats {
+    position: relative;
+    left: 135px;
+    top: -15px;
+    height: 77px;
+}
+
+.player-stats >div {
+	display: inline-block;
+}
+
+.player-stat {
+    display: inline-block;
+    font-size: 12px;
+    padding: 2px;
+    text-align: center;
+    width: 20px;
+    margin: 0px 5px 5px 0px;
+    font-size: 12pt;
+    height: 32px;
+    text-shadow: 1px 1px #000;
+}
+
+
+/* Individual Stas */
+
+.player-stat-label {
+    font-size: 6pt;
+    text-shadow: none;
+    color: rgba(255,255,255,.5);
+    margin-top: 5px;
+}
+
+.player-points {
+    vertical-align: top;
+    height: 73px;
+    width: 40px;
+    font-size: 18pt;
+    /* margin: 2px 5px; */
+    background-color: rgba(0,128,0,.3);
+}
+
+.player-points .player-stat-label {
+    margin-top: 0px;
+}
+
+.player-assists {
+    background-color: rgba(255,165,0,.75);
+}
+
+.player-rebounds {
+    background-color: rgba(30,144,255,.5);
+}
+
+.player-turnovers {
+    background-color: rgba(255,0,0,.75);
+}
+
+.player-blocks {
+    background-color: rgba(165,42,42,.75);
+}
+
+.player-steals {
+    background-color: rgba(128,0,128,.75);
+}
+
+.player-fouls {
+    background-color: rgba(128,128,128,.3);
+}

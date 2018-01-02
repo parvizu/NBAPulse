@@ -5,7 +5,7 @@ svg {
 .scoring-margin path {
 	stroke: black;
 	stroke-width: .5;
-	fill: rgba(0,0,0,.5);
+	fill: rgba(0,0,0,.35);
 }
 
 .scoring-margin .axis {
@@ -15,7 +15,7 @@ svg {
 }
 
 .scoring-margin .axis path {
-	stroke: lightgray;
+	stroke: gray;
 	stroke-width: 2;
 	fill: none;
 }

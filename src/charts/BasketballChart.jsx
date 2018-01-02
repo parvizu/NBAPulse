@@ -360,13 +360,83 @@ export default class BasketballChart extends Component {
 	getPlayerLog(playerId, gameLog) {
 
 		let playerPlays = []
+		let playerStats = {
+			points: 0,
+			assist: 0,
+			rebound: 0,
+			steal: 0,
+			turnover: 0,
+			foul: 0,
+			block: 0,
+			"made-fg": 0,
+			"missed-fg": 0,
+			"made-3pt": 0,
+			"missed-3pt": 0,
+			'made-ft': 0,
+			'missed-ft': 0
+		};
+
+		const processPlayerEvent = (playType) => {
+			switch(playType) {
+				case 1:
+					return 'foul';
+
+				case 2:
+					return 'rebound';
+
+				case 3:
+					return 'missed-ft';
+
+				case 4:
+					return 'made-ft';
+
+				case 5:
+					return 'missed-3pt';
+
+				case 6:
+					return 'made-3pt';
+
+				case 7:
+					return 'missed-fg';
+
+				case 8:
+					return 'made-fg';
+
+				case 9:
+					return 'turnover';
+
+				case 10:
+					return 'assist';
+
+				case 11:
+					return 'block';
+
+				case 12:
+					return 'steal';
+			}
+		};
+
 		gameLog.forEach((event) => {
+			let playType;
 			if (event.playerId == playerId) {
 				playerPlays.push(event);
+				playType = processPlayerEvent(event.playType);
+				playerStats[playType]+=1;
+
+				if (playType === 'made-fg') {
+					playerStats.points += 2;
+				} else if (playType === 'made-3pt') {
+					playerStats.points += 3;
+				} else if (playType === 'made-ft') {
+					playerStats.points += 1;
+				}
 			}
 		});
 
-		return playerPlays;
+		return {
+			playerLog: playerPlays,
+			playerStats: playerStats
+		};
 	}
 
 	getTeamLog(teamId, gameLog, players) {
@@ -390,13 +460,14 @@ export default class BasketballChart extends Component {
 			const seriesGameRawData = require('../../data/samples/'+gameFile);
 			this.timeLog = this.createBasicTimeLog(maxPeriods);
 			const gameLog = this.processGameLog(seriesGameRawData);
-			const playerLog = this.getPlayerLog(playerId, gameLog);
+			const playerData = this.getPlayerLog(playerId, gameLog);
 
 			return (
 				<PulseChart timeLog={this.timeLog}
 					specs={this.props.specs} 
 					playerId={playerId} 
-					playerLog={playerLog} 
+					playerLog={playerData.playerLog}
+					playerStats={playerData.playerStats}
 					label={"Game "+(i+1)}
 					key={playerId+"_"+i}
 					selectedStats={this.state.selections}
@@ -486,14 +557,17 @@ export default class BasketballChart extends Component {
 
 	getCordChart(player, gameData) {
 
-		const playerLog = this.getPlayerLog(player.playerId, gameData.gameLog);
+		const playerData = this.getPlayerLog(player.playerId, gameData.gameLog);
 		const selected = this.getSelectedStats();
+		const playerSubs = gameData.substitutions[player.playerId] || [];
 
 		return (
 			<CordChart timeLog={gameData.timeLog}
 				specs={this.props.specs}
 				playerId={player.playerId}
-				playerLog={playerLog}
+				playerLog={playerData.playerLog}
+				playerStats={playerData.playerStats}
+				playerSubs={playerSubs}
 				label={player.playerName}
 				key={"cord_" + player.playerId}
 				selectedStats={selected}
@@ -504,16 +578,19 @@ export default class BasketballChart extends Component {
 
 	getPlayerInGame(position, player, gameData, label) {
 
-		const playerLog = this.getPlayerLog(player.playerId, gameData.gameLog);
+		const playerData = this.getPlayerLog(player.playerId, gameData.gameLog);
 		const selected = this.getSelectedStats();
 
 		const playerLabel = typeof label === 'undefined' ? player.playerName : label;
+		const playerSubs = gameData.substitutions[player.playerId] || [];
 
 		const pulseChart = (
 			<PulseChart timeLog={gameData.timeLog}
 					specs={this.props.specs}
 					playerId={player.playerId}
-					playerLog={playerLog}
+					playerLog={playerData.playerLog}
+					playerStats={playerData.playerStats}
+					playerSubs={playerSubs}
 					label={playerLabel}
 					key={player.playerId+"_game"}
 					selectedStats={selected}
@@ -532,7 +609,9 @@ export default class BasketballChart extends Component {
 					<CordChart timeLog={gameData.timeLog}
 						specs={this.props.specs}
 						playerId={player.playerId}
-						playerLog={playerLog}
+						playerLog={playerData.playerLog}
+						playerStats={playerData.playerStats}
+						playerSubs={playerSubs}
 						label={playerLabel}
 						key={"cord_" + player.playerId}
 						selectedStats={selected}
@@ -594,7 +673,7 @@ export default class BasketballChart extends Component {
 
 		if (typeof config === 'undefined') {
 			config = {
-				height:250,
+				height:350,
 				label: ''
 			};
 		}
@@ -644,8 +723,6 @@ export default class BasketballChart extends Component {
 	}
 
 	onSelectGame(gameKey, gameData) {
-		console.log(gameData);
-
 		this.setGameData(gameData);
 
 		this.setState({
@@ -654,8 +731,6 @@ export default class BasketballChart extends Component {
 	}
 
 	onSelectTeam(teamId) {
-		console.log(teamId);
-
 		this.setState({
 			teamSelected: teamId,
 			gameSelected: 'g1',
@@ -741,7 +816,6 @@ export default class BasketballChart extends Component {
 					end: -1
 				};
 			}
-
 			// EVENTNUM 13 means end of period
 			if (row[2] === 13) {
 				quarters['q'+row[4]].end = row[1]
@@ -795,18 +869,6 @@ export default class BasketballChart extends Component {
 			let temp = {};
 
 			for(let i=0; i<subs.length; i++) {
-				// if (i===0 && subs[i].action === 'out' && subs[i].period === 1) {
-				// 	processed[player].push({
-				// 		in: quarters['q'+subs[i].period].start,
-				// 		clockIn: '12:00',
-				// 		out: subs[i].out,
-				// 		clockOut: subs[i].clock,
-				// 		period: subs[i].period,
-				// 		play: subs[i].desc,
-				// 		test: 'test'
-				// 	});
-				// }
-
 				if (subs[i].action === 'in') {
 					temp['type'] = 'court';
 					temp['in'] = subs[i].in;
@@ -864,7 +926,6 @@ export default class BasketballChart extends Component {
 			}
 
 			// console.log("COURT",processed[player]);
-
 			let playerActivity = [];
 			let playerSubs = processed[player];
 			const numPeriods = Object.keys(quarters).length;
@@ -912,10 +973,18 @@ export default class BasketballChart extends Component {
 
 				playerActivity.push(act);
 
+				for (const q in quarters) {
+					if (act.period === parseInt(q.substr(1))) {
+						if (!(act.in >= quarters[q].start && act.out <=quarters[q].end)) {
+							console.log('REVIEW: ');
+							console.log(act);
+						}
+					}
+				}
+
 				temp['type'] = 'bench';
 				temp['in'] = act.out;
 				temp['clockIn'] = act.clockOut;
-
 
 				// if activity is the last one of player
 				if (i+1 === playerSubs.length) {
@@ -949,12 +1018,10 @@ export default class BasketballChart extends Component {
 								temp['play'] = 'Played the whole quarter';
 							}
 
-
 							playerActivity.push(temp);
 							temp = {};
 						}
 					}
-					
 				} else {
 					temp['type'] = 'bench';
 					temp['in'] = act.out;
@@ -967,19 +1034,13 @@ export default class BasketballChart extends Component {
 					playerActivity.push(temp);
 					temp = {};
 				}
-
-				
-
-
-
 			});
-
 			// console.log("BENCH", playerActivity);
 			processed[player] = playerActivity;
 		});
 
-		console.log(processed);
-		// return processed;
+		// console.log(processed);
+		return processed;
 
 	}
 
@@ -994,10 +1055,37 @@ export default class BasketballChart extends Component {
 	} 
 
 	_processGameSubstitutions(game) {
-		return {
-			home: this._processTeamSubstitutions(game, 7),
-			away: this._processTeamSubstitutions(game, 9)
+
+		let gameSubs = Object.assign({},
+				this._processTeamSubstitutions(game, 7),
+				this._processTeamSubstitutions(game, 9));
+
+		for (let playerId in gameSubs) {
+			let playerSubs = gameSubs[playerId];
+
+			playerSubs.forEach(sub => {
+				let checkIn = false,
+					checkOut = false;
+				for (let e = 0; e<game.gameLog.length; e++) {
+
+					if (sub.in === game.gameLog[e].eventId) {
+						sub['momentIn'] = game.gameLog[e].momentId;
+						checkIn = true;
+					}
+
+					if (sub.out === game.gameLog[e].eventId) {
+						sub['momentOut'] = game.gameLog[e].momentId;
+						checkOut = true;
+					}
+
+					if (checkIn === true && checkOut === true) {
+						break;
+					}
+				}
+			});
 		}
+
+		return gameSubs;
 	}
 
 
