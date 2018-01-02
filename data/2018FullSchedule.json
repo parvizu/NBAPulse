@@ -29600,7 +29600,7 @@
                 },
                 {
                   "seq": 4,
-                  "disp": "WMFS",
+                  "disp": "WMFS", 
                   "scope": "away",
                   "type": "radio",
                   "lan": "English"
