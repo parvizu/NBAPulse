@@ -6,7 +6,7 @@ body {
 .chart-label {
     display: inline-block;
     vertical-align: top;
-    width: 275px;
+    width: 300px;
     margin: 0px;
     padding: 0px;
     /* padding-top: 5px; */
@@ -19,16 +19,16 @@ body {
 
 .player-label h4 {
     margin: 0px;
-    top: 80px;
+    top: 3px;
     position: relative;
-    left: 9px;
+    left: 105px;
 }
 
 .player-label img {
     position: absolute;
     top: 0;
     left: 0;
-    height: 80px;
+    height: 66px;
     z-index: -2;
 }
 
@@ -44,7 +44,7 @@ body {
     content: " ";
     /*top: 0;*/
     /*left: 275px;*/
-    width: 1200px;
+    width: 1175px;
     height: 100%;
     z-index: -10;
 }
@@ -84,7 +84,7 @@ rect.rebound {
 }
 
 rect.foul {
-	fill: gray;
+	fill: lightsteelblue;
 	stroke: none;
 }
 

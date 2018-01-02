@@ -37,7 +37,7 @@ export default class BasketballChart extends Component {
 				steal: '',
 				block: '',
 				turnover: '',
-				foul: 'stat-hidden',
+				foul: '',
 				periods: 4
 			},
 			game: {
@@ -52,7 +52,7 @@ export default class BasketballChart extends Component {
 			playersSelected: {
 				"ATL": [1,6],
 				"BKN": [4],
-				"BOS": [0,2,1],
+				"BOS": [0,3,1],
 				"CHA": [2],
 				"CHI": [1,0],
 				"CLE": [0,2],
@@ -76,7 +76,7 @@ export default class BasketballChart extends Component {
 				"PHX": [2],
 				"POR": [2],
 				"SAC": [6,4],
-				"SAS": [4,0],
+				"SAS": [6,0,3],
 				"TOR": [2,1],
 				"UTA": [0,3],
 				"WAS": [2,4]
@@ -427,8 +427,11 @@ export default class BasketballChart extends Component {
 					playerStats.points += 2;
 				} else if (playType === 'made-3pt') {
 					playerStats.points += 3;
+					playerStats['made-fg'] += 1;
 				} else if (playType === 'made-ft') {
 					playerStats.points += 1;
+				} else if (playType === 'missed-3pt') {
+					playerStats['missed-fg'] += 1;
 				}
 			}
 		});
@@ -616,6 +619,7 @@ export default class BasketballChart extends Component {
 						key={"cord_" + player.playerId}
 						selectedStats={selected}
 						periods={gameData.periods}
+						selectedStats2={this.state.selections}
 						height={100}
 						/>
 				</div>

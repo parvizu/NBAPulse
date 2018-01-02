@@ -5,8 +5,8 @@
 
 .player-stats {
     position: relative;
-    left: 135px;
-    top: -15px;
+    left: 2px;
+    bottom: -50px;
     height: 77px;
 }
 
@@ -19,11 +19,15 @@
     font-size: 12px;
     padding: 2px;
     text-align: center;
-    width: 20px;
-    margin: 0px 5px 5px 0px;
+    width: 18px;
+    margin: 0px 4px 5px 0px;
     font-size: 12pt;
     height: 32px;
     text-shadow: 1px 1px #000;
+}
+
+.player-stat.stat-hidden {
+	display: none;
 }
 
 
@@ -32,21 +36,32 @@
 .player-stat-label {
     font-size: 6pt;
     text-shadow: none;
-    color: rgba(255,255,255,.5);
-    margin-top: 5px;
+    color: rgba(255,255,255,.65);
+    margin-top: 0px;
 }
 
 .player-points {
     vertical-align: top;
-    height: 73px;
+    /* height: 73px; */
     width: 40px;
-    font-size: 18pt;
+    /* font-size: 18pt; */
     /* margin: 2px 5px; */
     background-color: rgba(0,128,0,.3);
 }
 
 .player-points .player-stat-label {
     margin-top: 0px;
+}
+
+.player-fg, .player-3pt {
+    width: 40px;
+    /* font-size: 18pt; */
+    /* margin: 2px 5px; */
+    background-color: rgba(0,128,0,.3);
+}
+
+.player-3pt {
+    /*margin-right: 6px;*/
 }
 
 .player-assists {
@@ -70,5 +85,5 @@
 }
 
 .player-fouls {
-    background-color: rgba(128,128,128,.3);
+    background-color: rgba(176,196,222,.4);
 }
