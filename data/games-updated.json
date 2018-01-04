@@ -501,7 +501,27 @@
 						"details": {},
 						"data": "pbp_20171115_PHILAL.json"
 					},
-					"g22": {
+					"g16": {
+						"details" : {},
+						"data": "pbp_20171117_PHXLAL.json"
+					},
+					"g17": {
+						"details" : {},
+						"data": "pbp_20171119_DENLAL.json"
+					},
+					"g18": {
+						"details" : {},
+						"data": "pbp_20171121_CHILAL.json"
+					},
+					"g19": {
+						"details" : {},
+						"data": "pbp_20171122_LALSAC.json"
+					},
+					"g20": {
+						"details" : {},
+						"data": "pbp_20171127_LALLAC.json"
+					},
+					"g21": {
 						"details" : {},
 						"data": "pbp_20171129_GSWLAL.json"
 					},
