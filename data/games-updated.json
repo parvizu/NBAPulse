@@ -89,9 +89,21 @@
 						"details" : {},
 						"data": "pbp_20171017_BOSCLE.json"
 					},
+					"g3": {
+						"details" : {},
+						"data": "pbp_20171020_BOSPHI.json"
+					},
 					"g15": {
 						"details" : {},
 						"data": "pbp_20171116_GSWBOS.json"
+					},
+					"g32": {
+						"details" : {},
+						"data": "pbp_20171228_HOUBOS.json"
+					},
+					"g33": {
+						"details" : {},
+						"data": "pbp_20180103_CLEBOS.json"
 					}
 				},
 				"BKN": {
@@ -228,6 +240,14 @@
 					"g34": {
 						"details" : {},
 						"data": "pbp_20171225_CLEGSW.json"
+					},
+					"g37": {
+						"details" : {},
+						"data": "pbp_20180102_PORCLE.json"
+					},
+					"g38": {
+						"details" : {},
+						"data": "pbp_20180103_CLEBOS.json"
 					}
 				},
 				"DAL": {
@@ -303,7 +323,7 @@
 					},
 					"g9": {
 						"details": {},
-						"data": "pbp_20171102_GSWWAS.json"
+						"data": "pbp_20171102_GSWSAS.json"
 					},
 					"g10": {
 						"details": {},
@@ -416,6 +436,30 @@
 					"g37": {
 						"details" : {},
 						"data": "pbp_20171230_MEMGSW.json"
+					},
+					"g37": {
+						"details" : {},
+						"data": "pbp_20171230_MEMGSW.json"
+					},
+					"g38": {
+						"details" : {},
+						"data": "pbp_20180103_GSWDAL.json"
+					},
+					"g39": {
+						"details" : {},
+						"data": "pbp_20180104_GSWHOU.json"
+					},
+					"g40": {
+						"details" : {},
+						"data": "pbp_20180106_GSWLAC.json"
+					},
+					"g41": {
+						"details" : {},
+						"data": "pbp_20180108_DENGSW.json"
+					},
+					"g42": {
+						"details" : {},
+						"data": "pbp_20180110_LACGSW.json"
 					}
 				},
 				"HOU": {
@@ -438,6 +482,14 @@
 					"g1": {
 						"details" : {},
 						"data": "pbp_20171019_LACLAL.json"
+					},
+					"g40": {
+						"details" : {},
+						"data": "pbp_20180106_GSWLAC.json"
+					},
+					"g42": {
+						"details" : {},
+						"data": "pbp_20180110_LACGSW.json"
 					}
 				},
 				"LAL": {

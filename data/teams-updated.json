@@ -326,6 +326,15 @@
 				}, {
 					"playerId": 1628464,
 					"playerName": "Daniel Theis"
+				}, {
+					"playerId": 1627846,
+					"playerName": "Abdel Nader"
+				}, {
+					"playerId": 1627824,
+					"playerName": "Guerschon Yabusele"
+				}, {
+					"playerId": 1628444,
+					"playerName": "Jabari Bird"
 				}]
 			},
 			"CHA": {
@@ -440,6 +449,9 @@
 				}, {
 					"playerId": 2544,
 					"playerName": "LeBron James"
+				}, {
+					"playerId": 202738,
+					"playerName": "Isaiah Thomas"
 				}, {
 					"playerId": 203109,
 					"playerName": "Jae Crowder"
@@ -792,6 +804,15 @@
 				}, {
 					"playerId": 1626149,
 					"playerName": "Montrezl Harrell"
+				}, {
+					"playerId": 203710,
+					"playerName": "C.J. Williams"
+				}, {
+					"playerId": 1628393,
+					"playerName": "Jawun Evans"
+				}, {
+					"playerId": 1627820,
+					"playerName": "Tyrone Wallace"
 				}]
 			},
 			"LAL": {
@@ -1321,6 +1342,9 @@
 					"playerId": 203081,
 					"playerName": "Damian Lillard"
 				}, {
+					"playerId": 203468,
+					"playerName": "CJ McCollum"
+				}, {
 					"playerId": 202329,
 					"playerName": "Al-Farouq Aminu"
 				}, {
@@ -1344,9 +1368,6 @@
 				}, {
 					"playerId": 203086,
 					"playerName": "Meyers Leonard"
-				}, {
-					"playerId": 203468,
-					"playerName": "CJ McCollum"
 				}, {
 					"playerId": 1628380,
 					"playerName": "Zach Collins"
