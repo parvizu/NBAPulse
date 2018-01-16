@@ -3,11 +3,12 @@
     /* text-align: center; */
     width: 1475px;
     padding: 20px;
+    font-family: Helvetica;
 }
 
 #stat-control {
-	width: 100%;
-	text-align: center;
+    width: 100%;
+    text-align: center;
 }
 
 .stat {
