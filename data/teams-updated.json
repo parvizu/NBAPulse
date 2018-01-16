@@ -189,6 +189,10 @@
 				"teamId": 1610612760,
 				"teamName": "Hawks",
 				"teamCity": "Atlanta",
+				"teamColors": {
+					"main": "",
+					"alternate": ""
+				},
 				"players": [{
 					"playerId": 203473,
 					"playerName": "Dewayne Dedmon"
@@ -241,6 +245,10 @@
 				"teamId": 1610612751,
 				"teamName": "Nets",
 				"teamCity": "Brooklyn",
+				"teamColors": {
+					"main": "",
+					"alternate": ""
+				},
 				"players": [{
 					"playerId": 202389,
 					"playerName": "Timofey Mozgov"
@@ -290,6 +298,10 @@
 				"teamId": 1610612738,
 				"teamName": "Celtics",
 				"teamCity": "Boston",
+				"teamColors": {
+					"main": "",
+					"alternate": ""
+				},
 				"players": [{
 					"playerId": 201143,
 					"playerName": "Al Horford"
@@ -342,6 +354,10 @@
 				"teamId": 1610612766,
 				"teamName": "Hornets",
 				"teamCity": "Charlotte",
+				"teamColors": {
+					"main": "",
+					"alternate": ""
+				},
 				"players": [{
 					"playerId": 2730,
 					"playerName": "Dwight Howard"
@@ -391,6 +407,10 @@
 				"teamId": 1610612741,
 				"teamName": "Bulls",
 				"teamCity": "Chicago",
+				"teamColors": {
+					"main": "",
+					"alternate": ""
+				},
 				"players": [{
 					"playerId": 201577,
 					"playerName": "Robin Lopez"
@@ -439,7 +459,11 @@
 				"teamKey": "CLE",
 				"teamId": 1610612739,
 				"teamName": "Cavaliers",
-				"teamCity": "CLE",
+				"teamCity": "Cleveland",
+				"teamColors": {
+					"main": "",
+					"alternate": ""
+				},
 				"players": [{
 					"playerId": 201567,
 					"playerName": "Kevin Love"
@@ -495,6 +519,10 @@
 				"teamId": 1610612742,
 				"teamName": "Mavericks",
 				"teamCity": "Dallas",
+				"teamColors": {
+					"main": "",
+					"alternate": ""
+				},
 				"players": [{
 					"playerId": 203084,
 					"playerName": "Harrison Barnes"
@@ -547,6 +575,10 @@
 				"teamId": 1610612743,
 				"teamName": "Nuggets",
 				"teamCity": "Denver",
+				"teamColors": {
+					"main": "",
+					"alternate": ""
+				},
 				"players": [{
 					"playerId": 200794,
 					"playerName": "Paul Millsap"
@@ -593,6 +625,10 @@
 				"teamId": 1610612765,
 				"teamName": "Pistons",
 				"teamCity": "Detroit",
+				"teamColors": {
+					"main": "",
+					"alternate": ""
+				},
 				"players": [{
 					"playerId": 203083,
 					"playerName": "Andre Drummond"
@@ -642,6 +678,10 @@
 				"teamId": 1610612744,
 				"teamName": "Warriors",
 				"teamCity": "Golden State",
+				"teamColors": {
+					"main": "",
+					"alternate": ""
+				},
 				"players": [{
 					"playerId": 201939,
 					"playerName": "Steph Curry"
@@ -694,6 +734,10 @@
 				"teamId": 1610612745,
 				"teamName": "Rockets",
 				"teamCity": "Houston",
+				"teamColors": {
+					"main": "",
+					"alternate": ""
+				},
 				"players": [{
 					"playerId": 203991,
 					"playerName": "Clint Capela"
@@ -731,6 +775,10 @@
 				"teamId": 1610612754,
 				"teamName": "Pacers",
 				"teamCity": "Indiana",
+				"teamColors": {
+					"main": "",
+					"alternate": ""
+				},
 				"players": [{
 					"playerId": 1626167,
 					"playerName": "Myles Turner"
@@ -768,6 +816,10 @@
 				"teamId": 1610612747,
 				"teamName": "Clippers",
 				"teamCity": "Los Angeles",
+				"teamColors": {
+					"main": "",
+					"alternate": ""
+				},
 				"players": [{
 					"playerId": 201599,
 					"playerName": "DeAndre Jordan"
@@ -820,6 +872,10 @@
 				"teamId": 1610612747,
 				"teamName": "Lakers",
 				"teamCity": "Los Angeles",
+				"teamColors": {
+					"main": "",
+					"alternate": ""
+				},
 				"players": [{
 					"playerId": 201572,
 					"playerName": "Brook Lopez"
@@ -875,6 +931,10 @@
 				"teamId": 1610612763,
 				"teamName": "Grizzlies",
 				"teamCity": "Memphis",
+				"teamColors": {
+					"main": "",
+					"alternate": ""
+				},
 				"players": [{
 					"playerId": 201188,
 					"playerName": "Marc Gasol"
@@ -927,6 +987,10 @@
 				"teamId": 1610612748,
 				"teamName": "Heat",
 				"teamCity": "Miami",
+				"teamColors": {
+					"main": "",
+					"alternate": ""
+				},
 				"players": [{
 					"playerId": 202355,
 					"playerName": "Hassan Whiteside"
@@ -970,6 +1034,10 @@
 				"teamId": 1610612749,
 				"teamName": "Bucks",
 				"teamCity": "Milwaukee",
+				"teamColors": {
+					"main": "",
+					"alternate": ""
+				},
 				"players": [{
 					"playerId": 1627748,
 					"playerName": "Thon Maker"
@@ -1000,6 +1068,24 @@
 				}, {
 					"playerId": 1626173,
 					"playerName": "Rashad Vaughn"
+				}, {
+					"playerId": 1891,
+					"playerName": "Jason Terry"
+				}, {
+					"playerId": 1628425,
+					"playerName": "Sterling Brown"
+				}, {
+					"playerId": 1628391,
+					"playerName": "D.J. Wilson"
+				}, {
+					"playerId": 202732,
+					"playerName": "DeAndre Liggins"
+				}, {
+					"playerId": 1627780,
+					"playerName": "Gary Payton II"
+				}, {
+					"playerId": 202339,
+					"playerName": "Eric Bledsoe"
 				}]
 			},
 			"MIN": {
@@ -1007,6 +1093,10 @@
 				"teamId": 1610612750,
 				"teamName": "Timberwolves",
 				"teamCity": "Minnesota",
+				"teamColors": {
+					"main": "",
+					"alternate": ""
+				},
 				"players": [{
 					"playerId": 1626157,
 					"playerName": "Karl-Anthony Towns"
@@ -1050,6 +1140,10 @@
 				"teamId": 1610612740,
 				"teamName": "Pelicans",
 				"teamCity": "New Orleans",
+				"teamColors": {
+					"main": "",
+					"alternate": ""
+				},
 				"players": [{
 					"playerId": 203076,
 					"playerName": "Anthony Davis"
@@ -1096,6 +1190,10 @@
 				"teamId": 1610612752,
 				"teamName": "Knicks",
 				"teamCity": "New York",
+				"teamColors": {
+					"main": "",
+					"alternate": ""
+				},
 				"players": [{
 					"playerId": 204001,
 					"playerName": "Kristaps Porzingis"
@@ -1145,6 +1243,10 @@
 				"teamId": 1610612760,
 				"teamName": "Thunder",
 				"teamCity": "Oklahoma City",
+				"teamColors": {
+					"main": "",
+					"alternate": ""
+				},
 				"players": [{
 					"playerId": 203500,
 					"playerName": "Steven Adams"
@@ -1188,6 +1290,10 @@
 				"teamId": 1610612753,
 				"teamName": "Magic",
 				"teamCity": "Orlando",
+				"teamColors": {
+					"main": "",
+					"alternate": ""
+				},
 				"players": [{
 					"playerId": 202696,
 					"playerName": "Nikola Vucevic"
@@ -1237,6 +1343,10 @@
 				"teamId": 1610612755,
 				"teamName": "76ers",
 				"teamCity": "Philadelphia",
+				"teamColors": {
+					"main": "",
+					"alternate": ""
+				},
 				"players": [{
 					"playerId": 203954,
 					"playerName": "Joel Embiid"
@@ -1286,6 +1396,10 @@
 				"teamId": 1610612756,
 				"teamName": "Suns",
 				"teamCity": "Phoenix",
+				"teamColors": {
+					"main": "",
+					"alternate": ""
+				},
 				"players": [{
 					"playerId": 2199,
 					"playerName": "Tyson Chandler"
@@ -1332,6 +1446,10 @@
 				"teamId": 1610612757,
 				"teamName": "Trailblazers",
 				"teamCity": "Portland",
+				"teamColors": {
+					"main": "",
+					"alternate": ""
+				},
 				"players": [{
 					"playerId": 203994,
 					"playerName": "Jusuf Nurkic"
@@ -1381,6 +1499,10 @@
 				"teamId": 1610612758,
 				"teamName": "Kings",
 				"teamCity": "Sacramento",
+				"teamColors": {
+					"main": "",
+					"alternate": ""
+				},
 				"players": [{
 					"playerId": 1626161,
 					"playerName": "Willie Cauley-Stein"
@@ -1427,6 +1549,10 @@
 				"teamId": 1610612759,
 				"teamName": "Spurs",
 				"teamCity": "San Antonio",
+				"teamColors": {
+					"main": "",
+					"alternate": ""
+				},
 				"players": [{
 					"playerId": 2200,
 					"playerName": "Pau Gasol"
@@ -1473,6 +1599,10 @@
 				"teamId": 1610612761,
 				"teamName": "Raptors",
 				"teamCity": "Toronto",
+				"teamColors": {
+					"main": "",
+					"alternate": ""
+				},
 				"players": [{
 					"playerId": 202685,
 					"playerName": "Jonas Valanciunas"
@@ -1516,6 +1646,10 @@
 				"teamId": 1610612762,
 				"teamName": "Jazz",
 				"teamCity": "Utah",
+				"teamColors": {
+					"main": "",
+					"alternate": ""
+				},
 				"players": [{
 					"playerId": 203497,
 					"playerName": "Rudy Gobert"
@@ -1556,6 +1690,10 @@
 				"teamId": 1610612764,
 				"teamName": "Wizards",
 				"teamCity": "Washington",
+				"teamColors": {
+					"main": "",
+					"alternate": ""
+				},
 				"players": [{
 					"playerId": 101162,
 					"playerName": "Marcin Gortat"

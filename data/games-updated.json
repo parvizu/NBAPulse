@@ -248,6 +248,26 @@
 					"g38": {
 						"details" : {},
 						"data": "pbp_20180103_CLEBOS.json"
+					},
+					"g39": {
+						"details" : {},
+						"data": "pbp_20180106_CLEORL.json"
+					},
+					"g40": {
+						"details" : {},
+						"data": "pbp_20180108_CLEMIN.json"
+					},
+					"g41": {
+						"details" : {},
+						"data": "pbp_20180111_CLETOR.json"
+					},
+					"g42": {
+						"details" : {},
+						"data": "pbp_20180112_CLEIND.json"
+					},
+					"g43": {
+						"details" : {},
+						"data": "pbp_20180115_GSWCLE.json"
 					}
 				},
 				"DAL": {
@@ -460,6 +480,18 @@
 					"g42": {
 						"details" : {},
 						"data": "pbp_20180110_LACGSW.json"
+					},
+					"g43": {
+						"details" : {},
+						"data": "pbp_20180112_GSWMIL.json"
+					},
+					"g44": {
+						"details" : {},
+						"data": "pbp_20180113_GSWTOR.json"
+					},
+					"g45": {
+						"details" : {},
+						"data": "pbp_20180115_GSWCLE.json"
 					}
 				},
 				"HOU": {
