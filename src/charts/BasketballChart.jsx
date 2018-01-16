@@ -42,12 +42,14 @@ export default class BasketballChart extends Component {
 			},
 			game: {
 				file: '',
+				summary: {},
 				periods: 4,
 				timeLog: {},
 				rawData: {},
 				gameLog: {},
 				scoringLog: {},
-				substitutions: {}
+				substitutions: {},
+				breakdown: {}
 			},
 			playersSelected: {
 				"ATL": [1,6],
@@ -74,7 +76,7 @@ export default class BasketballChart extends Component {
 				"ORL": [4,0],
 				"PHI": [0,1],
 				"PHX": [2],
-				"POR": [2],
+				"POR": [2,3],
 				"SAC": [6,4],
 				"SAS": [6,0,3],
 				"TOR": [2,1],
@@ -103,6 +105,7 @@ export default class BasketballChart extends Component {
 		this.onSelectTeam = this.onSelectTeam.bind(this);
 		this.onSelectPlayer = this.onSelectPlayer.bind(this);
 
+		this._processGameBreakdown = this._processGameBreakdown.bind(this);
 		this._processTeamSubstitutions = this._processTeamSubstitutions.bind(this);
 		this._processGameSubstitutions = this._processGameSubstitutions.bind(this);
 	}
@@ -143,6 +146,8 @@ export default class BasketballChart extends Component {
 			momentId: game.timeLog.length+1,
 			margin: 0
 		});
+
+		game['breakdown'] = this._processGameBreakdown(game.gameLog);
 
 		return game;
 	}
@@ -191,10 +196,13 @@ export default class BasketballChart extends Component {
 		let momentId = 0;
 
 		for (let q = 1; q<=periods; q++) {
-			for (let m = 12; m >= 0; m--) {
-				if (m == 12) {					
+			const quarterLength = q <= 4 ? 12 : 5;
+			const quarterBase = q <= 4? '12:00' : '5:00';
+
+			for (let m = quarterLength; m >= 0; m--) {
+				if (m == quarterLength) {
 					basicLog.push({
-						gameClock: "12:00",
+						gameClock: quarterBase,
 						momentId: momentId++,
 						quarter: q
 					});
@@ -209,7 +217,6 @@ export default class BasketballChart extends Component {
 						});
 					}	
 				}
-				
 			}
 		}
 
@@ -218,7 +225,6 @@ export default class BasketballChart extends Component {
 
 	processGameLog(gameData, timeLog) {
 		let gameLog = [];
-		let refactoredEvents = [];
 
 		gameData.resultSets[0].rowSet.forEach(event => {
 			let brokenDown = {};
@@ -340,7 +346,8 @@ export default class BasketballChart extends Component {
 				teamId: event[playernum+'_TEAM_ID'],
 				teamName: event[playernum+'_TEAM_NICKNAME'],
 				teamAbbreviation: event[playernum+'_TEAM_ABBREVIATION'],
-				teamCity: event[playernum+'_TEAM_CITY']
+				teamCity: event[playernum+'_TEAM_CITY'],
+				score: event['SCORE']
 			};
 		}
 
@@ -740,7 +747,7 @@ export default class BasketballChart extends Component {
 			gameSelected: 'g1',
 		});
 
-		// this._processTeamPlayers(teamId);
+		this._processTeamPlayers(teamId);
 
 	}
 
@@ -758,7 +765,7 @@ export default class BasketballChart extends Component {
 			currentPlayers[teamAbbr].push(playerNum);
 		}
 
-		console.log(teamAbbr, currentPlayers[teamAbbr]);
+		// console.log(teamAbbr, currentPlayers[teamAbbr]);
 
 		this.setState({
 			playersSelected: currentPlayers
@@ -980,8 +987,8 @@ export default class BasketballChart extends Component {
 				for (const q in quarters) {
 					if (act.period === parseInt(q.substr(1))) {
 						if (!(act.in >= quarters[q].start && act.out <=quarters[q].end)) {
-							console.log('REVIEW: ');
-							console.log(act);
+							// console.log('REVIEW: ');
+							// console.log(act);
 						}
 					}
 				}
@@ -1092,9 +1099,54 @@ export default class BasketballChart extends Component {
 		return gameSubs;
 	}
 
+	_processGameBreakdown(gameData) {
+		let breakdown = {};
+		let period = 0;
+		let previous = {
+			home: 0,
+			away: 0
+		}
+
+		for (let i = 0; i < gameData.length; i++) {
+			let event = gameData[i]
+			if (event.clock === '0:00' && event.score !== null && period !== event.quarter) {
+				period = event.quarter;
+				let label = period;
+				let score = event.score.split(' - ');
+				if (period > 4) {
+					label = "OT" + (period - 4);
+				}
+
+				breakdown[period] = {
+					label: label,
+					home: parseInt(score[1]) - previous.home,
+					away: parseInt(score[0]) - previous.away,
+					homeScore: parseInt(score[1]),
+					awayScore: parseInt(score[0])
+				};
+
+				previous = {
+					home: parseInt(score[1]),
+					away: parseInt(score[0])
+				};
+			}
+		}
+
+		breakdown['final'] = {
+			label: 'Final',
+			home: previous.home,
+			away: previous.away,
+			homeScore: previous.home,
+			awayScore: previous.away,
+		};
+
+		return breakdown;
+	}
+
 
 	render() {
 		// const gameSelected = this.props.games.s2018.season.team.GSW.g5.data;
+
 		const gameSelectedFile = this.state.game.file;
 		const homeTeam = gameSelectedFile.split("_")[2].substr(3,3);
 		const awayTeam = gameSelectedFile.split("_")[2].substr(0,3);
@@ -1125,7 +1177,8 @@ export default class BasketballChart extends Component {
 					awayPlayersSelected={awayPlayersSelected}
 					gameData={this.props.game}
 					teamsData={this.props.teams}  
-					onSelectPlayer={this.onSelectPlayer} />
+					onSelectPlayer={this.onSelectPlayer}
+					scoreBreakdown={this.state.game.breakdown} />
 
 				<StatControl handleStatClick={this.handleStatClick} selectedStats={this.state.selections}/>
 

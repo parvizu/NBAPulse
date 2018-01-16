@@ -67,20 +67,30 @@ export default class CordChart extends Component {
 			}];
 
 		for (let i = 1; i<=this.props.periods; i++) {
-			// half quarter mark
-			periodBreaks.push({
-				gameClock: '6:00',
-				quarter:i+1,
-				breakType: 'mid-quarter',
-				momentId: i>1 ? ((i*2)-1) * 361 : 361,
-			});
-			// end quarter mark
-			periodBreaks.push({
-				gameClock: '0:00',
-				quarter:i,
-				breakType: (i%2) === 0 ? 'quarter' : 'half',
-				momentId: 721 * i,
-			})
+			if ( i <=4 ) {
+				// half quarter mark
+				periodBreaks.push({
+					gameClock: '6:00',
+					quarter:i+1,
+					breakType: 'mid-quarter',
+					momentId: i>1 ? ((i*2)-1) * 361 : 361,
+				});
+				// end quarter mark
+				periodBreaks.push({
+					gameClock: '0:00',
+					quarter:i,
+					breakType: (i%2) === 0 ? 'quarter' : 'half',
+					momentId: 721 * i,
+				});
+			} else {
+				// overtime end quarter mark
+				periodBreaks.push({
+					gameClock: '0:00',
+					quarter:i,
+					breakType: 'quarter',
+					momentId: (721*4) + ((i-4) * 301),
+				});
+			}
 		}
 
 		// Adding statistic cords

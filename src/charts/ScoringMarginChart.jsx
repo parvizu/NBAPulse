@@ -146,20 +146,30 @@ export default class ScoringMarginChart extends Component {
 			}];
 
 		for (let i = 1; i<=this.props.periods; i++) {
-			// half quarter mark
-			periodBreaks.push({
-				gameClock: '6:00',
-				quarter:i+1,
-				breakType: 'mid-quarter',
-				momentId: i>1 ? ((i*2)-1) * 361 : 361,
-			});
-			// end quarter mark
-			periodBreaks.push({
-				gameClock: '0:00',
-				quarter:i,
-				breakType: (i%2) === 0 ? 'quarter' : 'half',
-				momentId: 721 * i,
-			})
+			if ( i <=4 ) {
+				// half quarter mark
+				periodBreaks.push({
+					gameClock: '6:00',
+					quarter:i+1,
+					breakType: 'mid-quarter',
+					momentId: i>1 ? ((i*2)-1) * 361 : 361,
+				});
+				// end quarter mark
+				periodBreaks.push({
+					gameClock: '0:00',
+					quarter:i+1,
+					breakType: (i%2) === 0 ? 'quarter' : 'half',
+					momentId: 721 * i,
+				});
+			} else {
+				// overtime end quarter mark
+				periodBreaks.push({
+					gameClock: '0:00',
+					quarter:i+1,
+					breakType: 'quarter',
+					momentId: (721*4) + ((i-4) * 301),
+				});
+			}
 		}
 
 		svg.selectAll('rect.period-end')
@@ -174,6 +184,34 @@ export default class ScoringMarginChart extends Component {
 						return 'period-end ' + b.breakType;
 					},
 					height: chartHeight
+				});
+
+		const quarterLabels = periodBreaks.filter(b => (b.breakType === 'quarter' || b.breakType === 'half'));
+
+		svg.selectAll('rect.period-label')
+			.data(quarterLabels)
+			.enter()
+			.append('text')
+				.attr({
+					class: (b) => {
+						return 'period-label'
+					},
+					transform: b => {
+						return 'translate('+ (xScale(b.momentId)+ 15)+',20)';
+					}
+				})
+				.text((b) => {
+					if (b.quarter === 1) {
+						return '1st';
+					} else if (b.quarter === 2) {
+						return '2nd';
+					} else if (b.quarter === 3) {
+						return '3rd';
+					} else if (b.quarter === 4) {
+						return '4th';
+					} else {
+						return 'OT'+(b.quarter - 4);
+					}
 				});
 
 		return node.toReact();

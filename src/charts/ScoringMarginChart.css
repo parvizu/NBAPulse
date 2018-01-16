@@ -37,3 +37,15 @@ svg {
 .scoring-margin .y.axisRightLabels .tick text {
 	fill: lightgray;
 }
+
+.game-scoring-margin h4.chart-label {
+	background: none;
+}
+
+
+text.period-label {
+    font-family: helvetica;
+    font-size: 14pt;
+    fill: rgba(10,10,10,.2);
+    font-weight: 600;
+}
