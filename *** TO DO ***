@@ -2,24 +2,25 @@
 
 
 ------- Game Menu -------
-[X]  Add game list for each team when selecting
-[ ]
-
-
+[X] Add game list for each team when selecting
+[ ] Add color scheme for W/L in each game
+[ ] 
 
 
 ------- Game Details --------
-[ ] Add scores and Game details
-[ ] Add quarter by quarter score breakdown
-[ ]
+[ ] Add Game scores and Game details
+[X] Add quarter by quarter score breakdown
+[ ] 
 
 
 
 ------- Player Details ------
 
 [ ] Take out player card from chart component. Those two should be independent of each other
-[ ] Create player card with photo, position, game stats.
+[X] Create player card with photo, position, game stats.
 [ ] Add team colors to player card to differentiate them.
+
+
 
 
 ------- Substitutions ------
@@ -29,26 +30,45 @@
 		* The log has no registry of this cases (might have to be manual)
 		* This happens when there is a 'sub-out' when it was on the beanch
 		* Doesn't necessarilly mean that the player got subbed in in the previous qtr break
-[ ] Set the description for "bench" moment using the subbed out play description. 
+[ ] Set the description for "bench" moment using the subbed out play description. Or add a legend for bench (?).
+[ ] BUG: Fix whenever the player played for the whole quarter. Right now it displays as if didn't.
+[ ] BUG: There might be some weird case when the player was subbed out but the substitution is not displayed or in the data (maybe?).
 
 
 ------- String Chart -------
-[ ]  Add substitution/on court display in the String Chart
+[X]  Add substitution/on court display in the String Chart
+[X] Fix quarter size based on number of moments. It is creating the OTs with the same size as a regular quarter.
 
 
 
 -------- Scoring Chart ----------
-[ ] Make the axis lines display behind the scoring path but the axis numbers should be on top of it.
+[X] Make the axis lines display behind the scoring path but the axis numbers should be on top of it.
+[ ] Add a x,y grid line on hover so the user can know the exact scoring margin at a specific moment by hovering over it. 
+[ ] Add the score on a pop out (maybe?) <--- test it
 
 
 
+-------- Hot/Cold Streak Chart ----------
+Desc: A chart that will display the good/bad shooting streak of a player depending on his misses or makes in a row. 
+- Could be displayed beneath the shooting cords but instead of the rest of the cords selected. 
+- Also something as simple as a bar chart up or down but only counts makes in a row.
+- Color code it to show hotness (red scale) or coldness (blue scale).
+           x
++	 x    xx       x
+    xx   xxx x x  xx
+    -----------------
+      xxx   x x xx  x
+-      xx        x
+        x
 
--------- Series Scoring ----------
+
+
+-------- Multi Game/Series Scoring ----------
 [ ] Select the maximum scoring margin for the whole series and use that as the range for every game so they are better to compare to each other
 
 
 
 -------- BACK END ----------
-[ ] Add the data base to save game data
+[ ] Add the DB to save game data
 [ ] Create API end points to handle all queries (Python Flasks or Meteor?)
 [ ] Create procedure that will automatically download the latest game data
