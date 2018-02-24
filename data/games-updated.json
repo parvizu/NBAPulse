@@ -89,9 +89,37 @@
 						"details" : {},
 						"data": "pbp_20171017_BOSCLE.json"
 					},
+					"g2": {
+						"details" : {},
+						"data": "pbp_20171018_MILBOS.json"
+					},
 					"g3": {
 						"details" : {},
 						"data": "pbp_20171020_BOSPHI.json"
+					},
+					"g4": {
+						"details" : {},
+						"data": "pbp_20171024_NYKBOS.json"
+					},
+					"g5": {
+						"details" : {},
+						"data": "pbp_20171026_BOSMIL.json"
+					},
+					"g6": {
+						"details" : {},
+						"data": "pbp_20171028_BOSMIA.json"
+					},
+					"g7": {
+						"details" : {},
+						"data": "pbp_20171030_SASBOS.json"
+					},
+					"g8": {
+						"details" : {},
+						"data": "pbp_20171101_SACBOS.json"
+					},
+					"g9": {
+						"details" : {},
+						"data": "pbp_20171103_BOSOKC.json"
 					},
 					"g15": {
 						"details" : {},
@@ -104,6 +132,10 @@
 					"g33": {
 						"details" : {},
 						"data": "pbp_20180103_CLEBOS.json"
+					},
+					"g44": {
+						"details": {},
+						"data": "pbp_20180116_NOPBOS.json"
 					}
 				},
 				"BKN": {
@@ -492,6 +524,38 @@
 					"g45": {
 						"details" : {},
 						"data": "pbp_20180115_GSWCLE.json"
+					},
+					"g46": {
+						"details": {},
+						"data": "pbp_20180117_GSWCHI.json"
+					},
+					"g47": {
+						"details" : {},
+						"data": "pbp_20180120_GSWHOU.json"
+					},
+					"g48": {
+						"details" : {},
+						"data": "pbp_20180123_NYKGSW.json"
+					},
+					"g49": {
+						"details": {},
+						"data": "pbp_20180125_MINGSW.json"
+					},
+					"g50": {
+						"details" : {},
+						"data": "pbp_20180127_BOSGSW.json"
+					},
+					"g51": {
+						"details" : {},
+						"data": "pbp_20180130_GSWUTA.json"
+					},
+					"g52": {
+						"details": {},
+						"data": "pbp_20180202_GSWSAC.json"
+					},
+					"g53": {
+						"details" : {},
+						"data": "pbp_20180203_GSWDEN.json"
 					}
 				},
 				"HOU": {
@@ -609,17 +673,109 @@
 						"details" : {},
 						"data": "pbp_20171129_GSWLAL.json"
 					},
-					"g30": {
+					"g22": {
+						"details" : {},
+						"data": "pbp_20171202_LALDEN.json"
+					},
+					"g23": {
+						"details" : {},
+						"data": "pbp_20171203_HOULAL.json"
+					},
+					"g24": {
+						"details" : {},
+						"data": "pbp_20171207_LALPHI.json"
+					},
+					"g25": {
+						"details" : {},
+						"data": "pbp_20171209_LALCHA.json"
+					},
+					"g26": {
+						"details" : {},
+						"data": "pbp_20171212_LALNYK.json"
+					},
+					"g27": {
+						"details" : {},
+						"data": "pbp_20171214_LALCLE.json"
+					},
+					"g28": {
 						"details" : {},
 						"data": "pbp_20171218_GSWLAL.json"
 					},
-					"g31": {
+					"g29": {
 						"details" : {},
 						"data": "pbp_20171220_LALHOU.json"
 					},
-					"g32": {
+					"g30": {
 						"details" : {},
 						"data": "pbp_20171222_LALGSW.json"
+					},
+					"g31": {
+						"details" : {},
+						"data": "pbp_20171223_PORLAL.json"
+					},
+					"g32": {
+						"details" : {},
+						"data": "pbp_20171225_MINLAL.json"
+					},
+					"g33": {
+						"details" : {},
+						"data": "pbp_20171227_MEMLAL.json"
+					},
+					"g34": {
+						"details" : {},
+						"data": "pbp_20171229_LACLAL.json"
+					},
+					"g35": {
+						"details" : {},
+						"data": "pbp_20171231_LALHOU.json"
+					},
+					"g36": {
+						"details" : {},
+						"data": "pbp_20180101_LALMIN.json"
+					},
+					"g37": {
+						"details" : {},
+						"data": "pbp_20180103_OKCLAL.json"
+					},
+					"g38": {
+						"details" : {},
+						"data": "pbp_20180101_LALMIN.json"
+					},
+					"g39": {
+						"details" : {},
+						"data": "pbp_20180105_CHALAL.json"
+					},
+					"g40": {
+						"details" : {},
+						"data": "pbp_20180107_ATLLAL.json"
+					},
+					"g41": {
+						"details" : {},
+						"data": "pbp_20180109_SACLAL.json"
+					},
+					"g42": {
+						"details" : {},
+						"data": "pbp_20180111_SASLAL.json"
+					},
+					"g43": {
+						"details" : {},
+						"data": "pbp_20180113_LALDAL.json"
+					},
+					"g44": {
+						"details" : {},
+						"data": "pbp_20180115_LALMEM.json"
+					},
+					"g45": {
+						"details" : {},
+						"data": "pbp_20180117_LALOKC.json"
+					},
+					"g46": {
+						"details" : {},
+						"data": "pbp_20180119_INDLAL.json"
+					},
+					"g47": {
+						"details" : {},
+						"data": "pbp_20180121_NYKLAL.json"
 					}
 				},
 				"MEM": {
@@ -702,6 +858,14 @@
 					"g12": {
 						"details" : {},
 						"data": "pbp_20171111_LALMIL.json"
+					},
+					"g43": {
+						"details" : {},
+						"data": "pbp_20180114_MILMIA.json"
+					},
+					"g44": {
+						"details" : {},
+						"data": "pbp_20180115_MILWAS.json"
 					}
 				},
 				"MIN": {
@@ -726,7 +890,12 @@
 					"g20": {
 						"details" : {},
 						"data": "pbp_20171125_NOPGSW.json"
+					},
+					"g41": {
+						"details" : {},
+						"data": "pbp_20180122_CHINOP.json"
 					}
+
 				},
 				"NYK": {
 					"g1": {
