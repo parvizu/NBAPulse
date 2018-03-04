@@ -164,6 +164,10 @@
 					"g36": {
 						"details" : {},
 						"data": "pbp_20171229_CHAGSW.json"
+					},
+					"g37": {
+						"details" : {},
+						"data": "pbp_20180124_NOPCHA.json"
 					}
 				},
 				"CHI": {
@@ -894,6 +898,30 @@
 					"g41": {
 						"details" : {},
 						"data": "pbp_20180122_CHINOP.json"
+					},
+					"g42": {
+						"details" : {},
+						"data": "pbp_20180124_NOPCHA.json"
+					},
+					"g48": {
+						"details" : {},
+						"data": "pbp_20180212_NOPDET.json"
+					},
+					"g49": {
+						"details" : {},
+						"data": "pbp_20180214_LALNOP.json"
+					},
+					"g50": {
+						"details" : {},
+						"data": "pbp_20180223_MIANOP.json"
+					},
+					"g51": {
+						"details" : {},
+						"data": "pbp_20180225_NOPMIL.json"
+					},
+					"g52": {
+						"details" : {},
+						"data": "pbp_20180226_PHXNOP.json"
 					}
 
 				},
