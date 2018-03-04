@@ -12,8 +12,6 @@ import ScoringMarginChart from './ScoringMarginChart';
 import styles from './StatControl.css';
 import styles2 from './BasketballChart.css'
 
-
-
 // import games from '../../data/games-updated.json';
 
 
@@ -108,6 +106,9 @@ export default class BasketballChart extends Component {
 		this._processGameBreakdown = this._processGameBreakdown.bind(this);
 		this._processTeamSubstitutions = this._processTeamSubstitutions.bind(this);
 		this._processGameSubstitutions = this._processGameSubstitutions.bind(this);
+
+
+		this._getAjaxGameData = this._getAjaxGameData.bind(this);
 	}
 
 	componentWillMount() {
@@ -126,8 +127,27 @@ export default class BasketballChart extends Component {
 		});
 	}
 
+	_getAjaxGameData(gameFile) {
+		const gameCode = gameFile.substring(4,19).replace("_","/");
+
+		console.log(this.props.schedule);
+		console.log(gameFile, gameCode);
+
+		let gameDetails = this.props.schedule.find(game => {
+			return game.gcode === gameCode;
+		});
+
+		console.log(gameDetails);
+
+
+
+		const url = "http://stats.nba.com/stats/playbyplayv2?GameID="+gameDetails['gid']+"&StartPeriod=00&EndPeriod=04"
+	}
+
 	loadGame(gameFile) {
 		let game = {};
+
+		// this._getAjaxGameData(gameFile);
 
 		game['file'] = gameFile;
 		game['rawData'] = require('../../data/2018/'+game.file);
@@ -1144,6 +1164,7 @@ export default class BasketballChart extends Component {
 	}
 
 
+
 	render() {
 		// const gameSelected = this.props.games.s2018.season.team.GSW.g5.data;
 
@@ -1158,16 +1179,15 @@ export default class BasketballChart extends Component {
 
 		return (
 			<div>
-				
 				<TeamsMenu
-					teamSelected={this.state.teamSelected} 
-					teamList={this.props.teams.teamList}
-					teamLogos={this.props.teams.teamLogos}
-					gamesData={teamGames}
-					gameSelected={this.state.gameSelected}
-					onSelectGame={this.onSelectGame} 
-					onSelectTeam={this.onSelectTeam} />
-
+						teamSelected={this.state.teamSelected} 
+						teamList={this.props.teams.teamList}
+						teamLogos={this.props.teams.teamLogos}
+						gamesData={teamGames}
+						gameSelected={this.state.gameSelected}
+						onSelectGame={this.onSelectGame} 
+						onSelectTeam={this.onSelectTeam} />
+				
 				<GameDetails 
 					homeTeam={homeTeam}
 					homeRoster={homePlayers}
@@ -1186,9 +1206,6 @@ export default class BasketballChart extends Component {
 
 
 				{
-					// this.createScoringChart(this.loadGame(games.GSWvCLE[2]), { height: 300})
-
-
 					// Game Matchup with Individual Players
 					this.getGamePlayersMatchup(gameSelectedFile,
 						homePlayers,
@@ -1196,19 +1213,6 @@ export default class BasketballChart extends Component {
 						awayPlayers,
 						awayPlayersSelected
 					) 
-
-					// this.getSinglePlayerMatchup(games.GSWvCLE[3],
-					// 	teams.gsw.players[0],
-					// 	teams.cle.players[0])
-				
-
-
-					// this.getSeriesScoring([gameSelected])
-				
-				
-
-					// this.getPlayerInSeries(games.GSWvCLE, teams.gsw.players[2])
-				
 
 					// Game Matchup by team
 					// this.getGameTeamMatchup(gameSelected,
@@ -1218,8 +1222,6 @@ export default class BasketballChart extends Component {
 					// 	[]
 					// ) 
 				}
-				
-
 				
 			</div>
 		);

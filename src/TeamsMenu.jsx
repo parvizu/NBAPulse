@@ -16,6 +16,7 @@ export default class TeamsMenu extends Component {
 
 		let teamId = e.target.attributes['data-team'].value;
 		this.props.onSelectTeam(teamId);
+		this.props.getTeamGameList(this.getGames());
 	}
 	
 	handleSelectGame(e) {
@@ -92,17 +93,19 @@ export default class TeamsMenu extends Component {
 
 
 	render() {
-		
-
+	
 		return (
-			<div className="teams-select-menu-container">
+			<div className="teams-select-menu-container header-section">
 				<div className="teams-menu-list">
 					{ this.getTeams() }
 				</div>
+
 				<div className="team-games-list">
 					{ this.getGames() }
 				</div>
+				
 			</div>
 		);
 	}
 }
+

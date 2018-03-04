@@ -4,6 +4,7 @@ import BasketballChart from './charts/BasketballChart';
 
 import games from '../data/games-updated.json';
 import teams from '../data/teams-updated.json';
+import schedule from '../data/2018FullSchedule.json';
 
 import styles from './Root.css';
 
@@ -15,6 +16,7 @@ teams.teamList.forEach(function(team) {
 
 const teamsData = teams;
 const gamesData = games;
+const scheduleData = schedule;
 
 export default class Root extends Component {
 
@@ -28,7 +30,8 @@ export default class Root extends Component {
 				padding: 25,
 				xParam: 'sec',
 				yParam: 'dif'
-			}
+			},
+			schedule: []
 		};
 
 		this.handleNewSizeSpecs = this.handleNewSizeSpecs.bind(this);
@@ -52,9 +55,20 @@ export default class Root extends Component {
 		});
 	}
 
+	componentWillMount() {
+		let allGames = []
+		scheduleData.lscd.forEach(monthData => {
+			allGames = allGames.concat(monthData.mscd.g);
+		});
+
+		this.setState({
+			schedule: allGames
+		});
+	}
+
 	render() {
 
-		var nbaLogo = require('./img/logos/nbaLogo.svg'),
+		let nbaLogo = require('./img/logos/nbaLogo.svg'),
 			twitterLink = require('./img/twitter-256.png');
 
 		return (
@@ -66,7 +80,7 @@ export default class Root extends Component {
 					<div className="addthis_sharing_toolbox"></div>
 				</div>
 
-				<BasketballChart specs={this.state.specs} teams={teamsData} games={gamesData} />
+				<BasketballChart specs={this.state.specs} teams={teamsData} games={gamesData} schedule={this.state.schedule} />
 			</div>
 		);
 	}
