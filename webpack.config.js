@@ -37,6 +37,7 @@ module.exports = {
   	},
 
 	// https://webpack.github.io/docs/configuration.html#devtool
-    devtool: 'eval-source-map'
+    // devtool: 'eval-source-map'
     // devtool: 'inline-source-map'
+    devtool: 'eval'
 }

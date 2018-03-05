@@ -1,0 +1,73 @@
+div#header {
+    margin: 10px;
+    margin-top: 20px;
+    color: ghostwhite;
+    /* text-shadow: 2px 2px black; */
+    font-family: helvetica; 
+    font-size: 12px; 
+    border-bottom: solid 1px white;}
+
+#header img {
+    width: 30px;
+    margin-right: 10px;
+    z-index: 20;
+    position: relative;
+    top: 10px;
+    left: 10px;
+}
+
+#header h1 {
+    font-family: 'Carrois Gothic SC', sans-serif;
+    text-shadow: 2px 2px black;
+    font-size: 42px;
+    padding-right: 10px;
+    display: inline-block;
+    margin: 0px;
+    vertical-align: top;
+    margin-top: 15px;
+    /* width: 862px; */
+    padding-left: 10px;
+    /* position: relative; */
+    /* left: -35px; */
+    /* border-bottom: solid 1px white; */
+    /* z-index: -1; */
+}
+
+a#madeby {
+    display: inline-block;
+    vertical-align: bottom;
+    padding-bottom: 9px;
+    text-decoration: none;
+    color: ghostwhite;
+}
+
+a#madeby:hover,
+a#twitterLink {
+    cursor: pointer;
+}
+
+#twitterLink img {
+    width: 15px;
+    vertical-align: top;
+    margin-top: 32px;
+}
+
+/*div.getsocial {
+    display: inline-block;
+    margin-left: 108px;
+    vertical-align: top;
+    margin-top: 24px;
+}*/
+
+div.addthis_sharing_toolbox {
+    display: inline-block;
+    margin-left: 240px;
+    vertical-align: top;
+    padding-top: 23px;
+}
+
+div#updated {
+    text-align: right;
+    font-size: 9px;
+    color: silver;
+}
