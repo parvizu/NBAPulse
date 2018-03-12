@@ -16,60 +16,7 @@ export default class TeamsMenu extends Component {
 
 		let teamAbbr = e.target.attributes['data-team'].value;
 		this.props.onSelectTeam(teamAbbr);
-		// this.props.getTeamGameList(this.getGames());
 	}
-	
-	// PROBABLY NEEDS TO BE MOVED TO ANOTHER COMPONENT
-	/*
-	handleSelectGame(e) {
-		e.preventDefault();
-
-		let gameKey = e.target.attributes['data-game'].value;
-		const gameData = this.props.gamesData[gameKey].data;
-		this.props.onSelectGame(gameKey, gameData);
-	}
-
-	getGames() {
-		const teamSelected = this.props.teamSelected,
-			  gameSelected = this.props.gameSelected,
-			  teamGames = this.props.gamesData;
-
-		let teamSchedule = Object.keys(teamGames).map(key => {
-			let game = teamGames[key],
-				homeTeam = game.data.split('_')[2].substr(3,3),
-				awayTeam = game.data.split('_')[2].substr(0,3),
-				classes = 'team-games-item',
-				opponent = awayTeam,
-				isHomeGame = 'home',
-				isSelectedGame = '',
-				awayWatermark = '';
-
-			if (teamSelected !== homeTeam) {
-				opponent = homeTeam;
-				isHomeGame = 'away';
-				awayWatermark = (
-					<span className="team-game-item--away-watermark">@</span>
-				);
-				classes += ' away';
-			}
-
-			if (key === gameSelected) {
-				classes += ' selected'
-			}
-
-			return (
-				<li 
-					className={classes} 
-					onClick={this.handleSelectGame}
-					data-game={key} >
-						{opponent}
-				</li>
-			);
-		});	
-		
-		return teamSchedule;
-	}
-	*/
 
 	getTeams() {
 		const teamSelected = this.props.teamSelected;

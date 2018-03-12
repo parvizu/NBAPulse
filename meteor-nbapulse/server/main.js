@@ -1969,7 +1969,7 @@ Meteor.startup(() => {
 
 			// Function that will get the game Play by Play
 			getGameData: (gid) => {
-				const gameData = Games.findOne({'gid':gid},{});
+				const gameData = Games.findOne({'gid':gid},{fields: {'_id':0}});
 				let response = "";
 
 				// Check if game data is already in the DB

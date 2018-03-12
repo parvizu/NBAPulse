@@ -28,7 +28,6 @@ export default class Header extends Component {
 					teamSelected={this.props.teamSelected} 
 					teamList={this.props.leagueDetails.teamsAbbr}
 					gamesData={this.props.teamGames}
-					gameSelected={this.state.gameSelected}
 					onSelectGame={this.props.onSelectGame} 
 					onSelectTeam={this.props.onSelectTeam} 
 					/>

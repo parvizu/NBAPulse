@@ -23,7 +23,6 @@ export default class GamesMenu extends Component {
 
 	loadTeamGames() {
 		Meteor.call('loadTeamGames', this.props.teamSelected, (error, results) => {
-			console.log(this.props.teamSelected, results);
 			this.setState({
 				gameSelected: this.props.gameSelected,
 				teamSelected: this.props.teamSelected,
