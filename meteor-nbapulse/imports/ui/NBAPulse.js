@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 
+import Header from './Header.js';
+
 import {Games, Schedule, Teams, League } from '../api/collections.js';
 
 import styles from '../css/NBAPulse.css';
@@ -19,25 +21,37 @@ class NBAPulse extends Component {
 				xParam: 'sec',
 				yParam: 'dif'
 			},
-			schedule: []
+			teamSelected: 'GSW'
 		};
+
+		this.onSelectTeam = this.onSelectTeam.bind(this);
+		this.onSelectGame = this.onSelectGame.bind(this);
 	}
 
-	
+	onSelectTeam(teamAbbr) {
+		if (teamAbbr !== this.state.teamSelected) {
+			this.setState({
+				teamSelected: teamAbbr
+			});
+		}
+	}
+
+	onSelectGame(gid) {
+		Meteor.call("getGameData", gid, function(error, results) {
+	        console.log(gid, results);
+	    });
+	}
+
+
 	render() {
-
-		console.log(this.props);
-
 		return (
 			<div className="main-container">
-				<div id="header">
-					<div id="updated">v0.8 (11/17/17)</div>
-					<img src="/img/logos/nbaLogo.svg" /> 
-					<h1> Game Pulse</h1> <a href="http://www.parvizu.com" target="_blank" id="madeby">by Pablo Arvizu</a> <a href="https://twitter.com/sirgalahad88" target="_blank" id="twitterLink"><img src="/img/twitter-256.png" /></a>
-					<div className="addthis_sharing_toolbox"></div>
-				</div>
-
-				
+				<Header
+					teamSelected={this.state.teamSelected}
+					onSelectTeam={this.onSelectTeam}
+					onSelectGame={this.onSelectGame}
+					leagueDetails={this.props.league}
+					/>
 			</div>
 		);
 	}
@@ -45,9 +59,9 @@ class NBAPulse extends Component {
 
 export default withTracker(() => {
 	return {
-		league: League.find({}).fetch(),
+		league: League.findOne({},{'teamsDetails':1,'teamsAbbr':1, '_id':0}),
 		games: Games.find({}).fetch(),
-		schedule: Schedule.findOne({"season":"2017-2018"}),
-		teams: Teams.find({}).fetch()
+		schedule: Schedule.find({"season":"2017-2018"}).fetch(),
+		teams: Teams.find({"season":"2017-2018"}).fetch()
 	};
 })(NBAPulse);

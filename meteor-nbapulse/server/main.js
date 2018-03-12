@@ -1,6 +1,8 @@
 import { Meteor } from 'meteor/meteor';
+import axios from 'axios';
 
-import { Schedule, Games, Teams, League } from '../imports/api/collections.js';
+import { Schedule, Games, Teams, League, Testing } from '../imports/api/collections.js';
+
 
 Meteor.startup(() => {
 	// code to run on server at startup
@@ -1441,6 +1443,7 @@ Meteor.startup(() => {
 
 	// Inserting list of teams and team details into DB
 	if (League.find({}).count() === 0) {
+		console.log("League has no records. Inserting Team details to DB.");
 		League.insert({
 			"status": "current",
 			"teamsAbbr": ["ATL", "BKN", "BOS", "CHA", "CHI", "CLE", "DAL", "DEN", "DET", "GSW", "HOU", "IND", "LAC", "LAL", "MEM", "MIA", "MIL", "MIN", "NOP", "NYK", "OKC", "ORL", "PHI", "PHX", "POR", "SAC", "SAS", "TOR", "UTA", "WAS"],
@@ -1930,6 +1933,83 @@ Meteor.startup(() => {
 		});
 	}
 
+	// Inserting the list of games in an NBA Schedule
+	if (Games.find().count() === 0) {
+		const season = Schedule.findOne({},{'lscd':1});
+
+		season.lscd.forEach((lscd) => {
+			let month = lscd.mscd.mon;
+			let games = lscd.mscd.g;
+
+			let newGame = {};
+			games.forEach((game) => {
+				game['season'] = '2017-2018';
+				game['month'] = month;
+
+				newGame['details'] = game;
+				newGame['data'] = {};
+				newGame['gid'] = game.gid;
+				newGame['gcode'] = game.gcode;
+				newGame['gfile'] = 'pbp_'+game.gcode.replace('/','_')+'.json';
 
 
+				console.log("Inserting game: "+ newGame.gcode);
+				Games.insert(newGame);
+			})
+		});
+
+
+
+
+	}
+
+	/**** SERVER FUNCTIONALITY ****/
+	if (Meteor.isServer) {
+		Meteor.methods({
+
+			// Function that will get the game Play by Play
+			getGameData: (gid) => {
+				const gameData = Games.findOne({'gid':gid},{});
+				let response = "";
+
+				// Check if game data is already in the DB
+				if (Object.keys(gameData.data).length > 0) {
+					console.log("GID:"+gid,"Game has already been loaded");
+					return gameData;
+				}
+
+				const url = "http://stats.nba.com/stats/playbyplayv2?GameID="+gid+"&StartPeriod=00&EndPeriod=08";
+				const request = axios.get(url);
+				return request.then(results=> {
+					// Checking if the game has been played or already
+					if (results.data.resultSets[0].rowSet.length === 0) {
+						response = "This game has not been played yet";
+						console.log("GID:"+gid, response);
+						return response;
+					} else {
+						// Update the game data to the DB and return to client
+						console.log("GID:"+gid, 'Inserting new game data for game.', 'URL: '+url);
+						Games.update({'gid':gid},{$set: {'data':results.data}});
+						console.log("GID:"+gid, 'New game data inserted.')
+						gameData.data = results.data;
+						response = gameData;
+						console.log("");
+						return response;
+					}
+				});
+			},
+
+			// Function that loads the list of regular season games for a specific team
+			loadTeamGames: (teamSelected) => {
+
+				const teamGames = Games.find({$or: [{'details.v.ta':teamSelected}, {'details.h.ta':teamSelected}],'details.gdte':{$gte:"2017-10-17"}}, {fields: {details:1,_id:0}}).fetch();
+
+				// Cleaning up the results before returning
+				const results = teamGames.map(gameInfo => {
+					return gameInfo.details;
+				});
+				return results;
+			}
+		});
+	}
 });
