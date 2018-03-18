@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
+import classnames from 'classnames';
 
 export default class GamesMenu extends Component {
 	
@@ -7,7 +8,6 @@ export default class GamesMenu extends Component {
 		super(props);
 
 		this.state = {
-			gameSelected: '',
 			gameList: [],
 			teamSelected: ''
 		};
@@ -17,40 +17,43 @@ export default class GamesMenu extends Component {
 		this.getGames = this.getGames.bind(this);
 	}
 
-	componentWillMount() {
-		this.loadTeamGames();
+	componentWillReceiveProps(newProps) {
+		if (this.state.teamSelected !== newProps.teamSelected) {
+			this.loadTeamGames(newProps.teamSelected);
+		}
 	}
 
-	loadTeamGames() {
-		Meteor.call('loadTeamGames', this.props.teamSelected, (error, results) => {
+	loadTeamGames(teamSelected) {
+		Meteor.call('loadTeamGames', teamSelected, (error, results) => {
 			this.setState({
-				gameSelected: this.props.gameSelected,
-				teamSelected: this.props.teamSelected,
+				teamSelected: teamSelected,
 				gameList: results
 			});	
-		});	
+		});
 	}
 
 	handleSelectGame(e) {
 		e.preventDefault();
 
 		const gid = e.target.attributes['data-game'].value;
-		if (gid !== this.state.gameSelected) {
+		if (gid !== this.props.gameSelected) {
 			this.props.onSelectGame(gid);
 		}
 	}
 
 	getGames() {
-		if (this.state.teamSelected !== this.props.teamSelected) {
-			this.loadTeamGames();
-		}
-
 		const gameList = this.state.gameList.map(gameDetails => {
 			let opponentAbbr = this.state.teamSelected === gameDetails.h.ta ? gameDetails.v.ta : gameDetails.h.ta;
 
+			let classes = classnames({
+				'team-games-item': true,
+				'selected': this.props.gameSelected === gameDetails.gid
+				// 'disabled': Objet.keys(gameDetails.data).length === 0
+			});
+
 			return (
 				<li 
-					className="team-games-item"
+					className={classes}
 					onClick={this.handleSelectGame}
 					data-game={gameDetails.gid} 
 					key={"game-item-"+gameDetails.gid} >

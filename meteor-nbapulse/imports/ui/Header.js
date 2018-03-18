@@ -10,10 +10,6 @@ export default class Header extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {
-			gameSelected: 'g1'
-		}
-
 		this.getTeamsMenu = this.getTeamsMenu.bind(this);
 		this.getGamesMenu = this.getGamesMenu.bind(this);
 
@@ -40,6 +36,7 @@ export default class Header extends Component {
 			<GamesMenu
 				teamSelected={this.props.teamSelected}
 				onSelectGame={this.props.onSelectGame}
+				gameSelected={this.props.gameSelected}
 				/>
 		)
 	}

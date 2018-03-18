@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import classnames from 'classnames';
 
 import styles from '../css/TeamsMenu.css';
 
@@ -22,10 +23,10 @@ export default class TeamsMenu extends Component {
 		const teamSelected = this.props.teamSelected;
 
 		let teamList = this.props.teamList.map(team => {
-			let classes = 'team-logo';
-			if (team === teamSelected) {
-				classes += ' selected';
-			}
+			let classes = classnames({
+				'team-logo': true,
+				'selected': team === teamSelected
+			});
 
 			const teamLogo = '/img/logos/'+team+'.svg';
 
