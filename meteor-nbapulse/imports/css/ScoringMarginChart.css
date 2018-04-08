@@ -1,0 +1,51 @@
+svg {
+	/*background-color: ghostwhite;*/
+}
+
+.scoring-margin path {
+	stroke: black;
+	stroke-width: .5;
+	fill: rgba(0,0,0,.35);
+}
+
+.scoring-margin .axis {
+	font-size: 5pt;
+	fill: darkgray;
+	font-family: Helvetica;
+}
+
+.scoring-margin .axis path {
+	stroke: gray;
+	stroke-width: 2;
+	fill: none;
+}
+
+.scoring-margin  .x.axis .tick text{
+	display: none;
+	text-anchor: start;
+}
+
+.scoring-margin .y.axis .tick line {
+	stroke: lightgray;
+	stroke-width: .5;
+}
+
+.scoring-margin .y.axis path.domain {
+	display: none;
+}
+
+.scoring-margin .y.axisRightLabels .tick text {
+	fill: lightgray;
+}
+
+.game-scoring-margin h4.chart-label {
+	background: none;
+}
+
+
+text.period-label {
+    font-family: helvetica;
+    font-size: 14pt;
+    fill: rgba(10,10,10,.2);
+    font-weight: 600;
+}
