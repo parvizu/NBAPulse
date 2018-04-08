@@ -1,7 +1,7 @@
-import {
-	Meteor
-} from 'meteor/meteor';
+import { Meteor } from 'meteor/meteor';
 import axios from 'axios';
+
+import { GameHelpers } from './GameHelpers.js';
 
 import {
 	Schedule,
@@ -13,7 +13,6 @@ import {
 
 Meteor.startup(() => {
 	// code to run on server at startup
-
 
 	// Inserting team rosters by season into DB
 	if (Teams.find({}).count() === 0) {
@@ -2007,10 +2006,26 @@ Meteor.startup(() => {
 
 	/**** SERVER FUNCTIONALITY ****/
 	if (Meteor.isServer) {
+
+		Meteor.publish("League", () => {
+			// console.log("**** Publishing League Collection ****");
+			return League.find({});
+		});
+
+		Meteor.publish("Teams", () => {
+			return Teams.find({});
+		})
+
+		Meteor.publish("Games", () => {
+			return Games.find({});
+		})
+
+
 		Meteor.methods({
 
 			// Function that will get the game Play by Play
 			getGameData: (gid) => {
+				console.log("GID", gid);
 				const gameData = Games.findOne({
 					'gid': gid
 				}, {
@@ -2021,41 +2036,72 @@ Meteor.startup(() => {
 				let response = "";
 
 				// Check if game data is already in the DB
-				if (Object.keys(gameData.data).length > 0) {
-					console.log("GID:" + gid, "Game has already been loaded");
+				if (Object.keys(gameData.data).length > 0 && (gameData.hasOwnProperty('processed') && gameData.processed !== null) && gameData.processed.hasOwnProperty('playerLogs') && gameData.hasOwnProperty('teams')) {
+					console.log("GID", gid, "Game has already been loaded");
+
 					return gameData;
 				}
 
+				/**** COMMENT OUT FOR OFFLINE WORK ****/
 				const url = "http://stats.nba.com/stats/playbyplayv2?GameID=" + gid + "&StartPeriod=00&EndPeriod=08";
 				const request = axios.get(url);
 				return request.then(results => {
 					// Checking if the game has been played or already
 					if (results.data.resultSets[0].rowSet.length === 0) {
 						response = "This game has not been played yet";
-						console.log("GID:" + gid, response);
-						return response;
-					} else {
-						// Update the game data to the DB and return to client
-						console.log("GID:" + gid, 'Inserting new game data for game.', 'URL: ' + url);
-						Games.update({
-							'gid': gid
-						}, {
-							$set: {
-								'data': results.data
-							}
-						});
-						console.log("GID:" + gid, 'New game data inserted.')
-						gameData.data = results.data;
-						response = gameData;
-						console.log("");
+						console.log("GID", gid, response);
 						return response;
 					}
+
+					// Process game data for storage
+					let processedData = GameHelpers._processGameDataForStorage(results);
+
+					// Getting team rosters for the game
+					const rosters = Teams.find({
+						'season': '2017-2018',
+						$or: [
+							{'teamId': parseInt(gameData.details.h.tid) },
+							{'teamId': parseInt(gameData.details.v.tid) }
+						]
+					}, {
+						fields: {
+							_id: 0
+						}
+					}).fetch();
+
+					const teams = {
+						home: rosters[0].teamId === gameData.details.h.tid ? rosters[0] : rosters[1],
+						away: rosters[1].teamId === gameData.details.v.tid ? rosters[1] : rosters[0]
+					};
+					// Update the game data to the DB and return to client
+					console.log("GID", gid, 'Inserting new game data for game.', 'URL: ' + url);
+					Games.update({
+						'gid': gid
+					}, {
+						$set: {
+							'data': results.data,
+							'teams': teams,
+							'processed': processedData
+						}
+					});
+
+					console.log("GID", gid, 'New game data done updating/inserting');
+					gameData.data = results.data;
+					gameData.processed = processedData;
+					gameData.teams = teams;
+					response = gameData;
+					return response;
 				});
+				/**** COMMENT OUT FOR OFFLINE WORK ****/
+
+				// console.log("GAME NOT IN DB:", gid);
+				// return 'empty';
 			},
 
 			// Function that loads the list of regular season games for a specific team
 			loadTeamGames: (teamSelected) => {
 
+				console.log('TNAME', teamSelected, "Start Loading team games");
 				const teamGames = Games.find(
 					{
 						$or: [
@@ -2077,10 +2123,13 @@ Meteor.startup(() => {
 				const results = teamGames.map(gameInfo => {
 					return gameInfo.details;
 				});
+
+				console.log('TNAME', teamSelected, "Done Loading team games");
 				return results;
 			},
 
 			getTeamRoster: (teamId, season) => {
+				console.log("TID", teamId, "Start Retrieving team roster");
 				const roster = Teams.findOne({
 					'season': season,
 					'teamId': parseInt(teamId)
@@ -2090,9 +2139,28 @@ Meteor.startup(() => {
 					}
 				});
 
-				console.log("Retrieving team roster", roster.teamKey, roster.players.length);
+				console.log("TID", teamId, "Done Retrieving team roster", roster.teamKey, roster.players.length + " players");
 
 				return roster;
+			},
+
+			getGameRosters: (teamId1, teamId2, season) => {
+				console.log("TID1", teamId1,"TID2", teamId2, "Start Retrieving game rosters");
+				const rosters = Teams.find({
+					'season': season,
+					$or: [
+						{'teamId': parseInt(teamId1) },
+						{'teamId': parseInt(teamId2) }
+					]
+				}, {
+					fields: {
+						_id: 0
+					}
+				}).fetch();
+
+				console.log("TID1", teamId1,"TID2", teamId2, "Done Retrieving team roster", rosters[0].teamKey, rosters[0].players.length + " players", rosters[1].teamKey, rosters[1].players.length + " players");
+
+				return rosters;
 			}
 		});
 	}

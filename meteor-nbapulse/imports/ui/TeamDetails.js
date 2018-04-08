@@ -8,15 +8,16 @@ export default class TeamDetails extends Component {
 
 		this.getTeamPlayers = this.getTeamPlayers.bind(this);
 		this.handleSelectTeamPlayer = this.handleSelectTeamPlayer.bind(this);
+
+		this.count =0;
 	}
 
 	handleSelectTeamPlayer(e) {
 		e.preventDefault();
-		const playerId = e.target.attributes['data-playerid'].value;
-		const playerNum = parseInt(e.target.attributes['data-playernum'].value);
-		const teamType = e.target.attributes['data-team'].value;
+		const playerId = e.target.attributes['data-playerid'].value,
+			  teamType = e.target.attributes['data-team'].value;
 
-		this.props.onSelectPlayer(teamType,playerNum);
+		this.props.onSelectTeamPlayer(teamType,playerId);
 	}
 
 	getTeamPlayers(roster, team) {
@@ -24,12 +25,12 @@ export default class TeamDetails extends Component {
 			return;
 		}
 
-		return roster.map((player,i) => {
+		return roster.map((player) => {
 			// let imgUrl = "https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/"+player.playerId+".png";
 
 			const classes = classnames({
 				'team-details-player-item': true,
-				'selected': this.props.playersSelected.indexOf(i) > -1
+				'selected': this.props.playersSelected.indexOf(player.playerId) > -1
 			});
 
 			return (
@@ -37,7 +38,6 @@ export default class TeamDetails extends Component {
 					key={'team-roster-'+player.playerId}
 					className={classes}
 					data-playerid={player.playerId}
-					data-playernum={i}
 					data-team={team}
 					onClick={this.handleSelectTeamPlayer} >
 						{player.playerName}
@@ -49,6 +49,7 @@ export default class TeamDetails extends Component {
 
 	render() {
 
+		//console.log("RENDERING", "TeamDetails.js", this.count++);
 		const containerClasses = classnames({
 			"team-details": true,
 			"team-home": this.props.type === 'home',

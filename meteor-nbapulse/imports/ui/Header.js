@@ -11,8 +11,21 @@ export default class Header extends Component {
 		super(props);
 
 		this.getTeamsMenu = this.getTeamsMenu.bind(this);
-		this.getGamesMenu = this.getGamesMenu.bind(this);
 
+		this.count = 0;
+	}
+
+	shouldComponentUpdate(newProps, newState) {
+		// console.log("HEADER SHOULD: ", this.should++);
+		if (typeof this.props.leagueDetails === 'undefined' || (newProps.leagueDetails.status !== this.props.leagueDetails.status)) {
+			return true;
+		}
+
+		if (newProps.teamSelected !== this.props.teamSelected) {
+			return true;
+		}
+
+		return false;
 	}
 
 	getTeamsMenu() {
@@ -31,17 +44,8 @@ export default class Header extends Component {
 		}
 	}
 
-	getGamesMenu() {
-		return (
-			<GamesMenu
-				teamSelected={this.props.teamSelected}
-				onSelectGame={this.props.onSelectGame}
-				gameSelected={this.props.gameSelected}
-				/>
-		)
-	}
-
 	render() {
+		// console.log("HEADER", this.count++);
 		return (
 
 			<div id="header">
@@ -60,7 +64,11 @@ export default class Header extends Component {
 						<a href="http://www.parvizu.com" target="_blank" id="madeby">by Pablo Arvizu</a> <a href="https://twitter.com/sirgalahad88" target="_blank" id="twitterLink"><img src="/img/twitter-256.png" /></a>
 					</div>
 					<div className="header-section header-section-main header-bottom-main">
-						{ this.getGamesMenu() }
+						<GamesMenu
+							teamSelected={this.props.teamSelected}
+							onSelectGame={this.props.onSelectGame}
+							gameSelected={this.props.gameSelected}
+							/>
 					</div>
 				</div>
 				<div className="addthis_sharing_toolbox"></div>

@@ -8,8 +8,9 @@ export default class TeamsMenu extends Component {
 	constructor(props) {
 		super(props);
 
-		// this.handleSelectGame = this.handleSelectGame.bind(this);
 		this.handleSelectTeam = this.handleSelectTeam.bind(this);
+
+		this.count = 0;
 	}
 
 	handleSelectTeam(e) {
@@ -23,12 +24,11 @@ export default class TeamsMenu extends Component {
 		const teamSelected = this.props.teamSelected;
 
 		let teamList = this.props.teamList.map(team => {
-			let classes = classnames({
-				'team-logo': true,
-				'selected': team === teamSelected
-			});
-
-			const teamLogo = '/img/logos/'+team+'.svg';
+			const teamLogo = '/img/logos/'+team+'.svg',
+				  classes = classnames({
+					  'team-logo': true,
+					  'selected': team === teamSelected
+				  });
 
 			return (
 				<li key={team +"-menu-logo"}
@@ -46,7 +46,7 @@ export default class TeamsMenu extends Component {
 
 
 	render() {
-	
+		//console.log("RENDERING", "TeamsMenu.js", this.count++);
 		return (
 			<div className="teams-select-menu-container header-section">
 				<div className="teams-menu-list">
