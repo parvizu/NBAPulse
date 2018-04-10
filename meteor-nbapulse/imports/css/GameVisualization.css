@@ -21,142 +21,21 @@ body {
     top: -210px;
 }
 
-.chart-label {
-    display: inline-block;
-    vertical-align: top;
-    width: 300px;
-    margin: 0px;
-    padding: 0px;
-    /* padding-top: 5px; */
-    height: 100px;
-    overflow: hidden;
-    text-align: left;
-    position: relative;
-    background: rgba(10,10,10,.2);
-}
-
-.player-label h4 {
-    margin: 0px;
-    top: 3px;
-    position: relative;
-    left: 105px;
-}
-
-.player-label img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 66px;
-    z-index: -2;
-}
-
 
 .chart-container {
 	display: inline-block;
-	/*background-color: ghostwhite;*/
+	background-color: ghostwhite;
 }
 
-.chart-container::before {
+.player-container .chart-container>div {
+	height: 100px;
+}
+
+/*.chart-container::before {
     background-color: ghostwhite;
     position: absolute;
     content: " ";
-    /*top: 0;*/
-    /*left: 275px;*/
     width: 1175px;
     height: 100%;
     z-index: -10;
-}
-
-rect.substitution-bench: {
-	fill: rgba(0,0,0,.25);
-}
-
-rect.substitution-court: {
-	fill: none;
-}
-
-
-.period-end {
-	fill: gray;
-	width: 5px;
-}
-
-.mid-quarter {
-	width: .5;
-	fill: lightgray;
-}
-
-
-
-.play rect {
-	fill: none;
-	width: 3px;
-	stroke: none;
-}
-
-rect.rebound {
-	fill: dodgerblue;
-	stroke: none;
-	color: ghostwhite;
-
-}
-
-rect.foul {
-	fill: lightsteelblue;
-	stroke: none;
-}
-
-rect.turnover {
-	fill: red;
-	stroke: none;
-}
-
-rect.made-fg,
-rect.made-ft,
-rect.made-3pt {
-	fill: green;
-	stroke: green;
-	color: green;
-}
-
-rect.missed-fg,
-rect.missed-ft,
-rect.missed-3pt {
-	fill: ghostwhite;
-	stroke: green;
-	color: ghostwhite;
-}
-
-rect.assist {
-	fill: orange;
-	stroke: none;
-}
-
-rect.steal {
-	fill: purple;
-	stroke: none;
-}
-
-rect.block {
-	fill: brown;
-	stroke: none;
-}
-
-rect.positive {
-	/*fill: green;*/
-	/*stroke: none;*/
-}
-
-rect.negative {
-	/*fill: red;*/
-	/*stroke: none;*/
-}
-
-
-rect.substitution-bench {
-	fill: rgba(0,0,0,.2);
-}
-
-rect.substitution-court {
-	fill: none;
-}
+}*/

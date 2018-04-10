@@ -15,9 +15,8 @@ export default class StatControl extends Component {
 		e.preventDefault();
 
 		let stat = e.target.getAttribute('value');
-		this.props.onStatClick([stat]);
+		this.props.onStatClick(stat);
 	}
-
 
 	render() {
 		//console.log("RENDERING", "StatControl.js", this.count++);

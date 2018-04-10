@@ -2,6 +2,10 @@ svg {
 	/*background-color: ghostwhite;*/
 }
 
+.game-scoring-margin .chart-container>div {
+    height: 350px;
+}
+
 .scoring-margin path {
 	stroke: black;
 	stroke-width: .5;

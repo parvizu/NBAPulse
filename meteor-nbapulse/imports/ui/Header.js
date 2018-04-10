@@ -15,19 +15,6 @@ export default class Header extends Component {
 		this.count = 0;
 	}
 
-	shouldComponentUpdate(newProps, newState) {
-		// console.log("HEADER SHOULD: ", this.should++);
-		if (typeof this.props.leagueDetails === 'undefined' || (newProps.leagueDetails.status !== this.props.leagueDetails.status)) {
-			return true;
-		}
-
-		if (newProps.teamSelected !== this.props.teamSelected) {
-			return true;
-		}
-
-		return false;
-	}
-
 	getTeamsMenu() {
 		// Making sure that the needed collections have been loaded correctly
 		if (typeof this.props.leagueDetails !== 'undefined') {
@@ -68,6 +55,7 @@ export default class Header extends Component {
 							teamSelected={this.props.teamSelected}
 							onSelectGame={this.props.onSelectGame}
 							gameSelected={this.props.gameSelected}
+							gamesList={this.props.teamGamesList}
 							/>
 					</div>
 				</div>

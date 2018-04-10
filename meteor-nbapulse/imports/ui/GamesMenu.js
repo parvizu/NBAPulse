@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { withTracker } from 'meteor/react-meteor-data';
 import classnames from 'classnames';
 
 export default class GamesMenu extends Component {
@@ -7,29 +6,8 @@ export default class GamesMenu extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {
-			gameList: [],
-			teamSelected: ''
-		};
-
-		this.loadTeamGames = this.loadTeamGames.bind(this);
 		this.handleSelectGame = this.handleSelectGame.bind(this);
 		this.getGames = this.getGames.bind(this);
-	}
-
-	componentWillReceiveProps(newProps) {
-		if (this.state.teamSelected !== newProps.teamSelected) {
-			this.loadTeamGames(newProps.teamSelected);
-		}
-	}
-
-	loadTeamGames(teamSelected) {
-		Meteor.call('loadTeamGames', teamSelected, (error, results) => {
-			this.setState({
-				teamSelected: teamSelected,
-				gameList: results
-			});	
-		});
 	}
 
 	handleSelectGame(e) {
@@ -42,8 +20,8 @@ export default class GamesMenu extends Component {
 	}
 
 	getGames() {
-		const gameList = this.state.gameList.map(gameDetails => {
-			let opponentAbbr = this.state.teamSelected === gameDetails.h.ta ? gameDetails.v.ta : gameDetails.h.ta;
+		const gameList = this.props.gamesList.map(gameDetails => {
+			let opponentAbbr = this.props.teamSelected === gameDetails.h.ta ? gameDetails.v.ta : gameDetails.h.ta;
 
 			let classes = classnames({
 				'team-games-item': true,

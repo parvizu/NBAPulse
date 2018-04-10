@@ -8,8 +8,6 @@ import { withTracker } from 'meteor/react-meteor-data';
 import Header from './Header.js';
 import Game from './Game.js';
 
-
-
 import styles from '../css/NBAPulse.css';
 
 
@@ -38,69 +36,40 @@ class NBAPulse extends Component {
 				periods: 4
 			},
 			teamSelected: '',
+			teamGamesList: [],
 			gameSelected: '',
 			gameData: {},
 			playersSelected: {
-				"ATL": [],
-				"BKN": [],
-				"BOS": [],
-				"CHA": [],
-				"CHI": [],
-				"CLE": [],
-				"DAL": [],
-				"DEN": [],
-				"DET": [],
-				"GSW": [],
-				"HOU": [],
-				"IND": [],
-				"LAC": [],
-				"LAL": [],
-				"MEM": [],
-				"MIA": [],
-				"MIL": [],
-				"MIN": [],
-				"NOP": [],
-				"NYK": [],
-				"OKC": [],
-				"ORL": [],
-				"PHI": [],
-				"PHX": [],
-				"POR": [],
-				"SAC": [],
-				"SAS": [],
-				"TOR": [],
-				"UTA": [],
-				"WAS": []
-				// "ATL": [1,6],
-				// "BKN": [4],
-				// "BOS": [0,3,1],
-				// "CHA": [2],
-				// "CHI": [1,0],
-				// "CLE": [0,2],
-				// "DAL": [0,3],
-				// "DEN": [1,3],
-				// "DET": [0,2],
-				// "GSW": [0,1,2,3],
-				// "HOU": [2,3],
-				// "IND": [4,7],
-				// "LAC": [1,0],
-				// "LAL": [3,7,1],
-				// "MEM": [0,3],
-				// "MIA": [3,0],
-				// "MIL": [1],
-				// "MIN": [3,4,0],
-				// "NOP": [2,0],
-				// "NYK": [0,2],
-				// "OKC": [2,1,3],
-				// "ORL": [4,0],
-				// "PHI": [0,1],
-				// "PHX": [2],
-				// "POR": [2,3],
-				// "SAC": [6,4],
-				// "SAS": [6,0,3],
-				// "TOR": [2,1],
-				// "UTA": [0,3],
-				// "WAS": [2,4]
+				"ATL": ['203471'],
+				"BKN": ['1626156'],
+				"BOS": ['202681'],
+				"CHA": ['202689'],
+				"CHI": ['1628374'],
+				"CLE": ['2544'],
+				"DAL": ['203084'],
+				"DEN": ['203999'],
+				"DET": ['203083'],
+				"GSW": ['201939','201142'],
+				"HOU": ['201935'],
+				"IND": ['203506'],
+				"LAC": ['201599'],
+				"LAL": ['1627742','1628366'],
+				"MEM": ['201188'],
+				"MIA": ['201609'],
+				"MIL": ['203507'],
+				"MIN": ['1626157'],
+				"NOP": ['203076'],
+				"NYK": ['204001'],
+				"OKC": ['201566'],
+				"ORL": ['203932'],
+				"PHI": ['203954'],
+				"PHX": ['1626164'],
+				"POR": ['203081'],
+				"SAC": ['1628368'],
+				"SAS": ['200746'],
+				"TOR": ['201942'],
+				"UTA": ['1628378'],
+				"WAS": ['202322']
 			}
 		};
 
@@ -112,39 +81,21 @@ class NBAPulse extends Component {
 		this.onStatClick = this.onStatClick.bind(this);
 		this.onSelectTeamPlayer = this.onSelectTeamPlayer.bind(this);
 		this.getPlayersSelected = this.getPlayersSelected.bind(this);
-		// this.renderHeader = this.renderHeader.bind(this);
-		// this.renderSelectedGame = this.renderSelectedGame.bind(this);
+		this.getSelectedStats = this.getSelectedStats.bind(this);
 	}
 
-	// componentWillMount() {
-	// 	this.onSelectGame('0021700002');
-	// }
-
-
-	// shouldComponentUpdate(newProps, newState) {
-	// 	if (this.state.teamSelected !== newState.teamSelected) {
-	// 		console.log("Team Selected triggered...", newState.teamSelected);
-	// 		return true;
-	// 	}
-
-	// 	if (this.state.gameSelected !== newState.gameSelected) {
-	// 		console.log("Game Selected triggered...", newState.gameSelected);
-	// 		return true;
-	// 	}
-
-	// 	if (typeof this.props.league === 'undefined' && typeof newProps.league !== 'undefined') {
-	// 		console.log("League teams have been loaded...");
-	// 		return true;
-	// 	}
-
-	// 	return false;
-	// }
-
+	componentDidMount() {
+		this.onSelectTeam('GSW');
+		this.onSelectGame('0021700002');
+	}
 
 	onSelectTeam(teamAbbr) {
 		if (teamAbbr !== this.state.teamSelected) {
-			this.setState({
-				teamSelected: teamAbbr
+			Meteor.call('loadTeamGames', teamAbbr, (error, results) => {
+				this.setState({
+					teamSelected: teamAbbr,
+					teamGamesList: results
+				});
 			});
 		}
 	}
@@ -153,8 +104,7 @@ class NBAPulse extends Component {
 		const self = this;
 
 		Meteor.call("getGameData", gid, function(error, results) {
-	        console.log("Game data", gid, results);
-
+	        // console.log("Game data", gid, results);
 	        if (results !== 'empty') {
 				self.setState({
 					gameSelected: gid,
@@ -164,26 +114,30 @@ class NBAPulse extends Component {
 	    });
 	}
 
-	onStatClick(stats) {
+	onStatClick(stat) {
 		let newState = this.state.stats;
-		stats.forEach(stat => {
-			newState[stat] = this.state.stats[stat] === '' ? 'stat-hidden' : '';
-		});
+		newState[stat] = this.state.stats[stat] === '' ? 'stat-hidden' : '';
 		this.setState({
 			'stats': newState
 		});
 	}
 
 	onSelectTeamPlayer(teamAbbr, playerId) {
-		console.log("Player selected ", playerId)
-		if (this.state.playersSelected[teamAbbr].indexOf(playerId) === -1) {
-			let newSelectedPlayers = this.state.playersSelected;
+		// console.log("Player selected ", playerId)
+		const playerIndex = this.state.playersSelected[teamAbbr].indexOf(playerId);
+		let newSelectedPlayers = this.state.playersSelected;
+		
+		if (playerIndex > -1) {
+			// removing selected player from list
+			newSelectedPlayers[teamAbbr].splice(playerIndex, 1);
+		} else {
+			// adding selected player to list
 			newSelectedPlayers[teamAbbr].push(playerId);
-
-			this.setState({
-				playersSelected: newSelectedPlayers
-			});
 		}
+
+		this.setState({
+			playersSelected: newSelectedPlayers
+		});
 	}
 
 	getPlayersSelected() {
@@ -197,16 +151,27 @@ class NBAPulse extends Component {
 		const homeAbbr = this.state.gameData.details.h.ta,
 			  awayAbbr = this.state.gameData.details.v.ta;
 
-		const homePlayers = this.state.playersSelected[homeAbbr];
-		const awayPlayers = this.state.playersSelected[awayAbbr];
+		const homePlayers = this.state.playersSelected[homeAbbr],
+			  awayPlayers = this.state.playersSelected[awayAbbr];
 
 		const playersSelected = {
 			home: homePlayers,
 			away: awayPlayers
 		};
 
-		console.log(playersSelected);
 		return playersSelected;
+	}
+
+	getSelectedStats() {
+		const self = this;
+		let selectedStats = {};
+		Object.keys(this.state.stats).forEach(stat => {
+			if(self.state.stats[stat] === '') {
+				selectedStats[stat] = '';
+			}
+		});
+
+		return selectedStats;
 	}
 
 
@@ -220,6 +185,7 @@ class NBAPulse extends Component {
 					onSelectGame={this.onSelectGame}
 					leagueDetails={this.props.league}
 					gameSelected={this.state.gameSelected}
+					teamGamesList={this.state.teamGamesList}
 					/>
 
 				<Game
@@ -238,7 +204,6 @@ class NBAPulse extends Component {
 export default withTracker(() => {
 	Meteor.subscribe('League');
 	Meteor.subscribe('Teams');
-	// Meteor.subscribe('Games');
 
 	return {
 		league: League.findOne({},{'teamsDetails':1,'teamsAbbr':1, '_id':0}),

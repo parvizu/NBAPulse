@@ -1,0 +1,115 @@
+.player-label h4 {
+    margin: 0px;
+    top: 3px;
+    position: relative;
+    left: 105px;
+}
+
+.player-label img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 66px;
+    z-index: -2;
+}
+
+
+.chart-label {
+    display: inline-block;
+    vertical-align: top;
+    width: 300px;
+    margin: 0px;
+    padding: 0px;
+    /* padding-top: 5px; */
+    height: 100px;
+    overflow: hidden;
+    text-align: left;
+    position: relative;
+    background: rgba(10,10,10,.2);
+}
+
+
+.player-stats {
+    position: relative;
+    left: 2px;
+    bottom: -50px;
+    height: 77px;
+}
+
+.player-stats >div {
+	display: inline-block;
+}
+
+.player-stat {
+    display: inline-block;
+    font-size: 12px;
+    padding: 2px;
+    text-align: center;
+    width: 18px;
+    margin: 0px 4px 5px 0px;
+    font-size: 12pt;
+    height: 32px;
+    text-shadow: 1px 1px #000;
+}
+
+.player-stat.stat-hidden {
+	display: none;
+}
+
+
+/* Individual Stas */
+
+.player-stat-label {
+    font-size: 6pt;
+    text-shadow: none;
+    color: rgba(255,255,255,.65);
+    margin-top: 0px;
+}
+
+.player-points {
+    vertical-align: top;
+    /* height: 73px; */
+    width: 40px;
+    /* font-size: 18pt; */
+    /* margin: 2px 5px; */
+    background-color: rgba(0,128,0,.3);
+}
+
+.player-points .player-stat-label {
+    margin-top: 0px;
+}
+
+.player-fg, .player-3pt {
+    width: 40px;
+    /* font-size: 18pt; */
+    /* margin: 2px 5px; */
+    background-color: rgba(0,128,0,.3);
+}
+
+.player-3pt {
+    /*margin-right: 6px;*/
+}
+
+.player-assists {
+    background-color: rgba(255,165,0,.75);
+}
+
+.player-rebounds {
+    background-color: rgba(30,144,255,.5);
+}
+
+.player-turnovers {
+    background-color: rgba(255,0,0,.75);
+}
+
+.player-blocks {
+    background-color: rgba(165,42,42,.75);
+}
+
+.player-steals {
+    background-color: rgba(128,0,128,.75);
+}
+
+.player-fouls {
+    background-color: rgba(176,196,222,.4);
+}

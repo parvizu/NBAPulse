@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import classNames from 'classnames';
 
 import CordChart from './CordChart.js';
+import PlayerCard from './PlayerCard.js';
 
 export default class PlayerGameCord extends Component {
 	constructor(props) {
@@ -15,23 +16,30 @@ export default class PlayerGameCord extends Component {
 			'cord-chart-container'
 		);
 
-		const playerSubs = [];
+		const selectedStats = Object.keys(this.props.selectedStats).filter(stat => {
+			return this.props.selectedStats[stat] === ''
+		});
 
 		return (
 			<div className="player-container">
 				<div className={classnames} >
+					<PlayerCard
+						playerId={this.props.playerDetails.playerId}
+						playerStats={this.props.playerData.playerStats}
+						label={this.props.playerDetails.playerName}
+						selectedStats={this.props.selectedStats}
+						/>
+
 					<CordChart 
 						timeLog={this.props.timeLog}
 						specs={this.props.specs}
 						playerId={this.props.playerDetails.playerId}
 						playerLog={this.props.playerData.playerLog}
-						playerStats={this.props.playerData.playerStats}
-						playerSubs={playerSubs}
-						label={this.props.playerDetails.playerName}
-						key={"cord_" + this.props.playerDetails.playerId}
+						// playerStats={this.props.playerData.playerStats}
+						playerSubs={this.props.playerSubs}
+						// key={"cord_" + this.props.playerDetails.playerId}
 						periods={this.props.periods}
-						selectedStats={ Object.keys(this.props.selectedStats)}
-						selectedStats2={this.props.selectedStats}
+						selectedStats={ selectedStats}
 						height={100}
 						/>
 				</div>

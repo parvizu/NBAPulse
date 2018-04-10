@@ -37,12 +37,18 @@ export default class GameVisualization extends Component {
 				let playerData = {};
 				playerData = this.props.gameData.playerLogs[player.playerId];
 
+				const playerSubs = this.props.gameData.substitutions[player.playerId] || [];
+
 				// CLEANUP: This check shouldn't be necessary. If player didn't play then its gamelog should be empty not 'undefined'.
 				if (typeof playerData !== 'undefined') {
+					const playerKey = this.props.gameId+"-"+player.playerId+"-cord";
+
 					return (
 						<PlayerGameCord
+							key={playerKey}
 							playerDetails={player}
 							playerData={playerData}
+							playerSubs={playerSubs}
 							timeLog={this.props.gameData.timeLog}
 							periods={this.props.gameData.periods}
 							specs={this.state.specs}

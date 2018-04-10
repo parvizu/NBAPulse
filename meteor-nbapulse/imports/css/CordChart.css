@@ -3,87 +3,97 @@
 	font-family: Helvetica;
 }
 
-.player-stats {
-    position: relative;
-    left: 2px;
-    bottom: -50px;
-    height: 77px;
+
+rect.substitution-bench: {
+    fill: rgba(0,0,0,.25);
 }
 
-.player-stats >div {
-	display: inline-block;
-}
-
-.player-stat {
-    display: inline-block;
-    font-size: 12px;
-    padding: 2px;
-    text-align: center;
-    width: 18px;
-    margin: 0px 4px 5px 0px;
-    font-size: 12pt;
-    height: 32px;
-    text-shadow: 1px 1px #000;
-}
-
-.player-stat.stat-hidden {
-	display: none;
+rect.substitution-court: {
+    fill: none;
 }
 
 
-/* Individual Stas */
-
-.player-stat-label {
-    font-size: 6pt;
-    text-shadow: none;
-    color: rgba(255,255,255,.65);
-    margin-top: 0px;
+.period-end {
+    fill: gray;
+    width: 5px;
 }
 
-.player-points {
-    vertical-align: top;
-    /* height: 73px; */
-    width: 40px;
-    /* font-size: 18pt; */
-    /* margin: 2px 5px; */
-    background-color: rgba(0,128,0,.3);
+.mid-quarter {
+    width: .5px;
+    fill: lightgray;
 }
 
-.player-points .player-stat-label {
-    margin-top: 0px;
+
+.play rect {
+    fill: none;
+    width: 3px;
+    stroke: none;
 }
 
-.player-fg, .player-3pt {
-    width: 40px;
-    /* font-size: 18pt; */
-    /* margin: 2px 5px; */
-    background-color: rgba(0,128,0,.3);
+rect.rebound {
+    fill: dodgerblue;
+    stroke: none;
+    color: ghostwhite;
+
 }
 
-.player-3pt {
-    /*margin-right: 6px;*/
+rect.foul {
+    fill: lightsteelblue;
+    stroke: none;
 }
 
-.player-assists {
-    background-color: rgba(255,165,0,.75);
+rect.turnover {
+    fill: red;
+    stroke: none;
 }
 
-.player-rebounds {
-    background-color: rgba(30,144,255,.5);
+rect.made-fg,
+rect.made-ft,
+rect.made-3pt {
+    fill: green;
+    stroke: green;
+    color: green;
 }
 
-.player-turnovers {
-    background-color: rgba(255,0,0,.75);
+rect.missed-fg,
+rect.missed-ft,
+rect.missed-3pt {
+    fill: ghostwhite;
+    stroke: green;
+    color: ghostwhite;
 }
 
-.player-blocks {
-    background-color: rgba(165,42,42,.75);
+rect.assist {
+    fill: orange;
+    stroke: none;
 }
 
-.player-steals {
-    background-color: rgba(128,0,128,.75);
+rect.steal {
+    fill: purple;
+    stroke: none;
 }
 
-.player-fouls {
-    background-color: rgba(176,196,222,.4);
+rect.block {
+    fill: brown;
+    stroke: none;
 }
+
+rect.positive {
+    /*fill: green;*/
+    /*stroke: none;*/
+}
+
+rect.negative {
+    /*fill: red;*/
+    /*stroke: none;*/
+}
+
+
+rect.substitution-bench {
+    fill: rgba(0,0,0,.2);
+}
+
+rect.substitution-court {
+    fill: none;
+}
+

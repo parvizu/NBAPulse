@@ -96,12 +96,16 @@ li.team-games-item {
 li.team-games-item:hover {
 	cursor: pointer;
     border-bottom-color: darkorange;
+    color: darkorange;
 }
 
 li.team-games-item.selected {
     /*background-color: darkorange;*/
+    /*border-bottom-color: darkorange;*/
+    /*color: darkorange;*/
+    background-color: darkorange;
     border-bottom-color: darkorange;
-    color: darkorange;
+    color: white;
 }
 
 li.team-games-item.home {

@@ -30,7 +30,7 @@ export default class TeamDetails extends Component {
 
 			const classes = classnames({
 				'team-details-player-item': true,
-				'selected': this.props.playersSelected.indexOf(player.playerId) > -1
+				'selected': this.props.playersSelected.indexOf(player.playerId.toString()) > -1
 			});
 
 			return (
