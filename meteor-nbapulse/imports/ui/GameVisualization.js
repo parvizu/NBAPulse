@@ -3,6 +3,7 @@ import classnames from 'classnames';
 
 import ScoringMarginChart from './ScoringMarginChart.js';
 import PlayerGameCord from './PlayerGameCord.js';
+import PlayerGameDNP from './PlayerGameDNP';
 
 import styles from '../css/GameVisualization.css';
 
@@ -40,9 +41,8 @@ export default class GameVisualization extends Component {
 				const playerSubs = this.props.gameData.substitutions[player.playerId] || [];
 
 				// CLEANUP: This check shouldn't be necessary. If player didn't play then its gamelog should be empty not 'undefined'.
+				const playerKey = this.props.gameId+"-"+player.playerId+"-cord";
 				if (typeof playerData !== 'undefined') {
-					const playerKey = this.props.gameId+"-"+player.playerId+"-cord";
-
 					return (
 						<PlayerGameCord
 							key={playerKey}
@@ -56,6 +56,14 @@ export default class GameVisualization extends Component {
 							/>
 					);
 				}
+
+				return (
+					<PlayerGameDNP
+						key={playerKey}
+						playerDetails={player}
+						selectedStats={this.props.selectedStats}
+						/>
+				);
 			}
 		});
 

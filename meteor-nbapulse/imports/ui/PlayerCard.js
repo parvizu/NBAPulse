@@ -7,6 +7,22 @@ export default class PlayerCard extends Component {
 	
 	constructor(props) {
 		super(props);
+
+		this.emptyStats = {
+			'points': 0,
+			'made-fg': 0,
+			'missed-fg': 0,
+			'made-3pt': 0,
+			'missed-3pt': 0,
+			'made-ft': 0,
+			'missed-ft': 0,
+			'assist': 0,
+			'rebound': 0,
+			'steal': 0,
+			'block': 0,
+			'turnover': 0,
+			'foul': 0
+		}
 	}
 
 	render() {
@@ -14,17 +30,18 @@ export default class PlayerCard extends Component {
 		const imgUrl = 'https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/'+this.props.playerId+'.png';
 
 		const selectedStats = this.props.selectedStats;
-		const stats = this.props.playerStats;
+		const stats = this.props.playerStats !== null ? this.props.playerStats : this.emptyStats;
+		const dnp = this.props.playerStats === null ? 'hidden' : '';
 
 		return(
 			<div className="chart-label player-label"> 
 				<h4>{this.props.label}</h4>
-				<div className={"player-stat player-points " + selectedStats['made']}>
+				<div className={dnp + " player-stat player-points " + selectedStats['made']}>
 					{stats.points}
 					<div className="player-stat-label">POINTS</div>
 				</div>
 				<img src={imgUrl} />
-				<div className="player-stats">
+				<div className={dnp + " player-stats"}>
 					<div className={"player-stat player-fg " + selectedStats['made']}>
 						{stats['made-fg']+"/"+(stats['made-fg']+stats['missed-fg'] )}
 						<div className="player-stat-label">FG</div>
