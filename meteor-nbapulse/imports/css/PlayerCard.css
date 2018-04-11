@@ -1,15 +1,17 @@
 .player-label h4 {
     margin: 0px;
-    top: 3px;
-    position: relative;
+    top: 5px;
+    position: absolute;
     left: 105px;
+    /* background-color: yellow; */
+    max-width: 130px;
 }
 
 .player-label img {
     position: absolute;
     top: 0;
-    left: 0;
-    height: 66px;
+    left: 2px;
+    height: 60px;
     z-index: -2;
 }
 
@@ -32,7 +34,7 @@
 .player-stats {
     position: relative;
     left: 2px;
-    bottom: -50px;
+    bottom: -64px;
     height: 77px;
 }
 
@@ -66,20 +68,36 @@
     margin-top: 0px;
 }
 
-.player-points {
-    vertical-align: top;
+/*.player-points {*/
+    /*vertical-align: top;*/
     /* height: 73px; */
-    width: 40px;
+    /*width: 40px;*/
     /* font-size: 18pt; */
     /* margin: 2px 5px; */
+    /*background-color: rgba(0,128,0,.3);*/
+/*}*/
+
+.player-points {
+    vertical-align: top;
+    height: 50px;
+    width: 50px;
+    font-size: 20pt;
+    /* margin: 2px 5px; */
     background-color: rgba(0,128,0,.3);
+    position: absolute;
+    /* float: right; */
+    right: -2px;
+    z-index: 5;
+    /* top: 4px; */
+    padding: 5px;
 }
 
 .player-points .player-stat-label {
     margin-top: 0px;
+    font-size: 8pt;
 }
 
-.player-fg, .player-3pt {
+.player-fg, .player-3pt, .player-ft {
     width: 40px;
     /* font-size: 18pt; */
     /* margin: 2px 5px; */

@@ -19,12 +19,12 @@ export default class PlayerCard extends Component {
 		return(
 			<div className="chart-label player-label"> 
 				<h4>{this.props.label}</h4>
+				<div className={"player-stat player-points " + selectedStats['made']}>
+					{stats.points}
+					<div className="player-stat-label">POINTS</div>
+				</div>
 				<img src={imgUrl} />
 				<div className="player-stats">
-					<div className={"player-stat player-points " + selectedStats['made']}>
-						{stats.points}
-						<div className="player-stat-label">PTS</div>
-					</div>
 					<div className={"player-stat player-fg " + selectedStats['made']}>
 						{stats['made-fg']+"/"+(stats['made-fg']+stats['missed-fg'] )}
 						<div className="player-stat-label">FG</div>
@@ -32,6 +32,10 @@ export default class PlayerCard extends Component {
 					<div className={"player-stat player-3pt " + selectedStats['made']}>
 						{stats['made-3pt']+"/"+(stats['made-3pt']+stats['missed-3pt'] )}
 						<div className="player-stat-label">3PT</div>
+					</div>
+					<div className={"player-stat player-ft " + selectedStats['made']}>
+						{stats['made-ft']+"/"+(stats['made-ft']+stats['missed-ft'] )}
+						<div className="player-stat-label">FT</div>
 					</div>
 					<div className={"player-stat player-assists " + selectedStats['assist']}>
 						{stats.assist}
