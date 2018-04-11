@@ -35,11 +35,24 @@ export default class GameDetails extends Component {
 					playersSelected={this.props.playersSelected.home}
 					onSelectTeamPlayer={this.props.onSelectTeamPlayer}
 					/>
-				<GameScoringBreakdown
+				<div className="game-details">
+					<div className="game-details-information">
+						<div className="game-details-info-section game-details-date">
+							{ this.props.gameDetails.gdte }
+						</div>
+						<div className="game-details-info-section game-details-arena">
+							{ this.props.gameDetails.an }
+						</div>
+						<div className="game-details-info-section game-details-location">
+							{ this.props.gameDetails.ac }, { this.props.gameDetails.as }
+						</div>
+					</div>
+					<GameScoringBreakdown
 					homeTeam={this.props.homeTeam.teamKey}
 					awayTeam={this.props.awayTeam.teamKey}
 					scoreBreakdown={this.props.scoreBreakdown}
 					/>
+				</div>
 				<TeamDetails 
 					team={this.props.awayTeam} 
 					type="away"

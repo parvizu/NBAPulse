@@ -42,6 +42,7 @@ export default class Game extends Component {
 				<div>
 					<div className="game-menu-container">
 						<GameDetails
+							gameDetails={this.props.gameData.details}
 							homeTeam={this.props.gameData.teams.home}
 							awayTeam={this.props.gameData.teams.away}
 							scoreBreakdown={this.props.gameData.processed.breakdown}

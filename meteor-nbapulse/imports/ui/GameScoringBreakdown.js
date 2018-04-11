@@ -51,7 +51,7 @@ export default class GameScoringBreakdown extends Component {
 	render() {
 		//console.log("RENDERING", "GameScoringBreakdown.js", this.count++);
 		return(
-			<div className="game-details">
+			<div className="game-details-breakdown">
 				{ this.getScoringBreakdown() }
 			</div>
 		);
