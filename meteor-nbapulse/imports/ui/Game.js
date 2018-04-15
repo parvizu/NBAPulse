@@ -50,7 +50,6 @@ export default class Game extends Component {
 							onSelectTeamPlayer={this.props.onSelectTeamPlayer}
 							/>
 
-
 					</div>
 					<StatControl
 							onStatClick={this.props.onStatClick}

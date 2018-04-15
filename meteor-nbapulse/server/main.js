@@ -1999,9 +1999,6 @@ Meteor.startup(() => {
 				Games.insert(newGame);
 			})
 		});
-
-
-
 	}
 
 	/**** SERVER FUNCTIONALITY ****/

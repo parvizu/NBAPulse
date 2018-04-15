@@ -220,11 +220,8 @@ export default class ScoringMarginChart extends Component {
 	
 	render() {
 		return (
-			<div className="scoring-margin-chart-container">
-				<h4 className="chart-label"> {this.props.label} </h4>
-				<div className="chart-container">
-					{ this.createChart() }
-				</div>
+			<div className="chart-container">
+				{ this.createChart() }
 			</div>
 		);
 	}

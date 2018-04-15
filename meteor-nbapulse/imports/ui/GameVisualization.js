@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import ScoringMarginChart from './ScoringMarginChart.js';
 import PlayerGameCord from './PlayerGameCord.js';
 import PlayerGameDNP from './PlayerGameDNP';
+import TeamsGameCard from './TeamsGameCard';
 
 import styles from '../css/GameVisualization.css';
 
@@ -74,10 +75,14 @@ export default class GameVisualization extends Component {
 		return (
 			<div className="main-visualization-container">
 
-				<div className={"home-players-visualization-container team-bg " + this.props.homeTeam.teamKey}>
+				<div className="home-players-visualization-container">
 					{ this.getTeamPlayersViz(this.props.homeTeam, this.props.playersSelected.home) }
 				</div>
 				<div className="game-scoring-margin">
+					<TeamsGameCard
+						home={this.props.homeTeam}
+						away={this.props.awayTeam}
+						/>
 
 					<ScoringMarginChart
 						specs={this.state.specs}
@@ -88,7 +93,7 @@ export default class GameVisualization extends Component {
 						label={this.state.config.label}
 						/>
 				</div>
-				<div className={"away-players-visualization-container team-bg " + this.props.awayTeam.teamKey}>
+				<div className="away-players-visualization-container team-bg">
 					{ this.getTeamPlayersViz(this.props.awayTeam, this.props.playersSelected.away) }
 				</div>
 			</div>
