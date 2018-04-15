@@ -31,7 +31,6 @@ export const GameHelpers = {
 		return game;
 	},
 
-
 	_getGamePeriodsPlayed: (gameData) => {
 		/* Function that returns the number of periods played in the game */
 		const playByPlay = gameData.data.resultSets[0].rowSet;
@@ -402,9 +401,7 @@ export const GameHelpers = {
 	},
 
 	_processTeamSubstitutions(game, teamDescIndex) {
-		// const game = this.state.game;
 		const data = game.data.resultSets[0].rowSet;
-
 		let quarters = {};
 
 		data.forEach(row => {
@@ -419,7 +416,7 @@ export const GameHelpers = {
 			if (row[2] === 13) {
 				quarters['q'+row[4]].end = row[1]
 			}
-		})
+		});
 
 		let rowData = data.filter(row => {
 			// process Home Subs
@@ -494,10 +491,6 @@ export const GameHelpers = {
 					}
 
 				} else if (subs[i].action === 'out') {
-					//  Player subbed out during game
-					temp['out'] = subs[i].out;
-					// temp['period'] = subs[i].period;
-					temp['clockOut'] = subs[i].clock;
 
 					if (!('in' in temp )) {
 						// Player subbed in during period break or game start
@@ -507,6 +500,40 @@ export const GameHelpers = {
 						temp['play'] = subs[i].desc;
 						temp['period'] = subs[i].period;
 					}
+
+					if (subs[i].period !== temp.period) {
+
+						const quarterDiff = subs[i].period - temp.period;
+
+						for (let j = 0; j<quarterDiff; j++ ) {
+							// Player in court from one quarter to the next
+							temp['out'] = quarters["q"+temp.period].end;
+							temp['clockOut'] = "0:00";
+
+							// Saving subout at end of SubbedIn quarter
+							processed[player].push({
+								type: 'court',
+								in: temp['in'],
+								clockIn: temp['clockIn'],
+								out: temp['out'],
+								clockOut: temp['clockOut'],
+								period: temp['period'],
+								play: temp['play']
+							});
+
+							// Updating temp to beginning of subbedout quarter
+							temp['type'] = 'court';
+							temp['in'] = quarters["q"+(j+1)].start;
+							temp['clockIn'] = "12:00";
+							temp['play'] = subs[i].desc;
+							temp['period'] = temp.period +1;
+						}
+					}
+
+					//  Player subbed out during game
+					temp['out'] = subs[i].out;
+					// temp['period'] = subs[i].period;
+					temp['clockOut'] = subs[i].clock;
 				}
 
 				// Regular substitution completed. Saving.
@@ -546,7 +573,7 @@ export const GameHelpers = {
 								play: 'On bench for the quarter'
 							};
 
-							if (!GameHelpers._confirmBenchForQuarter(player, temp, data)) {
+							if (!this._confirmBenchForQuarter(player, p, data)) {
 								temp['type'] = 'court';
 								temp['play'] = 'Played the whole quarter';
 							}
@@ -572,15 +599,6 @@ export const GameHelpers = {
 
 				playerActivity.push(act);
 
-				for (const q in quarters) {
-					if (act.period === parseInt(q.substr(1))) {
-						if (!(act.in >= quarters[q].start && act.out <=quarters[q].end)) {
-							// console.log('REVIEW: ');
-							// console.log(act);
-						}
-					}
-				}
-
 				temp['type'] = 'bench';
 				temp['in'] = act.out;
 				temp['clockIn'] = act.clockOut;
@@ -600,8 +618,8 @@ export const GameHelpers = {
 						temp = {};
 					}
 
-					if (act.period+1 !== numPeriods) {
-						for (let p = act.period+1; p<=numPeriods; p++) {
+					if (act.period !== numPeriods) {
+						for (let p = act.period; p<=numPeriods; p++) {
 							temp = {
 								type: 'bench',
 								in: quarters['q'+p].start,
@@ -612,7 +630,7 @@ export const GameHelpers = {
 								play: 'On bench for the quarter'
 							};
 
-							if (!this._confirmBenchForQuarter(player, temp, data)) {
+							if (!this._confirmBenchForQuarter(player, p, data)) {
 								temp['type'] = 'court';
 								temp['play'] = 'Played the whole quarter';
 							}
@@ -622,36 +640,77 @@ export const GameHelpers = {
 						}
 					}
 				} else {
+
 					temp['type'] = 'bench';
 					temp['in'] = act.out;
 					temp['clockIn'] = act.clockOut;
-					temp['out'] = playerSubs[i+1].in;
-					temp['clockOut'] = playerSubs[i+1].clockIn;
-					temp['period'] = playerSubs[i+1].period,
-					temp['play'] = playerSubs[i+1].desc;
 
-					playerActivity.push(temp);
-					temp = {};
+					if (act.period !== playerSubs[i+1].period) {
+						temp['out'] = quarters['q'+act.period].end;
+						temp['clockOut'] = '0:00';
+						temp['period'] = act.period,
+						temp['play'] = act.play;
+
+						playerActivity.push(temp);
+						temp = {};
+
+						for (let k = act.period+1; k<playerSubs[i+1].period; k++) {
+							temp = {
+								type: 'bench',
+								in: quarters['q'+k].start,
+								clockIn: '12:00',
+								out: quarters['q'+k].end,
+								clockOut: '0:00',
+								period: k,
+								play: "On bench for the quarter"
+							};
+
+							if (!this._confirmBenchForQuarter(player, k, data)) {
+								temp['type'] = 'court';
+								temp['play'] = 'Played the whole quarter';
+							}
+
+							playerActivity.push(temp);
+							temp = {};
+						}
+
+						temp = {
+							type: 'bench',
+							in: quarters['q'+playerSubs[i+1].period].start,
+							clockIn: '12:00',
+							out: playerSubs[i+1].in,
+							clockOut: playerSubs[i+1].clockIn,
+							period: playerSubs[i+1].period,
+							play: "On bench to start the quarter"
+						};
+						playerActivity.push(temp);
+						temp = {};
+					} else {
+						temp['out'] = playerSubs[i+1].in;
+						temp['clockOut'] = playerSubs[i+1].clockIn;
+						temp['period'] = playerSubs[i+1].period,
+						temp['play'] = playerSubs[i+1].desc;
+
+						playerActivity.push(temp);
+						temp = {};
+					}
 				}
 			});
-			// console.log("BENCH", playerActivity);
 			processed[player] = playerActivity;
 		});
-
 		// console.log(processed);
 		return processed;
 
 	},
 
-	_confirmBenchForQuarter(playerId, playerInfo, rowSets) {
+	_confirmBenchForQuarter(playerId, period, rowSets) {
 		playerId = parseInt(playerId);
 		let playerPlays = rowSets.filter(row => {
 			let isPlayer = (row[13] === playerId || row[20] === playerId || row[27] === playerId);
-			return row[1] >= playerInfo.in && row[1] <= playerInfo.out && isPlayer;
+			return (row[4] == period ) && isPlayer;
 		});
 
 		return playerPlays.length === 0;
 	}
-
 
 }
