@@ -1,0 +1,1056 @@
+{
+	"s2017": {
+		"playoffs": {
+			"OKCvHOU": [
+				"PlaybyPlay_OKCvHOU-Game1.json",
+				"PlaybyPlay_OKCvHOU-Game2.json",
+				"PlaybyPlay_OKCvHOU-Game3.json",
+				"PlaybyPlay_OKCvHOU-Game4.json",
+				"PlaybyPlay_OKCvHOU-Game5.json"],
+
+			"GSWvPOR": [
+				"PlaybyPlay_GSWvPOR-Game1.json",
+				"PlaybyPlay_GSWvPOR-Game2.json",
+				"PlaybyPlay_GSWvPOR-Game3.json",
+				"PlaybyPlay_GSWvPOR-Game4.json"],
+			
+			"BOSvWIZ": [
+				"PlaybyPlay_BOSvWIZ-Game1.json",
+				"PlaybyPlay_BOSvWIZ-Game2.json",
+				"PlaybyPlay_BOSvWIZ-Game3.json",
+				"PlaybyPlay_BOSvWIZ-Game4.json",
+				"PlaybyPlay_BOSvWIZ-Game5.json",
+				"PlaybyPlay_BOSvWIZ-Game6.json",
+				"PlaybyPlay_BOSvWIZ-Game7.json"],
+
+			"BOSvCLE": [
+				"PlaybyPlay_BOSvCLE-Game1.json",
+				"PlaybyPlay_BOSvCLE-Game2.json",
+				"PlaybyPlay_BOSvCLE-Game3.json",
+				"PlaybyPlay_BOSvCLE-Game4.json",
+				"PlaybyPlay_BOSvCLE-Game5.json"],
+
+			"CLEvIND": [
+				"PlaybyPlay_CLEvIND-Game1.json",
+				"PlaybyPlay_CLEvIND-Game2.json",
+				"PlaybyPlay_CLEvIND-Game3.json",
+				"PlaybyPlay_CLEvIND-Game4.json"],
+
+			"CLEvTOR": [
+				"PlaybyPlay_CLEvTOR-Game1.json",
+				"PlaybyPlay_CLEvTOR-Game2.json",
+				"PlaybyPlay_CLEvTOR-Game3.json",
+				"PlaybyPlay_CLEvTOR-Game4.json"],
+
+			"GSWvUTA": [
+				"PlaybyPlay_GSWvUTA-Game1.json",
+				"PlaybyPlay_GSWvUTA-Game2.json",
+				"PlaybyPlay_GSWvUTA-Game3.json",
+				"PlaybyPlay_GSWvUTA-Game4.json"],
+
+			"GSWvSAS": [
+				"PlaybyPlay_GSWvSAS-Game1.json",
+				"PlaybyPlay_GSWvSAS-Game2.json",
+				"PlaybyPlay_GSWvSAS-Game3.json",
+				"PlaybyPlay_GSWvSAS-Game4.json"],
+
+			"GSWvCLE": [
+				"PlaybyPlay_GSWvCLE-Game1.json",
+				"PlaybyPlay_GSWvCLE-Game2.json",
+				"PlaybyPlay_GSWvCLE-Game3.json",
+				"PlaybyPlay_GSWvCLE-Game4.json",
+				"PlaybyPlay_GSWvCLE-Game5.json"],
+
+			"SASvHOU": [
+				"PlaybyPlay_SASvHOU-Game1.json",
+				"PlaybyPlay_SASvHOU-Game2.json",
+				"PlaybyPlay_SASvHOU-Game3.json",
+				"PlaybyPlay_SASvHOU-Game4.json",
+				"PlaybyPlay_SASvHOU-Game5.json",
+				"PlaybyPlay_SASvHOU-Game6.json"]
+		}
+	},
+
+	"s2018": {
+		"season": {
+			"team": {
+				"ATL": {
+					"g1": {
+						"details" : {},
+						"data": "pbp_20171018_ATLDAL.json"
+					},
+					"g22": {
+						"details" : {},
+						"data": "pbp_20171130_CLEATL.json"
+					}
+				},
+				"BOS": {
+					"g1": {
+						"details" : {},
+						"data": "pbp_20171017_BOSCLE.json"
+					},
+					"g2": {
+						"details" : {},
+						"data": "pbp_20171018_MILBOS.json"
+					},
+					"g3": {
+						"details" : {},
+						"data": "pbp_20171020_BOSPHI.json"
+					},
+					"g4": {
+						"details" : {},
+						"data": "pbp_20171024_NYKBOS.json"
+					},
+					"g5": {
+						"details" : {},
+						"data": "pbp_20171026_BOSMIL.json"
+					},
+					"g6": {
+						"details" : {},
+						"data": "pbp_20171028_BOSMIA.json"
+					},
+					"g7": {
+						"details" : {},
+						"data": "pbp_20171030_SASBOS.json"
+					},
+					"g8": {
+						"details" : {},
+						"data": "pbp_20171101_SACBOS.json"
+					},
+					"g9": {
+						"details" : {},
+						"data": "pbp_20171103_BOSOKC.json"
+					},
+					"g15": {
+						"details" : {},
+						"data": "pbp_20171116_GSWBOS.json"
+					},
+					"g32": {
+						"details" : {},
+						"data": "pbp_20171228_HOUBOS.json"
+					},
+					"g33": {
+						"details" : {},
+						"data": "pbp_20180103_CLEBOS.json"
+					},
+					"g44": {
+						"details": {},
+						"data": "pbp_20180116_NOPBOS.json"
+					}
+				},
+				"BKN": {
+					"g1": {
+						"details" : {},
+						"data": "pbp_20171018_BKNIND.json"
+					},
+					"g17": {
+						"details": {},
+						"data": "pbp_20171119_GSWBKN.json"
+					},
+					"g18": {
+						"details" : {},
+						"data": "pbp_20171122_BKNCLE.json"
+					}
+				},
+				"CHA": {
+					"g1": {
+						"details" : {},
+						"data": "pbp_20171018_CHADET.json"
+					},
+					"g19": {
+						"details" : {},
+						"data": "pbp_20171124_CHACLE.json"
+					},
+					"g36": {
+						"details" : {},
+						"data": "pbp_20171229_CHAGSW.json"
+					},
+					"g37": {
+						"details" : {},
+						"data": "pbp_20180124_NOPCHA.json"
+					}
+				},
+				"CHI": {
+					"g1": {
+						"details" : {},
+						"data": "pbp_20171019_CHITOR.json"
+					},
+					"g19": {
+						"details" : {},
+						"data": "pbp_20171124_CHIGSW.json"
+					}
+				},
+				"CLE": {
+					"g1": {
+						"details" : {},
+						"data": "pbp_20171017_BOSCLE.json"
+					},
+					"g2": {
+						"details" : {},
+						"data": "pbp_20171020_CLEMIL.json"
+					},
+					"g3": {
+						"details" : {},
+						"data": "pbp_20171021_ORLCLE.json"
+					},
+					"g4": {
+						"details" : {},
+						"data": "pbp_20171024_CHICLE.json"
+					},
+					"g5": {
+						"details" : {},
+						"data": "pbp_20171025_CLEBKN.json"
+					},
+					"g6": {
+						"details" : {},
+						"data": "pbp_20171028_CLENOP.json"
+					},
+					"g7": {
+						"details" : {},
+						"data": "pbp_20171029_NYKCLE.json"
+					},
+					"g8": {
+						"details" : {},
+						"data": "pbp_20171101_INDCLE.json"
+					},
+					"g9": {
+						"details" : {},
+						"data": "pbp_20171103_CLEWAS.json"
+					},
+					"g10": {
+						"details" : {},
+						"data": "pbp_20171105_ATLCLE.json"
+					},
+					"g11": {
+						"details" : {},
+						"data": "pbp_20171107_MILCLE.json"
+					},
+					"g12": {
+						"details" : {},
+						"data": "pbp_20171109_CLEHOU.json"
+					},
+					"g13": {
+						"details" : {},
+						"data": "pbp_20171111_CLEDAL.json"
+					},
+					"g14": {
+						"details" : {},
+						"data": "pbp_20171113_CLENYK.json"
+					},
+					"g15": {
+						"details" : {},
+						"data": "pbp_20171115_CLECHA.json"
+					},
+					"g16": {
+						"details" : {},
+						"data": "pbp_20171117_LACCLE.json"
+					},
+					"g17": {
+						"details" : {},
+						"data": "pbp_20171120_CLEDET.json"
+					},
+					"g18": {
+						"details" : {},
+						"data": "pbp_20171122_BKNCLE.json"
+					},
+					"g19": {
+						"details" : {},
+						"data": "pbp_20171124_CHACLE.json"
+					},
+					"g20": {
+						"details" : {},
+						"data": "pbp_20171127_CLEPHI.json"
+					},
+					"g21": {
+						"details" : {},
+						"data": "pbp_20171128_MIACLE.json"
+					},
+					"g22": {
+						"details" : {},
+						"data": "pbp_20171130_CLEATL.json"
+					},
+					"g23": {
+						"details" : {},
+						"data": "pbp_20171202_MEMCLE.json"
+					},
+					"g34": {
+						"details" : {},
+						"data": "pbp_20171225_CLEGSW.json"
+					},
+					"g37": {
+						"details" : {},
+						"data": "pbp_20180102_PORCLE.json"
+					},
+					"g38": {
+						"details" : {},
+						"data": "pbp_20180103_CLEBOS.json"
+					},
+					"g39": {
+						"details" : {},
+						"data": "pbp_20180106_CLEORL.json"
+					},
+					"g40": {
+						"details" : {},
+						"data": "pbp_20180108_CLEMIN.json"
+					},
+					"g41": {
+						"details" : {},
+						"data": "pbp_20180111_CLETOR.json"
+					},
+					"g42": {
+						"details" : {},
+						"data": "pbp_20180112_CLEIND.json"
+					},
+					"g43": {
+						"details" : {},
+						"data": "pbp_20180115_GSWCLE.json"
+					}
+				},
+				"DAL": {
+					"g1": {
+						"details" : {},
+						"data": "pbp_20171018_ATLDAL.json"
+					},
+					"g4": {
+						"details" : {},
+						"data": "pbp_20171023_GSWDAL.json"
+					},
+					"g29": {
+						"details" : {},
+						"data": "pbp_20171214_DALGSW.json"
+					}
+				},
+				"DEN": {
+					"g1": {
+						"details" : {},
+						"data": "pbp_20171018_DENUTA.json"
+					},
+					"g33": {
+						"details" : {},
+						"data": "pbp_20171223_DENGSW.json"
+					}
+				},
+				"DET": {
+					"g1": {
+						"details" : {},
+						"data": "pbp_20171018_CHADET.json"
+					},
+					"g9": {
+						"details" : {},
+						"data": "pbp_20171103_MILDET.json"
+					},
+					"g17": {
+						"details" : {},
+						"data": "pbp_20171120_CLEDET.json"
+					}
+				},
+				"GSW": {
+					"g1": {
+						"details" : {},
+						"data": "pbp_20171017_HOUGSW.json"
+					},
+					"g2": {
+						"details" : {},
+						"data": "pbp_20171020_GSWNOP.json"
+					},
+					"g3": {
+						"details" : {},
+						"data": "pbp_20171021_GSWMEM.json"
+					},
+					"g4": {
+						"details" : {},
+						"data": "pbp_20171023_GSWDAL.json"
+					},
+					"g5": {
+						"details" : {},
+						"data": "pbp_20171025_TORGSW.json"
+					},
+					"g6": {
+						"details": {},
+						"data": "pbp_20171027_WASGSW.json"
+					},
+					"g7": {
+						"details": {},
+						"data": "pbp_20171029_DETGSW.json"
+					},
+					"g8": {
+						"details": {},
+						"data": "pbp_20171030_GSWLAC.json"
+					},
+					"g9": {
+						"details": {},
+						"data": "pbp_20171102_GSWSAS.json"
+					},
+					"g10": {
+						"details": {},
+						"data": "pbp_20171104_GSWDEN.json"
+					},
+					"g11": {
+						"details": {},
+						"data": "pbp_20171106_GSWMIA.json"
+					},
+					"g12": {
+						"details": {},
+						"data": "pbp_20171108_MINGSW.json"
+					},
+					"g13": {
+						"details": {},
+						"data": "pbp_20171111_PHIGSW.json"
+					},
+					"g14": {
+						"details": {},
+						"data": "pbp_20171113_ORLGSW.json"
+					},
+					"g15": {
+						"details": {},
+						"data": "pbp_20171116_GSWBOS.json"
+					},
+					"g16": {
+						"details": {},
+						"data": "pbp_20171118_GSWPHI.json"
+					},
+					"g17": {
+						"details": {},
+						"data": "pbp_20171119_GSWBKN.json"
+					},
+					"g18": {
+						"details" : {},
+						"data": "pbp_20171122_GSWOKC.json"
+					},
+					"g19": {
+						"details" : {},
+						"data": "pbp_20171124_CHIGSW.json"
+					},
+					"g20": {
+						"details" : {},
+						"data": "pbp_20171125_NOPGSW.json"
+					},
+					"g21": {
+						"details" : {},
+						"data": "pbp_20171127_SACGSW.json"
+					},
+					"g22": {
+						"details" : {},
+						"data": "pbp_20171129_GSWLAL.json"
+					},
+					"g23": {
+						"details" : {},
+						"data": "pbp_20171201_GSWORL.json"
+					},
+					"g24": {
+						"details" : {},
+						"data": "pbp_20171203_GSWMIA.json"
+					},
+					"g25": {
+						"details" : {},
+						"data": "pbp_20171204_GSWNOP.json"
+					},
+					"g26": {
+						"details" : {},
+						"data": "pbp_20171206_GSWCHA.json"
+					},
+					"g27": {
+						"details" : {},
+						"data": "pbp_20171208_GSWDET.json"
+					},
+					"g28": {
+						"details" : {},
+						"data": "pbp_20171211_PORGSW.json"
+					},
+					"g29": {
+						"details" : {},
+						"data": "pbp_20171214_DALGSW.json"
+					},
+					"g30": {
+						"details" : {},
+						"data": "pbp_20171218_GSWLAL.json"
+					},
+					"g31": {
+						"details" : {},
+						"data": "pbp_20171220_MEMGSW.json"
+					},
+					"g32": {
+						"details" : {},
+						"data": "pbp_20171222_LALGSW.json"
+					},
+					"g33": {
+						"details" : {},
+						"data": "pbp_20171223_DENGSW.json"
+					},
+					"g34": {
+						"details" : {},
+						"data": "pbp_20171225_CLEGSW.json"
+					},
+					"g35": {
+						"details" : {},
+						"data": "pbp_20171227_UTAGSW.json"
+					},
+					"g36": {
+						"details" : {},
+						"data": "pbp_20171229_CHAGSW.json"
+					},
+					"g37": {
+						"details" : {},
+						"data": "pbp_20171230_MEMGSW.json"
+					},
+					"g37": {
+						"details" : {},
+						"data": "pbp_20171230_MEMGSW.json"
+					},
+					"g38": {
+						"details" : {},
+						"data": "pbp_20180103_GSWDAL.json"
+					},
+					"g39": {
+						"details" : {},
+						"data": "pbp_20180104_GSWHOU.json"
+					},
+					"g40": {
+						"details" : {},
+						"data": "pbp_20180106_GSWLAC.json"
+					},
+					"g41": {
+						"details" : {},
+						"data": "pbp_20180108_DENGSW.json"
+					},
+					"g42": {
+						"details" : {},
+						"data": "pbp_20180110_LACGSW.json"
+					},
+					"g43": {
+						"details" : {},
+						"data": "pbp_20180112_GSWMIL.json"
+					},
+					"g44": {
+						"details" : {},
+						"data": "pbp_20180113_GSWTOR.json"
+					},
+					"g45": {
+						"details" : {},
+						"data": "pbp_20180115_GSWCLE.json"
+					},
+					"g46": {
+						"details": {},
+						"data": "pbp_20180117_GSWCHI.json"
+					},
+					"g47": {
+						"details" : {},
+						"data": "pbp_20180120_GSWHOU.json"
+					},
+					"g48": {
+						"details" : {},
+						"data": "pbp_20180123_NYKGSW.json"
+					},
+					"g49": {
+						"details": {},
+						"data": "pbp_20180125_MINGSW.json"
+					},
+					"g50": {
+						"details" : {},
+						"data": "pbp_20180127_BOSGSW.json"
+					},
+					"g51": {
+						"details" : {},
+						"data": "pbp_20180130_GSWUTA.json"
+					},
+					"g52": {
+						"details": {},
+						"data": "pbp_20180202_GSWSAC.json"
+					},
+					"g53": {
+						"details" : {},
+						"data": "pbp_20180203_GSWDEN.json"
+					}
+				},
+				"HOU": {
+					"g1": {
+						"details" : {},
+						"data": "pbp_20171017_HOUGSW.json"
+					},
+					"g31": {
+						"details" : {},
+						"data": "pbp_20171220_LALHOU.json"
+					}
+				},
+				"IND": {
+					"g1": {
+						"details" : {},
+						"data": "pbp_20171018_BKNIND.json"
+					}
+				},
+				"LAC": {
+					"g1": {
+						"details" : {},
+						"data": "pbp_20171019_LACLAL.json"
+					},
+					"g40": {
+						"details" : {},
+						"data": "pbp_20180106_GSWLAC.json"
+					},
+					"g42": {
+						"details" : {},
+						"data": "pbp_20180110_LACGSW.json"
+					}
+				},
+				"LAL": {
+					"g1": {
+						"details" : {},
+						"data": "pbp_20171019_LACLAL.json"
+					},
+					"g2": {
+						"details" : {},
+						"data": "pbp_20171020_LALPHX.json"
+					},
+					"g3": {
+						"details" : {},
+						"data": "pbp_20171022_NOPLAL.json"
+					},
+					"g4": {
+						"details" : {},
+						"data": "pbp_20171025_WASLAL.json"
+					},
+					"g5": {
+						"details" : {},
+						"data": "pbp_20171027_TORLAL.json"
+					},
+					"g6": {
+						"details" : {},
+						"data": "pbp_20171028_LALUTA.json"
+					},
+					"g7": {
+						"details" : {},
+						"data": "pbp_20171031_DETLAL.json"
+					},
+					"g8": {
+						"details" : {},
+						"data": "pbp_20171102_LALPOR.json"
+					},
+					"g9": {
+						"details" : {},
+						"data": "pbp_20171103_BKNLAL.json"
+					},
+					"g10": {
+						"details" : {},
+						"data": "pbp_20171105_MEMLAL.json"
+					},
+					"g11": {
+						"details" : {},
+						"data": "pbp_20171108_LALBOS.json"
+					},
+					"g12": {
+						"details" : {},
+						"data": "pbp_20171109_LALWAS.json"
+					},
+					"g13": {
+						"details" : {},
+						"data": "pbp_20171111_LALMIL.json"
+					},
+					"g14": {
+						"details": {},
+						"data": "pbp_20171113_LALPHX.json"
+					},
+					"g15": {
+						"details": {},
+						"data": "pbp_20171115_PHILAL.json"
+					},
+					"g16": {
+						"details" : {},
+						"data": "pbp_20171117_PHXLAL.json"
+					},
+					"g17": {
+						"details" : {},
+						"data": "pbp_20171119_DENLAL.json"
+					},
+					"g18": {
+						"details" : {},
+						"data": "pbp_20171121_CHILAL.json"
+					},
+					"g19": {
+						"details" : {},
+						"data": "pbp_20171122_LALSAC.json"
+					},
+					"g20": {
+						"details" : {},
+						"data": "pbp_20171127_LALLAC.json"
+					},
+					"g21": {
+						"details" : {},
+						"data": "pbp_20171129_GSWLAL.json"
+					},
+					"g22": {
+						"details" : {},
+						"data": "pbp_20171202_LALDEN.json"
+					},
+					"g23": {
+						"details" : {},
+						"data": "pbp_20171203_HOULAL.json"
+					},
+					"g24": {
+						"details" : {},
+						"data": "pbp_20171207_LALPHI.json"
+					},
+					"g25": {
+						"details" : {},
+						"data": "pbp_20171209_LALCHA.json"
+					},
+					"g26": {
+						"details" : {},
+						"data": "pbp_20171212_LALNYK.json"
+					},
+					"g27": {
+						"details" : {},
+						"data": "pbp_20171214_LALCLE.json"
+					},
+					"g28": {
+						"details" : {},
+						"data": "pbp_20171218_GSWLAL.json"
+					},
+					"g29": {
+						"details" : {},
+						"data": "pbp_20171220_LALHOU.json"
+					},
+					"g30": {
+						"details" : {},
+						"data": "pbp_20171222_LALGSW.json"
+					},
+					"g31": {
+						"details" : {},
+						"data": "pbp_20171223_PORLAL.json"
+					},
+					"g32": {
+						"details" : {},
+						"data": "pbp_20171225_MINLAL.json"
+					},
+					"g33": {
+						"details" : {},
+						"data": "pbp_20171227_MEMLAL.json"
+					},
+					"g34": {
+						"details" : {},
+						"data": "pbp_20171229_LACLAL.json"
+					},
+					"g35": {
+						"details" : {},
+						"data": "pbp_20171231_LALHOU.json"
+					},
+					"g36": {
+						"details" : {},
+						"data": "pbp_20180101_LALMIN.json"
+					},
+					"g37": {
+						"details" : {},
+						"data": "pbp_20180103_OKCLAL.json"
+					},
+					"g38": {
+						"details" : {},
+						"data": "pbp_20180101_LALMIN.json"
+					},
+					"g39": {
+						"details" : {},
+						"data": "pbp_20180105_CHALAL.json"
+					},
+					"g40": {
+						"details" : {},
+						"data": "pbp_20180107_ATLLAL.json"
+					},
+					"g41": {
+						"details" : {},
+						"data": "pbp_20180109_SACLAL.json"
+					},
+					"g42": {
+						"details" : {},
+						"data": "pbp_20180111_SASLAL.json"
+					},
+					"g43": {
+						"details" : {},
+						"data": "pbp_20180113_LALDAL.json"
+					},
+					"g44": {
+						"details" : {},
+						"data": "pbp_20180115_LALMEM.json"
+					},
+					"g45": {
+						"details" : {},
+						"data": "pbp_20180117_LALOKC.json"
+					},
+					"g46": {
+						"details" : {},
+						"data": "pbp_20180119_INDLAL.json"
+					},
+					"g47": {
+						"details" : {},
+						"data": "pbp_20180121_NYKLAL.json"
+					}
+				},
+				"MEM": {
+					"g1": {
+						"details" : {},
+						"data": "pbp_20171018_NOPMEM.json"
+					},
+					"g3": {
+						"details" : {},
+						"data": "pbp_20171021_GSWMEM.json"
+					},
+					"g23": {
+						"details" : {},
+						"data": "pbp_20171202_MEMCLE.json"
+					},
+					"g31": {
+						"details" : {},
+						"data": "pbp_20171220_MEMGSW.json"
+					},
+					"g37": {
+						"details" : {},
+						"data": "pbp_20171230_MEMGSW.json"
+					}
+				},
+				"MIA": {
+					"g1": {
+						"details" : {},
+						"data": "pbp_20171018_MIAORL.json"
+					},
+					"g21": {
+						"details" : {},
+						"data": "pbp_20171128_MIACLE.json"
+					}
+				},
+				"MIL": {
+					"g1": {
+						"details" : {},
+						"data": "pbp_20171018_MILBOS.json"
+					},
+					"g2": {
+						"details" : {},
+						"data": "pbp_20171020_CLEMIL.json"
+					},
+					"g3": {
+						"details" : {},
+						"data": "pbp_20171021_PORMIL.json"
+					},
+					"g4": {
+						"details" : {},
+						"data": "pbp_20171023_CHAMIL.json"
+					},
+					"g5": {
+						"details" : {},
+						"data": "pbp_20171026_BOSMIL.json"
+					},
+					"g6": {
+						"details" : {},
+						"data": "pbp_20171029_MILATL.json"
+					},
+					"g7": {
+						"details" : {},
+						"data": "pbp_20171031_OKCMIL.json"
+					},
+					"g8": {
+						"details" : {},
+						"data": "pbp_20171101_MILCHA.json"
+					},
+					"g9": {
+						"details" : {},
+						"data": "pbp_20171103_MILDET.json"
+					},
+					"g10": {
+						"details" : {},
+						"data": "pbp_20171107_MILCLE.json"
+					},
+					"g11": {
+						"details" : {},
+						"data": "pbp_20171110_MILSAS.json"
+					},
+					"g12": {
+						"details" : {},
+						"data": "pbp_20171111_LALMIL.json"
+					},
+					"g43": {
+						"details" : {},
+						"data": "pbp_20180114_MILMIA.json"
+					},
+					"g44": {
+						"details" : {},
+						"data": "pbp_20180115_MILWAS.json"
+					}
+				},
+				"MIN": {
+					"g1": {
+						"details" : {},
+						"data": "pbp_20171018_MINSAS.json"
+					},
+					"g12": {
+						"details": {},
+						"data": "pbp_20171108_MINGSW.json"
+					}
+				},
+				"NOP": {
+					"g1": {
+						"details" : {},
+						"data": "pbp_20171018_NOPMEM.json"
+					},
+					"g2": {
+						"details" : {},
+						"data": "pbp_20171020_GSWNOP.json"
+					},
+					"g20": {
+						"details" : {},
+						"data": "pbp_20171125_NOPGSW.json"
+					},
+					"g41": {
+						"details" : {},
+						"data": "pbp_20180122_CHINOP.json"
+					},
+					"g42": {
+						"details" : {},
+						"data": "pbp_20180124_NOPCHA.json"
+					},
+					"g48": {
+						"details" : {},
+						"data": "pbp_20180212_NOPDET.json"
+					},
+					"g49": {
+						"details" : {},
+						"data": "pbp_20180214_LALNOP.json"
+					},
+					"g50": {
+						"details" : {},
+						"data": "pbp_20180223_MIANOP.json"
+					},
+					"g51": {
+						"details" : {},
+						"data": "pbp_20180225_NOPMIL.json"
+					},
+					"g52": {
+						"details" : {},
+						"data": "pbp_20180226_PHXNOP.json"
+					}
+
+				},
+				"NYK": {
+					"g1": {
+						"details" : {},
+						"data": "pbp_20171019_NYKOKC.json"
+					}
+				},
+				"OKC": {
+					"g1": {
+						"details" : {},
+						"data": "pbp_20171019_NYKOKC.json"
+					},
+					"g18": {
+						"details" : {},
+						"data": "pbp_20171122_GSWOKC.json"
+					},
+					"g20": {
+						"details" : {},
+						"data": "pbp_20171215_OKCPHI.json"
+					}
+				},
+				"ORL": {
+					"g1": {
+						"details" : {},
+						"data": "pbp_20171018_MIAORL.json"
+					},
+					"g23": {
+						"details" : {},
+						"data": "pbp_20171201_GSWORL.json"
+					}
+				},
+				"PHI": {
+					"g1": {
+						"details" : {},
+						"data": "pbp_20171018_PHIWAS.json"
+					},
+					"g15": {
+						"details": {},
+						"data": "pbp_20171115_PHILAL.json"
+					},
+					"g16": {
+						"details": {},
+						"data": "pbp_20171118_GSWPHI.json"
+					},
+					"g20": {
+						"details" : {},
+						"data": "pbp_20171127_CLEPHI.json"
+					},
+					"g20": {
+						"details" : {},
+						"data": "pbp_20171215_OKCPHI.json"
+					}
+				},
+				"PHX": {
+					"g1": {
+						"details" : {},
+						"data": "pbp_20171018_PORPHX.json"
+					},
+					"g2": {
+						"details" : {},
+						"data": "pbp_20171020_LALPHX.json"
+					}
+				},
+				"POR": {
+					"g1": {
+						"details" : {},
+						"data": "pbp_20171018_PORPHX.json"
+					},
+					"g28": {
+						"details" : {},
+						"data": "pbp_20171211_PORGSW.json"
+					}
+				},
+				"SAC": {
+					"g1": {
+						"details" : {},
+						"data": "pbp_20171018_HOUSAC.json"
+					},
+					"g21": {
+						"details" : {},
+						"data": "pbp_20171127_SACGSW.json"
+					}
+				},
+				"SAS": {
+					"g1": {
+						"details" : {},
+						"data": "pbp_20171018_MINSAS.json"
+					},
+					"g11": {
+						"details" : {},
+						"data": "pbp_20171110_MILSAS.json"
+					}
+				},
+				"TOR": {
+					"g1": {
+						"details" : {},
+						"data": "pbp_20171019_CHITOR.json"
+					},
+					"g5": {
+						"details" : {},
+						"data": "pbp_20171025_TORGSW.json"
+					}
+				},
+				"UTA": {
+					"g1": {
+						"details" : {},
+						"data": "pbp_20171018_DENUTA.json"
+					},
+					"g35": {
+						"details" : {},
+						"data": "pbp_20171227_UTAGSW.json"
+					}
+				},
+				"WAS": {
+					"g1": {
+						"details" : {},
+						"data": "pbp_20171018_PHIWAS.json"
+					},
+					"g6": {
+						"details": {},
+						"data": "pbp_20171027_WASGSW.json"
+					}
+				}
+			}
+		},
+		"playoffs": {
+
+		}
+	}
+}

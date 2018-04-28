@@ -1,0 +1,15 @@
+.player-chart-dnp {
+    display: inline-block;
+    height: 100px;
+    background-color: rgba(255,255,255,.1);
+    /* padding: 20px; */
+    color: rgba(255,255,255,.1);
+    font-size: 18pt;
+    text-align: center;
+    width: 1175px;
+    vertical-align: middle;
+}
+
+.player-chart-dnp h4 {
+    opacity: .5;
+}

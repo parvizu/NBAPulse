@@ -1,0 +1,192 @@
+div#header {
+    margin: 10px;
+    margin-top: 20px;
+    color: ghostwhite;
+    /* text-shadow: 2px 2px black; */
+    font-family: helvetica; 
+    font-size: 12px; 
+    /*border-bottom: solid 1px white;*/
+}
+
+#header .header-top-left img {
+    width: 30px;
+    margin-right: 10px;
+    z-index: 20;
+    position: relative;
+    top: 10px;
+    left: 10px;
+}
+
+#header h1 {
+    font-family: 'Carrois Gothic SC', sans-serif;
+    text-shadow: 2px 2px black;
+    font-size: 42px;
+    padding: 5px 10px;
+    display: inline-block;
+    margin: 0px;
+    vertical-align: bottom;
+    margin-top: 15px;
+    /* width: 862px; */
+    /* position: relative; */
+    /* left: -35px; */
+    /* border-bottom: solid 1px white; */
+    /* z-index: -1; */
+}
+
+
+#header .header-section {
+    display: inline-block;
+}
+
+.header-section-left {
+    margin-right: 4px;
+    /*padding: 5px;*/
+}
+
+
+#header .header-top {
+    border-bottom: solid 1px white;
+    height: 100%;
+}
+
+#header .header-top .header-top-left {
+
+}
+
+#header .header-top .header-top-main {
+    /*height: 100%;*/
+    /*padding: 20px;*/
+    /*margin-left: 30px;*/
+    vertical-align: bottom;
+}
+
+
+
+#header .header-bottom  {
+    /*padding: 10px;*/
+    /*padding-left: 50px;*/
+}
+
+.header-bottom .header-bottom-left {
+    width: 320px;
+    text-align: right;
+    vertical-align: top;
+    padding-top: 5px;
+
+}
+
+.header-bottom .header-bottom-main {
+    width: 1100px;
+    margin-left: 30px;
+}
+
+
+
+
+
+a.menu-button {
+    border-radius: 3px;
+    padding: 5px 15px;
+    background-color: lightgray;
+    color: black;
+    font-size: 13px;
+    font-weight: 500;
+    /*margin: 5px;*/
+    text-decoration: none;
+    display: inline-block;
+    height: 20px;
+    width: 50px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+a.menu-button:hover {
+    cursor: pointer;
+    background-color: silver;
+    font-weight: 600;
+}
+
+
+
+
+
+a#madeby {
+    /*display: inline-block;*/
+    /*vertical-align: bottom;*/
+    /*padding-top: 9px;*/
+    text-decoration: none;
+    color: ghostwhite;
+    margin-right: 5px;
+}
+
+a#madeby:hover,
+a#twitterLink {
+    cursor: pointer;
+}
+
+#twitterLink img {
+    width: 15px;
+    vertical-align: top;
+    /*margin-top: 32px;*/
+}
+
+/*div.getsocial {
+    display: inline-block;
+    margin-left: 108px;
+    vertical-align: top;
+    margin-top: 24px;
+}*/
+
+div.addthis_sharing_toolbox {
+    display: inline-block;
+    margin-left: 240px;
+    vertical-align: top;
+    padding-top: 23px;
+}
+
+div#updated {
+    text-align: right;
+    font-size: 9px;
+    color: silver;
+}
+
+
+.header-section.header-section-main.header-bottom-main >div {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.calendar-types {
+    /* display: inline-block; */
+    width: 100px;
+    font-size: 14pt;
+    /*padding-right: 5px;*/
+    float: right;
+}
+
+.calendar-types li {
+    list-style-type: none;
+    margin: 5px;
+    border-radius: 2px;
+    padding: 5px;
+    border: solid 1px transparent;
+}
+
+.calendar-types li.selected {
+    border: 1px solid darkorange;
+    background-color: white;
+    color: darkorange;
+    text-align: center;
+}
+
+.calendar-types li:hover {
+    cursor: pointer;
+    /*background-color: white;*/
+    /*border-bottom: 1px solid darkorange;*/
+    border-color: white;
+}
+
+
+.games-list {
+    max-width: 990px;
+}
