@@ -1,0 +1,41 @@
+body {
+	background-color: rgba(0,0,0,.8);
+	color: white;
+}
+
+.main-visualization-container >div {
+    position: relative;
+}
+
+.home-players-visualization-container,
+.away-players-visualization-container {
+    position: relative;
+}
+
+
+.home-players-visualization-container.team-bg::before {
+    bottom: -175px;
+}
+
+.away-players-visualization-container.team-bg::before {
+    top: -210px;
+}
+
+
+.chart-container {
+	display: inline-block;
+	background-color: ghostwhite;
+}
+
+.player-container .chart-container>div {
+	height: 100px;
+}
+
+/*.chart-container::before {
+    background-color: ghostwhite;
+    position: absolute;
+    content: " ";
+    width: 1175px;
+    height: 100%;
+    z-index: -10;
+}*/

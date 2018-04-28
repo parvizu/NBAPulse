@@ -1,0 +1,42 @@
+**** METEOR TO-DO *****
+
+BUGS
+-----------------------------
+
+
+[X] Why does it take forever to load the game list the first time you select a team?
+	- It seems to not necessarilly be the first team select but simply after the first load. Could be a DB issue?
+	- setTimeout Chrome Violation happens after initial load, not after initial TeamSelection. After that happens, games load instantly.
+	FIX: Seems like the GAMES DB was being published but never used really. Therefore it would take forever to load all the game data for everygame in the DB.
+
+[ ] GamesMenu - Selected game is not displaying as selected. Probably issue with condition of when to render() and this.props.gameSelected passed.
+
+[ ] StatsControl - Selecting/Unselecting stats doesn't work currently.
+
+
+
+
+MAIN FUNCTIONALITY 
+-----------------------------
+[X] Update player selection for the game. Right now the selection is done by position in array of team players. The player list to create chart is a dictionary. Selection does not work.
+
+
+
+
+GAME VISUALIZATION
+-----------------------------
+[ ] Have an empty cord chart if the player DNP. Right now the player will not show up because there is not player data in the playerLog for that game.
+
+
+CHARTS 
+-----------------------------
+[ ] Remove player/team card from Chart components. It should be a component by itself.
+
+
+
+
+DATA
+-----------------------------
+[ ] Add substitution data to the Game Data on the DB. Substitution Data is currently not processed on the server when a game is loaded for the first time.
+
+[ ]

@@ -1,0 +1,281 @@
+.main-container {
+	width: 1475px;
+	margin: 0 auto;
+	font-family: "Helvetica";
+}
+
+.empty-game {
+    padding: 50px 100px;
+    /* width: 50%; */
+    /* height: 300px; */
+    /* background-color: rgba(10,10,10,.1); */
+    /* text-align: center; */
+    /* font-size: 11pt; */
+    opacity: .5;
+}
+
+.empty-game h1 {
+    /* height: 300px; */
+    background-color: rgba(255,255,255,.1);
+    padding: 100px;
+    text-align: center;
+    vertical-align: middle;
+    /* width: 50%; */
+    /* opacity: .5; */
+    color: rgba(255,255,255,.1);
+}
+
+
+
+.team-color.ATL {
+    background-color: rgba(224,58,62,.75);
+}
+
+.team-color.BKN {
+    background-color: rgba(0,0,0,.75);
+}
+
+.team-color.BOS {
+    background-color: rgba(0,130,72,.75);
+}
+
+.team-color.CHA {
+    background-color: rgba(29,17,96,.75);
+}
+
+.team-color.CHI {
+    background-color: rgba(206,17,65,.75);
+}
+
+.team-color.CLE {
+    background-color: rgba(111,38,51,.75);
+}
+
+.team-color.DAL {
+    background-color: rgba(0,125,197,.75);
+}
+
+.team-color.DEN {
+    background-color: rgba(80,145,205,.75);
+}
+
+.team-color.DET {
+    background-color: rgba(237,23,76,.75);
+}
+
+.team-color.GSW {
+    background-color: rgba(36,62,144,.75);
+}
+
+.team-color.HOU {
+    background-color: rgba(206,17,65,.75);
+}
+
+.team-color.IND {
+    background-color: rgba(0,45,98,.75);
+}
+
+.team-color.LAC {
+    background-color: rgba(237,23,76,.75);
+}
+
+.team-color.LAL {
+    background-color: rgba(85,37,131,.75);
+}
+
+.team-color.MEM {
+    background-color: rgba(97,137,185,.75);
+}
+
+.team-color.MIA {
+    background-color: rgba(152,0,46,.75);
+}
+
+.team-color.MIL {
+    background-color: rgba(0,71,27,.75);
+}
+
+.team-color.MIN {
+    background-color: rgba(0,43,92,.75);
+}
+
+.team-color.NOP {
+    background-color: rgba(0,43,92,.75);
+}
+
+.team-color.NYK {
+    background-color: rgba(245,132,38,.75);
+}
+
+.team-color.OKC {
+    background-color: rgba(0,122,193,.75);
+}
+
+.team-color.ORL {
+    background-color: rgba(11,119,189,.75);
+}
+
+.team-color.PHI {
+    background-color: rgba(0,107,182,.75);
+}
+
+.team-color.PHX {
+    background-color: rgba(229,96,32,.75);
+}
+
+.team-color.POR {
+    background-color: rgba(0,0,0,.75);
+}
+
+.team-color.SAC {
+    background-color: rgba(90,45,129,.75);
+}
+
+.team-color.SAS {
+    background-color: rgba(196,206,212,.75);
+}
+
+.team-color.TOR {
+    background-color: rgba(205,17,65,.75);
+}
+
+.team-color.UTA {
+    background-color: rgba(12,35,64,.75);
+}
+
+.team-color.WAS {
+    background-color: rgba(0,43,92,.75);
+}
+
+
+
+.team-bg::before {
+    content: " ";
+    position: absolute;
+    height: 50%;
+    background-repeat: no-repeat;
+    opacity: .6;
+    width: 100%;
+    background-size: 65%;
+    background-position: top;
+}
+
+.team-bg.ATL::before {
+	background-image: url(/img/logos/ATL.svg);
+}
+
+.team-bg.BKN::before {
+	background-image: url(/img/logos/BKN.svg);
+}
+
+.team-bg.BOS::before {
+	background-image: url(/img/logos/BOS.svg);
+}
+
+.team-bg.CHA::before {
+	background-image: url(/img/logos/CHA.svg);
+}
+
+.team-bg.CHI::before {
+	background-image: url(/img/logos/CHI.svg);
+}
+
+.team-bg.CLE::before {
+	background-image: url(/img/logos/CLE.svg);
+}
+
+.team-bg.DAL::before {
+	background-image: url(/img/logos/DAL.svg);
+}
+
+.team-bg.DEN::before {
+	background-image: url(/img/logos/DEN.svg);
+}
+
+.team-bg.DET::before {
+	background-image: url(/img/logos/DET.svg);
+}
+
+.team-bg.GSW::before {
+	background-image: url(/img/logos/GSW.svg);
+}
+
+.team-bg.HOU::before {
+	background-image: url(/img/logos/HOU.svg);
+}
+
+.team-bg.IND::before {
+	background-image: url(/img/logos/IND.svg);
+}
+
+.team-bg.LAC::before {
+	background-image: url(/img/logos/LAC.svg);
+}
+
+.team-bg.LAL::before {
+	background-image: url(/img/logos/LAL.svg);
+}
+
+.team-bg.MEM::before {
+	background-image: url(/img/logos/MEM.svg);
+}
+
+.team-bg.MIA::before {
+	background-image: url(/img/logos/MIA.svg);
+}
+
+.team-bg.MIL::before {
+	background-image: url(/img/logos/MIL.svg);
+}
+
+.team-bg.MIN::before {
+	background-image: url(/img/logos/MIN.svg);
+}
+
+.team-bg.NOP::before {
+	background-image: url(/img/logos/NOP.svg);
+}
+
+.team-bg.NYK::before {
+	background-image: url(/img/logos/NYK.svg);
+}
+
+.team-bg.OKC::before {
+	background-image: url(/img/logos/OKC.svg);
+}
+
+.team-bg.ORL::before {
+	background-image: url(/img/logos/ORL.svg);
+}
+
+.team-bg.PHI::before {
+	background-image: url(/img/logos/PHI.svg);
+}
+
+.team-bg.PHX::before {
+	background-image: url(/img/logos/PHX.svg);
+}
+
+.team-bg.POR::before {
+	background-image: url(/img/logos/POR.svg);
+}
+
+.team-bg.SAC::before {
+	background-image: url(/img/logos/SAC.svg);
+}
+
+.team-bg.SAS::before {
+	background-image: url(/img/logos/SAS.svg);
+}
+
+.team-bg.TOR::before {
+	background-image: url(/img/logos/TOR.svg);
+}
+
+.team-bg.UTA::before {
+	background-image: url(/img/logos/UTA.svg);
+}
+
+.team-bg.WAS::before {
+	background-image: url(/img/logos/WAS.svg);
+}

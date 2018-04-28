@@ -1,0 +1,157 @@
+.main-container {
+    margin: 0 auto;
+    /* text-align: center; */
+    width: 1475px;
+    padding: 20px;
+    font-family: Helvetica;
+}
+
+#stat-control {
+    width: 100%;
+    text-align: center;
+}
+
+.stat {
+	display: inline-block;
+	margin: 5px;
+	/*height: 25px;*/
+	padding: 3px;
+	width:	100px;
+	background-color: lightgray;
+	font-size: 8pt;
+	font-family: Helvetica;
+	text-align: center;
+	border: solid 3px;
+	font-weight: bold;
+}
+
+.stat:hover {
+	cursor: pointer;
+}
+
+.stat-made {
+	background-color: green;
+	border-color: green;
+}
+
+.stat-missed {
+	background-color: ghostwhite;
+	border-color: green;
+	color: black;
+
+}
+
+.stat-assist {
+	background-color: orange;	
+	border-color: orange;
+}
+
+.stat-rebound {
+	background-color: dodgerblue;
+	border-color: dodgerblue;
+}
+
+.stat-block {
+	background-color: brown;
+	border-color: brown;
+}
+
+.stat-steal {
+	background-color: purple;
+	border-color: purple;
+}
+
+.stat-turnover {
+	background-color: red;
+	border-color: red;
+}
+
+.stat-foul {
+	background-color: lightsteelblue;
+	border-color: lightsteelblue;
+}
+
+.stat-hidden {
+	background-color: ghostwhite;
+	color: lightgray;
+	border-color: ghostwhite;
+}
+
+
+rect.stat-hidden {
+	fill: none;
+	stroke: none;
+}
+
+.player-container {
+	margin: 0;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	position: relative;
+	font-family: Helvetica;
+}
+
+.cord-chart-container {
+	margin: 0;
+}
+
+.cord-chart-container.top {
+	margin-top: 3px;
+}
+
+.cord-chart-container.bottom {
+	margin-bottom: 3px;
+}
+
+.cord-event text {
+	font-size: 8pt;
+	font-family: Helvetica;
+}
+
+.event-missed text {
+	fill: green;
+}
+
+.event-made text {
+	fill: ghostwhite;
+}
+
+
+
+.stat-string {
+	stroke-width: .5;
+}
+
+.stat-string.made,
+.stat-string.missed {
+	stroke: green;
+}
+
+.stat-string.assist {
+	stroke: orange;
+}
+
+.stat-string.rebound {
+	stroke: dodgerblue;
+}
+
+.stat-string.foul {
+	stroke: gray;
+}
+
+.stat-string.steal {
+	stroke: purple;
+}
+
+.stat-string.turnover {
+	stroke: red;
+}
+
+.stat-string.block {
+	stroke: brown;
+}
+
+
+.game-scoring-margin {
+	margin-top: 5px;
+}

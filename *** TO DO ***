@@ -4,12 +4,14 @@
 ------- Game Menu -------
 [X] Add game list for each team when selecting
 [ ] Add color scheme for W/L in each game
+[ ] Games go over to multiple lines. Find a different way to show all of them, maybe horizontal scroll.
 [ ] 
 
 
 ------- Game Details --------
-[ ] Add Game scores and Game details
+[X] Add Game scores and Game details
 [X] Add quarter by quarter score breakdown
+[ ] Improve player list selection instead of the orange blocks
 [ ] 
 
 
@@ -25,18 +27,14 @@
 
 ------- Substitutions ------
 
-[X]  Handle when the player is on the court at the end of the game
-[X]  Hanled when the player is subbed in during a quarter break
-		* The log has no registry of this cases (might have to be manual)
-		* This happens when there is a 'sub-out' when it was on the beanch
-		* Doesn't necessarilly mean that the player got subbed in in the previous qtr break
+[ ] Make substitutions display per quarter only and make sure to check if player has an event in the quarter. That way it will remove the issue with player shown on bench but actually played the entire quarter.
 [ ] Set the description for "bench" moment using the subbed out play description. Or add a legend for bench (?).
 [ ] BUG: Fix whenever the player played for the whole quarter. Right now it displays as if didn't.
 [ ] BUG: There might be some weird case when the player was subbed out but the substitution is not displayed or in the data (maybe?).
 
 
 ------- String Chart -------
-[X]  Add substitution/on court display in the String Chart
+[X] Add substitution/on court display in the String Chart
 [X] Fix quarter size based on number of moments. It is creating the OTs with the same size as a regular quarter.
 
 
