@@ -2,17 +2,36 @@ import { Meteor } from 'meteor/meteor';
 import axios from 'axios';
 
 import { GameHelpers } from './GameHelpers.js';
+import { DBInitializer} from './DBInitializer.js';
 
 import {
 	Schedule,
 	Games,
 	Teams,
-	League
+	League,
+	Players
 } from '../imports/api/collections.js';
 
 
 Meteor.startup(() => {
 	// code to run on server at startup
+
+	if (Players.find({}).count() === 0) {
+		const players = DBInitializer._getPlayers();
+
+		console.log("Inserting players into DB.");
+		players.forEach(player => {
+			console.log("Inserting playerId:", player.personId, player.firstName, player.lastName);
+			Players.insert(player);
+		});
+	}
+
+	if (Schedule.find({}).count() === 0) {
+		console.log('Inserting season schedule to DB.');
+		const schedule = DBInitializer._loadSchedule();
+
+		Schedule.insert(schedule);
+	}
 
 	// Inserting team rosters by season into DB
 	if (Teams.find({}).count() === 0) {
@@ -2047,7 +2066,7 @@ Meteor.startup(() => {
 					if (results.data.resultSets[0].rowSet.length === 0) {
 						response = "This game has not been played yet";
 						console.log("GID", gid, response);
-						return response;
+						return '';
 					}
 
 					// Process game data for storage
@@ -2096,10 +2115,13 @@ Meteor.startup(() => {
 			},
 
 			// Function that loads the list of regular season games for a specific team
-			loadTeamGames: (teamSelected) => {
+			loadTeamGames: (teamSelected, calendarType) => {
 
-				console.log('TNAME', teamSelected, "Start Loading team games");
-				const teamGames = Games.find(
+				console.log('TNAME', teamSelected, calendarType, "Start Loading team games");
+				let teamGames = [];
+				if (calendarType === 'season') {
+					// Loading games in regular season
+					teamGames = Games.find(
 					{
 						$or: [
 							{ 'details.v.ta': teamSelected },
@@ -2107,6 +2129,29 @@ Meteor.startup(() => {
 						],
 						'details.gdte': {
 							$gte: "2017-10-17"
+						},
+						'details.seri': ''
+					},
+					{
+						fields: {
+							details: 1,
+							_id: 0
+						}
+					}).fetch();
+
+				} else if (calendarType === 'playoffs') {
+					// Loading games in playoffs
+					teamGames = Games.find(
+					{
+						$or: [
+							{ 'details.v.ta': teamSelected },
+							{ 'details.h.ta': teamSelected }
+						],
+						'details.gdte': {
+							$gte: "2018-04-14"
+						},
+						'details.seri': {
+							$ne: ''
 						}
 					}, 
 					{
@@ -2115,6 +2160,8 @@ Meteor.startup(() => {
 							_id: 0
 						}
 					}).fetch();
+
+				}
 
 				// Cleaning up the results before returning
 				const results = teamGames.map(gameInfo => {

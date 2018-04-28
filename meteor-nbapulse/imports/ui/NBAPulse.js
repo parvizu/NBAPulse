@@ -17,13 +17,6 @@ class NBAPulse extends Component {
 		super(props);
 
 		this.state = {
-			specs: {
-				width: 1175,
-				height: 150,
-				padding: 25,
-				xParam: 'sec',
-				yParam: 'dif'
-			},
 			stats: {
 				made: '',
 				missed: '',
@@ -35,6 +28,7 @@ class NBAPulse extends Component {
 				foul: '',
 				periods: 4
 			},
+			calendarType:'season',
 			teamSelected: '',
 			teamGamesList: [],
 			gameSelected: '',
@@ -76,12 +70,14 @@ class NBAPulse extends Component {
 		this.count = 0;
 		this.willProps = 0;
 
+		this.onSelectCalendar = this.onSelectCalendar.bind(this);
 		this.onSelectTeam = this.onSelectTeam.bind(this);
 		this.onSelectGame = this.onSelectGame.bind(this);
 		this.onStatClick = this.onStatClick.bind(this);
 		this.onSelectTeamPlayer = this.onSelectTeamPlayer.bind(this);
 		this.getPlayersSelected = this.getPlayersSelected.bind(this);
 		this.getSelectedStats = this.getSelectedStats.bind(this);
+		this.renderGame = this.renderGame.bind(this);
 	}
 
 	componentDidMount() {
@@ -91,7 +87,7 @@ class NBAPulse extends Component {
 
 	onSelectTeam(teamAbbr) {
 		if (teamAbbr !== this.state.teamSelected) {
-			Meteor.call('loadTeamGames', teamAbbr, (error, results) => {
+			Meteor.call('loadTeamGames', teamAbbr, this.state.calendarType, (error, results) => {
 				this.setState({
 					teamSelected: teamAbbr,
 					teamGamesList: results
@@ -105,13 +101,22 @@ class NBAPulse extends Component {
 
 		Meteor.call("getGameData", gid, function(error, results) {
 	        // console.log("Game data", gid, results);
-	        if (results !== 'empty') {
-				self.setState({
-					gameSelected: gid,
-					gameData: results
-		        });
-	        }
+			self.setState({
+				gameSelected: gid,
+				gameData: results
+	        });
 	    });
+	}
+
+	onSelectCalendar(calendarType) {
+		if (calendarType !== this.state.calendarType) {
+			Meteor.call('loadTeamGames', this.state.teamSelected, calendarType, (error, results) => {
+				this.setState({
+					calendarType: calendarType,
+					teamGamesList: results
+				});
+			});
+		}
 	}
 
 	onStatClick(stat) {
@@ -174,6 +179,26 @@ class NBAPulse extends Component {
 		return selectedStats;
 	}
 
+	renderGame() {
+		if (Object.keys(this.state.gameData).length > 0) {
+			return (
+				<Game
+					gameSelected={this.state.gameSelected}
+					gameData={this.state.gameData}
+					playersSelected={this.getPlayersSelected()}
+					onStatClick={this.onStatClick}
+					selectedStats={this.state.stats}
+					onSelectTeamPlayer={this.onSelectTeamPlayer}
+					/>
+			);
+		}
+
+		return (
+			<div className="empty-game">
+				<h1>THIS GAME IS NOT AVAILABLE YET</h1>
+			</div>
+		)
+	}
 
 	render() {
 		// console.log("NBAPulse count", this.count++);
@@ -186,16 +211,11 @@ class NBAPulse extends Component {
 					leagueDetails={this.props.league}
 					gameSelected={this.state.gameSelected}
 					teamGamesList={this.state.teamGamesList}
+					onSelectCalendar={this.onSelectCalendar}
+					calendarType={this.state.calendarType}
 					/>
 
-				<Game
-					gameSelected={this.state.gameSelected}
-					gameData={this.state.gameData}
-					playersSelected={this.getPlayersSelected()}
-					onStatClick={this.onStatClick}
-					selectedStats={this.state.stats}
-					onSelectTeamPlayer={this.onSelectTeamPlayer}
-					/>
+				{ this.renderGame() }
 			</div>
 		);
 	}

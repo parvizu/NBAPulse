@@ -46,7 +46,7 @@ export default class GamesMenu extends Component {
 
 	render() {
 		return (
-			<div>{ this.getGames() }</div>
+			<div className="games-list">{ this.getGames() }</div>
 		);
 	}
 
