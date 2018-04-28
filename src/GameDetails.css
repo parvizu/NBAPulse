@@ -551,12 +551,14 @@ h2.team-name.team-name-away {
 
 .game-details {
     display: inline-block;
-    /* width: 60%; */
+    min-width: 400px;
     /* vertical-align: bottom; */
     text-align: center;
-    height: 200px;
-    /* background: rgba(10,10,10,.2); */
+    /* height: 200px; */
+    background: rgba(255,255,255,.15);
     margin: 35px 20px;
+    border-radius: 3px;
+    padding: 10px;
 }
 
 .game-details h3 {
