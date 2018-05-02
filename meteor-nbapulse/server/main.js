@@ -2108,6 +2108,8 @@ Meteor.startup(() => {
 					gameData.teams = teams;
 					response = gameData;
 					return response;
+				}).catch(error => {
+					console.log("ERROR", error);
 				});
 				/**** COMMENT OUT FOR OFFLINE WORK ****/
 
