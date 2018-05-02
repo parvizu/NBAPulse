@@ -2063,6 +2063,7 @@ Meteor.startup(() => {
 				const request = axios.get(url);
 				console.log("AJAX", request);
 				return request.then(results => {
+					console.log("IN PROMISE", results);
 					// Checking if the game has been played or already
 					if (results.data.resultSets[0].rowSet.length === 0) {
 						response = "This game has not been played yet";
