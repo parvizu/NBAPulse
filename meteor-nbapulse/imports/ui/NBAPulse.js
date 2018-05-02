@@ -100,7 +100,11 @@ class NBAPulse extends Component {
 		const self = this;
 
 		Meteor.call("getGameData", gid, function(error, results) {
-	        // console.log("Game data", gid, results);
+	        if (error) {
+			    console.log(error);
+			    console.log(error.error);
+			}
+	        console.log("Game data", gid, results);
 			self.setState({
 				gameSelected: gid,
 				gameData: results
