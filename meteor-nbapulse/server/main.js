@@ -2061,6 +2061,7 @@ Meteor.startup(() => {
 				/**** COMMENT OUT FOR OFFLINE WORK ****/
 				const url = "http://stats.nba.com/stats/playbyplayv2?GameID=" + gid + "&StartPeriod=00&EndPeriod=08";
 				const request = axios.get(url);
+				console.log("AJAX", request);
 				return request.then(results => {
 					// Checking if the game has been played or already
 					if (results.data.resultSets[0].rowSet.length === 0) {

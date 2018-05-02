@@ -125215,16 +125215,6 @@ export const DBInitializer = {
 	            "ptsls": {
 	              "pl": [
 	                {
-	                  "pid": "201937",
-	                  "fn": "Ricky",
-	                  "ln": "Rubio",
-	                  "val": "23",
-	                  "tid": 1610612762,
-	                  "ta": "UTA",
-	                  "tn": "Jazz",
-	                  "tc": "Utah"
-	                },
-	                {
 	                  "pid": "203952",
 	                  "fn": "Andrew",
 	                  "ln": "Wiggins",
@@ -125233,6 +125223,16 @@ export const DBInitializer = {
 	                  "ta": "MIN",
 	                  "tn": "Timberwolves",
 	                  "tc": "Minnesota"
+	                },
+	                {
+	                  "pid": "201937",
+	                  "fn": "Ricky",
+	                  "ln": "Rubio",
+	                  "val": "23",
+	                  "tid": 1610612762,
+	                  "ta": "UTA",
+	                  "tn": "Jazz",
+	                  "tc": "Utah"
 	                }
 	              ]
 	            },
@@ -125307,16 +125307,6 @@ export const DBInitializer = {
 	            "ptsls": {
 	              "pl": [
 	                {
-	                  "pid": "203953",
-	                  "fn": "Jabari",
-	                  "ln": "Parker",
-	                  "val": "35",
-	                  "tid": 1610612749,
-	                  "ta": "MIL",
-	                  "tn": "Bucks",
-	                  "tc": "Milwaukee"
-	                },
-	                {
 	                  "pid": "203999",
 	                  "fn": "Nikola",
 	                  "ln": "Jokic",
@@ -125325,6 +125315,16 @@ export const DBInitializer = {
 	                  "ta": "DEN",
 	                  "tn": "Nuggets",
 	                  "tc": "Denver"
+	                },
+	                {
+	                  "pid": "203953",
+	                  "fn": "Jabari",
+	                  "ln": "Parker",
+	                  "val": "35",
+	                  "tid": 1610612749,
+	                  "ta": "MIL",
+	                  "tn": "Bucks",
+	                  "tc": "Milwaukee"
 	                }
 	              ]
 	            },
@@ -132421,7 +132421,7 @@ export const DBInitializer = {
 	          {
 	            "gid": "0041700111",
 	            "gcode": "20180415/MILBOS",
-	            "seri": "Series tied 0-0",
+	            "seri": "BOS leads series 1-0",
 	            "is": 1,
 	            "gdte": "2018-04-15",
 	            "htm": "2018-04-15T13:00:00",
@@ -132430,8 +132430,8 @@ export const DBInitializer = {
 	            "an": "TD Garden",
 	            "ac": "Boston",
 	            "as": "MA",
-	            "st": "2",
-	            "stt": "4th Qtr",
+	            "st": "3",
+	            "stt": "Final",
 	            "bd": {
 	              "b": [
 	                {
@@ -132473,30 +132473,44 @@ export const DBInitializer = {
 	            },
 	            "v": {
 	              "tid": 1610612749,
-	              "re": "0-0",
+	              "re": "0-1",
 	              "ta": "MIL",
 	              "tn": "Bucks",
 	              "tc": "Milwaukee",
-	              "s": "68"
+	              "s": "107"
 	            },
 	            "h": {
 	              "tid": 1610612738,
-	              "re": "0-0",
+	              "re": "1-0",
 	              "ta": "BOS",
 	              "tn": "Celtics",
 	              "tc": "Boston",
-	              "s": "76"
+	              "s": "113"
 	            },
 	            "gweek": null,
 	            "gdtutc": "2018-04-15",
 	            "utctm": "17:00",
 	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "203507",
+	                  "fn": "Giannis",
+	                  "ln": "Antetokounmpo",
+	                  "val": "35",
+	                  "tid": 1610612749,
+	                  "ta": "MIL",
+	                  "tn": "Bucks",
+	                  "tc": "Milwaukee"
+	                }
+	              ]
+	            },
 	            "seq": 1
 	          },
 	          {
 	            "gid": "0041700131",
 	            "gcode": "20180415/INDCLE",
-	            "seri": "Series tied 0-0",
+	            "seri": "IND leads series 1-0",
 	            "is": 1,
 	            "gdte": "2018-04-15",
 	            "htm": "2018-04-15T15:30:00",
@@ -132505,8 +132519,8 @@ export const DBInitializer = {
 	            "an": "Quicken Loans Arena",
 	            "ac": "Cleveland",
 	            "as": "OH",
-	            "st": "1",
-	            "stt": "3:30 pm ET",
+	            "st": "3",
+	            "stt": "Final",
 	            "bd": {
 	              "b": [
 	                {
@@ -132541,30 +132555,44 @@ export const DBInitializer = {
 	            },
 	            "v": {
 	              "tid": 1610612754,
-	              "re": "0-0",
+	              "re": "1-0",
 	              "ta": "IND",
 	              "tn": "Pacers",
 	              "tc": "Indiana",
-	              "s": ""
+	              "s": "98"
 	            },
 	            "h": {
 	              "tid": 1610612739,
-	              "re": "0-0",
+	              "re": "0-1",
 	              "ta": "CLE",
 	              "tn": "Cavaliers",
 	              "tc": "Cleveland",
-	              "s": ""
+	              "s": "80"
 	            },
 	            "gweek": null,
 	            "gdtutc": "2018-04-15",
 	            "utctm": "19:30",
 	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "203506",
+	                  "fn": "Victor",
+	                  "ln": "Oladipo",
+	                  "val": "32",
+	                  "tid": 1610612754,
+	                  "ta": "IND",
+	                  "tn": "Pacers",
+	                  "tc": "Indiana"
+	                }
+	              ]
+	            },
 	            "seq": 2
 	          },
 	          {
 	            "gid": "0041700171",
 	            "gcode": "20180415/UTAOKC",
-	            "seri": "Series tied 0-0",
+	            "seri": "OKC leads series 1-0",
 	            "is": 1,
 	            "gdte": "2018-04-15",
 	            "htm": "2018-04-15T17:30:00",
@@ -132573,8 +132601,8 @@ export const DBInitializer = {
 	            "an": "Chesapeake Energy Arena",
 	            "ac": "Oklahoma City",
 	            "as": "OK",
-	            "st": "1",
-	            "stt": "6:30 pm ET",
+	            "st": "3",
+	            "stt": "Final",
 	            "bd": {
 	              "b": [
 	                {
@@ -132623,30 +132651,44 @@ export const DBInitializer = {
 	            },
 	            "v": {
 	              "tid": 1610612762,
-	              "re": "0-0",
+	              "re": "0-1",
 	              "ta": "UTA",
 	              "tn": "Jazz",
 	              "tc": "Utah",
-	              "s": ""
+	              "s": "108"
 	            },
 	            "h": {
 	              "tid": 1610612760,
-	              "re": "0-0",
+	              "re": "1-0",
 	              "ta": "OKC",
 	              "tn": "Thunder",
 	              "tc": "Oklahoma City",
-	              "s": ""
+	              "s": "116"
 	            },
 	            "gweek": null,
 	            "gdtutc": "2018-04-15",
 	            "utctm": "22:30",
 	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "202331",
+	                  "fn": "Paul",
+	                  "ln": "George",
+	                  "val": "36",
+	                  "tid": 1610612760,
+	                  "ta": "OKC",
+	                  "tn": "Thunder",
+	                  "tc": "Oklahoma City"
+	                }
+	              ]
+	            },
 	            "seq": 3
 	          },
 	          {
 	            "gid": "0041700141",
 	            "gcode": "20180415/MINHOU",
-	            "seri": "Series tied 0-0",
+	            "seri": "HOU leads series 1-0",
 	            "is": 1,
 	            "gdte": "2018-04-15",
 	            "htm": "2018-04-15T20:00:00",
@@ -132655,8 +132697,8 @@ export const DBInitializer = {
 	            "an": "Toyota Center",
 	            "ac": "Houston",
 	            "as": "TX",
-	            "st": "1",
-	            "stt": "9:00 pm ET",
+	            "st": "3",
+	            "stt": "Final",
 	            "bd": {
 	              "b": [
 	                {
@@ -132682,7 +132724,7 @@ export const DBInitializer = {
 	                },
 	                {
 	                  "seq": 4,
-	                  "disp": "TSNN",
+	                  "disp": "TSN1/4/5",
 	                  "scope": "can",
 	                  "type": "tv",
 	                  "lan": "English"
@@ -132698,30 +132740,44 @@ export const DBInitializer = {
 	            },
 	            "v": {
 	              "tid": 1610612750,
-	              "re": "0-0",
+	              "re": "0-1",
 	              "ta": "MIN",
 	              "tn": "Timberwolves",
 	              "tc": "Minnesota",
-	              "s": ""
+	              "s": "101"
 	            },
 	            "h": {
 	              "tid": 1610612745,
-	              "re": "0-0",
+	              "re": "1-0",
 	              "ta": "HOU",
 	              "tn": "Rockets",
 	              "tc": "Houston",
-	              "s": ""
+	              "s": "104"
 	            },
 	            "gweek": null,
 	            "gdtutc": "2018-04-16",
 	            "utctm": "01:00",
 	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "201935",
+	                  "fn": "James",
+	                  "ln": "Harden",
+	                  "val": "44",
+	                  "tid": 1610612745,
+	                  "ta": "HOU",
+	                  "tn": "Rockets",
+	                  "tc": "Houston"
+	                }
+	              ]
+	            },
 	            "seq": 4
 	          },
 	          {
 	            "gid": "0041700122",
 	            "gcode": "20180416/MIAPHI",
-	            "seri": "PHI leads series 1-0",
+	            "seri": "Series tied 1-1",
 	            "is": 1,
 	            "gdte": "2018-04-16",
 	            "htm": "2018-04-16T20:00:00",
@@ -132730,8 +132786,8 @@ export const DBInitializer = {
 	            "an": "Wells Fargo Center",
 	            "ac": "Philadelphia",
 	            "as": "PA",
-	            "st": "1",
-	            "stt": "8:00 pm ET",
+	            "st": "3",
+	            "stt": "Final",
 	            "bd": {
 	              "b": [
 	                {
@@ -132773,30 +132829,44 @@ export const DBInitializer = {
 	            },
 	            "v": {
 	              "tid": 1610612748,
-	              "re": "0-1",
+	              "re": "1-1",
 	              "ta": "MIA",
 	              "tn": "Heat",
 	              "tc": "Miami",
-	              "s": ""
+	              "s": "113"
 	            },
 	            "h": {
 	              "tid": 1610612755,
-	              "re": "1-0",
+	              "re": "1-1",
 	              "ta": "PHI",
 	              "tn": "76ers",
 	              "tc": "Philadelphia",
-	              "s": ""
+	              "s": "103"
 	            },
 	            "gweek": null,
 	            "gdtutc": "2018-04-17",
 	            "utctm": "00:00",
 	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "2548",
+	                  "fn": "Dwyane",
+	                  "ln": "Wade",
+	                  "val": "28",
+	                  "tid": 1610612748,
+	                  "ta": "MIA",
+	                  "tn": "Heat",
+	                  "tc": "Miami"
+	                }
+	              ]
+	            },
 	            "seq": 1
 	          },
 	          {
 	            "gid": "0041700152",
 	            "gcode": "20180416/SASGSW",
-	            "seri": "GSW leads series 1-0",
+	            "seri": "GSW leads series 2-0",
 	            "is": 1,
 	            "gdte": "2018-04-16",
 	            "htm": "2018-04-16T19:30:00",
@@ -132805,8 +132875,8 @@ export const DBInitializer = {
 	            "an": "ORACLE Arena",
 	            "ac": "Oakland",
 	            "as": "CA",
-	            "st": "1",
-	            "stt": "10:30 pm ET",
+	            "st": "3",
+	            "stt": "Final",
 	            "bd": {
 	              "b": [
 	                {
@@ -132818,7 +132888,7 @@ export const DBInitializer = {
 	                },
 	                {
 	                  "seq": 2,
-	                  "disp": "FSBA",
+	                  "disp": "NBCSBA",
 	                  "scope": "home",
 	                  "type": "tv",
 	                  "lan": "English"
@@ -132855,30 +132925,44 @@ export const DBInitializer = {
 	            },
 	            "v": {
 	              "tid": 1610612759,
-	              "re": "0-1",
+	              "re": "0-2",
 	              "ta": "SAS",
 	              "tn": "Spurs",
 	              "tc": "San Antonio",
-	              "s": ""
+	              "s": "101"
 	            },
 	            "h": {
 	              "tid": 1610612744,
-	              "re": "1-0",
+	              "re": "2-0",
 	              "ta": "GSW",
 	              "tn": "Warriors",
 	              "tc": "Golden State",
-	              "s": ""
+	              "s": "116"
 	            },
 	            "gweek": null,
 	            "gdtutc": "2018-04-17",
 	            "utctm": "02:30",
 	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "200746",
+	                  "fn": "LaMarcus",
+	                  "ln": "Aldridge",
+	                  "val": "34",
+	                  "tid": 1610612759,
+	                  "ta": "SAS",
+	                  "tn": "Spurs",
+	                  "tc": "San Antonio"
+	                }
+	              ]
+	            },
 	            "seq": 2
 	          },
 	          {
 	            "gid": "0041700102",
 	            "gcode": "20180417/WASTOR",
-	            "seri": "TOR leads series 1-0",
+	            "seri": "TOR leads series 2-0",
 	            "is": 1,
 	            "gdte": "2018-04-17",
 	            "htm": "2018-04-17T19:00:00",
@@ -132887,8 +132971,8 @@ export const DBInitializer = {
 	            "an": "Air Canada Centre",
 	            "ac": "Toronto",
 	            "as": "ON",
-	            "st": "1",
-	            "stt": "7:00 pm ET",
+	            "st": "3",
+	            "stt": "Final",
 	            "bd": {
 	              "b": [
 	                {
@@ -132923,30 +133007,44 @@ export const DBInitializer = {
 	            },
 	            "v": {
 	              "tid": 1610612764,
-	              "re": "0-1",
+	              "re": "0-2",
 	              "ta": "WAS",
 	              "tn": "Wizards",
 	              "tc": "Washington",
-	              "s": ""
+	              "s": "119"
 	            },
 	            "h": {
 	              "tid": 1610612761,
-	              "re": "1-0",
+	              "re": "2-0",
 	              "ta": "TOR",
 	              "tn": "Raptors",
 	              "tc": "Toronto",
-	              "s": ""
+	              "s": "130"
 	            },
 	            "gweek": null,
 	            "gdtutc": "2018-04-17",
 	            "utctm": "23:00",
 	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "201942",
+	                  "fn": "DeMar",
+	                  "ln": "DeRozan",
+	                  "val": "37",
+	                  "tid": 1610612761,
+	                  "ta": "TOR",
+	                  "tn": "Raptors",
+	                  "tc": "Toronto"
+	                }
+	              ]
+	            },
 	            "seq": 1
 	          },
 	          {
 	            "gid": "0041700112",
 	            "gcode": "20180417/MILBOS",
-	            "seri": "Series tied 0-0",
+	            "seri": "BOS leads series 2-0",
 	            "is": 1,
 	            "gdte": "2018-04-17",
 	            "htm": "2018-04-17T20:00:00",
@@ -132955,8 +133053,8 @@ export const DBInitializer = {
 	            "an": "TD Garden",
 	            "ac": "Boston",
 	            "as": "MA",
-	            "st": "1",
-	            "stt": "8:00 pm ET",
+	            "st": "3",
+	            "stt": "Final",
 	            "bd": {
 	              "b": [
 	                {
@@ -132998,30 +133096,54 @@ export const DBInitializer = {
 	            },
 	            "v": {
 	              "tid": 1610612749,
-	              "re": "0-0",
+	              "re": "0-2",
 	              "ta": "MIL",
 	              "tn": "Bucks",
 	              "tc": "Milwaukee",
-	              "s": ""
+	              "s": "106"
 	            },
 	            "h": {
 	              "tid": 1610612738,
-	              "re": "0-0",
+	              "re": "2-0",
 	              "ta": "BOS",
 	              "tn": "Celtics",
 	              "tc": "Boston",
-	              "s": ""
+	              "s": "120"
 	            },
 	            "gweek": null,
 	            "gdtutc": "2018-04-18",
 	            "utctm": "00:00",
 	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "1627759",
+	                  "fn": "Jaylen",
+	                  "ln": "Brown",
+	                  "val": "30",
+	                  "tid": 1610612738,
+	                  "ta": "BOS",
+	                  "tn": "Celtics",
+	                  "tc": "Boston"
+	                },
+	                {
+	                  "pid": "203507",
+	                  "fn": "Giannis",
+	                  "ln": "Antetokounmpo",
+	                  "val": "30",
+	                  "tid": 1610612749,
+	                  "ta": "MIL",
+	                  "tn": "Bucks",
+	                  "tc": "Milwaukee"
+	                }
+	              ]
+	            },
 	            "seq": 2
 	          },
 	          {
 	            "gid": "0041700162",
 	            "gcode": "20180417/NOPPOR",
-	            "seri": "NOP leads series 1-0",
+	            "seri": "NOP leads series 2-0",
 	            "is": 1,
 	            "gdte": "2018-04-17",
 	            "htm": "2018-04-17T19:30:00",
@@ -133030,8 +133152,8 @@ export const DBInitializer = {
 	            "an": "Moda Center",
 	            "ac": "Portland",
 	            "as": "OR",
-	            "st": "1",
-	            "stt": "10:30 pm ET",
+	            "st": "3",
+	            "stt": "Final",
 	            "bd": {
 	              "b": [
 	                {
@@ -133073,30 +133195,44 @@ export const DBInitializer = {
 	            },
 	            "v": {
 	              "tid": 1610612740,
-	              "re": "1-0",
+	              "re": "2-0",
 	              "ta": "NOP",
 	              "tn": "Pelicans",
 	              "tc": "New Orleans",
-	              "s": ""
+	              "s": "111"
 	            },
 	            "h": {
 	              "tid": 1610612757,
-	              "re": "0-1",
+	              "re": "0-2",
 	              "ta": "POR",
 	              "tn": "Trail Blazers",
 	              "tc": "Portland",
-	              "s": ""
+	              "s": "102"
 	            },
 	            "gweek": null,
 	            "gdtutc": "2018-04-18",
 	            "utctm": "02:30",
 	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "201950",
+	                  "fn": "Jrue",
+	                  "ln": "Holiday",
+	                  "val": "33",
+	                  "tid": 1610612740,
+	                  "ta": "NOP",
+	                  "tn": "Pelicans",
+	                  "tc": "New Orleans"
+	                }
+	              ]
+	            },
 	            "seq": 3
 	          },
 	          {
 	            "gid": "0041700132",
 	            "gcode": "20180418/INDCLE",
-	            "seri": "Series tied 0-0",
+	            "seri": "Series tied 1-1",
 	            "is": 1,
 	            "gdte": "2018-04-18",
 	            "htm": "2018-04-18T19:00:00",
@@ -133105,8 +133241,8 @@ export const DBInitializer = {
 	            "an": "Quicken Loans Arena",
 	            "ac": "Cleveland",
 	            "as": "OH",
-	            "st": "1",
-	            "stt": "7:00 pm ET",
+	            "st": "3",
+	            "stt": "Final",
 	            "bd": {
 	              "b": [
 	                {
@@ -133139,7 +133275,7 @@ export const DBInitializer = {
 	                },
 	                {
 	                  "seq": 5,
-	                  "disp": "WTAM 1100 / 100.7 WMMS / 87.7 FM (ESP)",
+	                  "disp": "WTAM 1100 / 87.7 FM (ESP)",
 	                  "scope": "home",
 	                  "type": "radio",
 	                  "lan": "English"
@@ -133155,30 +133291,44 @@ export const DBInitializer = {
 	            },
 	            "v": {
 	              "tid": 1610612754,
-	              "re": "0-0",
+	              "re": "1-1",
 	              "ta": "IND",
 	              "tn": "Pacers",
 	              "tc": "Indiana",
-	              "s": ""
+	              "s": "97"
 	            },
 	            "h": {
 	              "tid": 1610612739,
-	              "re": "0-0",
+	              "re": "1-1",
 	              "ta": "CLE",
 	              "tn": "Cavaliers",
 	              "tc": "Cleveland",
-	              "s": ""
+	              "s": "100"
 	            },
 	            "gweek": null,
 	            "gdtutc": "2018-04-18",
 	            "utctm": "23:00",
 	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "2544",
+	                  "fn": "LeBron",
+	                  "ln": "James",
+	                  "val": "46",
+	                  "tid": 1610612739,
+	                  "ta": "CLE",
+	                  "tn": "Cavaliers",
+	                  "tc": "Cleveland"
+	                }
+	              ]
+	            },
 	            "seq": 1
 	          },
 	          {
 	            "gid": "0041700172",
 	            "gcode": "20180418/UTAOKC",
-	            "seri": "Series tied 0-0",
+	            "seri": "Series tied 1-1",
 	            "is": 1,
 	            "gdte": "2018-04-18",
 	            "htm": "2018-04-18T19:00:00",
@@ -133187,8 +133337,8 @@ export const DBInitializer = {
 	            "an": "Chesapeake Energy Arena",
 	            "ac": "Oklahoma City",
 	            "as": "OK",
-	            "st": "1",
-	            "stt": "8:00 pm ET",
+	            "st": "3",
+	            "stt": "Final",
 	            "bd": {
 	              "b": [
 	                {
@@ -133237,30 +133387,44 @@ export const DBInitializer = {
 	            },
 	            "v": {
 	              "tid": 1610612762,
-	              "re": "0-0",
+	              "re": "1-1",
 	              "ta": "UTA",
 	              "tn": "Jazz",
 	              "tc": "Utah",
-	              "s": ""
+	              "s": "102"
 	            },
 	            "h": {
 	              "tid": 1610612760,
-	              "re": "0-0",
+	              "re": "1-1",
 	              "ta": "OKC",
 	              "tn": "Thunder",
 	              "tc": "Oklahoma City",
-	              "s": ""
+	              "s": "95"
 	            },
 	            "gweek": null,
 	            "gdtutc": "2018-04-19",
 	            "utctm": "00:00",
 	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "1628378",
+	                  "fn": "Donovan",
+	                  "ln": "Mitchell",
+	                  "val": "28",
+	                  "tid": 1610612762,
+	                  "ta": "UTA",
+	                  "tn": "Jazz",
+	                  "tc": "Utah"
+	                }
+	              ]
+	            },
 	            "seq": 2
 	          },
 	          {
 	            "gid": "0041700142",
 	            "gcode": "20180418/MINHOU",
-	            "seri": "Series tied 0-0",
+	            "seri": "HOU leads series 2-0",
 	            "is": 1,
 	            "gdte": "2018-04-18",
 	            "htm": "2018-04-18T20:30:00",
@@ -133269,8 +133433,8 @@ export const DBInitializer = {
 	            "an": "Toyota Center",
 	            "ac": "Houston",
 	            "as": "TX",
-	            "st": "1",
-	            "stt": "9:30 pm ET",
+	            "st": "3",
+	            "stt": "Final",
 	            "bd": {
 	              "b": [
 	                {
@@ -133312,30 +133476,44 @@ export const DBInitializer = {
 	            },
 	            "v": {
 	              "tid": 1610612750,
-	              "re": "0-0",
+	              "re": "0-2",
 	              "ta": "MIN",
 	              "tn": "Timberwolves",
 	              "tc": "Minnesota",
-	              "s": ""
+	              "s": "82"
 	            },
 	            "h": {
 	              "tid": 1610612745,
-	              "re": "0-0",
+	              "re": "2-0",
 	              "ta": "HOU",
 	              "tn": "Rockets",
 	              "tc": "Houston",
-	              "s": ""
+	              "s": "102"
 	            },
 	            "gweek": null,
 	            "gdtutc": "2018-04-19",
 	            "utctm": "01:30",
 	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "101108",
+	                  "fn": "Chris",
+	                  "ln": "Paul",
+	                  "val": "27",
+	                  "tid": 1610612745,
+	                  "ta": "HOU",
+	                  "tn": "Rockets",
+	                  "tc": "Houston"
+	                }
+	              ]
+	            },
 	            "seq": 3
 	          },
 	          {
 	            "gid": "0041700123",
 	            "gcode": "20180419/PHIMIA",
-	            "seri": "PHI leads series 1-0",
+	            "seri": "PHI leads series 2-1",
 	            "is": 1,
 	            "gdte": "2018-04-19",
 	            "htm": "2018-04-19T19:00:00",
@@ -133344,8 +133522,8 @@ export const DBInitializer = {
 	            "an": "AmericanAirlines Arena",
 	            "ac": "Miami",
 	            "as": "FL",
-	            "st": "1",
-	            "stt": "7:00 pm ET",
+	            "st": "3",
+	            "stt": "Final",
 	            "bd": {
 	              "b": [
 	                {
@@ -133387,30 +133565,54 @@ export const DBInitializer = {
 	            },
 	            "v": {
 	              "tid": 1610612755,
-	              "re": "1-0",
+	              "re": "2-1",
 	              "ta": "PHI",
 	              "tn": "76ers",
 	              "tc": "Philadelphia",
-	              "s": ""
+	              "s": "128"
 	            },
 	            "h": {
 	              "tid": 1610612748,
-	              "re": "0-1",
+	              "re": "1-2",
 	              "ta": "MIA",
 	              "tn": "Heat",
 	              "tc": "Miami",
-	              "s": ""
+	              "s": "108"
 	            },
 	            "gweek": null,
 	            "gdtutc": "2018-04-19",
 	            "utctm": "23:00",
 	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "201609",
+	                  "fn": "Goran",
+	                  "ln": "Dragic",
+	                  "val": "23",
+	                  "tid": 1610612748,
+	                  "ta": "MIA",
+	                  "tn": "Heat",
+	                  "tc": "Miami"
+	                },
+	                {
+	                  "pid": "203954",
+	                  "fn": "Joel",
+	                  "ln": "Embiid",
+	                  "val": "23",
+	                  "tid": 1610612755,
+	                  "ta": "PHI",
+	                  "tn": "76ers",
+	                  "tc": "Philadelphia"
+	                }
+	              ]
+	            },
 	            "seq": 1
 	          },
 	          {
 	            "gid": "0041700163",
 	            "gcode": "20180419/PORNOP",
-	            "seri": "NOP leads series 1-0",
+	            "seri": "NOP leads series 3-0",
 	            "is": 1,
 	            "gdte": "2018-04-19",
 	            "htm": "2018-04-19T20:00:00",
@@ -133419,8 +133621,8 @@ export const DBInitializer = {
 	            "an": "Smoothie King Center",
 	            "ac": "New Orleans",
 	            "as": "LA",
-	            "st": "1",
-	            "stt": "9:00 pm ET",
+	            "st": "3",
+	            "stt": "Final",
 	            "bd": {
 	              "b": [
 	                {
@@ -133462,30 +133664,44 @@ export const DBInitializer = {
 	            },
 	            "v": {
 	              "tid": 1610612757,
-	              "re": "0-1",
+	              "re": "0-3",
 	              "ta": "POR",
 	              "tn": "Trail Blazers",
 	              "tc": "Portland",
-	              "s": ""
+	              "s": "102"
 	            },
 	            "h": {
 	              "tid": 1610612740,
-	              "re": "1-0",
+	              "re": "3-0",
 	              "ta": "NOP",
 	              "tn": "Pelicans",
 	              "tc": "New Orleans",
-	              "s": ""
+	              "s": "119"
 	            },
 	            "gweek": null,
 	            "gdtutc": "2018-04-20",
 	            "utctm": "01:00",
 	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "202703",
+	                  "fn": "Nikola",
+	                  "ln": "Mirotic",
+	                  "val": "30",
+	                  "tid": 1610612740,
+	                  "ta": "NOP",
+	                  "tn": "Pelicans",
+	                  "tc": "New Orleans"
+	                }
+	              ]
+	            },
 	            "seq": 2
 	          },
 	          {
 	            "gid": "0041700153",
 	            "gcode": "20180419/GSWSAS",
-	            "seri": "GSW leads series 1-0",
+	            "seri": "GSW leads series 3-0",
 	            "is": 1,
 	            "gdte": "2018-04-19",
 	            "htm": "2018-04-19T20:30:00",
@@ -133494,8 +133710,8 @@ export const DBInitializer = {
 	            "an": "AT&T Center",
 	            "ac": "San Antonio",
 	            "as": "TX",
-	            "st": "1",
-	            "stt": "9:30 pm ET",
+	            "st": "3",
+	            "stt": "Final",
 	            "bd": {
 	              "b": [
 	                {
@@ -133514,7 +133730,7 @@ export const DBInitializer = {
 	                },
 	                {
 	                  "seq": 3,
-	                  "disp": "FSBA",
+	                  "disp": "NBCSBA",
 	                  "scope": "away",
 	                  "type": "tv",
 	                  "lan": "English"
@@ -133544,30 +133760,44 @@ export const DBInitializer = {
 	            },
 	            "v": {
 	              "tid": 1610612744,
-	              "re": "1-0",
+	              "re": "3-0",
 	              "ta": "GSW",
 	              "tn": "Warriors",
 	              "tc": "Golden State",
-	              "s": ""
+	              "s": "110"
 	            },
 	            "h": {
 	              "tid": 1610612759,
-	              "re": "0-1",
+	              "re": "0-3",
 	              "ta": "SAS",
 	              "tn": "Spurs",
 	              "tc": "San Antonio",
-	              "s": ""
+	              "s": "97"
 	            },
 	            "gweek": null,
 	            "gdtutc": "2018-04-20",
 	            "utctm": "01:30",
 	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "201142",
+	                  "fn": "Kevin",
+	                  "ln": "Durant",
+	                  "val": "26",
+	                  "tid": 1610612744,
+	                  "ta": "GSW",
+	                  "tn": "Warriors",
+	                  "tc": "Golden State"
+	                }
+	              ]
+	            },
 	            "seq": 3
 	          },
 	          {
 	            "gid": "0041700133",
 	            "gcode": "20180420/CLEIND",
-	            "seri": "Series tied 0-0",
+	            "seri": "IND leads series 2-1",
 	            "is": 1,
 	            "gdte": "2018-04-20",
 	            "htm": "2018-04-20T19:00:00",
@@ -133576,8 +133806,8 @@ export const DBInitializer = {
 	            "an": "Bankers Life Fieldhouse",
 	            "ac": "Indianapolis",
 	            "as": "IN",
-	            "st": "1",
-	            "stt": "7:00 pm ET",
+	            "st": "3",
+	            "stt": "Final",
 	            "bd": {
 	              "b": [
 	                {
@@ -133617,7 +133847,7 @@ export const DBInitializer = {
 	                },
 	                {
 	                  "seq": 6,
-	                  "disp": "WTAM 1100 / 100.7 WMMS / 87.7 FM (ESP)",
+	                  "disp": "WTAM 1100 / 87.7 FM (ESP)",
 	                  "scope": "away",
 	                  "type": "radio",
 	                  "lan": "English"
@@ -133626,30 +133856,44 @@ export const DBInitializer = {
 	            },
 	            "v": {
 	              "tid": 1610612739,
-	              "re": "0-0",
+	              "re": "1-2",
 	              "ta": "CLE",
 	              "tn": "Cavaliers",
 	              "tc": "Cleveland",
-	              "s": ""
+	              "s": "90"
 	            },
 	            "h": {
 	              "tid": 1610612754,
-	              "re": "0-0",
+	              "re": "2-1",
 	              "ta": "IND",
 	              "tn": "Pacers",
 	              "tc": "Indiana",
-	              "s": ""
+	              "s": "92"
 	            },
 	            "gweek": null,
 	            "gdtutc": "2018-04-20",
 	            "utctm": "23:00",
 	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "202711",
+	                  "fn": "Bojan",
+	                  "ln": "Bogdanovic",
+	                  "val": "30",
+	                  "tid": 1610612754,
+	                  "ta": "IND",
+	                  "tn": "Pacers",
+	                  "tc": "Indiana"
+	                }
+	              ]
+	            },
 	            "seq": 1
 	          },
 	          {
 	            "gid": "0041700103",
 	            "gcode": "20180420/TORWAS",
-	            "seri": "TOR leads series 1-0",
+	            "seri": "TOR leads series 2-1",
 	            "is": 1,
 	            "gdte": "2018-04-20",
 	            "htm": "2018-04-20T20:00:00",
@@ -133658,8 +133902,8 @@ export const DBInitializer = {
 	            "an": "Capital One Arena",
 	            "ac": "Washington",
 	            "as": "DC",
-	            "st": "1",
-	            "stt": "8:00 pm ET",
+	            "st": "3",
+	            "stt": "Final",
 	            "bd": {
 	              "b": [
 	                {
@@ -133694,30 +133938,54 @@ export const DBInitializer = {
 	            },
 	            "v": {
 	              "tid": 1610612761,
-	              "re": "1-0",
+	              "re": "2-1",
 	              "ta": "TOR",
 	              "tn": "Raptors",
 	              "tc": "Toronto",
-	              "s": ""
+	              "s": "103"
 	            },
 	            "h": {
 	              "tid": 1610612764,
-	              "re": "0-1",
+	              "re": "1-2",
 	              "ta": "WAS",
 	              "tn": "Wizards",
 	              "tc": "Washington",
-	              "s": ""
+	              "s": "122"
 	            },
 	            "gweek": null,
 	            "gdtutc": "2018-04-21",
 	            "utctm": "00:00",
 	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "202322",
+	                  "fn": "John",
+	                  "ln": "Wall",
+	                  "val": "28",
+	                  "tid": 1610612764,
+	                  "ta": "WAS",
+	                  "tn": "Wizards",
+	                  "tc": "Washington"
+	                },
+	                {
+	                  "pid": "203078",
+	                  "fn": "Bradley",
+	                  "ln": "Beal",
+	                  "val": "28",
+	                  "tid": 1610612764,
+	                  "ta": "WAS",
+	                  "tn": "Wizards",
+	                  "tc": "Washington"
+	                }
+	              ]
+	            },
 	            "seq": 2
 	          },
 	          {
 	            "gid": "0041700113",
 	            "gcode": "20180420/BOSMIL",
-	            "seri": "Series tied 0-0",
+	            "seri": "BOS leads series 2-1",
 	            "is": 1,
 	            "gdte": "2018-04-20",
 	            "htm": "2018-04-20T20:30:00",
@@ -133726,8 +133994,8 @@ export const DBInitializer = {
 	            "an": "BMO Harris Bradley Center",
 	            "ac": "Milwaukee",
 	            "as": "WI",
-	            "st": "1",
-	            "stt": "9:30 pm ET",
+	            "st": "3",
+	            "stt": "Final",
 	            "bd": {
 	              "b": [
 	                {
@@ -133739,7 +134007,7 @@ export const DBInitializer = {
 	                },
 	                {
 	                  "seq": 2,
-	                  "disp": "Fox Sports Wisconsin",
+	                  "disp": "Fox Sports Wisconsin Plus",
 	                  "scope": "home",
 	                  "type": "tv",
 	                  "lan": "English"
@@ -133769,30 +134037,44 @@ export const DBInitializer = {
 	            },
 	            "v": {
 	              "tid": 1610612738,
-	              "re": "0-0",
+	              "re": "2-1",
 	              "ta": "BOS",
 	              "tn": "Celtics",
 	              "tc": "Boston",
-	              "s": ""
+	              "s": "92"
 	            },
 	            "h": {
 	              "tid": 1610612749,
-	              "re": "0-0",
+	              "re": "1-2",
 	              "ta": "MIL",
 	              "tn": "Bucks",
 	              "tc": "Milwaukee",
-	              "s": ""
+	              "s": "116"
 	            },
 	            "gweek": null,
 	            "gdtutc": "2018-04-21",
 	            "utctm": "01:30",
 	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "203114",
+	                  "fn": "Khris",
+	                  "ln": "Middleton",
+	                  "val": "23",
+	                  "tid": 1610612749,
+	                  "ta": "MIL",
+	                  "tn": "Bucks",
+	                  "tc": "Milwaukee"
+	                }
+	              ]
+	            },
 	            "seq": 3
 	          },
 	          {
 	            "gid": "0041700124",
 	            "gcode": "20180421/PHIMIA",
-	            "seri": "PHI leads series 1-0",
+	            "seri": "PHI leads series 3-1",
 	            "is": 1,
 	            "gdte": "2018-04-21",
 	            "htm": "2018-04-21T14:30:00",
@@ -133801,8 +134083,8 @@ export const DBInitializer = {
 	            "an": "AmericanAirlines Arena",
 	            "ac": "Miami",
 	            "as": "FL",
-	            "st": "1",
-	            "stt": "2:30 pm ET",
+	            "st": "3",
+	            "stt": "Final",
 	            "bd": {
 	              "b": [
 	                {
@@ -133844,30 +134126,44 @@ export const DBInitializer = {
 	            },
 	            "v": {
 	              "tid": 1610612755,
-	              "re": "1-0",
+	              "re": "3-1",
 	              "ta": "PHI",
 	              "tn": "76ers",
 	              "tc": "Philadelphia",
-	              "s": ""
+	              "s": "106"
 	            },
 	            "h": {
 	              "tid": 1610612748,
-	              "re": "0-1",
+	              "re": "1-3",
 	              "ta": "MIA",
 	              "tn": "Heat",
 	              "tc": "Miami",
-	              "s": ""
+	              "s": "102"
 	            },
 	            "gweek": null,
 	            "gdtutc": "2018-04-21",
 	            "utctm": "18:30",
 	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "2548",
+	                  "fn": "Dwyane",
+	                  "ln": "Wade",
+	                  "val": "25",
+	                  "tid": 1610612748,
+	                  "ta": "MIA",
+	                  "tn": "Heat",
+	                  "tc": "Miami"
+	                }
+	              ]
+	            },
 	            "seq": 1
 	          },
 	          {
 	            "gid": "0041700164",
 	            "gcode": "20180421/PORNOP",
-	            "seri": "NOP leads series 1-0",
+	            "seri": "NOP wins series 4-0",
 	            "is": 1,
 	            "gdte": "2018-04-21",
 	            "htm": "2018-04-21T16:00:00",
@@ -133876,8 +134172,8 @@ export const DBInitializer = {
 	            "an": "Smoothie King Center",
 	            "ac": "New Orleans",
 	            "as": "LA",
-	            "st": "1",
-	            "stt": "5:00 pm ET",
+	            "st": "3",
+	            "stt": "Final",
 	            "bd": {
 	              "b": [
 	                {
@@ -133919,30 +134215,44 @@ export const DBInitializer = {
 	            },
 	            "v": {
 	              "tid": 1610612757,
-	              "re": "0-1",
+	              "re": "0-4",
 	              "ta": "POR",
 	              "tn": "Trail Blazers",
 	              "tc": "Portland",
-	              "s": ""
+	              "s": "123"
 	            },
 	            "h": {
 	              "tid": 1610612740,
-	              "re": "1-0",
+	              "re": "4-0",
 	              "ta": "NOP",
 	              "tn": "Pelicans",
 	              "tc": "New Orleans",
-	              "s": ""
+	              "s": "131"
 	            },
 	            "gweek": null,
 	            "gdtutc": "2018-04-21",
 	            "utctm": "21:00",
 	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "203076",
+	                  "fn": "Anthony",
+	                  "ln": "Davis",
+	                  "val": "47",
+	                  "tid": 1610612740,
+	                  "ta": "NOP",
+	                  "tn": "Pelicans",
+	                  "tc": "New Orleans"
+	                }
+	              ]
+	            },
 	            "seq": 2
 	          },
 	          {
 	            "gid": "0041700143",
 	            "gcode": "20180421/HOUMIN",
-	            "seri": "Series tied 0-0",
+	            "seri": "HOU leads series 2-1",
 	            "is": 1,
 	            "gdte": "2018-04-21",
 	            "htm": "2018-04-21T18:30:00",
@@ -133951,8 +134261,8 @@ export const DBInitializer = {
 	            "an": "Target Center",
 	            "ac": "Minneapolis",
 	            "as": "MN",
-	            "st": "1",
-	            "stt": "7:30 pm ET",
+	            "st": "3",
+	            "stt": "Final",
 	            "bd": {
 	              "b": [
 	                {
@@ -133978,7 +134288,7 @@ export const DBInitializer = {
 	                },
 	                {
 	                  "seq": 4,
-	                  "disp": "TSN4/5",
+	                  "disp": "TSN5",
 	                  "scope": "can",
 	                  "type": "tv",
 	                  "lan": "English"
@@ -133994,30 +134304,44 @@ export const DBInitializer = {
 	            },
 	            "v": {
 	              "tid": 1610612745,
-	              "re": "0-0",
+	              "re": "2-1",
 	              "ta": "HOU",
 	              "tn": "Rockets",
 	              "tc": "Houston",
-	              "s": ""
+	              "s": "105"
 	            },
 	            "h": {
 	              "tid": 1610612750,
-	              "re": "0-0",
+	              "re": "1-2",
 	              "ta": "MIN",
 	              "tn": "Timberwolves",
 	              "tc": "Minnesota",
-	              "s": ""
+	              "s": "121"
 	            },
 	            "gweek": null,
 	            "gdtutc": "2018-04-21",
 	            "utctm": "23:30",
 	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "201935",
+	                  "fn": "James",
+	                  "ln": "Harden",
+	                  "val": "29",
+	                  "tid": 1610612745,
+	                  "ta": "HOU",
+	                  "tn": "Rockets",
+	                  "tc": "Houston"
+	                }
+	              ]
+	            },
 	            "seq": 3
 	          },
 	          {
 	            "gid": "0041700173",
 	            "gcode": "20180421/OKCUTA",
-	            "seri": "Series tied 0-0",
+	            "seri": "UTA leads series 2-1",
 	            "is": 1,
 	            "gdte": "2018-04-21",
 	            "htm": "2018-04-21T20:00:00",
@@ -134026,8 +134350,8 @@ export const DBInitializer = {
 	            "an": "Vivint Smart Home Arena",
 	            "ac": "Salt Lake City",
 	            "as": "UT",
-	            "st": "1",
-	            "stt": "10:00 pm ET",
+	            "st": "3",
+	            "stt": "Final",
 	            "bd": {
 	              "b": [
 	                {
@@ -134053,7 +134377,7 @@ export const DBInitializer = {
 	                },
 	                {
 	                  "seq": 4,
-	                  "disp": "TSN4/5",
+	                  "disp": "TSN5",
 	                  "scope": "can",
 	                  "type": "tv",
 	                  "lan": "English"
@@ -134076,30 +134400,44 @@ export const DBInitializer = {
 	            },
 	            "v": {
 	              "tid": 1610612760,
-	              "re": "0-0",
+	              "re": "1-2",
 	              "ta": "OKC",
 	              "tn": "Thunder",
 	              "tc": "Oklahoma City",
-	              "s": ""
+	              "s": "102"
 	            },
 	            "h": {
 	              "tid": 1610612762,
-	              "re": "0-0",
+	              "re": "2-1",
 	              "ta": "UTA",
 	              "tn": "Jazz",
 	              "tc": "Utah",
-	              "s": ""
+	              "s": "115"
 	            },
 	            "gweek": null,
 	            "gdtutc": "2018-04-22",
 	            "utctm": "02:00",
 	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "201937",
+	                  "fn": "Ricky",
+	                  "ln": "Rubio",
+	                  "val": "26",
+	                  "tid": 1610612762,
+	                  "ta": "UTA",
+	                  "tn": "Jazz",
+	                  "tc": "Utah"
+	                }
+	              ]
+	            },
 	            "seq": 4
 	          },
 	          {
 	            "gid": "0041700114",
 	            "gcode": "20180422/BOSMIL",
-	            "seri": "Series tied 0-0",
+	            "seri": "Series tied 2-2",
 	            "is": 1,
 	            "gdte": "2018-04-22",
 	            "htm": "2018-04-22T12:00:00",
@@ -134108,8 +134446,8 @@ export const DBInitializer = {
 	            "an": "BMO Harris Bradley Center",
 	            "ac": "Milwaukee",
 	            "as": "WI",
-	            "st": "1",
-	            "stt": "1:00 pm ET",
+	            "st": "3",
+	            "stt": "Final",
 	            "bd": {
 	              "b": [
 	                {
@@ -134121,7 +134459,7 @@ export const DBInitializer = {
 	                },
 	                {
 	                  "seq": 2,
-	                  "disp": "Sportsnet One",
+	                  "disp": "TSN1/3",
 	                  "scope": "can",
 	                  "type": "tv",
 	                  "lan": "English"
@@ -134137,30 +134475,44 @@ export const DBInitializer = {
 	            },
 	            "v": {
 	              "tid": 1610612738,
-	              "re": "0-0",
+	              "re": "2-2",
 	              "ta": "BOS",
 	              "tn": "Celtics",
 	              "tc": "Boston",
-	              "s": ""
+	              "s": "102"
 	            },
 	            "h": {
 	              "tid": 1610612749,
-	              "re": "0-0",
+	              "re": "2-2",
 	              "ta": "MIL",
 	              "tn": "Bucks",
 	              "tc": "Milwaukee",
-	              "s": ""
+	              "s": "104"
 	            },
 	            "gweek": null,
 	            "gdtutc": "2018-04-22",
 	            "utctm": "17:00",
 	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "1627759",
+	                  "fn": "Jaylen",
+	                  "ln": "Brown",
+	                  "val": "34",
+	                  "tid": 1610612738,
+	                  "ta": "BOS",
+	                  "tn": "Celtics",
+	                  "tc": "Boston"
+	                }
+	              ]
+	            },
 	            "seq": 1
 	          },
 	          {
 	            "gid": "0041700154",
 	            "gcode": "20180422/GSWSAS",
-	            "seri": "GSW leads series 1-0",
+	            "seri": "GSW leads series 3-1",
 	            "is": 1,
 	            "gdte": "2018-04-22",
 	            "htm": "2018-04-22T14:30:00",
@@ -134169,8 +134521,8 @@ export const DBInitializer = {
 	            "an": "AT&T Center",
 	            "ac": "San Antonio",
 	            "as": "TX",
-	            "st": "1",
-	            "stt": "3:30 pm ET",
+	            "st": "3",
+	            "stt": "Final",
 	            "bd": {
 	              "b": [
 	                {
@@ -134205,30 +134557,44 @@ export const DBInitializer = {
 	            },
 	            "v": {
 	              "tid": 1610612744,
-	              "re": "1-0",
+	              "re": "3-1",
 	              "ta": "GSW",
 	              "tn": "Warriors",
 	              "tc": "Golden State",
-	              "s": ""
+	              "s": "90"
 	            },
 	            "h": {
 	              "tid": 1610612759,
-	              "re": "0-1",
+	              "re": "1-3",
 	              "ta": "SAS",
 	              "tn": "Spurs",
 	              "tc": "San Antonio",
-	              "s": ""
+	              "s": "103"
 	            },
 	            "gweek": null,
 	            "gdtutc": "2018-04-22",
 	            "utctm": "19:30",
 	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "201142",
+	                  "fn": "Kevin",
+	                  "ln": "Durant",
+	                  "val": "34",
+	                  "tid": 1610612744,
+	                  "ta": "GSW",
+	                  "tn": "Warriors",
+	                  "tc": "Golden State"
+	                }
+	              ]
+	            },
 	            "seq": 2
 	          },
 	          {
 	            "gid": "0041700104",
 	            "gcode": "20180422/TORWAS",
-	            "seri": "TOR leads series 1-0",
+	            "seri": "Series tied 2-2",
 	            "is": 1,
 	            "gdte": "2018-04-22",
 	            "htm": "2018-04-22T18:00:00",
@@ -134237,8 +134603,8 @@ export const DBInitializer = {
 	            "an": "Capital One Arena",
 	            "ac": "Washington",
 	            "as": "DC",
-	            "st": "1",
-	            "stt": "6:00 pm ET",
+	            "st": "3",
+	            "stt": "Final",
 	            "bd": {
 	              "b": [
 	                {
@@ -134273,30 +134639,44 @@ export const DBInitializer = {
 	            },
 	            "v": {
 	              "tid": 1610612761,
-	              "re": "1-0",
+	              "re": "2-2",
 	              "ta": "TOR",
 	              "tn": "Raptors",
 	              "tc": "Toronto",
-	              "s": ""
+	              "s": "98"
 	            },
 	            "h": {
 	              "tid": 1610612764,
-	              "re": "0-1",
+	              "re": "2-2",
 	              "ta": "WAS",
 	              "tn": "Wizards",
 	              "tc": "Washington",
-	              "s": ""
+	              "s": "106"
 	            },
 	            "gweek": null,
 	            "gdtutc": "2018-04-22",
 	            "utctm": "22:00",
 	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "201942",
+	                  "fn": "DeMar",
+	                  "ln": "DeRozan",
+	                  "val": "35",
+	                  "tid": 1610612761,
+	                  "ta": "TOR",
+	                  "tn": "Raptors",
+	                  "tc": "Toronto"
+	                }
+	              ]
+	            },
 	            "seq": 3
 	          },
 	          {
 	            "gid": "0041700134",
 	            "gcode": "20180422/CLEIND",
-	            "seri": "Series tied 0-0",
+	            "seri": "Series tied 2-2",
 	            "is": 1,
 	            "gdte": "2018-04-22",
 	            "htm": "2018-04-22T20:30:00",
@@ -134305,8 +134685,8 @@ export const DBInitializer = {
 	            "an": "Bankers Life Fieldhouse",
 	            "ac": "Indianapolis",
 	            "as": "IN",
-	            "st": "1",
-	            "stt": "8:30 pm ET",
+	            "st": "3",
+	            "stt": "Final",
 	            "bd": {
 	              "b": [
 	                {
@@ -134355,30 +134735,44 @@ export const DBInitializer = {
 	            },
 	            "v": {
 	              "tid": 1610612739,
-	              "re": "0-0",
+	              "re": "2-2",
 	              "ta": "CLE",
 	              "tn": "Cavaliers",
 	              "tc": "Cleveland",
-	              "s": ""
+	              "s": "104"
 	            },
 	            "h": {
 	              "tid": 1610612754,
-	              "re": "0-0",
+	              "re": "2-2",
 	              "ta": "IND",
 	              "tn": "Pacers",
 	              "tc": "Indiana",
-	              "s": ""
+	              "s": "100"
 	            },
 	            "gweek": null,
 	            "gdtutc": "2018-04-23",
 	            "utctm": "00:30",
 	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "2544",
+	                  "fn": "LeBron",
+	                  "ln": "James",
+	                  "val": "32",
+	                  "tid": 1610612739,
+	                  "ta": "CLE",
+	                  "tn": "Cavaliers",
+	                  "tc": "Cleveland"
+	                }
+	              ]
+	            },
 	            "seq": 4
 	          },
 	          {
 	            "gid": "0041700144",
 	            "gcode": "20180423/HOUMIN",
-	            "seri": "Series tied 0-0",
+	            "seri": "HOU leads series 3-1",
 	            "is": 1,
 	            "gdte": "2018-04-23",
 	            "htm": "2018-04-23T19:00:00",
@@ -134387,8 +134781,8 @@ export const DBInitializer = {
 	            "an": "Target Center",
 	            "ac": "Minneapolis",
 	            "as": "MN",
-	            "st": "1",
-	            "stt": "8:00 pm ET",
+	            "st": "3",
+	            "stt": "Final",
 	            "bd": {
 	              "b": [
 	                {
@@ -134430,30 +134824,44 @@ export const DBInitializer = {
 	            },
 	            "v": {
 	              "tid": 1610612745,
-	              "re": "0-0",
+	              "re": "3-1",
 	              "ta": "HOU",
 	              "tn": "Rockets",
 	              "tc": "Houston",
-	              "s": ""
+	              "s": "119"
 	            },
 	            "h": {
 	              "tid": 1610612750,
-	              "re": "0-0",
+	              "re": "1-3",
 	              "ta": "MIN",
 	              "tn": "Timberwolves",
 	              "tc": "Minnesota",
-	              "s": ""
+	              "s": "100"
 	            },
 	            "gweek": null,
 	            "gdtutc": "2018-04-24",
 	            "utctm": "00:00",
 	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "201935",
+	                  "fn": "James",
+	                  "ln": "Harden",
+	                  "val": "36",
+	                  "tid": 1610612745,
+	                  "ta": "HOU",
+	                  "tn": "Rockets",
+	                  "tc": "Houston"
+	                }
+	              ]
+	            },
 	            "seq": 1
 	          },
 	          {
 	            "gid": "0041700174",
 	            "gcode": "20180423/OKCUTA",
-	            "seri": "Series tied 0-0",
+	            "seri": "UTA leads series 3-1",
 	            "is": 1,
 	            "gdte": "2018-04-23",
 	            "htm": "2018-04-23T20:30:00",
@@ -134462,8 +134870,8 @@ export const DBInitializer = {
 	            "an": "Vivint Smart Home Arena",
 	            "ac": "Salt Lake City",
 	            "as": "UT",
-	            "st": "1",
-	            "stt": "10:30 pm ET",
+	            "st": "3",
+	            "stt": "Final",
 	            "bd": {
 	              "b": [
 	                {
@@ -134512,58 +134920,86 @@ export const DBInitializer = {
 	            },
 	            "v": {
 	              "tid": 1610612760,
-	              "re": "0-0",
+	              "re": "1-3",
 	              "ta": "OKC",
 	              "tn": "Thunder",
 	              "tc": "Oklahoma City",
-	              "s": ""
+	              "s": "96"
 	            },
 	            "h": {
 	              "tid": 1610612762,
-	              "re": "0-0",
+	              "re": "3-1",
 	              "ta": "UTA",
 	              "tn": "Jazz",
 	              "tc": "Utah",
-	              "s": ""
+	              "s": "113"
 	            },
 	            "gweek": null,
 	            "gdtutc": "2018-04-24",
 	            "utctm": "02:30",
 	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "1628378",
+	                  "fn": "Donovan",
+	                  "ln": "Mitchell",
+	                  "val": "33",
+	                  "tid": 1610612762,
+	                  "ta": "UTA",
+	                  "tn": "Jazz",
+	                  "tc": "Utah"
+	                }
+	              ]
+	            },
 	            "seq": 2
 	          },
 	          {
 	            "gid": "0041700115",
 	            "gcode": "20180424/MILBOS",
-	            "seri": "Series tied 0-0",
-	            "is": 0,
+	            "seri": "BOS leads series 3-2",
+	            "is": 1,
 	            "gdte": "2018-04-24",
-	            "htm": "TBD",
-	            "vtm": "TBD",
-	            "etm": "TBD",
+	            "htm": "2018-04-24T19:00:00",
+	            "vtm": "2018-04-24T18:00:00",
+	            "etm": "2018-04-24T19:00:00",
 	            "an": "TD Garden",
 	            "ac": "Boston",
 	            "as": "MA",
-	            "st": "1",
-	            "stt": "TBD",
+	            "st": "3",
+	            "stt": "Final",
 	            "bd": {
 	              "b": [
 	                {
 	                  "seq": 1,
+	                  "disp": "NBA TV",
+	                  "scope": "natl",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 2,
 	                  "disp": "NBC SPORTS BOSTON",
 	                  "scope": "home",
 	                  "type": "tv",
 	                  "lan": "English"
 	                },
 	                {
-	                  "seq": 2,
+	                  "seq": 3,
 	                  "disp": "Fox Sports Wisconsin",
 	                  "scope": "away",
 	                  "type": "tv",
 	                  "lan": "English"
 	                },
 	                {
-	                  "seq": 3,
+	                  "seq": 4,
+	                  "disp": "TSN1/4",
+	                  "scope": "can",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 5,
 	                  "disp": "620 AM/103.3 FM WTMJ",
 	                  "scope": "away",
 	                  "type": "radio",
@@ -134573,58 +135009,86 @@ export const DBInitializer = {
 	            },
 	            "v": {
 	              "tid": 1610612749,
-	              "re": "0-0",
+	              "re": "2-3",
 	              "ta": "MIL",
 	              "tn": "Bucks",
 	              "tc": "Milwaukee",
-	              "s": ""
+	              "s": "87"
 	            },
 	            "h": {
 	              "tid": 1610612738,
-	              "re": "0-0",
+	              "re": "3-2",
 	              "ta": "BOS",
 	              "tn": "Celtics",
 	              "tc": "Boston",
-	              "s": ""
+	              "s": "92"
 	            },
 	            "gweek": null,
-	            "gdtutc": "TBD",
-	            "utctm": "TBD",
+	            "gdtutc": "2018-04-24",
+	            "utctm": "23:00",
 	            "ppdst": "I",
-	            "seq": 1
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "203114",
+	                  "fn": "Khris",
+	                  "ln": "Middleton",
+	                  "val": "23",
+	                  "tid": 1610612749,
+	                  "ta": "MIL",
+	                  "tn": "Bucks",
+	                  "tc": "Milwaukee"
+	                }
+	              ]
+	            },
+	            "seq": 2
 	          },
 	          {
 	            "gid": "0041700125",
 	            "gcode": "20180424/MIAPHI",
-	            "seri": "PHI leads series 1-0",
-	            "is": 0,
+	            "seri": "PHI wins series 4-1",
+	            "is": 1,
 	            "gdte": "2018-04-24",
-	            "htm": "TBD",
-	            "vtm": "TBD",
-	            "etm": "TBD",
+	            "htm": "2018-04-24T20:00:00",
+	            "vtm": "2018-04-24T20:00:00",
+	            "etm": "2018-04-24T20:00:00",
 	            "an": "Wells Fargo Center",
 	            "ac": "Philadelphia",
 	            "as": "PA",
-	            "st": "1",
-	            "stt": "TBD",
+	            "st": "3",
+	            "stt": "Final",
 	            "bd": {
 	              "b": [
 	                {
 	                  "seq": 1,
+	                  "disp": "TNT",
+	                  "scope": "natl",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 2,
 	                  "disp": "NBCSP",
 	                  "scope": "home",
 	                  "type": "tv",
 	                  "lan": "English"
 	                },
 	                {
-	                  "seq": 2,
+	                  "seq": 3,
 	                  "disp": "Fox Sports Sun",
 	                  "scope": "away",
 	                  "type": "tv",
 	                  "lan": "English"
 	                },
 	                {
-	                  "seq": 3,
+	                  "seq": 4,
+	                  "disp": "TSN1/3",
+	                  "scope": "can",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 5,
 	                  "disp": "790 The Ticket / S: WRTO MIX 98.3 FM",
 	                  "scope": "away",
 	                  "type": "radio",
@@ -134634,65 +135098,93 @@ export const DBInitializer = {
 	            },
 	            "v": {
 	              "tid": 1610612748,
-	              "re": "0-1",
+	              "re": "1-4",
 	              "ta": "MIA",
 	              "tn": "Heat",
 	              "tc": "Miami",
-	              "s": ""
+	              "s": "91"
 	            },
 	            "h": {
 	              "tid": 1610612755,
-	              "re": "1-0",
+	              "re": "4-1",
 	              "ta": "PHI",
 	              "tn": "76ers",
 	              "tc": "Philadelphia",
-	              "s": ""
+	              "s": "104"
 	            },
 	            "gweek": null,
-	            "gdtutc": "TBD",
-	            "utctm": "TBD",
+	            "gdtutc": "2018-04-25",
+	            "utctm": "00:00",
 	            "ppdst": "I",
-	            "seq": 2
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "200755",
+	                  "fn": "JJ",
+	                  "ln": "Redick",
+	                  "val": "27",
+	                  "tid": 1610612755,
+	                  "ta": "PHI",
+	                  "tn": "76ers",
+	                  "tc": "Philadelphia"
+	                }
+	              ]
+	            },
+	            "seq": 3
 	          },
 	          {
 	            "gid": "0041700155",
 	            "gcode": "20180424/SASGSW",
-	            "seri": "GSW leads series 1-0",
-	            "is": 0,
+	            "seri": "GSW wins series 4-1",
+	            "is": 1,
 	            "gdte": "2018-04-24",
-	            "htm": "TBD",
-	            "vtm": "TBD",
-	            "etm": "TBD",
+	            "htm": "2018-04-24T19:30:00",
+	            "vtm": "2018-04-24T21:30:00",
+	            "etm": "2018-04-24T22:30:00",
 	            "an": "ORACLE Arena",
 	            "ac": "Oakland",
 	            "as": "CA",
-	            "st": "1",
-	            "stt": "TBD",
+	            "st": "3",
+	            "stt": "Final",
 	            "bd": {
 	              "b": [
 	                {
 	                  "seq": 1,
-	                  "disp": "FSBA",
-	                  "scope": "home",
+	                  "disp": "TNT",
+	                  "scope": "natl",
 	                  "type": "tv",
 	                  "lan": "English"
 	                },
 	                {
 	                  "seq": 2,
+	                  "disp": "NBCSBA",
+	                  "scope": "home",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 3,
 	                  "disp": "FSSW",
 	                  "scope": "away",
 	                  "type": "tv",
 	                  "lan": "English"
 	                },
 	                {
-	                  "seq": 3,
+	                  "seq": 4,
+	                  "disp": "TSN3/5",
+	                  "scope": "can",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 5,
 	                  "disp": "95.7 The Game",
 	                  "scope": "home",
 	                  "type": "radio",
 	                  "lan": "English"
 	                },
 	                {
-	                  "seq": 4,
+	                  "seq": 6,
 	                  "disp": "WOAI 1200AM / KXTN 107.5FM (ESP)",
 	                  "scope": "away",
 	                  "type": "radio",
@@ -134702,107 +135194,81 @@ export const DBInitializer = {
 	            },
 	            "v": {
 	              "tid": 1610612759,
-	              "re": "0-1",
+	              "re": "1-4",
 	              "ta": "SAS",
 	              "tn": "Spurs",
 	              "tc": "San Antonio",
-	              "s": ""
+	              "s": "91"
 	            },
 	            "h": {
 	              "tid": 1610612744,
-	              "re": "1-0",
+	              "re": "4-1",
 	              "ta": "GSW",
 	              "tn": "Warriors",
 	              "tc": "Golden State",
-	              "s": ""
+	              "s": "99"
 	            },
 	            "gweek": null,
-	            "gdtutc": "TBD",
-	            "utctm": "TBD",
+	            "gdtutc": "2018-04-25",
+	            "utctm": "02:30",
 	            "ppdst": "I",
-	            "seq": 3
-	          },
-	          {
-	            "gid": "0041700165",
-	            "gcode": "20180424/NOPPOR",
-	            "seri": "NOP leads series 1-0",
-	            "is": 0,
-	            "gdte": "2018-04-24",
-	            "htm": "TBD",
-	            "vtm": "TBD",
-	            "etm": "TBD",
-	            "an": "Moda Center",
-	            "ac": "Portland",
-	            "as": "OR",
-	            "st": "1",
-	            "stt": "TBD",
-	            "bd": {
-	              "b": [
+	            "ptsls": {
+	              "pl": [
 	                {
-	                  "seq": 1,
-	                  "disp": "NBC SPORTS NORTHWEST",
-	                  "scope": "home",
-	                  "type": "tv",
-	                  "lan": "English"
-	                },
-	                {
-	                  "seq": 2,
-	                  "disp": "Fox Sports New Orleans",
-	                  "scope": "away",
-	                  "type": "tv",
-	                  "lan": "English"
-	                },
-	                {
-	                  "seq": 3,
-	                  "disp": "WRNO 99.5FM",
-	                  "scope": "away",
-	                  "type": "radio",
-	                  "lan": "English"
+	                  "pid": "200746",
+	                  "fn": "LaMarcus",
+	                  "ln": "Aldridge",
+	                  "val": "30",
+	                  "tid": 1610612759,
+	                  "ta": "SAS",
+	                  "tn": "Spurs",
+	                  "tc": "San Antonio"
 	                }
 	              ]
 	            },
-	            "v": {
-	              "tid": 1610612740,
-	              "re": "1-0",
-	              "ta": "NOP",
-	              "tn": "Pelicans",
-	              "tc": "New Orleans",
-	              "s": ""
-	            },
-	            "h": {
-	              "tid": 1610612757,
-	              "re": "0-1",
-	              "ta": "POR",
-	              "tn": "Trail Blazers",
-	              "tc": "Portland",
-	              "s": ""
-	            },
-	            "gweek": null,
-	            "gdtutc": "TBD",
-	            "utctm": "TBD",
-	            "ppdst": "I",
 	            "seq": 4
 	          },
 	          {
 	            "gid": "0041700105",
 	            "gcode": "20180425/WASTOR",
-	            "seri": "TOR leads series 1-0",
-	            "is": 0,
+	            "seri": "TOR leads series 3-2",
+	            "is": 1,
 	            "gdte": "2018-04-25",
-	            "htm": "TBD",
-	            "vtm": "TBD",
-	            "etm": "TBD",
+	            "htm": "2018-04-25T19:00:00",
+	            "vtm": "2018-04-25T19:00:00",
+	            "etm": "2018-04-25T19:00:00",
 	            "an": "Air Canada Centre",
 	            "ac": "Toronto",
 	            "as": "ON",
-	            "st": "1",
-	            "stt": "TBD",
+	            "st": "3",
+	            "stt": "Final",
 	            "bd": {
 	              "b": [
 	                {
 	                  "seq": 1,
+	                  "disp": "NBA TV",
+	                  "scope": "natl",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 2,
+	                  "disp": "TSN1/4/5",
+	                  "scope": "home",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 3,
 	                  "disp": "NBCSWA",
 	                  "scope": "away",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 4,
+	                  "disp": "TSN1/4/5",
+	                  "scope": "can",
 	                  "type": "tv",
 	                  "lan": "English"
 	                }
@@ -134810,59 +135276,881 @@ export const DBInitializer = {
 	            },
 	            "v": {
 	              "tid": 1610612764,
-	              "re": "0-1",
+	              "re": "2-3",
 	              "ta": "WAS",
 	              "tn": "Wizards",
 	              "tc": "Washington",
-	              "s": ""
+	              "s": "98"
 	            },
 	            "h": {
 	              "tid": 1610612761,
-	              "re": "1-0",
+	              "re": "3-2",
 	              "ta": "TOR",
 	              "tn": "Raptors",
 	              "tc": "Toronto",
-	              "s": ""
+	              "s": "108"
 	            },
 	            "gweek": null,
-	            "gdtutc": "TBD",
-	            "utctm": "TBD",
+	            "gdtutc": "2018-04-25",
+	            "utctm": "23:00",
 	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "201942",
+	                  "fn": "DeMar",
+	                  "ln": "DeRozan",
+	                  "val": "32",
+	                  "tid": 1610612761,
+	                  "ta": "TOR",
+	                  "tn": "Raptors",
+	                  "tc": "Toronto"
+	                }
+	              ]
+	            },
 	            "seq": 1
 	          },
 	          {
 	            "gid": "0041700135",
 	            "gcode": "20180425/INDCLE",
-	            "seri": "Series tied 0-0",
-	            "is": 0,
+	            "seri": "CLE leads series 3-2",
+	            "is": 1,
 	            "gdte": "2018-04-25",
-	            "htm": "TBD",
-	            "vtm": "TBD",
-	            "etm": "TBD",
+	            "htm": "2018-04-25T19:00:00",
+	            "vtm": "2018-04-25T19:00:00",
+	            "etm": "2018-04-25T19:00:00",
 	            "an": "Quicken Loans Arena",
 	            "ac": "Cleveland",
 	            "as": "OH",
-	            "st": "1",
-	            "stt": "TBD",
+	            "st": "3",
+	            "stt": "Final",
 	            "bd": {
 	              "b": [
 	                {
 	                  "seq": 1,
+	                  "disp": "TNT",
+	                  "scope": "natl",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 2,
 	                  "disp": "Fox Sports Ohio",
 	                  "scope": "home",
 	                  "type": "tv",
 	                  "lan": "English"
 	                },
 	                {
-	                  "seq": 2,
+	                  "seq": 3,
 	                  "disp": "Fox Sports Indiana",
 	                  "scope": "away",
 	                  "type": "tv",
 	                  "lan": "English"
 	                },
 	                {
+	                  "seq": 4,
+	                  "disp": "NBA TV Canada",
+	                  "scope": "can",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 5,
+	                  "disp": "WTAM 1100 / 87.7 FM (ESP)",
+	                  "scope": "home",
+	                  "type": "radio",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 6,
+	                  "disp": "1070 The Fan/107.5 FM",
+	                  "scope": "away",
+	                  "type": "radio",
+	                  "lan": "English"
+	                }
+	              ]
+	            },
+	            "v": {
+	              "tid": 1610612754,
+	              "re": "2-3",
+	              "ta": "IND",
+	              "tn": "Pacers",
+	              "tc": "Indiana",
+	              "s": "95"
+	            },
+	            "h": {
+	              "tid": 1610612739,
+	              "re": "3-2",
+	              "ta": "CLE",
+	              "tn": "Cavaliers",
+	              "tc": "Cleveland",
+	              "s": "98"
+	            },
+	            "gweek": null,
+	            "gdtutc": "2018-04-25",
+	            "utctm": "23:00",
+	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "2544",
+	                  "fn": "LeBron",
+	                  "ln": "James",
+	                  "val": "44",
+	                  "tid": 1610612739,
+	                  "ta": "CLE",
+	                  "tn": "Cavaliers",
+	                  "tc": "Cleveland"
+	                }
+	              ]
+	            },
+	            "seq": 2
+	          },
+	          {
+	            "gid": "0041700145",
+	            "gcode": "20180425/MINHOU",
+	            "seri": "HOU wins series 4-1",
+	            "is": 1,
+	            "gdte": "2018-04-25",
+	            "htm": "2018-04-25T20:30:00",
+	            "vtm": "2018-04-25T20:30:00",
+	            "etm": "2018-04-25T21:30:00",
+	            "an": "Toyota Center",
+	            "ac": "Houston",
+	            "as": "TX",
+	            "st": "3",
+	            "stt": "Final",
+	            "bd": {
+	              "b": [
+	                {
+	                  "seq": 1,
+	                  "disp": "TNT",
+	                  "scope": "natl",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 2,
+	                  "disp": "AT&T Sportsnet - Southwest",
+	                  "scope": "home",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
 	                  "seq": 3,
-	                  "disp": "WTAM 1100 / 100.7 WMMS / 87.7 FM (ESP)",
+	                  "disp": "Fox Sports North",
+	                  "scope": "away",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 4,
+	                  "disp": "TSN1",
+	                  "scope": "can",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 5,
+	                  "disp": "BUZ'N 102.9",
+	                  "scope": "away",
+	                  "type": "radio",
+	                  "lan": "English"
+	                }
+	              ]
+	            },
+	            "v": {
+	              "tid": 1610612750,
+	              "re": "1-4",
+	              "ta": "MIN",
+	              "tn": "Timberwolves",
+	              "tc": "Minnesota",
+	              "s": "104"
+	            },
+	            "h": {
+	              "tid": 1610612745,
+	              "re": "4-1",
+	              "ta": "HOU",
+	              "tn": "Rockets",
+	              "tc": "Houston",
+	              "s": "122"
+	            },
+	            "gweek": null,
+	            "gdtutc": "2018-04-26",
+	            "utctm": "01:30",
+	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "203991",
+	                  "fn": "Clint",
+	                  "ln": "Capela",
+	                  "val": "26",
+	                  "tid": 1610612745,
+	                  "ta": "HOU",
+	                  "tn": "Rockets",
+	                  "tc": "Houston"
+	                }
+	              ]
+	            },
+	            "seq": 3
+	          },
+	          {
+	            "gid": "0041700175",
+	            "gcode": "20180425/UTAOKC",
+	            "seri": "UTA leads series 3-2",
+	            "is": 1,
+	            "gdte": "2018-04-25",
+	            "htm": "2018-04-25T20:30:00",
+	            "vtm": "2018-04-25T19:30:00",
+	            "etm": "2018-04-25T21:30:00",
+	            "an": "Chesapeake Energy Arena",
+	            "ac": "Oklahoma City",
+	            "as": "OK",
+	            "st": "3",
+	            "stt": "Final",
+	            "bd": {
+	              "b": [
+	                {
+	                  "seq": 1,
+	                  "disp": "NBA TV",
+	                  "scope": "natl",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 2,
+	                  "disp": "Fox Sports Oklahoma",
+	                  "scope": "home",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 3,
+	                  "disp": "AT&T Sportsnet - Rocky Mountain",
+	                  "scope": "away",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 4,
+	                  "disp": "NBA TV Canada",
+	                  "scope": "can",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 5,
+	                  "disp": "WWLS 98.1FM OKC",
+	                  "scope": "home",
+	                  "type": "radio",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 6,
+	                  "disp": "97.5 FM | 1280 AM The Zone",
+	                  "scope": "away",
+	                  "type": "radio",
+	                  "lan": "English"
+	                }
+	              ]
+	            },
+	            "v": {
+	              "tid": 1610612762,
+	              "re": "3-2",
+	              "ta": "UTA",
+	              "tn": "Jazz",
+	              "tc": "Utah",
+	              "s": "99"
+	            },
+	            "h": {
+	              "tid": 1610612760,
+	              "re": "2-3",
+	              "ta": "OKC",
+	              "tn": "Thunder",
+	              "tc": "Oklahoma City",
+	              "s": "107"
+	            },
+	            "gweek": null,
+	            "gdtutc": "2018-04-26",
+	            "utctm": "01:30",
+	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "201566",
+	                  "fn": "Russell",
+	                  "ln": "Westbrook",
+	                  "val": "45",
+	                  "tid": 1610612760,
+	                  "ta": "OKC",
+	                  "tn": "Thunder",
+	                  "tc": "Oklahoma City"
+	                }
+	              ]
+	            },
+	            "seq": 4
+	          },
+	          {
+	            "gid": "0041700116",
+	            "gcode": "20180426/BOSMIL",
+	            "seri": "Series tied 3-3",
+	            "is": 1,
+	            "gdte": "2018-04-26",
+	            "htm": "2018-04-26T19:00:00",
+	            "vtm": "2018-04-26T20:00:00",
+	            "etm": "2018-04-26T20:00:00",
+	            "an": "BMO Harris Bradley Center",
+	            "ac": "Milwaukee",
+	            "as": "WI",
+	            "st": "3",
+	            "stt": "Final",
+	            "bd": {
+	              "b": [
+	                {
+	                  "seq": 1,
+	                  "disp": "TNT",
+	                  "scope": "natl",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 2,
+	                  "disp": "Fox Sports Wisconsin Plus",
+	                  "scope": "home",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 3,
+	                  "disp": "NBC SPORTS BOSTON",
+	                  "scope": "away",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 4,
+	                  "disp": "TSNN",
+	                  "scope": "can",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 5,
+	                  "disp": "620 AM/103.3 FM WTMJ",
+	                  "scope": "home",
+	                  "type": "radio",
+	                  "lan": "English"
+	                }
+	              ]
+	            },
+	            "v": {
+	              "tid": 1610612738,
+	              "re": "3-3",
+	              "ta": "BOS",
+	              "tn": "Celtics",
+	              "tc": "Boston",
+	              "s": "86"
+	            },
+	            "h": {
+	              "tid": 1610612749,
+	              "re": "3-3",
+	              "ta": "MIL",
+	              "tn": "Bucks",
+	              "tc": "Milwaukee",
+	              "s": "97"
+	            },
+	            "gweek": null,
+	            "gdtutc": "2018-04-27",
+	            "utctm": "00:00",
+	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "203507",
+	                  "fn": "Giannis",
+	                  "ln": "Antetokounmpo",
+	                  "val": "31",
+	                  "tid": 1610612749,
+	                  "ta": "MIL",
+	                  "tn": "Bucks",
+	                  "tc": "Milwaukee"
+	                }
+	              ]
+	            },
+	            "seq": 4
+	          },
+	          {
+	            "gid": "0041700106",
+	            "gcode": "20180427/TORWAS",
+	            "seri": "TOR wins series 4-2",
+	            "is": 1,
+	            "gdte": "2018-04-27",
+	            "htm": "2018-04-27T19:00:00",
+	            "vtm": "2018-04-27T19:00:00",
+	            "etm": "2018-04-27T19:00:00",
+	            "an": "Capital One Arena",
+	            "ac": "Washington",
+	            "as": "DC",
+	            "st": "3",
+	            "stt": "Final",
+	            "bd": {
+	              "b": [
+	                {
+	                  "seq": 1,
+	                  "disp": "ESPNews",
+	                  "scope": "natl",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 2,
+	                  "disp": "NBCSWA",
+	                  "scope": "home",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 3,
+	                  "disp": "Sportsnet One",
+	                  "scope": "away",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 4,
+	                  "disp": "Sportsnet One",
+	                  "scope": "can",
+	                  "type": "tv",
+	                  "lan": "English"
+	                }
+	              ]
+	            },
+	            "v": {
+	              "tid": 1610612761,
+	              "re": "4-2",
+	              "ta": "TOR",
+	              "tn": "Raptors",
+	              "tc": "Toronto",
+	              "s": "102"
+	            },
+	            "h": {
+	              "tid": 1610612764,
+	              "re": "2-4",
+	              "ta": "WAS",
+	              "tn": "Wizards",
+	              "tc": "Washington",
+	              "s": "92"
+	            },
+	            "gweek": null,
+	            "gdtutc": "2018-04-27",
+	            "utctm": "23:00",
+	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "203078",
+	                  "fn": "Bradley",
+	                  "ln": "Beal",
+	                  "val": "32",
+	                  "tid": 1610612764,
+	                  "ta": "WAS",
+	                  "tn": "Wizards",
+	                  "tc": "Washington"
+	                }
+	              ]
+	            },
+	            "seq": 2
+	          },
+	          {
+	            "gid": "0041700136",
+	            "gcode": "20180427/CLEIND",
+	            "seri": "Series tied 3-3",
+	            "is": 1,
+	            "gdte": "2018-04-27",
+	            "htm": "2018-04-27T20:00:00",
+	            "vtm": "2018-04-27T20:00:00",
+	            "etm": "2018-04-27T20:00:00",
+	            "an": "Bankers Life Fieldhouse",
+	            "ac": "Indianapolis",
+	            "as": "IN",
+	            "st": "3",
+	            "stt": "Final",
+	            "bd": {
+	              "b": [
+	                {
+	                  "seq": 1,
+	                  "disp": "ESPN",
+	                  "scope": "natl",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 2,
+	                  "disp": "Fox Sports Indiana",
+	                  "scope": "home",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 3,
+	                  "disp": "FSO-WUAB",
+	                  "scope": "away",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 4,
+	                  "disp": "TSN3/4/5",
+	                  "scope": "can",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 5,
+	                  "disp": "1070 The Fan/107.5 FM",
+	                  "scope": "home",
+	                  "type": "radio",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 6,
+	                  "disp": "WTAM 1100 / 87.7 FM (ESP)",
+	                  "scope": "away",
+	                  "type": "radio",
+	                  "lan": "English"
+	                }
+	              ]
+	            },
+	            "v": {
+	              "tid": 1610612739,
+	              "re": "3-3",
+	              "ta": "CLE",
+	              "tn": "Cavaliers",
+	              "tc": "Cleveland",
+	              "s": "87"
+	            },
+	            "h": {
+	              "tid": 1610612754,
+	              "re": "3-3",
+	              "ta": "IND",
+	              "tn": "Pacers",
+	              "tc": "Indiana",
+	              "s": "121"
+	            },
+	            "gweek": null,
+	            "gdtutc": "2018-04-28",
+	            "utctm": "00:00",
+	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "203506",
+	                  "fn": "Victor",
+	                  "ln": "Oladipo",
+	                  "val": "28",
+	                  "tid": 1610612754,
+	                  "ta": "IND",
+	                  "tn": "Pacers",
+	                  "tc": "Indiana"
+	                }
+	              ]
+	            },
+	            "seq": 3
+	          },
+	          {
+	            "gid": "0041700176",
+	            "gcode": "20180427/OKCUTA",
+	            "seri": "UTA wins series 4-2",
+	            "is": 1,
+	            "gdte": "2018-04-27",
+	            "htm": "2018-04-27T20:30:00",
+	            "vtm": "2018-04-27T21:30:00",
+	            "etm": "2018-04-27T22:30:00",
+	            "an": "Vivint Smart Home Arena",
+	            "ac": "Salt Lake City",
+	            "as": "UT",
+	            "st": "3",
+	            "stt": "Final",
+	            "bd": {
+	              "b": [
+	                {
+	                  "seq": 1,
+	                  "disp": "ESPN",
+	                  "scope": "natl",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 2,
+	                  "disp": "AT&T Sportsnet - Rocky Mountain",
+	                  "scope": "home",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 3,
+	                  "disp": "Fox Sports Oklahoma",
+	                  "scope": "away",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 4,
+	                  "disp": "TSN5",
+	                  "scope": "can",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 5,
+	                  "disp": "97.5 FM | 1280 AM The Zone",
+	                  "scope": "home",
+	                  "type": "radio",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 6,
+	                  "disp": "WWLS 98.1FM OKC",
+	                  "scope": "away",
+	                  "type": "radio",
+	                  "lan": "English"
+	                }
+	              ]
+	            },
+	            "v": {
+	              "tid": 1610612760,
+	              "re": "2-4",
+	              "ta": "OKC",
+	              "tn": "Thunder",
+	              "tc": "Oklahoma City",
+	              "s": "91"
+	            },
+	            "h": {
+	              "tid": 1610612762,
+	              "re": "4-2",
+	              "ta": "UTA",
+	              "tn": "Jazz",
+	              "tc": "Utah",
+	              "s": "96"
+	            },
+	            "gweek": null,
+	            "gdtutc": "2018-04-28",
+	            "utctm": "02:30",
+	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "201566",
+	                  "fn": "Russell",
+	                  "ln": "Westbrook",
+	                  "val": "46",
+	                  "tid": 1610612760,
+	                  "ta": "OKC",
+	                  "tn": "Thunder",
+	                  "tc": "Oklahoma City"
+	                }
+	              ]
+	            },
+	            "seq": 4
+	          },
+	          {
+	            "gid": "0041700117",
+	            "gcode": "20180428/MILBOS",
+	            "seri": "BOS wins series 4-3",
+	            "is": 1,
+	            "gdte": "2018-04-28",
+	            "htm": "2018-04-28T20:00:00",
+	            "vtm": "2018-04-28T19:00:00",
+	            "etm": "2018-04-28T20:00:00",
+	            "an": "TD Garden",
+	            "ac": "Boston",
+	            "as": "MA",
+	            "st": "3",
+	            "stt": "Final",
+	            "bd": {
+	              "b": [
+	                {
+	                  "seq": 1,
+	                  "disp": "TNT",
+	                  "scope": "natl",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 2,
+	                  "disp": "NBC SPORTS BOSTON",
+	                  "scope": "home",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 3,
+	                  "disp": "Fox Sports Wisconsin",
+	                  "scope": "away",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 4,
+	                  "disp": "TSN4",
+	                  "scope": "can",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 5,
+	                  "disp": "620 AM/103.3 FM WTMJ",
+	                  "scope": "away",
+	                  "type": "radio",
+	                  "lan": "English"
+	                }
+	              ]
+	            },
+	            "v": {
+	              "tid": 1610612749,
+	              "re": "3-4",
+	              "ta": "MIL",
+	              "tn": "Bucks",
+	              "tc": "Milwaukee",
+	              "s": "96"
+	            },
+	            "h": {
+	              "tid": 1610612738,
+	              "re": "4-3",
+	              "ta": "BOS",
+	              "tn": "Celtics",
+	              "tc": "Boston",
+	              "s": "112"
+	            },
+	            "gweek": null,
+	            "gdtutc": "2018-04-29",
+	            "utctm": "00:00",
+	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "203114",
+	                  "fn": "Khris",
+	                  "ln": "Middleton",
+	                  "val": "32",
+	                  "tid": 1610612749,
+	                  "ta": "MIL",
+	                  "tn": "Bucks",
+	                  "tc": "Milwaukee"
+	                }
+	              ]
+	            },
+	            "seq": 4
+	          },
+	          {
+	            "gid": "0041700231",
+	            "gcode": "20180428/NOPGSW",
+	            "seri": "GSW leads series 1-0",
+	            "is": 1,
+	            "gdte": "2018-04-28",
+	            "htm": "2018-04-28T19:30:00",
+	            "vtm": "2018-04-28T21:30:00",
+	            "etm": "2018-04-28T22:30:00",
+	            "an": "ORACLE Arena",
+	            "ac": "Oakland",
+	            "as": "CA",
+	            "st": "3",
+	            "stt": "Final",
+	            "bd": {
+	              "b": [
+	                {
+	                  "seq": 1,
+	                  "disp": "TNT",
+	                  "scope": "natl",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 2,
+	                  "disp": "Sportsnet One",
+	                  "scope": "can",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 3,
+	                  "disp": "ESPNR",
+	                  "scope": "natl",
+	                  "type": "radio",
+	                  "lan": "English"
+	                }
+	              ]
+	            },
+	            "v": {
+	              "tid": 1610612740,
+	              "re": "4-1",
+	              "ta": "NOP",
+	              "tn": "Pelicans",
+	              "tc": "New Orleans",
+	              "s": "101"
+	            },
+	            "h": {
+	              "tid": 1610612744,
+	              "re": "5-1",
+	              "ta": "GSW",
+	              "tn": "Warriors",
+	              "tc": "Golden State",
+	              "s": "123"
+	            },
+	            "gweek": null,
+	            "gdtutc": "2018-04-29",
+	            "utctm": "02:30",
+	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "202691",
+	                  "fn": "Klay",
+	                  "ln": "Thompson",
+	                  "val": "27",
+	                  "tid": 1610612744,
+	                  "ta": "GSW",
+	                  "tn": "Warriors",
+	                  "tc": "Golden State"
+	                }
+	              ]
+	            },
+	            "seq": 5
+	          },
+	          {
+	            "gid": "0041700137",
+	            "gcode": "20180429/INDCLE",
+	            "seri": "CLE wins series 4-3",
+	            "is": 1,
+	            "gdte": "2018-04-29",
+	            "htm": "2018-04-29T13:00:00",
+	            "vtm": "2018-04-29T13:00:00",
+	            "etm": "2018-04-29T13:00:00",
+	            "an": "Quicken Loans Arena",
+	            "ac": "Cleveland",
+	            "as": "OH",
+	            "st": "3",
+	            "stt": "Final",
+	            "bd": {
+	              "b": [
+	                {
+	                  "seq": 1,
+	                  "disp": "ABC",
+	                  "scope": "natl",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 2,
+	                  "disp": "TSN4",
+	                  "scope": "can",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 3,
+	                  "disp": "WTAM 1100 / 87.7 FM (ESP)",
 	                  "scope": "home",
 	                  "type": "radio",
 	                  "lan": "English"
@@ -134878,32 +136166,961 @@ export const DBInitializer = {
 	            },
 	            "v": {
 	              "tid": 1610612754,
-	              "re": "0-0",
+	              "re": "3-4",
 	              "ta": "IND",
 	              "tn": "Pacers",
 	              "tc": "Indiana",
+	              "s": "101"
+	            },
+	            "h": {
+	              "tid": 1610612739,
+	              "re": "4-3",
+	              "ta": "CLE",
+	              "tn": "Cavaliers",
+	              "tc": "Cleveland",
+	              "s": "105"
+	            },
+	            "gweek": null,
+	            "gdtutc": "2018-04-29",
+	            "utctm": "17:00",
+	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "2544",
+	                  "fn": "LeBron",
+	                  "ln": "James",
+	                  "val": "45",
+	                  "tid": 1610612739,
+	                  "ta": "CLE",
+	                  "tn": "Cavaliers",
+	                  "tc": "Cleveland"
+	                }
+	              ]
+	            },
+	            "seq": 4
+	          },
+	          {
+	            "gid": "0041700221",
+	            "gcode": "20180429/UTAHOU",
+	            "seri": "HOU leads series 1-0",
+	            "is": 1,
+	            "gdte": "2018-04-29",
+	            "htm": "2018-04-29T14:30:00",
+	            "vtm": "2018-04-29T13:30:00",
+	            "etm": "2018-04-29T15:30:00",
+	            "an": "Toyota Center",
+	            "ac": "Houston",
+	            "as": "TX",
+	            "st": "3",
+	            "stt": "Final",
+	            "bd": {
+	              "b": [
+	                {
+	                  "seq": 1,
+	                  "disp": "ABC",
+	                  "scope": "natl",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 2,
+	                  "disp": "TSN2",
+	                  "scope": "can",
+	                  "type": "tv",
+	                  "lan": "English"
+	                }
+	              ]
+	            },
+	            "v": {
+	              "tid": 1610612762,
+	              "re": "4-3",
+	              "ta": "UTA",
+	              "tn": "Jazz",
+	              "tc": "Utah",
+	              "s": "96"
+	            },
+	            "h": {
+	              "tid": 1610612745,
+	              "re": "5-1",
+	              "ta": "HOU",
+	              "tn": "Rockets",
+	              "tc": "Houston",
+	              "s": "110"
+	            },
+	            "gweek": null,
+	            "gdtutc": "2018-04-29",
+	            "utctm": "19:30",
+	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "201935",
+	                  "fn": "James",
+	                  "ln": "Harden",
+	                  "val": "41",
+	                  "tid": 1610612745,
+	                  "ta": "HOU",
+	                  "tn": "Rockets",
+	                  "tc": "Houston"
+	                }
+	              ]
+	            },
+	            "seq": 5
+	          },
+	          {
+	            "gid": "0041700211",
+	            "gcode": "20180430/PHIBOS",
+	            "seri": "BOS leads series 1-0",
+	            "is": 1,
+	            "gdte": "2018-04-30",
+	            "htm": "2018-04-30T20:00:00",
+	            "vtm": "2018-04-30T20:00:00",
+	            "etm": "2018-04-30T20:00:00",
+	            "an": "TD Garden",
+	            "ac": "Boston",
+	            "as": "MA",
+	            "st": "3",
+	            "stt": "Final",
+	            "bd": {
+	              "b": [
+	                {
+	                  "seq": 1,
+	                  "disp": "TNT",
+	                  "scope": "natl",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 2,
+	                  "disp": "TSNN",
+	                  "scope": "can",
+	                  "type": "tv",
+	                  "lan": "English"
+	                }
+	              ]
+	            },
+	            "v": {
+	              "tid": 1610612755,
+	              "re": "4-2",
+	              "ta": "PHI",
+	              "tn": "76ers",
+	              "tc": "Philadelphia",
+	              "s": "101"
+	            },
+	            "h": {
+	              "tid": 1610612738,
+	              "re": "5-3",
+	              "ta": "BOS",
+	              "tn": "Celtics",
+	              "tc": "Boston",
+	              "s": "117"
+	            },
+	            "gweek": null,
+	            "gdtutc": "2018-05-01",
+	            "utctm": "00:00",
+	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "203954",
+	                  "fn": "Joel",
+	                  "ln": "Embiid",
+	                  "val": "31",
+	                  "tid": 1610612755,
+	                  "ta": "PHI",
+	                  "tn": "76ers",
+	                  "tc": "Philadelphia"
+	                }
+	              ]
+	            },
+	            "seq": 1
+	          }
+	        ]
+	      }
+	    },
+	    {
+	      "mscd": {
+	        "mon": "May",
+	        "g": [
+	          {
+	            "gid": "0041700201",
+	            "gcode": "20180501/CLETOR",
+	            "seri": "CLE leads series 1-0",
+	            "is": 1,
+	            "gdte": "2018-05-01",
+	            "htm": "2018-05-01T20:00:00",
+	            "vtm": "2018-05-01T20:00:00",
+	            "etm": "2018-05-01T20:00:00",
+	            "an": "Air Canada Centre",
+	            "ac": "Toronto",
+	            "as": "ON",
+	            "st": "3",
+	            "stt": "Final",
+	            "bd": {
+	              "b": [
+	                {
+	                  "seq": 1,
+	                  "disp": "TNT",
+	                  "scope": "natl",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 2,
+	                  "disp": "TSNN",
+	                  "scope": "home",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 3,
+	                  "disp": "TSNN",
+	                  "scope": "can",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 4,
+	                  "disp": "WTAM 1100 / 87.7 FM (ESP)",
+	                  "scope": "away",
+	                  "type": "radio",
+	                  "lan": "English"
+	                }
+	              ]
+	            },
+	            "v": {
+	              "tid": 1610612739,
+	              "re": "5-3",
+	              "ta": "CLE",
+	              "tn": "Cavaliers",
+	              "tc": "Cleveland",
+	              "s": "113"
+	            },
+	            "h": {
+	              "tid": 1610612761,
+	              "re": "4-3",
+	              "ta": "TOR",
+	              "tn": "Raptors",
+	              "tc": "Toronto",
+	              "s": "112"
+	            },
+	            "gweek": null,
+	            "gdtutc": "2018-05-02",
+	            "utctm": "00:00",
+	            "ppdst": "I",
+	            "ptsls": {
+	              "pl": [
+	                {
+	                  "pid": "2544",
+	                  "fn": "LeBron",
+	                  "ln": "James",
+	                  "val": "26",
+	                  "tid": 1610612739,
+	                  "ta": "CLE",
+	                  "tn": "Cavaliers",
+	                  "tc": "Cleveland"
+	                }
+	              ]
+	            },
+	            "seq": 1
+	          },
+	          {
+	            "gid": "0041700232",
+	            "gcode": "20180501/NOPGSW",
+	            "seri": "GSW leads series 1-0",
+	            "is": 1,
+	            "gdte": "2018-05-01",
+	            "htm": "2018-05-01T19:30:00",
+	            "vtm": "2018-05-01T21:30:00",
+	            "etm": "2018-05-01T22:30:00",
+	            "an": "ORACLE Arena",
+	            "ac": "Oakland",
+	            "as": "CA",
+	            "st": "2",
+	            "stt": "Halftime",
+	            "bd": {
+	              "b": [
+	                {
+	                  "seq": 1,
+	                  "disp": "TNT",
+	                  "scope": "natl",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 2,
+	                  "disp": "TSN1",
+	                  "scope": "can",
+	                  "type": "tv",
+	                  "lan": "English"
+	                }
+	              ]
+	            },
+	            "v": {
+	              "tid": 1610612740,
+	              "re": "4-1",
+	              "ta": "NOP",
+	              "tn": "Pelicans",
+	              "tc": "New Orleans",
+	              "s": "55"
+	            },
+	            "h": {
+	              "tid": 1610612744,
+	              "re": "5-1",
+	              "ta": "GSW",
+	              "tn": "Warriors",
+	              "tc": "Golden State",
+	              "s": "58"
+	            },
+	            "gweek": null,
+	            "gdtutc": "2018-05-02",
+	            "utctm": "02:30",
+	            "ppdst": "I",
+	            "seq": 2
+	          },
+	          {
+	            "gid": "0041700222",
+	            "gcode": "20180502/UTAHOU",
+	            "seri": "HOU leads series 1-0",
+	            "is": 1,
+	            "gdte": "2018-05-02",
+	            "htm": "2018-05-02T19:00:00",
+	            "vtm": "2018-05-02T18:00:00",
+	            "etm": "2018-05-02T20:00:00",
+	            "an": "Toyota Center",
+	            "ac": "Houston",
+	            "as": "TX",
+	            "st": "1",
+	            "stt": "8:00 pm ET",
+	            "bd": {
+	              "b": [
+	                {
+	                  "seq": 1,
+	                  "disp": "TNT",
+	                  "scope": "natl",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 2,
+	                  "disp": "TSNN",
+	                  "scope": "can",
+	                  "type": "tv",
+	                  "lan": "English"
+	                }
+	              ]
+	            },
+	            "v": {
+	              "tid": 1610612762,
+	              "re": "4-3",
+	              "ta": "UTA",
+	              "tn": "Jazz",
+	              "tc": "Utah",
+	              "s": ""
+	            },
+	            "h": {
+	              "tid": 1610612745,
+	              "re": "5-1",
+	              "ta": "HOU",
+	              "tn": "Rockets",
+	              "tc": "Houston",
+	              "s": ""
+	            },
+	            "gweek": null,
+	            "gdtutc": "2018-05-03",
+	            "utctm": "00:00",
+	            "ppdst": "I",
+	            "seq": 1
+	          },
+	          {
+	            "gid": "0041700202",
+	            "gcode": "20180503/CLETOR",
+	            "seri": "CLE leads series 1-0",
+	            "is": 1,
+	            "gdte": "2018-05-03",
+	            "htm": "2018-05-03T18:00:00",
+	            "vtm": "2018-05-03T18:00:00",
+	            "etm": "2018-05-03T18:00:00",
+	            "an": "Air Canada Centre",
+	            "ac": "Toronto",
+	            "as": "ON",
+	            "st": "1",
+	            "stt": "6:00 pm ET",
+	            "bd": {
+	              "b": [
+	                {
+	                  "seq": 1,
+	                  "disp": "ESPN",
+	                  "scope": "natl",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 2,
+	                  "disp": "Sportsnet One",
+	                  "scope": "home",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 3,
+	                  "disp": "Sportsnet One",
+	                  "scope": "can",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 4,
+	                  "disp": "WTAM 1100 / 87.7 FM (ESP)",
+	                  "scope": "away",
+	                  "type": "radio",
+	                  "lan": "English"
+	                }
+	              ]
+	            },
+	            "v": {
+	              "tid": 1610612739,
+	              "re": "5-3",
+	              "ta": "CLE",
+	              "tn": "Cavaliers",
+	              "tc": "Cleveland",
+	              "s": ""
+	            },
+	            "h": {
+	              "tid": 1610612761,
+	              "re": "4-3",
+	              "ta": "TOR",
+	              "tn": "Raptors",
+	              "tc": "Toronto",
+	              "s": ""
+	            },
+	            "gweek": null,
+	            "gdtutc": "2018-05-03",
+	            "utctm": "22:00",
+	            "ppdst": "I",
+	            "seq": 1
+	          },
+	          {
+	            "gid": "0041700212",
+	            "gcode": "20180503/PHIBOS",
+	            "seri": "BOS leads series 1-0",
+	            "is": 1,
+	            "gdte": "2018-05-03",
+	            "htm": "2018-05-03T20:30:00",
+	            "vtm": "2018-05-03T20:30:00",
+	            "etm": "2018-05-03T20:30:00",
+	            "an": "TD Garden",
+	            "ac": "Boston",
+	            "as": "MA",
+	            "st": "1",
+	            "stt": "8:30 pm ET",
+	            "bd": {
+	              "b": [
+	                {
+	                  "seq": 1,
+	                  "disp": "TNT",
+	                  "scope": "natl",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 2,
+	                  "disp": "Sportsnet One",
+	                  "scope": "can",
+	                  "type": "tv",
+	                  "lan": "English"
+	                }
+	              ]
+	            },
+	            "v": {
+	              "tid": 1610612755,
+	              "re": "4-2",
+	              "ta": "PHI",
+	              "tn": "76ers",
+	              "tc": "Philadelphia",
+	              "s": ""
+	            },
+	            "h": {
+	              "tid": 1610612738,
+	              "re": "5-3",
+	              "ta": "BOS",
+	              "tn": "Celtics",
+	              "tc": "Boston",
+	              "s": ""
+	            },
+	            "gweek": null,
+	            "gdtutc": "2018-05-04",
+	            "utctm": "00:30",
+	            "ppdst": "I",
+	            "seq": 2
+	          },
+	          {
+	            "gid": "0041700233",
+	            "gcode": "20180504/GSWNOP",
+	            "seri": "GSW leads series 1-0",
+	            "is": 1,
+	            "gdte": "2018-05-04",
+	            "htm": "2018-05-04T19:00:00",
+	            "vtm": "2018-05-04T17:00:00",
+	            "etm": "2018-05-04T20:00:00",
+	            "an": "Smoothie King Center",
+	            "ac": "New Orleans",
+	            "as": "LA",
+	            "st": "1",
+	            "stt": "8:00 pm ET",
+	            "bd": {
+	              "b": [
+	                {
+	                  "seq": 1,
+	                  "disp": "ESPN",
+	                  "scope": "natl",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 2,
+	                  "disp": "TSN2",
+	                  "scope": "can",
+	                  "type": "tv",
+	                  "lan": "English"
+	                }
+	              ]
+	            },
+	            "v": {
+	              "tid": 1610612744,
+	              "re": "5-1",
+	              "ta": "GSW",
+	              "tn": "Warriors",
+	              "tc": "Golden State",
+	              "s": ""
+	            },
+	            "h": {
+	              "tid": 1610612740,
+	              "re": "4-1",
+	              "ta": "NOP",
+	              "tn": "Pelicans",
+	              "tc": "New Orleans",
+	              "s": ""
+	            },
+	            "gweek": null,
+	            "gdtutc": "2018-05-05",
+	            "utctm": "00:00",
+	            "ppdst": "I",
+	            "seq": 1
+	          },
+	          {
+	            "gid": "0041700223",
+	            "gcode": "20180504/HOUUTA",
+	            "seri": "HOU leads series 1-0",
+	            "is": 1,
+	            "gdte": "2018-05-04",
+	            "htm": "2018-05-04T20:30:00",
+	            "vtm": "2018-05-04T21:30:00",
+	            "etm": "2018-05-04T22:30:00",
+	            "an": "Vivint Smart Home Arena",
+	            "ac": "Salt Lake City",
+	            "as": "UT",
+	            "st": "1",
+	            "stt": "10:30 pm ET",
+	            "bd": {
+	              "b": [
+	                {
+	                  "seq": 1,
+	                  "disp": "ESPN",
+	                  "scope": "natl",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 2,
+	                  "disp": "TSN2",
+	                  "scope": "can",
+	                  "type": "tv",
+	                  "lan": "English"
+	                }
+	              ]
+	            },
+	            "v": {
+	              "tid": 1610612745,
+	              "re": "5-1",
+	              "ta": "HOU",
+	              "tn": "Rockets",
+	              "tc": "Houston",
+	              "s": ""
+	            },
+	            "h": {
+	              "tid": 1610612762,
+	              "re": "4-3",
+	              "ta": "UTA",
+	              "tn": "Jazz",
+	              "tc": "Utah",
+	              "s": ""
+	            },
+	            "gweek": null,
+	            "gdtutc": "2018-05-05",
+	            "utctm": "02:30",
+	            "ppdst": "I",
+	            "seq": 2
+	          },
+	          {
+	            "gid": "0041700213",
+	            "gcode": "20180505/BOSPHI",
+	            "seri": "BOS leads series 1-0",
+	            "is": 1,
+	            "gdte": "2018-05-05",
+	            "htm": "2018-05-05T17:00:00",
+	            "vtm": "2018-05-05T17:00:00",
+	            "etm": "2018-05-05T17:00:00",
+	            "an": "Wells Fargo Center",
+	            "ac": "Philadelphia",
+	            "as": "PA",
+	            "st": "1",
+	            "stt": "5:00 pm ET",
+	            "bd": {
+	              "b": [
+	                {
+	                  "seq": 1,
+	                  "disp": "ESPN",
+	                  "scope": "natl",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 2,
+	                  "disp": "Sportsnet One",
+	                  "scope": "can",
+	                  "type": "tv",
+	                  "lan": "English"
+	                }
+	              ]
+	            },
+	            "v": {
+	              "tid": 1610612738,
+	              "re": "5-3",
+	              "ta": "BOS",
+	              "tn": "Celtics",
+	              "tc": "Boston",
+	              "s": ""
+	            },
+	            "h": {
+	              "tid": 1610612755,
+	              "re": "4-2",
+	              "ta": "PHI",
+	              "tn": "76ers",
+	              "tc": "Philadelphia",
+	              "s": ""
+	            },
+	            "gweek": null,
+	            "gdtutc": "2018-05-05",
+	            "utctm": "21:00",
+	            "ppdst": "I",
+	            "seq": 1
+	          },
+	          {
+	            "gid": "0041700203",
+	            "gcode": "20180505/TORCLE",
+	            "seri": "CLE leads series 1-0",
+	            "is": 1,
+	            "gdte": "2018-05-05",
+	            "htm": "2018-05-05T20:30:00",
+	            "vtm": "2018-05-05T20:30:00",
+	            "etm": "2018-05-05T20:30:00",
+	            "an": "Quicken Loans Arena",
+	            "ac": "Cleveland",
+	            "as": "OH",
+	            "st": "1",
+	            "stt": "8:30 pm ET",
+	            "bd": {
+	              "b": [
+	                {
+	                  "seq": 1,
+	                  "disp": "ABC",
+	                  "scope": "natl",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 2,
+	                  "disp": "Sportsnet One",
+	                  "scope": "away",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 3,
+	                  "disp": "Sportsnet One",
+	                  "scope": "can",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 4,
+	                  "disp": "WTAM 1100 / 100.7 WMMS / 87.7 FM (ESP)",
+	                  "scope": "home",
+	                  "type": "radio",
+	                  "lan": "English"
+	                }
+	              ]
+	            },
+	            "v": {
+	              "tid": 1610612761,
+	              "re": "4-3",
+	              "ta": "TOR",
+	              "tn": "Raptors",
+	              "tc": "Toronto",
 	              "s": ""
 	            },
 	            "h": {
 	              "tid": 1610612739,
-	              "re": "0-0",
+	              "re": "5-3",
 	              "ta": "CLE",
 	              "tn": "Cavaliers",
 	              "tc": "Cleveland",
 	              "s": ""
 	            },
 	            "gweek": null,
-	            "gdtutc": "TBD",
-	            "utctm": "TBD",
+	            "gdtutc": "2018-05-06",
+	            "utctm": "00:30",
 	            "ppdst": "I",
 	            "seq": 2
 	          },
 	          {
-	            "gid": "0041700145",
-	            "gcode": "20180425/MINHOU",
-	            "seri": "Series tied 0-0",
+	            "gid": "0041700234",
+	            "gcode": "20180506/GSWNOP",
+	            "seri": "GSW leads series 1-0",
+	            "is": 1,
+	            "gdte": "2018-05-06",
+	            "htm": "2018-05-06T14:30:00",
+	            "vtm": "2018-05-06T12:30:00",
+	            "etm": "2018-05-06T15:30:00",
+	            "an": "Smoothie King Center",
+	            "ac": "New Orleans",
+	            "as": "LA",
+	            "st": "1",
+	            "stt": "3:30 pm ET",
+	            "bd": {
+	              "b": [
+	                {
+	                  "seq": 1,
+	                  "disp": "ABC",
+	                  "scope": "natl",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 2,
+	                  "disp": "Sportsnet One",
+	                  "scope": "can",
+	                  "type": "tv",
+	                  "lan": "English"
+	                }
+	              ]
+	            },
+	            "v": {
+	              "tid": 1610612744,
+	              "re": "5-1",
+	              "ta": "GSW",
+	              "tn": "Warriors",
+	              "tc": "Golden State",
+	              "s": ""
+	            },
+	            "h": {
+	              "tid": 1610612740,
+	              "re": "4-1",
+	              "ta": "NOP",
+	              "tn": "Pelicans",
+	              "tc": "New Orleans",
+	              "s": ""
+	            },
+	            "gweek": null,
+	            "gdtutc": "2018-05-06",
+	            "utctm": "19:30",
+	            "ppdst": "I",
+	            "seq": 1
+	          },
+	          {
+	            "gid": "0041700224",
+	            "gcode": "20180506/HOUUTA",
+	            "seri": "HOU leads series 1-0",
+	            "is": 1,
+	            "gdte": "2018-05-06",
+	            "htm": "2018-05-06T18:00:00",
+	            "vtm": "2018-05-06T19:00:00",
+	            "etm": "2018-05-06T20:00:00",
+	            "an": "Vivint Smart Home Arena",
+	            "ac": "Salt Lake City",
+	            "as": "UT",
+	            "st": "1",
+	            "stt": "8:00 pm ET",
+	            "bd": {
+	              "b": [
+	                {
+	                  "seq": 1,
+	                  "disp": "TNT",
+	                  "scope": "natl",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 2,
+	                  "disp": "TSN1/4",
+	                  "scope": "can",
+	                  "type": "tv",
+	                  "lan": "English"
+	                }
+	              ]
+	            },
+	            "v": {
+	              "tid": 1610612745,
+	              "re": "5-1",
+	              "ta": "HOU",
+	              "tn": "Rockets",
+	              "tc": "Houston",
+	              "s": ""
+	            },
+	            "h": {
+	              "tid": 1610612762,
+	              "re": "4-3",
+	              "ta": "UTA",
+	              "tn": "Jazz",
+	              "tc": "Utah",
+	              "s": ""
+	            },
+	            "gweek": null,
+	            "gdtutc": "2018-05-07",
+	            "utctm": "00:00",
+	            "ppdst": "I",
+	            "seq": 2
+	          },
+	          {
+	            "gid": "0041700214",
+	            "gcode": "20180507/BOSPHI",
+	            "seri": "BOS leads series 1-0",
+	            "is": 1,
+	            "gdte": "2018-05-07",
+	            "htm": "2018-05-07T18:00:00",
+	            "vtm": "2018-05-07T18:00:00",
+	            "etm": "2018-05-07T18:00:00",
+	            "an": "Wells Fargo Center",
+	            "ac": "Philadelphia",
+	            "as": "PA",
+	            "st": "1",
+	            "stt": "6:00 pm ET",
+	            "bd": {
+	              "b": [
+	                {
+	                  "seq": 1,
+	                  "disp": "TNT",
+	                  "scope": "natl",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 2,
+	                  "disp": "TSN2",
+	                  "scope": "can",
+	                  "type": "tv",
+	                  "lan": "English"
+	                }
+	              ]
+	            },
+	            "v": {
+	              "tid": 1610612738,
+	              "re": "5-3",
+	              "ta": "BOS",
+	              "tn": "Celtics",
+	              "tc": "Boston",
+	              "s": ""
+	            },
+	            "h": {
+	              "tid": 1610612755,
+	              "re": "4-2",
+	              "ta": "PHI",
+	              "tn": "76ers",
+	              "tc": "Philadelphia",
+	              "s": ""
+	            },
+	            "gweek": null,
+	            "gdtutc": "2018-05-07",
+	            "utctm": "22:00",
+	            "ppdst": "I",
+	            "seq": 1
+	          },
+	          {
+	            "gid": "0041700204",
+	            "gcode": "20180507/TORCLE",
+	            "seri": "CLE leads series 1-0",
+	            "is": 1,
+	            "gdte": "2018-05-07",
+	            "htm": "2018-05-07T20:30:00",
+	            "vtm": "2018-05-07T20:30:00",
+	            "etm": "2018-05-07T20:30:00",
+	            "an": "Quicken Loans Arena",
+	            "ac": "Cleveland",
+	            "as": "OH",
+	            "st": "1",
+	            "stt": "8:30 pm ET",
+	            "bd": {
+	              "b": [
+	                {
+	                  "seq": 1,
+	                  "disp": "TNT",
+	                  "scope": "natl",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 2,
+	                  "disp": "TSNN",
+	                  "scope": "away",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 3,
+	                  "disp": "TSNN",
+	                  "scope": "can",
+	                  "type": "tv",
+	                  "lan": "English"
+	                },
+	                {
+	                  "seq": 4,
+	                  "disp": "WTAM 1100 / 100.7 WMMS / 87.7 FM (ESP)",
+	                  "scope": "home",
+	                  "type": "radio",
+	                  "lan": "English"
+	                }
+	              ]
+	            },
+	            "v": {
+	              "tid": 1610612761,
+	              "re": "4-3",
+	              "ta": "TOR",
+	              "tn": "Raptors",
+	              "tc": "Toronto",
+	              "s": ""
+	            },
+	            "h": {
+	              "tid": 1610612739,
+	              "re": "5-3",
+	              "ta": "CLE",
+	              "tn": "Cavaliers",
+	              "tc": "Cleveland",
+	              "s": ""
+	            },
+	            "gweek": null,
+	            "gdtutc": "2018-05-08",
+	            "utctm": "00:30",
+	            "ppdst": "I",
+	            "seq": 2
+	          },
+	          {
+	            "gid": "0041700225",
+	            "gcode": "20180508/UTAHOU",
+	            "seri": "HOU leads series 1-0",
 	            "is": 0,
-	            "gdte": "2018-04-25",
+	            "gdte": "2018-05-08",
 	            "htm": "TBD",
 	            "vtm": "TBD",
 	            "etm": "TBD",
@@ -134916,38 +137133,24 @@ export const DBInitializer = {
 	              "b": [
 	                {
 	                  "seq": 1,
-	                  "disp": "AT&T Sportsnet - Southwest",
-	                  "scope": "home",
+	                  "disp": "TNT",
+	                  "scope": "natl",
 	                  "type": "tv",
-	                  "lan": "English"
-	                },
-	                {
-	                  "seq": 2,
-	                  "disp": "Fox Sports North",
-	                  "scope": "away",
-	                  "type": "tv",
-	                  "lan": "English"
-	                },
-	                {
-	                  "seq": 3,
-	                  "disp": "BUZ'N 102.9",
-	                  "scope": "away",
-	                  "type": "radio",
 	                  "lan": "English"
 	                }
 	              ]
 	            },
 	            "v": {
-	              "tid": 1610612750,
-	              "re": "0-0",
-	              "ta": "MIN",
-	              "tn": "Timberwolves",
-	              "tc": "Minnesota",
+	              "tid": 1610612762,
+	              "re": "4-3",
+	              "ta": "UTA",
+	              "tn": "Jazz",
+	              "tc": "Utah",
 	              "s": ""
 	            },
 	            "h": {
 	              "tid": 1610612745,
-	              "re": "0-0",
+	              "re": "5-1",
 	              "ta": "HOU",
 	              "tn": "Rockets",
 	              "tc": "Houston",
@@ -134957,190 +137160,47 @@ export const DBInitializer = {
 	            "gdtutc": "TBD",
 	            "utctm": "TBD",
 	            "ppdst": "I",
-	            "seq": 3
-	          },
-	          {
-	            "gid": "0041700175",
-	            "gcode": "20180425/UTAOKC",
-	            "seri": "Series tied 0-0",
-	            "is": 0,
-	            "gdte": "2018-04-25",
-	            "htm": "TBD",
-	            "vtm": "TBD",
-	            "etm": "TBD",
-	            "an": "Chesapeake Energy Arena",
-	            "ac": "Oklahoma City",
-	            "as": "OK",
-	            "st": "1",
-	            "stt": "TBD",
-	            "bd": {
-	              "b": [
-	                {
-	                  "seq": 1,
-	                  "disp": "Fox Sports Oklahoma",
-	                  "scope": "home",
-	                  "type": "tv",
-	                  "lan": "English"
-	                },
-	                {
-	                  "seq": 2,
-	                  "disp": "AT&T Sportsnet - Rocky Mountain",
-	                  "scope": "away",
-	                  "type": "tv",
-	                  "lan": "English"
-	                },
-	                {
-	                  "seq": 3,
-	                  "disp": "WWLS 98.1FM OKC",
-	                  "scope": "home",
-	                  "type": "radio",
-	                  "lan": "English"
-	                },
-	                {
-	                  "seq": 4,
-	                  "disp": "97.5 FM | 1280 AM The Zone",
-	                  "scope": "away",
-	                  "type": "radio",
-	                  "lan": "English"
-	                }
-	              ]
-	            },
-	            "v": {
-	              "tid": 1610612762,
-	              "re": "0-0",
-	              "ta": "UTA",
-	              "tn": "Jazz",
-	              "tc": "Utah",
-	              "s": ""
-	            },
-	            "h": {
-	              "tid": 1610612760,
-	              "re": "0-0",
-	              "ta": "OKC",
-	              "tn": "Thunder",
-	              "tc": "Oklahoma City",
-	              "s": ""
-	            },
-	            "gweek": null,
-	            "gdtutc": "TBD",
-	            "utctm": "TBD",
-	            "ppdst": "I",
-	            "seq": 4
-	          },
-	          {
-	            "gid": "0041700116",
-	            "gcode": "20180426/BOSMIL",
-	            "seri": "Series tied 0-0",
-	            "is": 0,
-	            "gdte": "2018-04-26",
-	            "htm": "TBD",
-	            "vtm": "TBD",
-	            "etm": "TBD",
-	            "an": "BMO Harris Bradley Center",
-	            "ac": "Milwaukee",
-	            "as": "WI",
-	            "st": "1",
-	            "stt": "TBD",
-	            "bd": {
-	              "b": [
-	                {
-	                  "seq": 1,
-	                  "disp": "Fox Sports Wisconsin",
-	                  "scope": "home",
-	                  "type": "tv",
-	                  "lan": "English"
-	                },
-	                {
-	                  "seq": 2,
-	                  "disp": "NBC SPORTS BOSTON",
-	                  "scope": "away",
-	                  "type": "tv",
-	                  "lan": "English"
-	                },
-	                {
-	                  "seq": 3,
-	                  "disp": "620 AM/103.3 FM WTMJ",
-	                  "scope": "home",
-	                  "type": "radio",
-	                  "lan": "English"
-	                }
-	              ]
-	            },
-	            "v": {
-	              "tid": 1610612738,
-	              "re": "0-0",
-	              "ta": "BOS",
-	              "tn": "Celtics",
-	              "tc": "Boston",
-	              "s": ""
-	            },
-	            "h": {
-	              "tid": 1610612749,
-	              "re": "0-0",
-	              "ta": "MIL",
-	              "tn": "Bucks",
-	              "tc": "Milwaukee",
-	              "s": ""
-	            },
-	            "gweek": null,
-	            "gdtutc": "TBD",
-	            "utctm": "TBD",
-	            "ppdst": "I",
 	            "seq": 1
 	          },
 	          {
-	            "gid": "0041700126",
-	            "gcode": "20180426/PHIMIA",
-	            "seri": "PHI leads series 1-0",
+	            "gid": "0041700235",
+	            "gcode": "20180508/NOPGSW",
+	            "seri": "GSW leads series 1-0",
 	            "is": 0,
-	            "gdte": "2018-04-26",
+	            "gdte": "2018-05-08",
 	            "htm": "TBD",
 	            "vtm": "TBD",
 	            "etm": "TBD",
-	            "an": "AmericanAirlines Arena",
-	            "ac": "Miami",
-	            "as": "FL",
+	            "an": "ORACLE Arena",
+	            "ac": "Oakland",
+	            "as": "CA",
 	            "st": "1",
 	            "stt": "TBD",
 	            "bd": {
 	              "b": [
 	                {
 	                  "seq": 1,
-	                  "disp": "Fox Sports Sun",
-	                  "scope": "home",
+	                  "disp": "TNT",
+	                  "scope": "natl",
 	                  "type": "tv",
-	                  "lan": "English"
-	                },
-	                {
-	                  "seq": 2,
-	                  "disp": "NBCSP",
-	                  "scope": "away",
-	                  "type": "tv",
-	                  "lan": "English"
-	                },
-	                {
-	                  "seq": 3,
-	                  "disp": "790 The Ticket / S: WRTO MIX 98.3 FM",
-	                  "scope": "home",
-	                  "type": "radio",
 	                  "lan": "English"
 	                }
 	              ]
 	            },
 	            "v": {
-	              "tid": 1610612755,
-	              "re": "1-0",
-	              "ta": "PHI",
-	              "tn": "76ers",
-	              "tc": "Philadelphia",
+	              "tid": 1610612740,
+	              "re": "4-1",
+	              "ta": "NOP",
+	              "tn": "Pelicans",
+	              "tc": "New Orleans",
 	              "s": ""
 	            },
 	            "h": {
-	              "tid": 1610612748,
-	              "re": "0-1",
-	              "ta": "MIA",
-	              "tn": "Heat",
-	              "tc": "Miami",
+	              "tid": 1610612744,
+	              "re": "5-1",
+	              "ta": "GSW",
+	              "tn": "Warriors",
+	              "tc": "Golden State",
 	              "s": ""
 	            },
 	            "gweek": null,
@@ -135150,220 +137210,30 @@ export const DBInitializer = {
 	            "seq": 2
 	          },
 	          {
-	            "gid": "0041700156",
-	            "gcode": "20180426/GSWSAS",
-	            "seri": "GSW leads series 1-0",
+	            "gid": "0041700205",
+	            "gcode": "20180509/CLETOR",
+	            "seri": "CLE leads series 1-0",
 	            "is": 0,
-	            "gdte": "2018-04-26",
+	            "gdte": "2018-05-09",
 	            "htm": "TBD",
 	            "vtm": "TBD",
 	            "etm": "TBD",
-	            "an": "AT&T Center",
-	            "ac": "San Antonio",
-	            "as": "TX",
+	            "an": "Air Canada Centre",
+	            "ac": "Toronto",
+	            "as": "ON",
 	            "st": "1",
 	            "stt": "TBD",
 	            "bd": {
 	              "b": [
 	                {
 	                  "seq": 1,
-	                  "disp": "FSSW",
-	                  "scope": "home",
+	                  "disp": "TNT",
+	                  "scope": "natl",
 	                  "type": "tv",
 	                  "lan": "English"
 	                },
 	                {
 	                  "seq": 2,
-	                  "disp": "FSBA",
-	                  "scope": "away",
-	                  "type": "tv",
-	                  "lan": "English"
-	                },
-	                {
-	                  "seq": 3,
-	                  "disp": "WOAI 1200AM / KXTN 107.5FM (ESP)",
-	                  "scope": "home",
-	                  "type": "radio",
-	                  "lan": "English"
-	                },
-	                {
-	                  "seq": 4,
-	                  "disp": "95.7 The Game",
-	                  "scope": "away",
-	                  "type": "radio",
-	                  "lan": "English"
-	                }
-	              ]
-	            },
-	            "v": {
-	              "tid": 1610612744,
-	              "re": "1-0",
-	              "ta": "GSW",
-	              "tn": "Warriors",
-	              "tc": "Golden State",
-	              "s": ""
-	            },
-	            "h": {
-	              "tid": 1610612759,
-	              "re": "0-1",
-	              "ta": "SAS",
-	              "tn": "Spurs",
-	              "tc": "San Antonio",
-	              "s": ""
-	            },
-	            "gweek": null,
-	            "gdtutc": "TBD",
-	            "utctm": "TBD",
-	            "ppdst": "I",
-	            "seq": 3
-	          },
-	          {
-	            "gid": "0041700166",
-	            "gcode": "20180426/PORNOP",
-	            "seri": "NOP leads series 1-0",
-	            "is": 0,
-	            "gdte": "2018-04-26",
-	            "htm": "TBD",
-	            "vtm": "TBD",
-	            "etm": "TBD",
-	            "an": "Smoothie King Center",
-	            "ac": "New Orleans",
-	            "as": "LA",
-	            "st": "1",
-	            "stt": "TBD",
-	            "bd": {
-	              "b": [
-	                {
-	                  "seq": 1,
-	                  "disp": "Fox Sports New Orleans",
-	                  "scope": "home",
-	                  "type": "tv",
-	                  "lan": "English"
-	                },
-	                {
-	                  "seq": 2,
-	                  "disp": "NBC SPORTS NORTHWEST",
-	                  "scope": "away",
-	                  "type": "tv",
-	                  "lan": "English"
-	                },
-	                {
-	                  "seq": 3,
-	                  "disp": "WRNO 99.5FM",
-	                  "scope": "home",
-	                  "type": "radio",
-	                  "lan": "English"
-	                }
-	              ]
-	            },
-	            "v": {
-	              "tid": 1610612757,
-	              "re": "0-1",
-	              "ta": "POR",
-	              "tn": "Trail Blazers",
-	              "tc": "Portland",
-	              "s": ""
-	            },
-	            "h": {
-	              "tid": 1610612740,
-	              "re": "1-0",
-	              "ta": "NOP",
-	              "tn": "Pelicans",
-	              "tc": "New Orleans",
-	              "s": ""
-	            },
-	            "gweek": null,
-	            "gdtutc": "TBD",
-	            "utctm": "TBD",
-	            "ppdst": "I",
-	            "seq": 4
-	          },
-	          {
-	            "gid": "0041700106",
-	            "gcode": "20180427/TORWAS",
-	            "seri": "TOR leads series 1-0",
-	            "is": 0,
-	            "gdte": "2018-04-27",
-	            "htm": "TBD",
-	            "vtm": "TBD",
-	            "etm": "TBD",
-	            "an": "Capital One Arena",
-	            "ac": "Washington",
-	            "as": "DC",
-	            "st": "1",
-	            "stt": "TBD",
-	            "bd": {
-	              "b": [
-	                {
-	                  "seq": 1,
-	                  "disp": "NBCSWA",
-	                  "scope": "home",
-	                  "type": "tv",
-	                  "lan": "English"
-	                }
-	              ]
-	            },
-	            "v": {
-	              "tid": 1610612761,
-	              "re": "1-0",
-	              "ta": "TOR",
-	              "tn": "Raptors",
-	              "tc": "Toronto",
-	              "s": ""
-	            },
-	            "h": {
-	              "tid": 1610612764,
-	              "re": "0-1",
-	              "ta": "WAS",
-	              "tn": "Wizards",
-	              "tc": "Washington",
-	              "s": ""
-	            },
-	            "gweek": null,
-	            "gdtutc": "TBD",
-	            "utctm": "TBD",
-	            "ppdst": "I",
-	            "seq": 1
-	          },
-	          {
-	            "gid": "0041700136",
-	            "gcode": "20180427/CLEIND",
-	            "seri": "Series tied 0-0",
-	            "is": 0,
-	            "gdte": "2018-04-27",
-	            "htm": "TBD",
-	            "vtm": "TBD",
-	            "etm": "TBD",
-	            "an": "Bankers Life Fieldhouse",
-	            "ac": "Indianapolis",
-	            "as": "IN",
-	            "st": "1",
-	            "stt": "TBD",
-	            "bd": {
-	              "b": [
-	                {
-	                  "seq": 1,
-	                  "disp": "Fox Sports Indiana",
-	                  "scope": "home",
-	                  "type": "tv",
-	                  "lan": "English"
-	                },
-	                {
-	                  "seq": 2,
-	                  "disp": "Fox Sports Ohio",
-	                  "scope": "away",
-	                  "type": "tv",
-	                  "lan": "English"
-	                },
-	                {
-	                  "seq": 3,
-	                  "disp": "1070 The Fan/107.5 FM",
-	                  "scope": "home",
-	                  "type": "radio",
-	                  "lan": "English"
-	                },
-	                {
-	                  "seq": 4,
 	                  "disp": "WTAM 1100 / 100.7 WMMS / 87.7 FM (ESP)",
 	                  "scope": "away",
 	                  "type": "radio",
@@ -135373,18 +137243,65 @@ export const DBInitializer = {
 	            },
 	            "v": {
 	              "tid": 1610612739,
-	              "re": "0-0",
+	              "re": "5-3",
 	              "ta": "CLE",
 	              "tn": "Cavaliers",
 	              "tc": "Cleveland",
 	              "s": ""
 	            },
 	            "h": {
-	              "tid": 1610612754,
-	              "re": "0-0",
-	              "ta": "IND",
-	              "tn": "Pacers",
-	              "tc": "Indiana",
+	              "tid": 1610612761,
+	              "re": "4-3",
+	              "ta": "TOR",
+	              "tn": "Raptors",
+	              "tc": "Toronto",
+	              "s": ""
+	            },
+	            "gweek": null,
+	            "gdtutc": "TBD",
+	            "utctm": "TBD",
+	            "ppdst": "I",
+	            "seq": 1
+	          },
+	          {
+	            "gid": "0041700215",
+	            "gcode": "20180509/PHIBOS",
+	            "seri": "BOS leads series 1-0",
+	            "is": 0,
+	            "gdte": "2018-05-09",
+	            "htm": "TBD",
+	            "vtm": "TBD",
+	            "etm": "TBD",
+	            "an": "TD Garden",
+	            "ac": "Boston",
+	            "as": "MA",
+	            "st": "1",
+	            "stt": "TBD",
+	            "bd": {
+	              "b": [
+	                {
+	                  "seq": 1,
+	                  "disp": "TNT",
+	                  "scope": "natl",
+	                  "type": "tv",
+	                  "lan": "English"
+	                }
+	              ]
+	            },
+	            "v": {
+	              "tid": 1610612755,
+	              "re": "4-2",
+	              "ta": "PHI",
+	              "tn": "76ers",
+	              "tc": "Philadelphia",
+	              "s": ""
+	            },
+	            "h": {
+	              "tid": 1610612738,
+	              "re": "5-3",
+	              "ta": "BOS",
+	              "tn": "Celtics",
+	              "tc": "Boston",
 	              "s": ""
 	            },
 	            "gweek": null,
@@ -135394,72 +137311,11 @@ export const DBInitializer = {
 	            "seq": 2
 	          },
 	          {
-	            "gid": "0041700146",
-	            "gcode": "20180427/HOUMIN",
-	            "seri": "Series tied 0-0",
+	            "gid": "0041700226",
+	            "gcode": "20180510/HOUUTA",
+	            "seri": "HOU leads series 1-0",
 	            "is": 0,
-	            "gdte": "2018-04-27",
-	            "htm": "TBD",
-	            "vtm": "TBD",
-	            "etm": "TBD",
-	            "an": "Target Center",
-	            "ac": "Minneapolis",
-	            "as": "MN",
-	            "st": "1",
-	            "stt": "TBD",
-	            "bd": {
-	              "b": [
-	                {
-	                  "seq": 1,
-	                  "disp": "Fox Sports North",
-	                  "scope": "home",
-	                  "type": "tv",
-	                  "lan": "English"
-	                },
-	                {
-	                  "seq": 2,
-	                  "disp": "AT&T Sportsnet - Southwest",
-	                  "scope": "away",
-	                  "type": "tv",
-	                  "lan": "English"
-	                },
-	                {
-	                  "seq": 3,
-	                  "disp": "BUZ'N 102.9",
-	                  "scope": "home",
-	                  "type": "radio",
-	                  "lan": "English"
-	                }
-	              ]
-	            },
-	            "v": {
-	              "tid": 1610612745,
-	              "re": "0-0",
-	              "ta": "HOU",
-	              "tn": "Rockets",
-	              "tc": "Houston",
-	              "s": ""
-	            },
-	            "h": {
-	              "tid": 1610612750,
-	              "re": "0-0",
-	              "ta": "MIN",
-	              "tn": "Timberwolves",
-	              "tc": "Minnesota",
-	              "s": ""
-	            },
-	            "gweek": null,
-	            "gdtutc": "TBD",
-	            "utctm": "TBD",
-	            "ppdst": "I",
-	            "seq": 3
-	          },
-	          {
-	            "gid": "0041700176",
-	            "gcode": "20180427/OKCUTA",
-	            "seri": "Series tied 0-0",
-	            "is": 0,
-	            "gdte": "2018-04-27",
+	            "gdte": "2018-05-10",
 	            "htm": "TBD",
 	            "vtm": "TBD",
 	            "etm": "TBD",
@@ -135472,45 +137328,24 @@ export const DBInitializer = {
 	              "b": [
 	                {
 	                  "seq": 1,
-	                  "disp": "AT&T Sportsnet - Rocky Mountain",
-	                  "scope": "home",
+	                  "disp": "ESPN",
+	                  "scope": "natl",
 	                  "type": "tv",
-	                  "lan": "English"
-	                },
-	                {
-	                  "seq": 2,
-	                  "disp": "Fox Sports Oklahoma",
-	                  "scope": "away",
-	                  "type": "tv",
-	                  "lan": "English"
-	                },
-	                {
-	                  "seq": 3,
-	                  "disp": "97.5 FM | 1280 AM The Zone",
-	                  "scope": "home",
-	                  "type": "radio",
-	                  "lan": "English"
-	                },
-	                {
-	                  "seq": 4,
-	                  "disp": "WWLS 98.1FM OKC",
-	                  "scope": "away",
-	                  "type": "radio",
 	                  "lan": "English"
 	                }
 	              ]
 	            },
 	            "v": {
-	              "tid": 1610612760,
-	              "re": "0-0",
-	              "ta": "OKC",
-	              "tn": "Thunder",
-	              "tc": "Oklahoma City",
+	              "tid": 1610612745,
+	              "re": "5-1",
+	              "ta": "HOU",
+	              "tn": "Rockets",
+	              "tc": "Houston",
 	              "s": ""
 	            },
 	            "h": {
 	              "tid": 1610612762,
-	              "re": "0-0",
+	              "re": "4-3",
 	              "ta": "UTA",
 	              "tn": "Jazz",
 	              "tc": "Utah",
@@ -135520,68 +137355,101 @@ export const DBInitializer = {
 	            "gdtutc": "TBD",
 	            "utctm": "TBD",
 	            "ppdst": "I",
-	            "seq": 4
+	            "seq": 1
 	          },
 	          {
-	            "gid": "0041700117",
-	            "gcode": "20180428/MILBOS",
-	            "seri": "Series tied 0-0",
+	            "gid": "0041700236",
+	            "gcode": "20180510/GSWNOP",
+	            "seri": "GSW leads series 1-0",
 	            "is": 0,
-	            "gdte": "2018-04-28",
+	            "gdte": "2018-05-10",
 	            "htm": "TBD",
 	            "vtm": "TBD",
 	            "etm": "TBD",
-	            "an": "TD Garden",
-	            "ac": "Boston",
-	            "as": "MA",
+	            "an": "Smoothie King Center",
+	            "ac": "New Orleans",
+	            "as": "LA",
 	            "st": "1",
 	            "stt": "TBD",
 	            "bd": {
 	              "b": [
 	                {
 	                  "seq": 1,
-	                  "disp": "TNT",
+	                  "disp": "ESPN",
+	                  "scope": "natl",
+	                  "type": "tv",
+	                  "lan": "English"
+	                }
+	              ]
+	            },
+	            "v": {
+	              "tid": 1610612744,
+	              "re": "5-1",
+	              "ta": "GSW",
+	              "tn": "Warriors",
+	              "tc": "Golden State",
+	              "s": ""
+	            },
+	            "h": {
+	              "tid": 1610612740,
+	              "re": "4-1",
+	              "ta": "NOP",
+	              "tn": "Pelicans",
+	              "tc": "New Orleans",
+	              "s": ""
+	            },
+	            "gweek": null,
+	            "gdtutc": "TBD",
+	            "utctm": "TBD",
+	            "ppdst": "I",
+	            "seq": 2
+	          },
+	          {
+	            "gid": "0041700206",
+	            "gcode": "20180511/TORCLE",
+	            "seri": "CLE leads series 1-0",
+	            "is": 0,
+	            "gdte": "2018-05-11",
+	            "htm": "TBD",
+	            "vtm": "TBD",
+	            "etm": "TBD",
+	            "an": "Quicken Loans Arena",
+	            "ac": "Cleveland",
+	            "as": "OH",
+	            "st": "1",
+	            "stt": "TBD",
+	            "bd": {
+	              "b": [
+	                {
+	                  "seq": 1,
+	                  "disp": "ESPN",
 	                  "scope": "natl",
 	                  "type": "tv",
 	                  "lan": "English"
 	                },
 	                {
 	                  "seq": 2,
-	                  "disp": "NBC SPORTS BOSTON",
+	                  "disp": "WTAM 1100 / 87.7 FM (ESP)",
 	                  "scope": "home",
-	                  "type": "tv",
-	                  "lan": "English"
-	                },
-	                {
-	                  "seq": 3,
-	                  "disp": "Fox Sports Wisconsin",
-	                  "scope": "away",
-	                  "type": "tv",
-	                  "lan": "English"
-	                },
-	                {
-	                  "seq": 4,
-	                  "disp": "620 AM/103.3 FM WTMJ",
-	                  "scope": "away",
 	                  "type": "radio",
 	                  "lan": "English"
 	                }
 	              ]
 	            },
 	            "v": {
-	              "tid": 1610612749,
-	              "re": "0-0",
-	              "ta": "MIL",
-	              "tn": "Bucks",
-	              "tc": "Milwaukee",
+	              "tid": 1610612761,
+	              "re": "4-3",
+	              "ta": "TOR",
+	              "tn": "Raptors",
+	              "tc": "Toronto",
 	              "s": ""
 	            },
 	            "h": {
-	              "tid": 1610612738,
-	              "re": "0-0",
-	              "ta": "BOS",
-	              "tn": "Celtics",
-	              "tc": "Boston",
+	              "tid": 1610612739,
+	              "re": "5-3",
+	              "ta": "CLE",
+	              "tn": "Cavaliers",
+	              "tc": "Cleveland",
 	              "s": ""
 	            },
 	            "gweek": null,
@@ -135591,11 +137459,11 @@ export const DBInitializer = {
 	            "seq": 1
 	          },
 	          {
-	            "gid": "0041700127",
-	            "gcode": "20180428/MIAPHI",
-	            "seri": "PHI leads series 1-0",
+	            "gid": "0041700216",
+	            "gcode": "20180511/BOSPHI",
+	            "seri": "BOS leads series 1-0",
 	            "is": 0,
-	            "gdte": "2018-04-28",
+	            "gdte": "2018-05-11",
 	            "htm": "TBD",
 	            "vtm": "TBD",
 	            "etm": "TBD",
@@ -135608,45 +137476,24 @@ export const DBInitializer = {
 	              "b": [
 	                {
 	                  "seq": 1,
-	                  "disp": "TNT",
+	                  "disp": "ESPN",
 	                  "scope": "natl",
 	                  "type": "tv",
-	                  "lan": "English"
-	                },
-	                {
-	                  "seq": 2,
-	                  "disp": "NBCSP",
-	                  "scope": "home",
-	                  "type": "tv",
-	                  "lan": "English"
-	                },
-	                {
-	                  "seq": 3,
-	                  "disp": "Fox Sports Sun",
-	                  "scope": "away",
-	                  "type": "tv",
-	                  "lan": "English"
-	                },
-	                {
-	                  "seq": 4,
-	                  "disp": "790 The Ticket / S: WRTO MIX 98.3 FM",
-	                  "scope": "away",
-	                  "type": "radio",
 	                  "lan": "English"
 	                }
 	              ]
 	            },
 	            "v": {
-	              "tid": 1610612748,
-	              "re": "0-1",
-	              "ta": "MIA",
-	              "tn": "Heat",
-	              "tc": "Miami",
+	              "tid": 1610612738,
+	              "re": "5-3",
+	              "ta": "BOS",
+	              "tn": "Celtics",
+	              "tc": "Boston",
 	              "s": ""
 	            },
 	            "h": {
 	              "tid": 1610612755,
-	              "re": "1-0",
+	              "re": "4-2",
 	              "ta": "PHI",
 	              "tn": "76ers",
 	              "tc": "Philadelphia",
@@ -135659,11 +137506,144 @@ export const DBInitializer = {
 	            "seq": 2
 	          },
 	          {
-	            "gid": "0041700157",
-	            "gcode": "20180428/SASGSW",
+	            "gid": "0041700207",
+	            "gcode": "20180513/CLETOR",
+	            "seri": "CLE leads series 1-0",
+	            "is": 0,
+	            "gdte": "2018-05-13",
+	            "htm": "TBD",
+	            "vtm": "TBD",
+	            "etm": "TBD",
+	            "an": "Air Canada Centre",
+	            "ac": "Toronto",
+	            "as": "ON",
+	            "st": "1",
+	            "stt": "TBD",
+	            "bd": {
+	              "b": [
+	                {
+	                  "seq": 1,
+	                  "disp": "WTAM 1100 / 87.7 FM (ESP)",
+	                  "scope": "away",
+	                  "type": "radio",
+	                  "lan": "English"
+	                }
+	              ]
+	            },
+	            "v": {
+	              "tid": 1610612739,
+	              "re": "5-3",
+	              "ta": "CLE",
+	              "tn": "Cavaliers",
+	              "tc": "Cleveland",
+	              "s": ""
+	            },
+	            "h": {
+	              "tid": 1610612761,
+	              "re": "4-3",
+	              "ta": "TOR",
+	              "tn": "Raptors",
+	              "tc": "Toronto",
+	              "s": ""
+	            },
+	            "gweek": null,
+	            "gdtutc": "TBD",
+	            "utctm": "TBD",
+	            "ppdst": "I",
+	            "seq": 1
+	          },
+	          {
+	            "gid": "0041700217",
+	            "gcode": "20180513/PHIBOS",
+	            "seri": "BOS leads series 1-0",
+	            "is": 0,
+	            "gdte": "2018-05-13",
+	            "htm": "TBD",
+	            "vtm": "TBD",
+	            "etm": "TBD",
+	            "an": "TD Garden",
+	            "ac": "Boston",
+	            "as": "MA",
+	            "st": "1",
+	            "stt": "TBD",
+	            "bd": {
+	              "b": []
+	            },
+	            "v": {
+	              "tid": 1610612755,
+	              "re": "4-2",
+	              "ta": "PHI",
+	              "tn": "76ers",
+	              "tc": "Philadelphia",
+	              "s": ""
+	            },
+	            "h": {
+	              "tid": 1610612738,
+	              "re": "5-3",
+	              "ta": "BOS",
+	              "tn": "Celtics",
+	              "tc": "Boston",
+	              "s": ""
+	            },
+	            "gweek": null,
+	            "gdtutc": "TBD",
+	            "utctm": "TBD",
+	            "ppdst": "I",
+	            "seq": 2
+	          },
+	          {
+	            "gid": "0041700227",
+	            "gcode": "20180514/UTAHOU",
+	            "seri": "HOU leads series 1-0",
+	            "is": 0,
+	            "gdte": "2018-05-14",
+	            "htm": "TBD",
+	            "vtm": "TBD",
+	            "etm": "TBD",
+	            "an": "Toyota Center",
+	            "ac": "Houston",
+	            "as": "TX",
+	            "st": "1",
+	            "stt": "TBD",
+	            "bd": {
+	              "b": [
+	                {
+	                  "seq": 1,
+	                  "disp": "TNT",
+	                  "scope": "natl",
+	                  "type": "tv",
+	                  "lan": "English"
+	                }
+	              ]
+	            },
+	            "v": {
+	              "tid": 1610612762,
+	              "re": "4-3",
+	              "ta": "UTA",
+	              "tn": "Jazz",
+	              "tc": "Utah",
+	              "s": ""
+	            },
+	            "h": {
+	              "tid": 1610612745,
+	              "re": "5-1",
+	              "ta": "HOU",
+	              "tn": "Rockets",
+	              "tc": "Houston",
+	              "s": ""
+	            },
+	            "gweek": null,
+	            "gdtutc": "TBD",
+	            "utctm": "TBD",
+	            "ppdst": "I",
+	            "seq": 1
+	          },
+	          {
+	            "gid": "0041700237",
+	            "gcode": "20180514/NOPGSW",
 	            "seri": "GSW leads series 1-0",
 	            "is": 0,
-	            "gdte": "2018-04-28",
+	            "gdte": "2018-05-14",
 	            "htm": "TBD",
 	            "vtm": "TBD",
 	            "etm": "TBD",
@@ -135680,48 +137660,20 @@ export const DBInitializer = {
 	                  "scope": "natl",
 	                  "type": "tv",
 	                  "lan": "English"
-	                },
-	                {
-	                  "seq": 2,
-	                  "disp": "FSBA",
-	                  "scope": "home",
-	                  "type": "tv",
-	                  "lan": "English"
-	                },
-	                {
-	                  "seq": 3,
-	                  "disp": "FSSW",
-	                  "scope": "away",
-	                  "type": "tv",
-	                  "lan": "English"
-	                },
-	                {
-	                  "seq": 4,
-	                  "disp": "95.7 The Game",
-	                  "scope": "home",
-	                  "type": "radio",
-	                  "lan": "English"
-	                },
-	                {
-	                  "seq": 5,
-	                  "disp": "WOAI 1200AM / KXTN 107.5FM (ESP)",
-	                  "scope": "away",
-	                  "type": "radio",
-	                  "lan": "English"
 	                }
 	              ]
 	            },
 	            "v": {
-	              "tid": 1610612759,
-	              "re": "0-1",
-	              "ta": "SAS",
-	              "tn": "Spurs",
-	              "tc": "San Antonio",
+	              "tid": 1610612740,
+	              "re": "4-1",
+	              "ta": "NOP",
+	              "tn": "Pelicans",
+	              "tc": "New Orleans",
 	              "s": ""
 	            },
 	            "h": {
 	              "tid": 1610612744,
-	              "re": "1-0",
+	              "re": "5-1",
 	              "ta": "GSW",
 	              "tn": "Warriors",
 	              "tc": "Golden State",
@@ -135731,269 +137683,7 @@ export const DBInitializer = {
 	            "gdtutc": "TBD",
 	            "utctm": "TBD",
 	            "ppdst": "I",
-	            "seq": 3
-	          },
-	          {
-	            "gid": "0041700167",
-	            "gcode": "20180428/NOPPOR",
-	            "seri": "NOP leads series 1-0",
-	            "is": 0,
-	            "gdte": "2018-04-28",
-	            "htm": "TBD",
-	            "vtm": "TBD",
-	            "etm": "TBD",
-	            "an": "Moda Center",
-	            "ac": "Portland",
-	            "as": "OR",
-	            "st": "1",
-	            "stt": "TBD",
-	            "bd": {
-	              "b": [
-	                {
-	                  "seq": 1,
-	                  "disp": "TNT",
-	                  "scope": "natl",
-	                  "type": "tv",
-	                  "lan": "English"
-	                },
-	                {
-	                  "seq": 2,
-	                  "disp": "NBC SPORTS NORTHWEST",
-	                  "scope": "home",
-	                  "type": "tv",
-	                  "lan": "English"
-	                },
-	                {
-	                  "seq": 3,
-	                  "disp": "Fox Sports New Orleans",
-	                  "scope": "away",
-	                  "type": "tv",
-	                  "lan": "English"
-	                },
-	                {
-	                  "seq": 4,
-	                  "disp": "WRNO 99.5FM",
-	                  "scope": "away",
-	                  "type": "radio",
-	                  "lan": "English"
-	                }
-	              ]
-	            },
-	            "v": {
-	              "tid": 1610612740,
-	              "re": "1-0",
-	              "ta": "NOP",
-	              "tn": "Pelicans",
-	              "tc": "New Orleans",
-	              "s": ""
-	            },
-	            "h": {
-	              "tid": 1610612757,
-	              "re": "0-1",
-	              "ta": "POR",
-	              "tn": "Trail Blazers",
-	              "tc": "Portland",
-	              "s": ""
-	            },
-	            "gweek": null,
-	            "gdtutc": "TBD",
-	            "utctm": "TBD",
-	            "ppdst": "I",
-	            "seq": 4
-	          },
-	          {
-	            "gid": "0041700107",
-	            "gcode": "20180429/WASTOR",
-	            "seri": "TOR leads series 1-0",
-	            "is": 0,
-	            "gdte": "2018-04-29",
-	            "htm": "TBD",
-	            "vtm": "TBD",
-	            "etm": "TBD",
-	            "an": "Air Canada Centre",
-	            "ac": "Toronto",
-	            "as": "ON",
-	            "st": "1",
-	            "stt": "TBD",
-	            "bd": {
-	              "b": []
-	            },
-	            "v": {
-	              "tid": 1610612764,
-	              "re": "0-1",
-	              "ta": "WAS",
-	              "tn": "Wizards",
-	              "tc": "Washington",
-	              "s": ""
-	            },
-	            "h": {
-	              "tid": 1610612761,
-	              "re": "1-0",
-	              "ta": "TOR",
-	              "tn": "Raptors",
-	              "tc": "Toronto",
-	              "s": ""
-	            },
-	            "gweek": null,
-	            "gdtutc": "TBD",
-	            "utctm": "TBD",
-	            "ppdst": "I",
-	            "seq": 1
-	          },
-	          {
-	            "gid": "0041700137",
-	            "gcode": "20180429/INDCLE",
-	            "seri": "Series tied 0-0",
-	            "is": 0,
-	            "gdte": "2018-04-29",
-	            "htm": "TBD",
-	            "vtm": "TBD",
-	            "etm": "TBD",
-	            "an": "Quicken Loans Arena",
-	            "ac": "Cleveland",
-	            "as": "OH",
-	            "st": "1",
-	            "stt": "TBD",
-	            "bd": {
-	              "b": [
-	                {
-	                  "seq": 1,
-	                  "disp": "WTAM 1100 / 100.7 WMMS / 87.7 FM (ESP)",
-	                  "scope": "home",
-	                  "type": "radio",
-	                  "lan": "English"
-	                },
-	                {
-	                  "seq": 2,
-	                  "disp": "1070 The Fan/107.5 FM",
-	                  "scope": "away",
-	                  "type": "radio",
-	                  "lan": "English"
-	                }
-	              ]
-	            },
-	            "v": {
-	              "tid": 1610612754,
-	              "re": "0-0",
-	              "ta": "IND",
-	              "tn": "Pacers",
-	              "tc": "Indiana",
-	              "s": ""
-	            },
-	            "h": {
-	              "tid": 1610612739,
-	              "re": "0-0",
-	              "ta": "CLE",
-	              "tn": "Cavaliers",
-	              "tc": "Cleveland",
-	              "s": ""
-	            },
-	            "gweek": null,
-	            "gdtutc": "TBD",
-	            "utctm": "TBD",
-	            "ppdst": "I",
 	            "seq": 2
-	          },
-	          {
-	            "gid": "0041700147",
-	            "gcode": "20180429/MINHOU",
-	            "seri": "Series tied 0-0",
-	            "is": 0,
-	            "gdte": "2018-04-29",
-	            "htm": "TBD",
-	            "vtm": "TBD",
-	            "etm": "TBD",
-	            "an": "Toyota Center",
-	            "ac": "Houston",
-	            "as": "TX",
-	            "st": "1",
-	            "stt": "TBD",
-	            "bd": {
-	              "b": [
-	                {
-	                  "seq": 1,
-	                  "disp": "830 WCCO",
-	                  "scope": "away",
-	                  "type": "radio",
-	                  "lan": "English"
-	                }
-	              ]
-	            },
-	            "v": {
-	              "tid": 1610612750,
-	              "re": "0-0",
-	              "ta": "MIN",
-	              "tn": "Timberwolves",
-	              "tc": "Minnesota",
-	              "s": ""
-	            },
-	            "h": {
-	              "tid": 1610612745,
-	              "re": "0-0",
-	              "ta": "HOU",
-	              "tn": "Rockets",
-	              "tc": "Houston",
-	              "s": ""
-	            },
-	            "gweek": null,
-	            "gdtutc": "TBD",
-	            "utctm": "TBD",
-	            "ppdst": "I",
-	            "seq": 3
-	          },
-	          {
-	            "gid": "0041700177",
-	            "gcode": "20180429/UTAOKC",
-	            "seri": "Series tied 0-0",
-	            "is": 0,
-	            "gdte": "2018-04-29",
-	            "htm": "TBD",
-	            "vtm": "TBD",
-	            "etm": "TBD",
-	            "an": "Chesapeake Energy Arena",
-	            "ac": "Oklahoma City",
-	            "as": "OK",
-	            "st": "1",
-	            "stt": "TBD",
-	            "bd": {
-	              "b": [
-	                {
-	                  "seq": 1,
-	                  "disp": "WWLS 98.1FM OKC",
-	                  "scope": "home",
-	                  "type": "radio",
-	                  "lan": "English"
-	                },
-	                {
-	                  "seq": 2,
-	                  "disp": "97.5 FM | 1280 AM The Zone",
-	                  "scope": "away",
-	                  "type": "radio",
-	                  "lan": "English"
-	                }
-	              ]
-	            },
-	            "v": {
-	              "tid": 1610612762,
-	              "re": "0-0",
-	              "ta": "UTA",
-	              "tn": "Jazz",
-	              "tc": "Utah",
-	              "s": ""
-	            },
-	            "h": {
-	              "tid": 1610612760,
-	              "re": "0-0",
-	              "ta": "OKC",
-	              "tn": "Thunder",
-	              "tc": "Oklahoma City",
-	              "s": ""
-	            },
-	            "gweek": null,
-	            "gdtutc": "TBD",
-	            "utctm": "TBD",
-	            "ppdst": "I",
-	            "seq": 4
 	          }
 	        ]
 	      }
