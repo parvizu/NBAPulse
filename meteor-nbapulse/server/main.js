@@ -2040,7 +2040,7 @@ Meteor.startup(() => {
 		Meteor.methods({
 
 			// Function that will get the game Play by Play
-			getGameData: async (gid) => {
+			getGameData: (gid) => {
 				console.log("GID", gid);
 				const gameData = Games.findOne({
 					'gid': gid
@@ -2060,12 +2060,14 @@ Meteor.startup(() => {
 					return gameData;
 				}
 
+				console.log("Game not in DB, making nba call.");
 				/**** COMMENT OUT FOR OFFLINE WORK ****/
 				const url = "http://stats.nba.com/stats/playbyplayv2?GameID=" + gid + "&StartPeriod=00&EndPeriod=08";
-				const request = await axios.get(url);
+				// const request = await axios.get(url);
 				console.log("URL", url);
 				console.log("AJAX", request);
-				return request.then(results => {
+				return axios.get(url).then(results => {
+				// return request.then(results => {
 					console.log("IN PROMISE", results);
 					// Checking if the game has been played or already
 					if (results.data.resultSets[0].rowSet.length === 0) {
