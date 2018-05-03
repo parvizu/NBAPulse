@@ -104,6 +104,7 @@ class NBAPulse extends Component {
 			    console.log(error);
 			    console.log(error.error);
 			}
+	        console.log("Game error", gid, error);
 	        console.log("Game data", gid, results);
 			self.setState({
 				gameSelected: gid,

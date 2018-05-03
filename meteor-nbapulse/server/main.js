@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import axios from 'axios';
+import fetch from 'node-fetch';
 
 import { GameHelpers } from './GameHelpers.js';
 import { DBInitializer} from './DBInitializer.js';
@@ -2050,7 +2051,7 @@ Meteor.startup(() => {
 					}
 				});
 
-				console.log("GID", gid, "GameData", gameData, "length", Object.keys(gameData.data).length);
+				console.log("GID", gid, "Game Data length", Object.keys(gameData.data).length);
 				let response = "";
 
 				// Check if game data is already in the DB
@@ -2066,9 +2067,12 @@ Meteor.startup(() => {
 				// const request = await axios.get(url);
 				console.log("URL", url);
 
-				const nbaData = axios.get(url).then(results => {
+				const nbaData = axios.get(url);
+				console.log("NBADATA", nbaData);
+
+				return nbaData.then(results => {
 				// return request.then(results => {
-					console.log("IN PROMISE", results);
+					console.log("IN PROMISE");
 					// Checking if the game has been played or already
 					if (results.data.resultSets[0].rowSet.length === 0) {
 						response = "This game has not been played yet";
@@ -2118,8 +2122,6 @@ Meteor.startup(() => {
 					console.log("ERROR", error.response);
 				});
 
-				console.log("NBADATA", nbaData);
-				return nbaData;
 				/**** COMMENT OUT FOR OFFLINE WORK ****/
 
 				// console.log("GAME NOT IN DB:", gid);
