@@ -2049,6 +2049,8 @@ Meteor.startup(() => {
 						'_id': 0
 					}
 				});
+
+				console.log("GID", gid, "GameData", gameData, "length", Object.keys(gameData.data).length);
 				let response = "";
 
 				// Check if game data is already in the DB
@@ -2060,9 +2062,10 @@ Meteor.startup(() => {
 
 				/**** COMMENT OUT FOR OFFLINE WORK ****/
 				const url = "http://stats.nba.com/stats/playbyplayv2?GameID=" + gid + "&StartPeriod=00&EndPeriod=08";
-				const request = axios.get(url);
+				const request = await axios.get(url);
+				console.log("URL", url);
 				console.log("AJAX", request);
-				return await request.then(results => {
+				return request.then(results => {
 					console.log("IN PROMISE", results);
 					// Checking if the game has been played or already
 					if (results.data.resultSets[0].rowSet.length === 0) {
