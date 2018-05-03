@@ -2072,54 +2072,9 @@ Meteor.startup(() => {
 
 				return nbaData.then(results => {
 				// return request.then(results => {
-					console.log("IN PROMISE");
-					// Checking if the game has been played or already
-					if (results.data.resultSets[0].rowSet.length === 0) {
-						response = "This game has not been played yet";
-						console.log("GID", gid, response);
-						return '';
-					}
-
-					// Process game data for storage
-					let processedData = GameHelpers._processGameDataForStorage(results);
-
-					// Getting team rosters for the game
-					const rosters = Teams.find({
-						'season': '2017-2018',
-						$or: [
-							{'teamId': parseInt(gameData.details.h.tid) },
-							{'teamId': parseInt(gameData.details.v.tid) }
-						]
-					}, {
-						fields: {
-							_id: 0
-						}
-					}).fetch();
-
-					const teams = {
-						home: rosters[0].teamId === gameData.details.h.tid ? rosters[0] : rosters[1],
-						away: rosters[1].teamId === gameData.details.v.tid ? rosters[1] : rosters[0]
-					};
-					// Update the game data to the DB and return to client
-					console.log("GID", gid, 'Inserting new game data for game.', 'URL: ' + url);
-					Games.update({
-						'gid': gid
-					}, {
-						$set: {
-							'data': results.data,
-							'teams': teams,
-							'processed': processedData
-						}
-					});
-
-					console.log("GID", gid, 'New game data done updating/inserting');
-					gameData.data = results.data;
-					gameData.processed = processedData;
-					gameData.teams = teams;
-					response = gameData;
-					return response;
+					return GameHelpers._handleNBADataResponse(results,gid, gameData, url);
 				}).catch(error => {
-					console.log("ERROR", error.response);
+					console.log("ERROR", error);
 				});
 
 				/**** COMMENT OUT FOR OFFLINE WORK ****/
