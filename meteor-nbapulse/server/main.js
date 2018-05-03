@@ -2060,12 +2060,11 @@ Meteor.startup(() => {
 					return gameData;
 				}
 
-				console.log("Game not in DB, making nba call.");
+				console.log("Game not in DB, making nba call...");
 				/**** COMMENT OUT FOR OFFLINE WORK ****/
 				const url = "http://stats.nba.com/stats/playbyplayv2?GameID=" + gid + "&StartPeriod=00&EndPeriod=08";
 				// const request = await axios.get(url);
 				console.log("URL", url);
-				console.log("AJAX", request);
 				return axios.get(url).then(results => {
 				// return request.then(results => {
 					console.log("IN PROMISE", results);
