@@ -2064,7 +2064,6 @@ Meteor.startup(() => {
 				console.log("Game not in DB, making nba call...");
 				/**** COMMENT OUT FOR OFFLINE WORK ****/
 				const url = "http://stats.nba.com/stats/playbyplayv2?GameID=" + gid + "&StartPeriod=00&EndPeriod=08";
-				// const request = await axios.get(url);
 				console.log("URL", url);
 
 				const config = {
@@ -2072,27 +2071,19 @@ Meteor.startup(() => {
 					url: url,
 					responseType: 'json'
 				};
-				// console.log("NBADATA", nbaData);
-
-				// console.log("Testing axios then");
-				// nbaData.then(results => console.log('IN THEN', results));
-			
-				// console.log("Testing axios error");
-				// nbaData.catch(error => console.log("IN ERROR", error));
 
 				console.log("AXIOS CONFIG", config);
-				return axios(config)
+				const nbaData = axios(config);
+
+				console.log("NBA DATA", nbaData);
+				return nbaData.catch((error) => {
+						console.log("ERROR", error);
+					})
 					.then(results => {
-					// return request.then(results => {
 						console.log('TRIGGERED THEN', gid, results);
 						return GameHelpers._handleNBADataResponse(results,gid, gameData, url);
-					// })
-					// .catch(error => {
-					// 	console.log("ERROR", error);
-					})
-					.catch((error) => {
-						console.log("ERROR", error);
 					});
+					
 
 				// return nbaData;
 
