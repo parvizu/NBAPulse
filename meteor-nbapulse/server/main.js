@@ -2098,9 +2098,15 @@ Meteor.startup(() => {
 				setTimeout(() => {
 					console.log("FETCHTEST", fetchTest);
 				},5000);
+
+				fetchTest.then(result => {
+					console.log("RESOLVED FETCHTEST", result);
+				});
 				setTimeout(() => {
 					console.log("FETCHTEST", fetchTest);
 				},10000);
+
+
 
 
 
@@ -2139,7 +2145,9 @@ Meteor.startup(() => {
 				},10000);
 
 				
-					
+				return test.then(results => {
+					return results;
+				});
 
 				// return nbaData;
 
