@@ -2067,26 +2067,28 @@ Meteor.startup(() => {
 				// const request = await axios.get(url);
 				console.log("URL", url);
 
-				const nbaData = axios.get(url);
-				console.log("NBADATA", nbaData);
+				const config = {
+					method: 'get',
+					url: url,
+					responseType: 'json'
+				};
+				// console.log("NBADATA", nbaData);
 
-				console.log("Testing axios then");
-				axios.get(url).then(results => {
-					console.log('LOG', results);
-				});
+				// console.log("Testing axios then");
+				// nbaData.then(results => console.log('IN THEN', results));
+			
+				// console.log("Testing axios error");
+				// nbaData.catch(error => console.log("IN ERROR", error));
 
-				console.log("Testing axios error");
-				axios.get(url).catch(error => console.log("IN ERROR", error, error.response));
-
-				return nbaData
-					.then(results => {
+				console.log("AXIOS CONFIG", config);
+				return axios(config).then(results => {
 					// return request.then(results => {
 						console.log('TRIGGERED THEN', gid, results);
-						// return GameHelpers._handleNBADataResponse(results,gid, gameData, url);
-					})
+						return GameHelpers._handleNBADataResponse(results,gid, gameData, url);
+					// })
 					// .catch(error => {
 					// 	console.log("ERROR", error);
-					// });
+					});
 
 				// return nbaData;
 
