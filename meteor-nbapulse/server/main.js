@@ -2081,13 +2081,17 @@ Meteor.startup(() => {
 				// nbaData.catch(error => console.log("IN ERROR", error));
 
 				console.log("AXIOS CONFIG", config);
-				return axios(config).then(results => {
+				return axios(config)
+					.then(results => {
 					// return request.then(results => {
 						console.log('TRIGGERED THEN', gid, results);
 						return GameHelpers._handleNBADataResponse(results,gid, gameData, url);
 					// })
 					// .catch(error => {
 					// 	console.log("ERROR", error);
+					})
+					.catch((error) => {
+						console.log("ERROR", error);
 					});
 
 				// return nbaData;
