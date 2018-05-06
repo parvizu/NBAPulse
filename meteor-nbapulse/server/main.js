@@ -2070,9 +2070,9 @@ Meteor.startup(() => {
 				const nbaData = axios.get(url);
 				console.log("NBADATA", nbaData);
 
-				// console.log("LOG", nbaData.then(results => {
-				// 	return results;
-				// }))
+				nbaData.then(results => {
+					console.log('LOG', results);
+				}))
 
 				return nbaData
 					.then(results => {
