@@ -2076,13 +2076,22 @@ Meteor.startup(() => {
 				const nbaData = axios(config);
 
 				console.log("NBA DATA", nbaData);
-				return nbaData.catch((error) => {
+
+				const test = nbaData.catch((error) => {
 						console.log("ERROR", error);
 					})
 					.then(results => {
 						console.log('TRIGGERED THEN', gid, results);
 						return GameHelpers._handleNBADataResponse(results,gid, gameData, url);
 					});
+
+
+				setTimeout(() => {
+					console.log(test);
+				},1000);
+				setTimeout(() => {
+					console.log(test);
+				},2000);
 					
 
 				// return nbaData;
