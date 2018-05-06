@@ -2072,7 +2072,7 @@ Meteor.startup(() => {
 
 				nbaData.then(results => {
 					console.log('LOG', results);
-				}))
+				})
 
 				return nbaData
 					.then(results => {
