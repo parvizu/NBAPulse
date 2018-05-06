@@ -2070,12 +2070,21 @@ Meteor.startup(() => {
 				const nbaData = axios.get(url);
 				console.log("NBADATA", nbaData);
 
-				return nbaData.then(results => {
-				// return request.then(results => {
-					return GameHelpers._handleNBADataResponse(results,gid, gameData, url);
-				}).catch(error => {
-					console.log("ERROR", error);
-				});
+				// console.log("LOG", nbaData.then(results => {
+				// 	return results;
+				// }))
+
+				return nbaData
+					.then(results => {
+					// return request.then(results => {
+						console.log('TRIGGERED THEN', gid, results);
+						// return GameHelpers._handleNBADataResponse(results,gid, gameData, url);
+					})
+					// .catch(error => {
+					// 	console.log("ERROR", error);
+					// });
+
+				// return nbaData;
 
 				/**** COMMENT OUT FOR OFFLINE WORK ****/
 
