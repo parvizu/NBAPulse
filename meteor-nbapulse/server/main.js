@@ -2072,12 +2072,44 @@ Meteor.startup(() => {
 					responseType: 'json'
 				};
 
+				console.log("TESTING FETCH...")
+				const fetchTest = fetch(url)
+				.then(function(response){
+				    console.log("FETCH RESPONSE", response);
+				    // response.then((r) => {
+				    // 	console.log(r);
+				    // })
+				    // return response;
+				});
+
+				console.log("FETCHTEST", fetchTest);
+				setTimeout(() => {
+					console.log("FETCHTEST", fetchTest);
+				},1000);
+				setTimeout(() => {
+					console.log("FETCHTEST", fetchTest);
+				},2000);
+				setTimeout(() => {
+					console.log("FETCHTEST", fetchTest);
+				},3000);
+				setTimeout(() => {
+					console.log("FETCHTEST", fetchTest);
+				},4000);
+				setTimeout(() => {
+					console.log("FETCHTEST", fetchTest);
+				},5000);
+				setTimeout(() => {
+					console.log("FETCHTEST", fetchTest);
+				},10000);
+
+
+
 				console.log("AXIOS CONFIG", config);
-				const nbaData = axios(config);
+				// const nbaData = ;
 
-				console.log("NBA DATA", nbaData);
+				// console.log("NBA DATA", nbaData);
 
-				const test = nbaData.catch((error) => {
+				const test = axios(config).catch((error) => {
 						console.log("ERROR", error);
 					})
 					.then(results => {
@@ -2086,12 +2118,27 @@ Meteor.startup(() => {
 					});
 
 
+				console.log("AXIOSTEST",test);
 				setTimeout(() => {
-					console.log(test);
+					console.log("AXIOSTEST",test);
 				},1000);
 				setTimeout(() => {
-					console.log(test);
+					console.log("AXIOSTEST",test);
 				},2000);
+				setTimeout(() => {
+					console.log("AXIOSTEST",test);
+				},3000);
+				setTimeout(() => {
+					console.log("AXIOSTEST",test);
+				},4000);
+				setTimeout(() => {
+					console.log("AXIOSTEST",test);
+				},5000);
+				setTimeout(() => {
+					console.log("AXIOSTEST",test);
+				},10000);
+
+				
 					
 
 				// return nbaData;
