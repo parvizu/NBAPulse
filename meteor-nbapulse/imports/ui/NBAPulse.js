@@ -28,7 +28,7 @@ class NBAPulse extends Component {
 				foul: '',
 				periods: 4
 			},
-			calendarType:'season',
+			calendarType:'playoffs',
 			teamSelected: '',
 			teamGamesList: [],
 			gameSelected: '',
@@ -81,8 +81,8 @@ class NBAPulse extends Component {
 	}
 
 	componentDidMount() {
-		this.onSelectTeam('GSW');
-		this.onSelectGame('0021700002');
+		this.onSelectTeam('CLE');
+		this.onSelectGame('0041700303');
 	}
 
 	onSelectTeam(teamAbbr) {
@@ -100,12 +100,6 @@ class NBAPulse extends Component {
 		const self = this;
 
 		Meteor.call("getGameData", gid, function(error, results) {
-	        if (error) {
-			    console.log(error);
-			    console.log(error.error);
-			}
-	        console.log("Game error", gid, error);
-	        console.log("Game data", gid, results);
 			self.setState({
 				gameSelected: gid,
 				gameData: results
