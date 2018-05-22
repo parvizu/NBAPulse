@@ -54,7 +54,7 @@ export default class Header extends Component {
 		return (
 
 			<div id="header">
-				<div id="updated">v1.0.2 (4/23/18)</div>
+				<div id="updated">v1.0.3 (5/20/18)</div>
 				<div className="header-top">
 					<div className="header-section header-section-left header-top-left">
 						<img src="/img/logos/nbaLogo.svg" /> 
