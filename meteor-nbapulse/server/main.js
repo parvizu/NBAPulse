@@ -2063,6 +2063,8 @@ Meteor.startup(() => {
 
 				console.log("GAME NOT IN DB:", gid);
 
+				return {};
+
 				const url = "http://stats.nba.com/stats/playbyplayv2?GameID=" + gid + "&StartPeriod=00&EndPeriod=08";
 				console.log("FETCHING DATA", gid, "URL", url);
 
