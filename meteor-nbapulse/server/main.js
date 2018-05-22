@@ -2061,10 +2061,10 @@ Meteor.startup(() => {
 					return gameData;
 				}
 
-				console.log("Game not in DB, making nba call...");
-				/**** COMMENT OUT FOR OFFLINE WORK ****/
+				console.log("GAME NOT IN DB:", gid);
+
 				const url = "http://stats.nba.com/stats/playbyplayv2?GameID=" + gid + "&StartPeriod=00&EndPeriod=08";
-				console.log("URL", url);
+				console.log("FETCHING DATA", gid, "URL", url);
 
 				const config = {
 					method: 'get',
@@ -2072,89 +2072,14 @@ Meteor.startup(() => {
 					responseType: 'json'
 				};
 
-				console.log("TESTING FETCH...")
-				const fetchTest = fetch(url)
-				.then(function(response){
-				    console.log("FETCH RESPONSE", response);
-				    // response.then((r) => {
-				    // 	console.log(r);
-				    // })
-				    // return response;
-				});
 
-				console.log("FETCHTEST", fetchTest);
-				setTimeout(() => {
-					console.log("FETCHTEST", fetchTest);
-				},1000);
-				setTimeout(() => {
-					console.log("FETCHTEST", fetchTest);
-				},2000);
-				setTimeout(() => {
-					console.log("FETCHTEST", fetchTest);
-				},3000);
-				setTimeout(() => {
-					console.log("FETCHTEST", fetchTest);
-				},4000);
-				setTimeout(() => {
-					console.log("FETCHTEST", fetchTest);
-				},5000);
-
-				fetchTest.then(result => {
-					console.log("RESOLVED FETCHTEST", result);
-				});
-				setTimeout(() => {
-					console.log("FETCHTEST", fetchTest);
-				},10000);
-
-
-
-
-
-				console.log("AXIOS CONFIG", config);
-				// const nbaData = ;
-
-				// console.log("NBA DATA", nbaData);
-
-				const test = axios(config).catch((error) => {
+				return axios(config).catch((error) => {
 						console.log("ERROR", error);
 					})
 					.then(results => {
-						console.log('TRIGGERED THEN', gid, results);
+						console.log('RECEIVED DATA', gid);
 						return GameHelpers._handleNBADataResponse(results,gid, gameData, url);
 					});
-
-
-				console.log("AXIOSTEST",test);
-				setTimeout(() => {
-					console.log("AXIOSTEST",test);
-				},1000);
-				setTimeout(() => {
-					console.log("AXIOSTEST",test);
-				},2000);
-				setTimeout(() => {
-					console.log("AXIOSTEST",test);
-				},3000);
-				setTimeout(() => {
-					console.log("AXIOSTEST",test);
-				},4000);
-				setTimeout(() => {
-					console.log("AXIOSTEST",test);
-				},5000);
-				setTimeout(() => {
-					console.log("AXIOSTEST",test);
-				},10000);
-
-				
-				return test.then(results => {
-					return results;
-				});
-
-				// return nbaData;
-
-				/**** COMMENT OUT FOR OFFLINE WORK ****/
-
-				// console.log("GAME NOT IN DB:", gid);
-				// return 'empty';
 			},
 
 			// Function that loads the list of regular season games for a specific team
@@ -2162,10 +2087,19 @@ Meteor.startup(() => {
 
 				console.log('TNAME', teamSelected, calendarType, "Start Loading team games");
 				let teamGames = [];
+				let query = {};
+				const options = { 
+					sort: {'gid':1},
+					fields: {
+						details: 1,
+						_id: 0
+					}
+				};
+
 				if (calendarType === 'season') {
 					// Loading games in regular season
-					teamGames = Games.find(
-					{
+					// teamGames = Games.find(
+					query =  {
 						$or: [
 							{ 'details.v.ta': teamSelected },
 							{ 'details.h.ta': teamSelected }
@@ -2174,18 +2108,12 @@ Meteor.startup(() => {
 							$gte: "2017-10-17"
 						},
 						'details.seri': ''
-					},
-					{
-						fields: {
-							details: 1,
-							_id: 0
-						}
-					}).fetch();
+					}
 
 				} else if (calendarType === 'playoffs') {
 					// Loading games in playoffs
-					teamGames = Games.find(
-					{
+					// teamGames = Games.find(
+					query = {
 						$or: [
 							{ 'details.v.ta': teamSelected },
 							{ 'details.h.ta': teamSelected }
@@ -2196,16 +2124,10 @@ Meteor.startup(() => {
 						'details.seri': {
 							$ne: ''
 						}
-					}, 
-					{
-						fields: {
-							details: 1,
-							_id: 0
-						}
-					}).fetch();
-
+					};
 				}
 
+				teamGames = Games.find(query,options).fetch();
 				// Cleaning up the results before returning
 				const results = teamGames.map(gameInfo => {
 					return gameInfo.details;
