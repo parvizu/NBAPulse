@@ -3,6 +3,9 @@
 	font-family: Helvetica;
 }
 
+g.cord-event.filtered-out {
+    opacity: .15;
+}
 
 rect.substitution-bench: {
     fill: rgba(0,0,0,.25);
@@ -15,12 +18,15 @@ rect.substitution-court: {
 
 .period-end {
     fill: gray;
+    /*fill: rgba(10,10,10,.5);*/
     width: 5px;
 }
 
 .mid-quarter {
-    width: .5px;
-    fill: lightgray;
+    /*width: .5px;*/
+    width: 1px;
+    fill: gray;
+    display: none;
 }
 
 

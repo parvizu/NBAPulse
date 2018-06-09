@@ -9,20 +9,22 @@
 #stat-control {
     width: 100%;
     text-align: center;
+    display: inline-block;
 }
 
 .stat {
-	display: inline-block;
-	margin: 5px;
-	/*height: 25px;*/
-	padding: 3px;
-	width:	100px;
-	background-color: lightgray;
-	font-size: 8pt;
-	font-family: Helvetica;
-	text-align: center;
-	border: solid 3px;
-	font-weight: bold;
+    display: inline-block;
+    margin: 5px;
+    /* height: 25px; */
+    padding: 3px;
+    width: 100px;
+    background-color: lightgray;
+    font-size: 8pt;
+    font-family: Helvetica;
+    text-align: center;
+    border: solid 3px;
+    border-radius: 2px;
+    /* font-weight: bold; */
 }
 
 .stat:hover {
@@ -85,8 +87,8 @@ rect.stat-hidden {
 
 .player-container {
 	margin: 0;
-	margin-top: 10px;
-	margin-bottom: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
 	position: relative;
 	font-family: Helvetica;
 }

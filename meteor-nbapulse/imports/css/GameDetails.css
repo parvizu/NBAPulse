@@ -8,6 +8,20 @@
     height: 265px;
 }
 
+.game-banner {
+    border-top: 7px solid;
+    height: 15px;
+}
+
+.game-banner img {
+    background-color: ghostwhite;
+    height: 35px;
+    border-radius: 2px;
+    padding: 5px;
+    position: relative;
+    top: -26px;
+}
+
 .period-scoring:last-of-type {
     border-left: solid 1px;
     padding-left: 10px;

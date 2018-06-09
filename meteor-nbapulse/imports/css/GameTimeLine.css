@@ -1,0 +1,39 @@
+
+
+
+.time-axis-container {
+	margin-left: 300px;
+	/*background-color: ghostwhite;*/
+}
+
+.time-axis-container > div {
+    margin: 0px;
+    padding: 0px;
+    height: 20px;
+}
+
+svg.timeline-chart {
+    border-bottom: solid thin gray;
+}
+
+svg.timeline-chart text.period-label {
+	fill: gray !important;
+	text-anchor: middle;
+    font-size: 8pt;
+    font-weight: 300;
+}
+
+svg.timeline-chart text.period-label:hover {
+	cursor: pointer;
+}
+
+.minute {
+	width: 2px;
+	fill: gray;
+}
+
+.minute:hover {
+	cursor: pointer;
+}
+
+

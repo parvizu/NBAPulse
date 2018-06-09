@@ -83,14 +83,18 @@ li.team-games-item {
     height: 18px;
     width: 30px;
     display: inline-block;
-    font-size: 11px;
+    font-size: 13px;
     text-align: center;
     color: black;
     font-family: helvetica;
     /* margin-right: 1px; */
     vertical-align: middle;
-    padding-top: 7px;
+    /* padding-top: 7px; */
     border-bottom: 3px solid white;
+    margin: 1px;
+    margin-top: 5px;
+    padding: 10px 6px;
+    /* font-weight: 400; */
 }
 
 li.team-games-item:hover {
@@ -108,6 +112,20 @@ li.team-games-item.selected {
     color: white;
 }
 
+li.team-games-item.selected.team-game-victory,
+li.team-games-item.team-game-victory:hover {
+    background-color: green;
+    color: white;
+}
+
+li.team-games-item.selected.team-game-defeat,
+li.team-games-item.team-game-defeat:hover {
+    background-color: red;
+    color: white;
+}
+
+
+
 li.team-games-item.home {
     /*border-bottom: solid 3px green;*/
 }
@@ -115,4 +133,13 @@ li.team-games-item.home {
 li.team-games-item.away {
     /*border-bottom: solid 3px red;*/
     background-image: url('./img/away_background.png');
+}
+
+
+li.team-games-item.team-game-victory {
+    border-bottom: solid 2px green;
+}
+
+li.team-games-item.team-game-defeat {
+    border-bottom: solid 2px red;
 }
