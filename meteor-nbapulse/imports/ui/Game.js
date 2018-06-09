@@ -52,11 +52,11 @@ export default class Game extends Component {
 
 					</div>
 					<StatControl
-							onStatClick={this.props.onStatClick}
-							selectedStats={this.props.selectedStats}
-							/>
+						onStatClick={this.props.onStatClick}
+						selectedStats={this.props.selectedStats}
+						/>
 					<GameVisualization
-							gameId={this.props.gameData.gameSelected}
+							gameId={this.props.gameSelected}
 							gameData={this.props.gameData.processed}
 							homeTeam={this.props.gameData.teams.home}
 							awayTeam={this.props.gameData.teams.away}

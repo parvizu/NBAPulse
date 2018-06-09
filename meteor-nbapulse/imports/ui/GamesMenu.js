@@ -21,13 +21,26 @@ export default class GamesMenu extends Component {
 
 	getGames() {
 		const gameList = this.props.gamesList.map(gameDetails => {
-			let opponentAbbr = this.props.teamSelected === gameDetails.h.ta ? gameDetails.v.ta : gameDetails.h.ta;
+			const teamIsHome = this.props.teamSelected === gameDetails.h.ta;
+			const opponentAbbr = teamIsHome ? gameDetails.v.ta : gameDetails.h.ta;
+
+			const gameResult = gameDetails.h.s - gameDetails.v.s;
 
 			let classes = classnames({
 				'team-games-item': true,
+				'team-game-visiting': !teamIsHome,
+				'team-game-defeat': (teamIsHome === gameResult < 0) && gameResult !== 0,
+				'team-game-victory': (teamIsHome === gameResult > 0) && gameResult !== 0,
 				'selected': this.props.gameSelected === gameDetails.gid
 				// 'disabled': Objet.keys(gameDetails.data).length === 0
 			});
+
+			if (gameResult === 0) {
+				console.log("GAME RESULT", gameResult, "GID", gameDetails.gid, gameDetails.h.s, gameDetails.v.s);
+				console.log("HOME", gameDetails.h);
+				console.log("VISITING", gameDetails.v);
+			}
+
 
 			return (
 				<li 

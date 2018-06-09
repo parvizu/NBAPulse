@@ -82,7 +82,7 @@ class NBAPulse extends Component {
 
 	componentDidMount() {
 		this.onSelectTeam('GSW');
-		this.onSelectGame('0041700314');
+		this.onSelectGame('0041700404');
 	}
 
 	onSelectTeam(teamAbbr) {

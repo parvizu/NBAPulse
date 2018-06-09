@@ -25,7 +25,7 @@ export default class PlayerGameCord extends Component {
 				<div className={classnames} >
 					<PlayerCard
 						playerId={this.props.playerDetails.playerId}
-						playerStats={this.props.playerData.playerStats}
+						playerStats={this.props.playerStats}
 						label={this.props.playerDetails.playerName}
 						selectedStats={this.props.selectedStats}
 						/>
@@ -41,6 +41,7 @@ export default class PlayerGameCord extends Component {
 						periods={this.props.periods}
 						selectedStats={ selectedStats}
 						height={100}
+						filter={this.props.filter}
 						/>
 				</div>
 			</div>
