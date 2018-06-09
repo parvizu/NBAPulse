@@ -306,29 +306,14 @@ Meteor.startup(() => {
 					"playerId": 201567,
 					"playerName": "Kevin Love"
 				}, {
-					"playerId": 201565,
-					"playerName": "Derrick Rose"
-				}, {
 					"playerId": 2544,
 					"playerName": "LeBron James"
-				}, {
-					"playerId": 202738,
-					"playerName": "Isaiah Thomas"
-				}, {
-					"playerId": 203109,
-					"playerName": "Jae Crowder"
-				}, {
-					"playerId": 2548,
-					"playerName": "Dwyane Wade"
 				}, {
 					"playerId": 202684,
 					"playerName": "Tristan Thompson"
 				}, {
 					"playerId": 2747,
 					"playerName": "JR Smith"
-				}, {
-					"playerId": 202697,
-					"playerName": "Iman Shumpert"
 				}, {
 					"playerId": 201145,
 					"playerName": "Jeff Green"
@@ -342,14 +327,20 @@ Meteor.startup(() => {
 					"playerId": 1626224,
 					"playerName": "Cedi Osman"
 				}, {
-					"playerId": 101112,
-					"playerName": "Channing Frye"
-				}, {
 					"playerId": 1627790,
 					"playerName": "Ante Zizic"
 				}, {
-					"playerId": 204066,
-					"playerName": "John Holland"
+					"playerId": 201588,
+					"playerName": "George Hill"
+				}, {
+					"playerId": 203903,
+					"playerName": "Jordan Clarkson"
+				}, {
+					"playerId": 1626204,
+					"playerName": "Larry Nance Jr."
+				}, {
+					"playerId": 203918,
+					"playerName": "Rodney Hood"
 				}]
 			},
 			{
@@ -532,9 +523,6 @@ Meteor.startup(() => {
 				}, {
 					"playerId": 1627775,
 					"playerName": "Patrick McCaw"
-				}, {
-					"playerId": 201956,
-					"playerName": "Omri Casspi"
 				}, {
 					"playerId": 1628395,
 					"playerName": "Jordan Bell"
@@ -1499,7 +1487,7 @@ Meteor.startup(() => {
 
 		rosters.forEach(roster => {
 			console.log("Saving team roster to DB", roster.teamName);
-			Teams.insert(roster);	
+			Teams.insert(roster);
 		});
 	}
 
@@ -2063,7 +2051,8 @@ Meteor.startup(() => {
 
 				console.log("GAME NOT IN DB:", gid);
 
-				return {};
+				// COMMENT OUT FOR NOT DB GAMES TO BE LOADED LOCALLY
+				// return {};
 
 				const url = "http://stats.nba.com/stats/playbyplayv2?GameID=" + gid + "&StartPeriod=00&EndPeriod=08";
 				console.log("FETCHING DATA", gid, "URL", url);
@@ -2172,6 +2161,11 @@ Meteor.startup(() => {
 				console.log("TID1", teamId1,"TID2", teamId2, "Done Retrieving team roster", rosters[0].teamKey, rosters[0].players.length + " players", rosters[1].teamKey, rosters[1].players.length + " players");
 
 				return rosters;
+			},
+
+			getFilterStats:(filter, gid, gameData) => {
+				console.log("GID", gid, "FILTER", filter);
+				return GameHelpers._filterGamePlayerLogs(filter, gameData);
 			}
 		});
 	}
