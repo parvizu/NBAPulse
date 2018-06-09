@@ -54,7 +54,10 @@ export default class Header extends Component {
 		return (
 
 			<div id="header">
-				<div id="updated">v1.1.1 BETA (06/04/18)</div>
+				<div id="updated">
+	                <div className="addthis_inline_share_toolbox"></div>
+				</div>
+
 				<div className="header-top">
 					<div className="header-section header-section-left header-top-left">
 						<img src="/img/logos/nbaLogo.svg" /> 

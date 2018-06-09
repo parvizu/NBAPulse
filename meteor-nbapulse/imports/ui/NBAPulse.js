@@ -7,6 +7,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 
 import Header from './Header.js';
 import Game from './Game.js';
+import Footer from './Footer.js';
 
 import styles from '../css/NBAPulse.css';
 
@@ -215,6 +216,8 @@ class NBAPulse extends Component {
 					/>
 
 				{ this.renderGame() }
+
+				<Footer />
 			</div>
 		);
 	}

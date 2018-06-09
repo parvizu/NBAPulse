@@ -9,15 +9,17 @@
 .time-axis-container > div {
     margin: 0px;
     padding: 0px;
-    height: 20px;
+    height: 30px;
 }
 
 svg.timeline-chart {
     border-bottom: solid thin gray;
+    background: rgba(10,10,10,.2);
+    margin-top: 10px;
 }
 
 svg.timeline-chart text.period-label {
-	fill: gray !important;
+	fill: lightgray !important;
 	text-anchor: middle;
     font-size: 8pt;
     font-weight: 300;

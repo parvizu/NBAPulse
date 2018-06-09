@@ -150,6 +150,10 @@ div#updated {
     color: silver;
 }
 
+div#updated .addthis_inline_share_toolboxcontainer {
+    display: inline-block;
+}
+
 
 .header-section.header-section-main.header-bottom-main >div {
     display: inline-block;
