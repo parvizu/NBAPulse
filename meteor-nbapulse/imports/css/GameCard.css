@@ -2,10 +2,28 @@
 	height: 350px;
 }
 
+.game-card .scoring-label {
+    position: absolute;
+    -webkit-transform: rotate(-90deg);
+    right: -55%;
+    top: 46%;
+    text-align: center;
+    z-index: 10;
+    background: rgba(10,10,10,.2);
+    /* height: 30px; */
+    width: 355px;
+    padding: 5px 0px;
+    font-size: 10px;
+    color: lightgray;
+}
+
 
 .game-card-team {
 	height: 50%;
 }
+
+
+
 
 
 .game-card-team-home.team-bg::before {
@@ -29,7 +47,8 @@
 	border-left: 0px !important;
 	padding-top: 5px;
 	padding-bottom: 5px;
-	background: rgba(10,10,10,.2);
+	/*background: rgba(10,10,10,.2);*/
+    width: 277px;
 }
 
 .game-card-team-home .game-card-team-name {
