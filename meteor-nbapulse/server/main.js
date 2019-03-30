@@ -34,9 +34,15 @@ Meteor.startup(() => {
 		Schedule.insert(schedule);
 	}
 
+	// TESTING ROSTER GENERATING
+	// console.log(GameHelpers._generateSeasonRosters('2018-2019'));
+
+
 	// Inserting team rosters by season into DB
 	if (Teams.find({}).count() === 0) {
 
+		const rosters = GameHelpers._generateSeasonRosters('2018-2019');
+		/*
 		const rosters = [
 			{
 				"season": "2017-2018",
@@ -1484,7 +1490,7 @@ Meteor.startup(() => {
 				}]
 			}
 		];
-
+		*/
 		rosters.forEach(roster => {
 			console.log("Saving team roster to DB", roster.teamName);
 			Teams.insert(roster);
