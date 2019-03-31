@@ -31,9 +31,18 @@ export default class Game extends Component {
 					away: ""
 				}
 			},
+			chartType: 'cord'
 		}
 
 		this.count = 0;
+
+		this.handleChartTypeChange = this.handleChartTypeChange.bind(this);
+	}
+
+	handleChartTypeChange(chartType) {
+		this.setState({
+			chartType: chartType
+		});
 	}
 
 	render() {
@@ -54,6 +63,7 @@ export default class Game extends Component {
 					<StatControl
 						onStatClick={this.props.onStatClick}
 						selectedStats={this.props.selectedStats}
+						onChangeChartType={this.handleChartTypeChange}
 						/>
 					<GameVisualization
 							gameId={this.props.gameSelected}
@@ -62,6 +72,7 @@ export default class Game extends Component {
 							awayTeam={this.props.gameData.teams.away}
 							selectedStats={this.props.selectedStats}
 							playersSelected={this.props.playersSelected}
+							chartType={this.state.chartType}
 							/>
 				</div>
 			);

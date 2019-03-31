@@ -1993,7 +1993,7 @@ Meteor.startup(() => {
 
 			let newGame = {};
 			games.forEach((game) => {
-				game['season'] = '2017-2018';
+				game['season'] = '2018-2019';
 				game['month'] = month;
 
 				newGame['details'] = game;

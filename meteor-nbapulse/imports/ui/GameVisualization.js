@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import classnames from 'classnames';
 
 import ScoringMarginChart from './ScoringMarginChart.js';
-import PlayerGameCord from './PlayerGameCord.js';
+import PlayerGameChart from './PlayerGameChart.js';
 import PlayerGameDNP from './PlayerGameDNP';
 import TeamsGameCard from './TeamsGameCard';
 import GameTimeLine from './GameTimeLine';
@@ -95,7 +95,7 @@ export default class GameVisualization extends Component {
 					const playerStats = this.state.filter.active ? this.state.filter.data[playerId] : playerData.playerStats;
 
 					return (
-						<PlayerGameCord
+						<PlayerGameChart
 							key={playerKey}
 							playerDetails={player}
 							playerData={playerData}
@@ -106,6 +106,7 @@ export default class GameVisualization extends Component {
 							specs={this.state.specs}
 							selectedStats={this.props.selectedStats}
 							filter={this.state.filter}
+							chartType={this.props.chartType}
 							/>
 					);
 				}
