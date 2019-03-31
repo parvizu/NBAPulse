@@ -27,12 +27,13 @@ export default class TeamsGameCard extends Component {
 
 		return (
 			<div className="chart-label game-card">
-				<div className={homeClasses}>
-					<h4 className={"game-card-team-name " +this.props.home.teamKey}>{ this.props.home.teamCity +" "+ this.props.home.teamName}</h4>
-				</div>
-				<div className={awayClasses}>
-					<h4 className={"game-card-team-name " +this.props.away.teamKey}>{ this.props.away.teamCity +" "+ this.props.away.teamName}</h4>
-				</div>
+					<div className="scoring-label"> &#8592;  Scoring Margin  &#8594;</div>
+					<div className={homeClasses}>
+						<h4 className={"game-card-team-name " +this.props.home.teamKey}>{ this.props.home.teamCity +" "+ this.props.home.teamName}</h4>
+					</div>
+					<div className={awayClasses}>
+						<h4 className={"game-card-team-name " +this.props.away.teamKey}>{ this.props.away.teamCity +" "+ this.props.away.teamName}</h4>
+					</div>
 			</div>
 			
 		);

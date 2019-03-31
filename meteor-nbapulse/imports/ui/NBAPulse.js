@@ -7,6 +7,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 
 import Header from './Header.js';
 import Game from './Game.js';
+import Footer from './Footer.js';
 
 import styles from '../css/NBAPulse.css';
 
@@ -22,10 +23,10 @@ class NBAPulse extends Component {
 				missed: '',
 				assist: '',
 				rebound: '',
-				steal: '',
-				block: '',
-				turnover: '',
-				foul: '',
+				steal: 'stat-hidden',
+				block: 'stat-hidden',
+				turnover: 'stat-hidden',
+				foul: 'stat-hidden',
 				periods: 4
 			},
 			calendarType:'season',
@@ -36,18 +37,18 @@ class NBAPulse extends Component {
 			playersSelected: {
 				"ATL": ['203471'],
 				"BKN": ['1626156'],
-				"BOS": ['202681'],
+				"BOS": ['201143','1627759','1628369'],
 				"CHA": ['202689'],
 				"CHI": ['1628374'],
-				"CLE": ['2544'],
+				"CLE": ['2544','201567'],
 				"DAL": ['203084'],
 				"DEN": ['203999'],
 				"DET": ['203083'],
-				"GSW": ['201939','201142'],
-				"HOU": ['201935'],
+				"GSW": ['201939','201142','203110','202691'],
+				"HOU": ['201935','101108'],
 				"IND": ['203506'],
 				"LAC": ['201599'],
-				"LAL": ['1627742','1628366'],
+				"LAL": ['2544','1627742'],
 				"MEM": ['201188'],
 				"MIA": ['201609'],
 				"MIL": ['203507'],
@@ -81,8 +82,9 @@ class NBAPulse extends Component {
 	}
 
 	componentDidMount() {
-		this.onSelectTeam('GSW');
-		this.onSelectGame('0021700002');
+		this.onSelectTeam('LAL');
+		// this.onSelectGame('0041700404'); NBA FINALS G4
+		this.onSelectGame('0021800814');
 	}
 
 	onSelectTeam(teamAbbr) {
@@ -100,7 +102,6 @@ class NBAPulse extends Component {
 		const self = this;
 
 		Meteor.call("getGameData", gid, function(error, results) {
-	        // console.log("Game data", gid, results);
 			self.setState({
 				gameSelected: gid,
 				gameData: results
@@ -216,6 +217,8 @@ class NBAPulse extends Component {
 					/>
 
 				{ this.renderGame() }
+
+				<Footer />
 			</div>
 		);
 	}
@@ -227,6 +230,6 @@ export default withTracker(() => {
 
 	return {
 		league: League.findOne({},{'teamsDetails':1,'teamsAbbr':1, '_id':0}),
-		teams: Teams.find({"season":"2017-2018"}).fetch()
+		teams: Teams.find({"season":"2018-2019"}).fetch()
 	};
 })(NBAPulse);

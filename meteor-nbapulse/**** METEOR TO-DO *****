@@ -2,30 +2,50 @@
 
 BUGS
 -----------------------------
+[X] GamesMenu - Selected game is not displaying as selected. Probably issue with condition of when to render() and this.props.gameSelected passed.
 
+[X] StatsControl - Selecting/Unselecting stats doesn't work currently. It will deselect from the player card but not from the cord visualization
+
+[X] GamesMenu - When selecting a game that hasn't been played the whole site fails. Something should be displayed saying that the game is not yet available or hasn't been played instead of crashing.
+
+
+
+MAIN/OVERALL IMPROVEMENTS
+-----------------------------
+[ ] Have a spinner overlay for when the data is being loaded.
+
+
+
+GAME DETAILS/MENU
+-----------------------------
+[X] Update player selection for the game. Right now the selection is done by position in array of team players. The player list to create chart is a dictionary. Selection does not work.
+
+[X] Deselecting a player is not working. Need to be remove it from the array of each team.
+
+[X] Add date and location information like Arena, City, etc. 
+
+[ ] Add records of teams at that point in the calendar.
+
+[ ] In the Team Players List, only show the players that played in that game?
+	* Maybe show all the players that have played for the team but have the ones that didn't play as disabled.
 
 [X] Why does it take forever to load the game list the first time you select a team?
 	- It seems to not necessarilly be the first team select but simply after the first load. Could be a DB issue?
 	- setTimeout Chrome Violation happens after initial load, not after initial TeamSelection. After that happens, games load instantly.
 	FIX: Seems like the GAMES DB was being published but never used really. Therefore it would take forever to load all the game data for everygame in the DB.
 
-[ ] GamesMenu - Selected game is not displaying as selected. Probably issue with condition of when to render() and this.props.gameSelected passed.
-
-[ ] StatsControl - Selecting/Unselecting stats doesn't work currently.
-
+[X] GamesMenu - Selected game is not displaying as selected. Probably issue with condition of when to render() and this.props.gameSelected passed.
 
 
 
 MAIN FUNCTIONALITY 
 -----------------------------
-[X] Update player selection for the game. Right now the selection is done by position in array of team players. The player list to create chart is a dictionary. Selection does not work.
-
 
 
 
 GAME VISUALIZATION
 -----------------------------
-[ ] Have an empty cord chart if the player DNP. Right now the player will not show up because there is not player data in the playerLog for that game.
+
 
 
 CHARTS 
@@ -37,6 +57,6 @@ CHARTS
 
 DATA
 -----------------------------
-[ ] Add substitution data to the Game Data on the DB. Substitution Data is currently not processed on the server when a game is loaded for the first time.
+[X] Add substitution data to the Game Data on the DB. Substitution Data is currently not processed on the server when a game is loaded for the first time.
 
 [ ]

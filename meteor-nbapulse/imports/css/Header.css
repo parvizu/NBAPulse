@@ -39,7 +39,7 @@ div#header {
 }
 
 .header-section-left {
-    margin-right: 4px;
+    margin-right: 10px;
     /*padding: 5px;*/
 }
 
@@ -68,11 +68,11 @@ div#header {
 }
 
 .header-bottom .header-bottom-left {
-    width: 320px;
+    width: 290px;
     text-align: right;
     vertical-align: top;
     padding-top: 5px;
-
+    padding-right: 10px;
 }
 
 .header-bottom .header-bottom-main {
@@ -150,6 +150,10 @@ div#updated {
     color: silver;
 }
 
+div#updated .addthis_inline_share_toolboxcontainer {
+    display: inline-block;
+}
+
 
 .header-section.header-section-main.header-bottom-main >div {
     display: inline-block;
@@ -158,22 +162,22 @@ div#updated {
 
 .calendar-types {
     /* display: inline-block; */
-    width: 100px;
+    /*width: 100px;*/
     font-size: 14pt;
     /*padding-right: 5px;*/
-    float: right;
+    /*float: right;*/
 }
 
 .calendar-types li {
     list-style-type: none;
     margin: 5px;
-    border-radius: 2px;
-    padding: 5px;
+    /* border-radius: 2px; */
+    padding: 2px;
     border: solid 1px transparent;
 }
 
 .calendar-types li.selected {
-    border: 1px solid darkorange;
+    /*border: 1px solid darkorange;*/
     background-color: white;
     color: darkorange;
     text-align: center;
@@ -184,6 +188,11 @@ div#updated {
     /*background-color: white;*/
     /*border-bottom: 1px solid darkorange;*/
     border-color: white;
+}
+
+.calendar-types img {
+    /*width: 100px;*/
+    height: 30px;
 }
 
 

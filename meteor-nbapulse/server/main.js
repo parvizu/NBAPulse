@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import axios from 'axios';
+import fetch from 'node-fetch';
 
 import { GameHelpers } from './GameHelpers.js';
 import { DBInitializer} from './DBInitializer.js';
@@ -33,9 +34,15 @@ Meteor.startup(() => {
 		Schedule.insert(schedule);
 	}
 
+	// TESTING ROSTER GENERATING
+	// console.log(GameHelpers._generateSeasonRosters('2018-2019'));
+
+
 	// Inserting team rosters by season into DB
 	if (Teams.find({}).count() === 0) {
 
+		const rosters = GameHelpers._generateSeasonRosters('2018-2019');
+		/*
 		const rosters = [
 			{
 				"season": "2017-2018",
@@ -305,29 +312,14 @@ Meteor.startup(() => {
 					"playerId": 201567,
 					"playerName": "Kevin Love"
 				}, {
-					"playerId": 201565,
-					"playerName": "Derrick Rose"
-				}, {
 					"playerId": 2544,
 					"playerName": "LeBron James"
-				}, {
-					"playerId": 202738,
-					"playerName": "Isaiah Thomas"
-				}, {
-					"playerId": 203109,
-					"playerName": "Jae Crowder"
-				}, {
-					"playerId": 2548,
-					"playerName": "Dwyane Wade"
 				}, {
 					"playerId": 202684,
 					"playerName": "Tristan Thompson"
 				}, {
 					"playerId": 2747,
 					"playerName": "JR Smith"
-				}, {
-					"playerId": 202697,
-					"playerName": "Iman Shumpert"
 				}, {
 					"playerId": 201145,
 					"playerName": "Jeff Green"
@@ -341,14 +333,20 @@ Meteor.startup(() => {
 					"playerId": 1626224,
 					"playerName": "Cedi Osman"
 				}, {
-					"playerId": 101112,
-					"playerName": "Channing Frye"
-				}, {
 					"playerId": 1627790,
 					"playerName": "Ante Zizic"
 				}, {
-					"playerId": 204066,
-					"playerName": "John Holland"
+					"playerId": 201588,
+					"playerName": "George Hill"
+				}, {
+					"playerId": 203903,
+					"playerName": "Jordan Clarkson"
+				}, {
+					"playerId": 1626204,
+					"playerName": "Larry Nance Jr."
+				}, {
+					"playerId": 203918,
+					"playerName": "Rodney Hood"
 				}]
 			},
 			{
@@ -531,9 +529,6 @@ Meteor.startup(() => {
 				}, {
 					"playerId": 1627775,
 					"playerName": "Patrick McCaw"
-				}, {
-					"playerId": 201956,
-					"playerName": "Omri Casspi"
 				}, {
 					"playerId": 1628395,
 					"playerName": "Jordan Bell"
@@ -1495,10 +1490,10 @@ Meteor.startup(() => {
 				}]
 			}
 		];
-
+		*/
 		rosters.forEach(roster => {
 			console.log("Saving team roster to DB", roster.teamName);
-			Teams.insert(roster);	
+			Teams.insert(roster);
 		});
 	}
 
@@ -2004,7 +1999,7 @@ Meteor.startup(() => {
 
 			let newGame = {};
 			games.forEach((game) => {
-				game['season'] = '2017-2018';
+				game['season'] = '2018-2019';
 				game['month'] = month;
 
 				newGame['details'] = game;
@@ -2049,6 +2044,8 @@ Meteor.startup(() => {
 						'_id': 0
 					}
 				});
+
+				console.log("GID", gid, "Game Data length", Object.keys(gameData.data).length);
 				let response = "";
 
 				// Check if game data is already in the DB
@@ -2058,60 +2055,28 @@ Meteor.startup(() => {
 					return gameData;
 				}
 
-				/**** COMMENT OUT FOR OFFLINE WORK ****/
+				console.log("GAME NOT IN DB:", gid);
+
+				// COMMENT OUT FOR NOT DB GAMES TO BE LOADED LOCALLY
+				// return {};
+
 				const url = "http://stats.nba.com/stats/playbyplayv2?GameID=" + gid + "&StartPeriod=00&EndPeriod=08";
-				const request = axios.get(url);
-				return request.then(results => {
-					// Checking if the game has been played or already
-					if (results.data.resultSets[0].rowSet.length === 0) {
-						response = "This game has not been played yet";
-						console.log("GID", gid, response);
-						return '';
-					}
+				console.log("FETCHING DATA", gid, "URL", url);
 
-					// Process game data for storage
-					let processedData = GameHelpers._processGameDataForStorage(results);
+				const config = {
+					method: 'get',
+					url: url,
+					responseType: 'json'
+				};
 
-					// Getting team rosters for the game
-					const rosters = Teams.find({
-						'season': '2017-2018',
-						$or: [
-							{'teamId': parseInt(gameData.details.h.tid) },
-							{'teamId': parseInt(gameData.details.v.tid) }
-						]
-					}, {
-						fields: {
-							_id: 0
-						}
-					}).fetch();
 
-					const teams = {
-						home: rosters[0].teamId === gameData.details.h.tid ? rosters[0] : rosters[1],
-						away: rosters[1].teamId === gameData.details.v.tid ? rosters[1] : rosters[0]
-					};
-					// Update the game data to the DB and return to client
-					console.log("GID", gid, 'Inserting new game data for game.', 'URL: ' + url);
-					Games.update({
-						'gid': gid
-					}, {
-						$set: {
-							'data': results.data,
-							'teams': teams,
-							'processed': processedData
-						}
+				return axios(config).catch((error) => {
+						console.log("ERROR", error);
+					})
+					.then(results => {
+						console.log('RECEIVED DATA', gid);
+						return GameHelpers._handleNBADataResponse(results,gid, gameData, url);
 					});
-
-					console.log("GID", gid, 'New game data done updating/inserting');
-					gameData.data = results.data;
-					gameData.processed = processedData;
-					gameData.teams = teams;
-					response = gameData;
-					return response;
-				});
-				/**** COMMENT OUT FOR OFFLINE WORK ****/
-
-				// console.log("GAME NOT IN DB:", gid);
-				// return 'empty';
 			},
 
 			// Function that loads the list of regular season games for a specific team
@@ -2119,10 +2084,19 @@ Meteor.startup(() => {
 
 				console.log('TNAME', teamSelected, calendarType, "Start Loading team games");
 				let teamGames = [];
+				let query = {};
+				const options = { 
+					sort: {'gid':1},
+					fields: {
+						details: 1,
+						_id: 0
+					}
+				};
+
 				if (calendarType === 'season') {
 					// Loading games in regular season
-					teamGames = Games.find(
-					{
+					// teamGames = Games.find(
+					query =  {
 						$or: [
 							{ 'details.v.ta': teamSelected },
 							{ 'details.h.ta': teamSelected }
@@ -2131,18 +2105,12 @@ Meteor.startup(() => {
 							$gte: "2017-10-17"
 						},
 						'details.seri': ''
-					},
-					{
-						fields: {
-							details: 1,
-							_id: 0
-						}
-					}).fetch();
+					}
 
 				} else if (calendarType === 'playoffs') {
 					// Loading games in playoffs
-					teamGames = Games.find(
-					{
+					// teamGames = Games.find(
+					query = {
 						$or: [
 							{ 'details.v.ta': teamSelected },
 							{ 'details.h.ta': teamSelected }
@@ -2153,16 +2121,10 @@ Meteor.startup(() => {
 						'details.seri': {
 							$ne: ''
 						}
-					}, 
-					{
-						fields: {
-							details: 1,
-							_id: 0
-						}
-					}).fetch();
-
+					};
 				}
 
+				teamGames = Games.find(query,options).fetch();
 				// Cleaning up the results before returning
 				const results = teamGames.map(gameInfo => {
 					return gameInfo.details;
@@ -2205,6 +2167,11 @@ Meteor.startup(() => {
 				console.log("TID1", teamId1,"TID2", teamId2, "Done Retrieving team roster", rosters[0].teamKey, rosters[0].players.length + " players", rosters[1].teamKey, rosters[1].players.length + " players");
 
 				return rosters;
+			},
+
+			getFilterStats:(filter, gid, gameData) => {
+				console.log("GID", gid, "FILTER", filter);
+				return GameHelpers._filterGamePlayerLogs(filter, gameData);
 			}
 		});
 	}

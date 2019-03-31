@@ -69,7 +69,7 @@ export default class CordChart extends Component {
 				// half quarter mark
 				periodBreaks.push({
 					gameClock: '6:00',
-					quarter:i+1,
+					quarter:i,
 					breakType: 'mid-quarter',
 					momentId: i>1 ? ((i*2)-1) * 361 : 361,
 				});
@@ -158,7 +158,14 @@ export default class CordChart extends Component {
 				.enter()
 				.append('g')
 					.attr({
-						class: 'cord-event event-'+statName,
+						class: p => {
+							let classes = 'cord-event event-'+statName;
+							if (this.props.filter.active && (p.momentId < this.props.filter.criteria.start || p.momentId >= this.props.filter.criteria.end)) {
+								classes += ' filtered-out';
+							}
+
+							return classes;
+						},
 						transform: p => {
 							let stat;
 							if (p.playText.indexOf('made') !== -1) {

@@ -1,3 +1,10 @@
+import {
+	Schedule,
+	Games,
+	Teams,
+	League,
+	Players
+} from '../imports/api/collections.js';
 
 export const GameHelpers = {
 
@@ -131,7 +138,7 @@ export const GameHelpers = {
 					play.type = 6;
 					play.text = 'made-3pt';
 				}
-			} else if (description.indexOf('Dunk') !== -1 || description.indexOf('Jumper') !== -1 || (description.indexOf('Shot') !== -1 && description.indexOf('Shot Clock') === -1)|| description.indexOf('Layup') !== -1) {
+			} else if (description.indexOf('Dunk') !== -1 || description.indexOf('Jumper') !== -1 || description.indexOf('Fadeaway') !== -1 || (description.indexOf('Shot') !== -1 && description.indexOf('Shot Clock') === -1)|| description.indexOf('Layup') !== -1) {
 				if (description.indexOf('MISS') !== -1) {
 					play.type = 7;
 					play.text = 'missed-fg';
@@ -269,6 +276,91 @@ export const GameHelpers = {
 		return breakdown;
 	},
 
+	_filterGamePlayerLogs: (filter, gameData) => {
+		let filteredStats = {};
+		const players = Object.keys(gameData.playerLogs);
+
+		// Looping through all game players
+		players.forEach(playerId => {
+			let playerStats = {
+				points: 0,
+				assist: 0,
+				rebound: 0,
+				steal: 0,
+				turnover: 0,
+				foul: 0,
+				block: 0,
+				"made-fg": 0,
+				"missed-fg": 0,
+				"made-3pt": 0,
+				"missed-3pt": 0,
+				'made-ft': 0,
+				'missed-ft': 0
+			};
+
+			gameData.playerLogs[playerId].playerLog.forEach(event => {
+				if (event.momentId > filter.start && event.momentId <= filter.end) {
+					const playType = GameHelpers.__processPlayerEvent(event.playType);
+					playerStats[playType]+=1;
+
+					if (playType === 'made-fg') {
+						playerStats.points += 2;
+					} else if (playType === 'made-3pt') {
+						playerStats.points += 3;
+						playerStats['made-fg'] += 1;
+					} else if (playType === 'made-ft') {
+						playerStats.points += 1;
+					} else if (playType === 'missed-3pt') {
+						playerStats['missed-fg'] += 1;
+					}	
+				}
+			});
+			filteredStats[playerId] = playerStats;
+		});
+
+		return filteredStats;
+	},
+
+	__processPlayerEvent: (playType) => {
+		switch(playType) {
+			case 1:
+				return 'foul';
+
+			case 2:
+				return 'rebound';
+
+			case 3:
+				return 'missed-ft';
+
+			case 4:
+				return 'made-ft';
+
+			case 5:
+				return 'missed-3pt';
+
+			case 6:
+				return 'made-3pt';
+
+			case 7:
+				return 'missed-fg';
+
+			case 8:
+				return 'made-fg';
+
+			case 9:
+				return 'turnover';
+
+			case 10:
+				return 'assist';
+
+			case 11:
+				return 'block';
+
+			case 12:
+				return 'steal';
+		}
+	},
+
 	_processGamePlayerLogs: (gameLog) => {
 		let gamePlayers = {};
 
@@ -298,51 +390,11 @@ export const GameHelpers = {
 			'missed-ft': 0
 		};
 
-		const processPlayerEvent = (playType) => {
-			switch(playType) {
-				case 1:
-					return 'foul';
-
-				case 2:
-					return 'rebound';
-
-				case 3:
-					return 'missed-ft';
-
-				case 4:
-					return 'made-ft';
-
-				case 5:
-					return 'missed-3pt';
-
-				case 6:
-					return 'made-3pt';
-
-				case 7:
-					return 'missed-fg';
-
-				case 8:
-					return 'made-fg';
-
-				case 9:
-					return 'turnover';
-
-				case 10:
-					return 'assist';
-
-				case 11:
-					return 'block';
-
-				case 12:
-					return 'steal';
-			}
-		};
-
 		gameLog.forEach((event) => {
 			let playType;
 			if (event.playerId == playerId) {
 				playerPlays.push(event);
-				playType = processPlayerEvent(event.playType);
+				playType = GameHelpers.__processPlayerEvent(event.playType);
 				playerStats[playType]+=1;
 
 				if (playType === 'made-fg') {
@@ -711,6 +763,93 @@ export const GameHelpers = {
 		});
 
 		return playerPlays.length === 0;
+	},
+
+	_handleNBADataResponse(results, gid, gameData, url) {
+		// Checking if the game has been played or already
+		if (results.data.resultSets[0].rowSet.length === 0) {
+			response = "This game has not been played yet";
+			console.log("GID", gid, response);
+			return '';
+		}
+
+		// Process game data for storage
+		let processedData = GameHelpers._processGameDataForStorage(results);
+
+		// Getting team rosters for the game
+		const rosters = Teams.find({
+			'season': '2018-2019',
+			$or: [
+				{'teamId': parseInt(gameData.details.h.tid) },
+				{'teamId': parseInt(gameData.details.v.tid) }
+			]
+		}, {
+			fields: {
+				_id: 0
+			}
+		}).fetch();
+
+		const teams = {
+			home: rosters[0].teamId === gameData.details.h.tid ? rosters[0] : rosters[1],
+			away: rosters[1].teamId === gameData.details.v.tid ? rosters[1] : rosters[0]
+		};
+		// Update the game data to the DB and return to client
+		console.log("GID", gid, 'Inserting new game data for game.', 'URL: ' + url);
+		Games.update({
+			'gid': gid
+		}, {
+			$set: {
+				'data': results.data,
+				'teams': teams,
+				'processed': processedData
+			}
+		});
+
+		console.log("GID", gid, 'New game data done updating/inserting');
+		gameData.data = results.data;
+		gameData.processed = processedData;
+		gameData.teams = teams;
+		response = gameData;
+		return response;
+	},
+
+
+	_generateSeasonRosters(year) {
+		const teams = League.findOne({'status':'current'},{'teamDetails':1});
+		const players = Players.find({}).fetch();
+		let playersTeams = {};
+
+		console.log(players.length);
+
+
+		players.forEach(player => {
+			const teamId = player.teamId;
+			if (!(teamId in playersTeams)) {
+				playersTeams[teamId] = [];
+			}
+			
+			playersTeams[teamId].push({
+				playerId: player.personId,
+				playerName: player.firstName +' '+ player.lastName,
+				playerNum: player.jersey,
+				playerPosition: player.pos
+			});
+		});
+
+		let seasonRosters = [];
+		teams.teamsDetails.forEach(team => {
+			seasonRosters.push({
+				season: year,
+				teamKey: team.teamKey,
+				teamId: team.teamId,
+				teamName: team.teamName,
+				teamCity: team.teamCity,
+				players:playersTeams[team.teamId]
+			});
+		});
+
+		return seasonRosters;
+
 	}
 
 }
