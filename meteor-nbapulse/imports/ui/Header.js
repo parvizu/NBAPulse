@@ -72,13 +72,9 @@ export default class Header extends Component {
 						<a href="http://www.parvizu.com" target="_blank" id="madeby">by Pablo Arvizu</a> <a href="https://twitter.com/sirgalahad88" target="_blank" id="twitterLink"><img src="/img/twitter-256.png" /></a>
 					</div>
 					<div className="header-section header-section-main header-bottom-main">
-						<div className="calendar-types">
-							<li
-								className={playoffsClasses}
-								onClick={this.handleSelectCalendar}
-								data-calendar="playoffs">
-									<img src='/img/logos/playoffsLogo.png' />
-							</li>
+						<div className="view-selector">
+							<li>Games</li>
+							<li>Players</li>
 						</div>
 						<GamesMenu
 							teamSelected={this.props.teamSelected}

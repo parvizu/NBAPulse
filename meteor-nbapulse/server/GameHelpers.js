@@ -778,7 +778,7 @@ export const GameHelpers = {
 
 		// Getting team rosters for the game
 		const rosters = Teams.find({
-			'season': '2017-2018',
+			'season': '2018-2019',
 			$or: [
 				{'teamId': parseInt(gameData.details.h.tid) },
 				{'teamId': parseInt(gameData.details.v.tid) }
@@ -811,6 +811,45 @@ export const GameHelpers = {
 		gameData.teams = teams;
 		response = gameData;
 		return response;
+	},
+
+
+	_generateSeasonRosters(year) {
+		const teams = League.findOne({'status':'current'},{'teamDetails':1});
+		const players = Players.find({}).fetch();
+		let playersTeams = {};
+
+		console.log(players.length);
+
+
+		players.forEach(player => {
+			const teamId = player.teamId;
+			if (!(teamId in playersTeams)) {
+				playersTeams[teamId] = [];
+			}
+			
+			playersTeams[teamId].push({
+				playerId: player.personId,
+				playerName: player.firstName +' '+ player.lastName,
+				playerNum: player.jersey,
+				playerPosition: player.pos
+			});
+		});
+
+		let seasonRosters = [];
+		teams.teamsDetails.forEach(team => {
+			seasonRosters.push({
+				season: year,
+				teamKey: team.teamKey,
+				teamId: team.teamId,
+				teamName: team.teamName,
+				teamCity: team.teamCity,
+				players:playersTeams[team.teamId]
+			});
+		});
+
+		return seasonRosters;
+
 	}
 
 }

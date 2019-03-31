@@ -48,7 +48,7 @@ class NBAPulse extends Component {
 				"HOU": ['201935','101108'],
 				"IND": ['203506'],
 				"LAC": ['201599'],
-				"LAL": ['1627742','1628366'],
+				"LAL": ['2544','1627742'],
 				"MEM": ['201188'],
 				"MIA": ['201609'],
 				"MIL": ['203507'],
@@ -82,9 +82,9 @@ class NBAPulse extends Component {
 	}
 
 	componentDidMount() {
-		this.onSelectTeam('GSW');
+		this.onSelectTeam('LAL');
 		// this.onSelectGame('0041700404'); NBA FINALS G4
-		this.onSelectGame('0021800091');
+		this.onSelectGame('0021800814');
 	}
 
 	onSelectTeam(teamAbbr) {
@@ -230,6 +230,6 @@ export default withTracker(() => {
 
 	return {
 		league: League.findOne({},{'teamsDetails':1,'teamsAbbr':1, '_id':0}),
-		teams: Teams.find({"season":"2017-2018"}).fetch()
+		teams: Teams.find({"season":"2018-2019"}).fetch()
 	};
 })(NBAPulse);
