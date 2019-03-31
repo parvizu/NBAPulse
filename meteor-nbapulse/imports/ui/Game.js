@@ -74,6 +74,11 @@ export default class Game extends Component {
 							playersSelected={this.props.playersSelected}
 							chartType={this.state.chartType}
 							/>
+					<StatControl
+						onStatClick={this.props.onStatClick}
+						selectedStats={this.props.selectedStats}
+						onChangeChartType={this.handleChartTypeChange}
+						/>
 				</div>
 			);
 		}
