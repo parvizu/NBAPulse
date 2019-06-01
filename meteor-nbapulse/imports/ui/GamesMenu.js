@@ -36,9 +36,9 @@ export default class GamesMenu extends Component {
 			});
 
 			if (gameResult === 0) {
-				console.log("GAME RESULT", gameResult, "GID", gameDetails.gid, gameDetails.h.s, gameDetails.v.s);
-				console.log("HOME", gameDetails.h);
-				console.log("VISITING", gameDetails.v);
+				// console.log("GAME RESULT", gameResult, "GID", gameDetails.gid, gameDetails.h.s, gameDetails.v.s);
+				// console.log("HOME", gameDetails.h);
+				// console.log("VISITING", gameDetails.v);
 			}
 
 
