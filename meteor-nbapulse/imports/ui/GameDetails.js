@@ -22,8 +22,8 @@ export default class GameDetails extends Component {
 	shouldShowBanner() {
 
 		let logoImg = "/img/logos/playoffsLogo.png";
-		if (this.props.gameDetails.gid >= '0041700401' && this.props.gameDetails.gid <= '0041700404') {
-			logoImg = "/img/logos/nbafinalslogo.png";
+		if (this.props.gameDetails.gid >= '0041800401') {
+			logoImg = "/img/logos/nbafinalslogo2019trimmed.png";
 		}
 
 		return (
@@ -38,7 +38,7 @@ export default class GameDetails extends Component {
 		return (
 			<div>
 				{ 
-					//this.shouldShowBanner() 
+					this.shouldShowBanner()
 				}
 				<GameHeader 
 					homeTeam={this.props.homeTeam}
