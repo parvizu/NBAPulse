@@ -29,7 +29,7 @@ class NBAPulse extends Component {
 				foul: 'stat-hidden',
 				periods: 4
 			},
-			calendarType:'season',
+			calendarType:'playoffs',
 			teamSelected: '',
 			teamGamesList: [],
 			gameSelected: '',
@@ -62,7 +62,7 @@ class NBAPulse extends Component {
 				"POR": ['203081'],
 				"SAC": ['1628368'],
 				"SAS": ['200746'],
-				"TOR": ['201942'],
+				"TOR": ['202695','201188','1627783','200768'],
 				"UTA": ['1628378'],
 				"WAS": ['202322']
 			}
@@ -82,9 +82,9 @@ class NBAPulse extends Component {
 	}
 
 	componentDidMount() {
-		this.onSelectTeam('LAL');
+		this.onSelectTeam('GSW');
 		// this.onSelectGame('0041700404'); NBA FINALS G4
-		this.onSelectGame('0021800814');
+		this.onSelectGame('0041800401');
 	}
 
 	onSelectTeam(teamAbbr) {

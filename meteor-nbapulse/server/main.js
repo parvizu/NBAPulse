@@ -2116,7 +2116,7 @@ Meteor.startup(() => {
 							{ 'details.h.ta': teamSelected }
 						],
 						'details.gdte': {
-							$gte: "2018-04-14"
+							$gte: "2019-04-12"
 						},
 						'details.seri': {
 							$ne: ''
