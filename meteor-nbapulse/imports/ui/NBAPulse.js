@@ -44,7 +44,7 @@ class NBAPulse extends Component {
 				"DAL": ['203084'],
 				"DEN": ['203999'],
 				"DET": ['203083'],
-				"GSW": ['201939','201142','203110','202691'],
+				"GSW": ['201939','202326','203110','202691'],
 				"HOU": ['201935','101108'],
 				"IND": ['203506'],
 				"LAC": ['201599'],
@@ -84,7 +84,7 @@ class NBAPulse extends Component {
 	componentDidMount() {
 		this.onSelectTeam('GSW');
 		// this.onSelectGame('0041700404'); NBA FINALS G4
-		this.onSelectGame('0041800401');
+		this.onSelectGame('0041800402');
 	}
 
 	onSelectTeam(teamAbbr) {
