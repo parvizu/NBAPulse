@@ -9,7 +9,7 @@
 .time-axis-container > div {
     margin: 0px;
     padding: 0px;
-    height: 30px;
+    height: 60px;
 }
 
 svg.timeline-chart {
@@ -36,6 +36,12 @@ svg.timeline-chart text.period-label:hover {
 
 .minute:hover {
 	cursor: pointer;
+}
+
+g.filter-moment:hover rect,
+g.filter-moment:hover circle{
+	/*background-color: yellow;*/
+	fill: yellow;
 }
 
 

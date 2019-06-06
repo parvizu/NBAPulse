@@ -12,11 +12,23 @@ export default class GameTimeLine extends Component {
 
 		this.buildTimeLine = this.buildTimeLine.bind(this);
 		this.handleQuarterFilter = this.handleQuarterFilter.bind(this);
+		this.handleFilterSelection = this.handleFilterSelection.bind(this);
 	}
 
 	handleQuarterFilter(e) {
-		console.log(e);
+		// console.log(e);
 		this.props.onFilterSelection(e);
+	}
+
+	handleFilterSelection(e) {
+		console.log("SELECTED: ", e);
+
+		this.props.onFilterSelection({
+			start: e.momentId,
+			quarter: e.quarter,
+			momentId: e.momentId,
+			end: this.props.timeLog.length-1
+		});
 	}
 
 
@@ -141,8 +153,7 @@ export default class GameTimeLine extends Component {
 				});
 
 
-		console.log(quarterLabels);
-
+		// Adding Quarter labels
 		svg.selectAll('rect.period-label')
 			.data(quarterLabels)
 			.enter()
@@ -154,7 +165,7 @@ export default class GameTimeLine extends Component {
 					transform: b => {
 						// Checking if quarter is OT for center alignment.
 						const momentId = b.quarter > 4 ? b.momentId-150 : b.momentId;
-						return 'translate('+ (xScale(momentId)) +',8)';
+						return 'translate('+ (xScale(momentId)) +',12)';
 					}
 				})
 				.text((b) => {
@@ -172,6 +183,35 @@ export default class GameTimeLine extends Component {
 				}).on('click',(e) => {
 					this.handleQuarterFilter(e);
 				});
+
+		// Adding sections for selections
+		svg.selectAll('g.filter-moment')
+			.data(this.props.timeLog)
+			.enter()
+			.append('g')
+				.attr({
+					class: 'filter-moment',
+					transform: b => {
+						return 'translate('+(xScale(b.momentId))+',20)';
+					}
+				}).on('click', (e) => {
+					this.handleFilterSelection(e);
+				});
+
+		svg.selectAll('g.filter-moment').append('rect')
+			.attr({
+				width: 2,
+				height: this.props.height-20,
+				fill: 'transparent',
+			})
+
+		// svg.selectAll('g.filter-moment').append('circle')
+		// 	.attr({
+		// 		r: 5,
+		// 		cx: 1,
+		// 		fill: 'transparent'
+		// 	});
+
 
 		return node.toReact();
 	}
