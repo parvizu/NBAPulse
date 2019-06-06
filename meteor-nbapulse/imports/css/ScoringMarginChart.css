@@ -1,5 +1,5 @@
-svg {
-	/*background-color: ghostwhite;*/
+.chart-container svg {
+	background-color: ghostwhite;
 }
 
 .game-scoring-margin .chart-container>div {

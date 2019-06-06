@@ -28,6 +28,7 @@ export default class PlayerGameDNP extends Component {
 						playerStats={null}
 						label={this.props.playerDetails.playerName}
 						selectedStats={this.props.selectedStats}
+						team={this.props.team}
 						/>
 
 					<div className="player-chart-dnp">

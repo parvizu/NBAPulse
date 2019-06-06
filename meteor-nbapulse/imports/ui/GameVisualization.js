@@ -17,7 +17,7 @@ export default class GameVisualization extends Component {
 		this.state = {
 			specs: {
 				width: 1175,
-				height: 150,
+				height: 120,
 				padding: 25,
 				xParam: 'sec',
 				yParam: 'dif'
@@ -107,6 +107,7 @@ export default class GameVisualization extends Component {
 							selectedStats={this.props.selectedStats}
 							filter={this.state.filter}
 							chartType={this.props.chartType}
+							team={team}
 							/>
 					);
 				}
@@ -116,6 +117,7 @@ export default class GameVisualization extends Component {
 						key={playerKey}
 						playerDetails={player}
 						selectedStats={this.props.selectedStats}
+						team={team}
 						/>
 				);
 			}
@@ -131,7 +133,7 @@ export default class GameVisualization extends Component {
 					timeLog={this.props.gameData.timeLog}
 					specs={this.state.specs}
 					periods={this.props.gameData.periods}
-					height={20}
+					height={50}
 					onFilterSelection={this.onFilterSelection}
 					/>
 
@@ -141,6 +143,7 @@ export default class GameVisualization extends Component {
 				<div className="game-scoring-margin">
 					<TeamsGameCard
 						home={this.props.homeTeam}
+						gameScore={this.props.gameData.breakdown}
 						away={this.props.awayTeam}
 						/>
 

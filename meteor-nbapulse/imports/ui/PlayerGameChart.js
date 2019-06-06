@@ -26,7 +26,7 @@ export default class PlayerGameChart extends Component {
 					// key={"cord_" + this.props.playerDetails.playerId}
 					periods={this.props.periods}
 					selectedStats={ selectedStats}
-					height={100}
+					height={this.props.specs.height}
 					filter={this.props.filter}
 					/>
 			);
@@ -59,6 +59,8 @@ export default class PlayerGameChart extends Component {
 						playerStats={this.props.playerStats}
 						label={this.props.playerDetails.playerName}
 						selectedStats={this.props.selectedStats}
+						height={this.props.specs.height}
+						team={this.props.team}
 						/>
 
 				{ this.getPlayerChart(selectedStats) }
