@@ -21477,16 +21477,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "202689",
-                  "fn": "Kemba",
-                  "ln": "Walker",
-                  "val": "18",
-                  "tid": 1610612766,
-                  "ta": "CHA",
-                  "tn": "Hornets",
-                  "tc": "Charlotte"
-                },
-                {
                   "pid": "203482",
                   "fn": "Kelly",
                   "ln": "Olynyk",
@@ -21495,6 +21485,16 @@ export const DBInitializer = {
                   "ta": "MIA",
                   "tn": "Heat",
                   "tc": "Miami"
+                },
+                {
+                  "pid": "202689",
+                  "fn": "Kemba",
+                  "ln": "Walker",
+                  "val": "18",
+                  "tid": 1610612766,
+                  "ta": "CHA",
+                  "tn": "Hornets",
+                  "tc": "Charlotte"
                 }
               ]
             },
@@ -22731,16 +22731,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "202331",
-                  "fn": "Paul",
-                  "ln": "George",
-                  "val": "23",
-                  "tid": 1610612760,
-                  "ta": "OKC",
-                  "tn": "Thunder",
-                  "tc": "Oklahoma City"
-                },
-                {
                   "pid": "1626157",
                   "fn": "Karl-Anthony",
                   "ln": "Towns",
@@ -22749,6 +22739,16 @@ export const DBInitializer = {
                   "ta": "MIN",
                   "tn": "Timberwolves",
                   "tc": "Minnesota"
+                },
+                {
+                  "pid": "202331",
+                  "fn": "Paul",
+                  "ln": "George",
+                  "val": "23",
+                  "tid": 1610612760,
+                  "ta": "OKC",
+                  "tn": "Thunder",
+                  "tc": "Oklahoma City"
                 }
               ]
             },
@@ -25924,16 +25924,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "203954",
-                  "fn": "Joel",
-                  "ln": "Embiid",
-                  "val": "23",
-                  "tid": 1610612755,
-                  "ta": "PHI",
-                  "tn": "76ers",
-                  "tc": "Philadelphia"
-                },
-                {
                   "pid": "1628369",
                   "fn": "Jayson",
                   "ln": "Tatum",
@@ -25942,6 +25932,16 @@ export const DBInitializer = {
                   "ta": "BOS",
                   "tn": "Celtics",
                   "tc": "Boston"
+                },
+                {
+                  "pid": "203954",
+                  "fn": "Joel",
+                  "ln": "Embiid",
+                  "val": "23",
+                  "tid": 1610612755,
+                  "ta": "PHI",
+                  "tn": "76ers",
+                  "tc": "Philadelphia"
                 }
               ]
             },
@@ -28230,16 +28230,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "203501",
-                  "fn": "Tim",
-                  "ln": "Hardaway Jr.",
-                  "val": "24",
-                  "tid": 1610612752,
-                  "ta": "NYK",
-                  "tn": "Knicks",
-                  "tc": "New York"
-                },
-                {
                   "pid": "1628369",
                   "fn": "Jayson",
                   "ln": "Tatum",
@@ -28248,6 +28238,16 @@ export const DBInitializer = {
                   "ta": "BOS",
                   "tn": "Celtics",
                   "tc": "Boston"
+                },
+                {
+                  "pid": "203501",
+                  "fn": "Tim",
+                  "ln": "Hardaway Jr.",
+                  "val": "24",
+                  "tid": 1610612752,
+                  "ta": "NYK",
+                  "tn": "Knicks",
+                  "tc": "New York"
                 }
               ]
             },
@@ -28479,16 +28479,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "201933",
-                  "fn": "Blake",
-                  "ln": "Griffin",
-                  "val": "33",
-                  "tid": 1610612765,
-                  "ta": "DET",
-                  "tn": "Pistons",
-                  "tc": "Detroit"
-                },
-                {
                   "pid": "203897",
                   "fn": "Zach",
                   "ln": "LaVine",
@@ -28497,6 +28487,16 @@ export const DBInitializer = {
                   "ta": "CHI",
                   "tn": "Bulls",
                   "tc": "Chicago"
+                },
+                {
+                  "pid": "201933",
+                  "fn": "Blake",
+                  "ln": "Griffin",
+                  "val": "33",
+                  "tid": 1610612765,
+                  "ta": "DET",
+                  "tn": "Pistons",
+                  "tc": "Detroit"
                 }
               ]
             },
@@ -29952,16 +29952,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "200746",
-                  "fn": "LaMarcus",
-                  "ln": "Aldridge",
-                  "val": "37",
-                  "tid": 1610612759,
-                  "ta": "SAS",
-                  "tn": "Spurs",
-                  "tc": "San Antonio"
-                },
-                {
                   "pid": "1628398",
                   "fn": "Kyle",
                   "ln": "Kuzma",
@@ -29970,6 +29960,16 @@ export const DBInitializer = {
                   "ta": "LAL",
                   "tn": "Lakers",
                   "tc": "Los Angeles"
+                },
+                {
+                  "pid": "200746",
+                  "fn": "LaMarcus",
+                  "ln": "Aldridge",
+                  "val": "37",
+                  "tid": 1610612759,
+                  "ta": "SAS",
+                  "tn": "Spurs",
+                  "tc": "San Antonio"
                 }
               ]
             },
@@ -32108,16 +32108,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "202322",
-                  "fn": "John",
-                  "ln": "Wall",
-                  "val": "26",
-                  "tid": 1610612764,
-                  "ta": "WAS",
-                  "tn": "Wizards",
-                  "tc": "Washington"
-                },
-                {
                   "pid": "202357",
                   "fn": "Nemanja",
                   "ln": "Bjelica",
@@ -32126,6 +32116,16 @@ export const DBInitializer = {
                   "ta": "SAC",
                   "tn": "Kings",
                   "tc": "Sacramento"
+                },
+                {
+                  "pid": "202322",
+                  "fn": "John",
+                  "ln": "Wall",
+                  "val": "26",
+                  "tid": 1610612764,
+                  "ta": "WAS",
+                  "tn": "Wizards",
+                  "tc": "Washington"
                 }
               ]
             },
@@ -34356,16 +34356,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "202695",
-                  "fn": "Kawhi",
-                  "ln": "Leonard",
-                  "val": "31",
-                  "tid": 1610612761,
-                  "ta": "TOR",
-                  "tn": "Raptors",
-                  "tc": "Toronto"
-                },
-                {
                   "pid": "203954",
                   "fn": "Joel",
                   "ln": "Embiid",
@@ -34374,6 +34364,16 @@ export const DBInitializer = {
                   "ta": "PHI",
                   "tn": "76ers",
                   "tc": "Philadelphia"
+                },
+                {
+                  "pid": "202695",
+                  "fn": "Kawhi",
+                  "ln": "Leonard",
+                  "val": "31",
+                  "tid": 1610612761,
+                  "ta": "TOR",
+                  "tn": "Raptors",
+                  "tc": "Toronto"
                 }
               ]
             },
@@ -34707,16 +34707,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "201933",
-                  "fn": "Blake",
-                  "ln": "Griffin",
-                  "val": "25",
-                  "tid": 1610612765,
-                  "ta": "DET",
-                  "tn": "Pistons",
-                  "tc": "Detroit"
-                },
-                {
                   "pid": "203915",
                   "fn": "Spencer",
                   "ln": "Dinwiddie",
@@ -34725,6 +34715,16 @@ export const DBInitializer = {
                   "ta": "BKN",
                   "tn": "Nets",
                   "tc": "Brooklyn"
+                },
+                {
+                  "pid": "201933",
+                  "fn": "Blake",
+                  "ln": "Griffin",
+                  "val": "25",
+                  "tid": 1610612765,
+                  "ta": "DET",
+                  "tn": "Pistons",
+                  "tc": "Detroit"
                 }
               ]
             },
@@ -36313,16 +36313,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "202695",
-                  "fn": "Kawhi",
-                  "ln": "Leonard",
-                  "val": "19",
-                  "tid": 1610612761,
-                  "ta": "TOR",
-                  "tn": "Raptors",
-                  "tc": "Toronto"
-                },
-                {
                   "pid": "203477",
                   "fn": "Isaiah",
                   "ln": "Canaan",
@@ -36331,6 +36321,16 @@ export const DBInitializer = {
                   "ta": "PHX",
                   "tn": "Suns",
                   "tc": "Phoenix"
+                },
+                {
+                  "pid": "202695",
+                  "fn": "Kawhi",
+                  "ln": "Leonard",
+                  "val": "19",
+                  "tid": 1610612761,
+                  "ta": "TOR",
+                  "tn": "Raptors",
+                  "tc": "Toronto"
                 }
               ]
             },
@@ -39296,16 +39296,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "201188",
-                  "fn": "Marc",
-                  "ln": "Gasol",
-                  "val": "20",
-                  "tid": 1610612763,
-                  "ta": "MEM",
-                  "tn": "Grizzlies",
-                  "tc": "Memphis"
-                },
-                {
                   "pid": "203914",
                   "fn": "Gary",
                   "ln": "Harris",
@@ -39314,6 +39304,16 @@ export const DBInitializer = {
                   "ta": "DEN",
                   "tn": "Nuggets",
                   "tc": "Denver"
+                },
+                {
+                  "pid": "201188",
+                  "fn": "Marc",
+                  "ln": "Gasol",
+                  "val": "20",
+                  "tid": 1610612763,
+                  "ta": "MEM",
+                  "tn": "Grizzlies",
+                  "tc": "Memphis"
                 },
                 {
                   "pid": "1628991",
@@ -44440,16 +44440,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "2730",
-                  "fn": "Dwight",
-                  "ln": "Howard",
-                  "val": "25",
-                  "tid": 1610612764,
-                  "ta": "WAS",
-                  "tn": "Wizards",
-                  "tc": "Washington"
-                },
-                {
                   "pid": "203915",
                   "fn": "Spencer",
                   "ln": "Dinwiddie",
@@ -44458,6 +44448,16 @@ export const DBInitializer = {
                   "ta": "BKN",
                   "tn": "Nets",
                   "tc": "Brooklyn"
+                },
+                {
+                  "pid": "2730",
+                  "fn": "Dwight",
+                  "ln": "Howard",
+                  "val": "25",
+                  "tid": 1610612764,
+                  "ta": "WAS",
+                  "tn": "Wizards",
+                  "tc": "Washington"
                 }
               ]
             },
@@ -46453,16 +46453,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "1626149",
-                  "fn": "Montrezl",
-                  "ln": "Harrell",
-                  "val": "25",
-                  "tid": 1610612746,
-                  "ta": "LAC",
-                  "tn": "Clippers",
-                  "tc": "LA"
-                },
-                {
                   "pid": "1629027",
                   "fn": "Trae",
                   "ln": "Young",
@@ -46471,6 +46461,16 @@ export const DBInitializer = {
                   "ta": "ATL",
                   "tn": "Hawks",
                   "tc": "Atlanta"
+                },
+                {
+                  "pid": "1626149",
+                  "fn": "Montrezl",
+                  "ln": "Harrell",
+                  "val": "25",
+                  "tid": 1610612746,
+                  "ta": "LAC",
+                  "tn": "Clippers",
+                  "tc": "LA"
                 }
               ]
             },
@@ -49535,16 +49535,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "203490",
-                  "fn": "Otto",
-                  "ln": "Porter Jr.",
-                  "val": "29",
-                  "tid": 1610612764,
-                  "ta": "WAS",
-                  "tn": "Wizards",
-                  "tc": "Washington"
-                },
-                {
                   "pid": "203944",
                   "fn": "Julius",
                   "ln": "Randle",
@@ -49553,6 +49543,16 @@ export const DBInitializer = {
                   "ta": "NOP",
                   "tn": "Pelicans",
                   "tc": "New Orleans"
+                },
+                {
+                  "pid": "203490",
+                  "fn": "Otto",
+                  "ln": "Porter Jr.",
+                  "val": "29",
+                  "tid": 1610612764,
+                  "ta": "WAS",
+                  "tn": "Wizards",
+                  "tc": "Washington"
                 }
               ]
             },
@@ -49873,16 +49873,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "201942",
-                  "fn": "DeMar",
-                  "ln": "DeRozan",
-                  "val": "34",
-                  "tid": 1610612759,
-                  "ta": "SAS",
-                  "tn": "Spurs",
-                  "tc": "San Antonio"
-                },
-                {
                   "pid": "203507",
                   "fn": "Giannis",
                   "ln": "Antetokounmpo",
@@ -49891,6 +49881,16 @@ export const DBInitializer = {
                   "ta": "MIL",
                   "tn": "Bucks",
                   "tc": "Milwaukee"
+                },
+                {
+                  "pid": "201942",
+                  "fn": "DeMar",
+                  "ln": "DeRozan",
+                  "val": "34",
+                  "tid": 1610612759,
+                  "ta": "SAS",
+                  "tn": "Spurs",
+                  "tc": "San Antonio"
                 }
               ]
             },
@@ -54494,16 +54494,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "201937",
-                  "fn": "Ricky",
-                  "ln": "Rubio",
-                  "val": "23",
-                  "tid": 1610612762,
-                  "ta": "UTA",
-                  "tn": "Jazz",
-                  "tc": "Utah"
-                },
-                {
                   "pid": "202355",
                   "fn": "Hassan",
                   "ln": "Whiteside",
@@ -54512,6 +54502,16 @@ export const DBInitializer = {
                   "ta": "MIA",
                   "tn": "Heat",
                   "tc": "Miami"
+                },
+                {
+                  "pid": "201937",
+                  "fn": "Ricky",
+                  "ln": "Rubio",
+                  "val": "23",
+                  "tid": 1610612762,
+                  "ta": "UTA",
+                  "tn": "Jazz",
+                  "tc": "Utah"
                 }
               ]
             },
@@ -60802,16 +60802,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "202357",
-                  "fn": "Nemanja",
-                  "ln": "Bjelica",
-                  "val": "25",
-                  "tid": 1610612758,
-                  "ta": "SAC",
-                  "tn": "Kings",
-                  "tc": "Sacramento"
-                },
-                {
                   "pid": "203952",
                   "fn": "Andrew",
                   "ln": "Wiggins",
@@ -60820,6 +60810,16 @@ export const DBInitializer = {
                   "ta": "MIN",
                   "tn": "Timberwolves",
                   "tc": "Minnesota"
+                },
+                {
+                  "pid": "202357",
+                  "fn": "Nemanja",
+                  "ln": "Bjelica",
+                  "val": "25",
+                  "tid": 1610612758,
+                  "ta": "SAC",
+                  "tn": "Kings",
+                  "tc": "Sacramento"
                 }
               ]
             },
@@ -63006,6 +63006,16 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
+                  "pid": "1629029",
+                  "fn": "Luka",
+                  "ln": "Doncic",
+                  "val": "28",
+                  "tid": 1610612742,
+                  "ta": "DAL",
+                  "tn": "Mavericks",
+                  "tc": "Dallas"
+                },
+                {
                   "pid": "1627741",
                   "fn": "Buddy",
                   "ln": "Hield",
@@ -63024,16 +63034,6 @@ export const DBInitializer = {
                   "ta": "SAC",
                   "tn": "Kings",
                   "tc": "Sacramento"
-                },
-                {
-                  "pid": "1629029",
-                  "fn": "Luka",
-                  "ln": "Doncic",
-                  "val": "28",
-                  "tid": 1610612742,
-                  "ta": "DAL",
-                  "tn": "Mavericks",
-                  "tc": "Dallas"
                 }
               ]
             },
@@ -65391,16 +65391,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "201568",
-                  "fn": "Danilo",
-                  "ln": "Gallinari",
-                  "val": "32",
-                  "tid": 1610612746,
-                  "ta": "LAC",
-                  "tn": "Clippers",
-                  "tc": "LA"
-                },
-                {
                   "pid": "1629029",
                   "fn": "Luka",
                   "ln": "Doncic",
@@ -65409,6 +65399,16 @@ export const DBInitializer = {
                   "ta": "DAL",
                   "tn": "Mavericks",
                   "tc": "Dallas"
+                },
+                {
+                  "pid": "201568",
+                  "fn": "Danilo",
+                  "ln": "Gallinari",
+                  "val": "32",
+                  "tid": 1610612746,
+                  "ta": "LAC",
+                  "tn": "Clippers",
+                  "tc": "LA"
                 }
               ]
             },
@@ -70667,16 +70667,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "201144",
-                  "fn": "Mike",
-                  "ln": "Conley",
-                  "val": "26",
-                  "tid": 1610612763,
-                  "ta": "MEM",
-                  "tn": "Grizzlies",
-                  "tc": "Memphis"
-                },
-                {
                   "pid": "202681",
                   "fn": "Kyrie",
                   "ln": "Irving",
@@ -70685,6 +70675,16 @@ export const DBInitializer = {
                   "ta": "BOS",
                   "tn": "Celtics",
                   "tc": "Boston"
+                },
+                {
+                  "pid": "201144",
+                  "fn": "Mike",
+                  "ln": "Conley",
+                  "val": "26",
+                  "tid": 1610612763,
+                  "ta": "MEM",
+                  "tn": "Grizzlies",
+                  "tc": "Memphis"
                 }
               ]
             },
@@ -71603,16 +71603,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "203506",
-                  "fn": "Victor",
-                  "ln": "Oladipo",
-                  "val": "22",
-                  "tid": 1610612754,
-                  "ta": "IND",
-                  "tn": "Pacers",
-                  "tc": "Indiana"
-                },
-                {
                   "pid": "1628381",
                   "fn": "John",
                   "ln": "Collins",
@@ -71631,6 +71621,16 @@ export const DBInitializer = {
                   "ta": "ATL",
                   "tn": "Hawks",
                   "tc": "Atlanta"
+                },
+                {
+                  "pid": "203506",
+                  "fn": "Victor",
+                  "ln": "Oladipo",
+                  "val": "22",
+                  "tid": 1610612754,
+                  "ta": "IND",
+                  "tn": "Pacers",
+                  "tc": "Indiana"
                 }
               ]
             },
@@ -72802,16 +72802,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "203078",
-                  "fn": "Bradley",
-                  "ln": "Beal",
-                  "val": "24",
-                  "tid": 1610612764,
-                  "ta": "WAS",
-                  "tn": "Wizards",
-                  "tc": "Washington"
-                },
-                {
                   "pid": "203458",
                   "fn": "Alex",
                   "ln": "Len",
@@ -72820,6 +72810,16 @@ export const DBInitializer = {
                   "ta": "ATL",
                   "tn": "Hawks",
                   "tc": "Atlanta"
+                },
+                {
+                  "pid": "203078",
+                  "fn": "Bradley",
+                  "ln": "Beal",
+                  "val": "24",
+                  "tid": 1610612764,
+                  "ta": "WAS",
+                  "tn": "Wizards",
+                  "tc": "Washington"
                 }
               ]
             },
@@ -73140,16 +73140,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "201933",
-                  "fn": "Blake",
-                  "ln": "Griffin",
-                  "val": "26",
-                  "tid": 1610612765,
-                  "ta": "DET",
-                  "tn": "Pistons",
-                  "tc": "Detroit"
-                },
-                {
                   "pid": "1628991",
                   "fn": "Jaren",
                   "ln": "Jackson Jr.",
@@ -73158,6 +73148,16 @@ export const DBInitializer = {
                   "ta": "MEM",
                   "tn": "Grizzlies",
                   "tc": "Memphis"
+                },
+                {
+                  "pid": "201933",
+                  "fn": "Blake",
+                  "ln": "Griffin",
+                  "val": "26",
+                  "tid": 1610612765,
+                  "ta": "DET",
+                  "tn": "Pistons",
+                  "tc": "Detroit"
                 }
               ]
             },
@@ -74162,16 +74162,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "203114",
-                  "fn": "Khris",
-                  "ln": "Middleton",
-                  "val": "19",
-                  "tid": 1610612749,
-                  "ta": "MIL",
-                  "tn": "Bucks",
-                  "tc": "Milwaukee"
-                },
-                {
                   "pid": "1627761",
                   "fn": "DeAndre'",
                   "ln": "Bembry",
@@ -74180,6 +74170,16 @@ export const DBInitializer = {
                   "ta": "ATL",
                   "tn": "Hawks",
                   "tc": "Atlanta"
+                },
+                {
+                  "pid": "203114",
+                  "fn": "Khris",
+                  "ln": "Middleton",
+                  "val": "19",
+                  "tid": 1610612749,
+                  "ta": "MIL",
+                  "tn": "Bucks",
+                  "tc": "Milwaukee"
                 },
                 {
                   "pid": "1627763",
@@ -76444,16 +76444,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "201152",
-                  "fn": "Thaddeus",
-                  "ln": "Young",
-                  "val": "26",
-                  "tid": 1610612754,
-                  "ta": "IND",
-                  "tn": "Pacers",
-                  "tc": "Indiana"
-                },
-                {
                   "pid": "203903",
                   "fn": "Jordan",
                   "ln": "Clarkson",
@@ -76462,6 +76452,16 @@ export const DBInitializer = {
                   "ta": "CLE",
                   "tn": "Cavaliers",
                   "tc": "Cleveland"
+                },
+                {
+                  "pid": "201152",
+                  "fn": "Thaddeus",
+                  "ln": "Young",
+                  "val": "26",
+                  "tid": 1610612754,
+                  "ta": "IND",
+                  "tn": "Pacers",
+                  "tc": "Indiana"
                 }
               ]
             },
@@ -80372,16 +80372,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "1626156",
-                  "fn": "D'Angelo",
-                  "ln": "Russell",
-                  "val": "34",
-                  "tid": 1610612751,
-                  "ta": "BKN",
-                  "tn": "Nets",
-                  "tc": "Brooklyn"
-                },
-                {
                   "pid": "1628369",
                   "fn": "Jayson",
                   "ln": "Tatum",
@@ -80390,6 +80380,16 @@ export const DBInitializer = {
                   "ta": "BOS",
                   "tn": "Celtics",
                   "tc": "Boston"
+                },
+                {
+                  "pid": "1626156",
+                  "fn": "D'Angelo",
+                  "ln": "Russell",
+                  "val": "34",
+                  "tid": 1610612751,
+                  "ta": "BKN",
+                  "tn": "Nets",
+                  "tc": "Brooklyn"
                 }
               ]
             },
@@ -83250,16 +83250,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "202331",
-                  "fn": "Paul",
-                  "ln": "George",
-                  "val": "31",
-                  "tid": 1610612760,
-                  "ta": "OKC",
-                  "tn": "Thunder",
-                  "tc": "Oklahoma City"
-                },
-                {
                   "pid": "203954",
                   "fn": "Joel",
                   "ln": "Embiid",
@@ -83268,6 +83258,16 @@ export const DBInitializer = {
                   "ta": "PHI",
                   "tn": "76ers",
                   "tc": "Philadelphia"
+                },
+                {
+                  "pid": "202331",
+                  "fn": "Paul",
+                  "ln": "George",
+                  "val": "31",
+                  "tid": 1610612760,
+                  "ta": "OKC",
+                  "tn": "Thunder",
+                  "tc": "Oklahoma City"
                 }
               ]
             },
@@ -90982,16 +90982,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "2544",
-                  "fn": "LeBron",
-                  "ln": "James",
-                  "val": "24",
-                  "tid": 1610612747,
-                  "ta": "LAL",
-                  "tn": "Lakers",
-                  "tc": "Los Angeles"
-                },
-                {
                   "pid": "101150",
                   "fn": "Lou",
                   "ln": "Williams",
@@ -91000,6 +90990,16 @@ export const DBInitializer = {
                   "ta": "LAC",
                   "tn": "Clippers",
                   "tc": "LA"
+                },
+                {
+                  "pid": "2544",
+                  "fn": "LeBron",
+                  "ln": "James",
+                  "val": "24",
+                  "tid": 1610612747,
+                  "ta": "LAL",
+                  "tn": "Lakers",
+                  "tc": "Los Angeles"
                 }
               ]
             },
@@ -91997,16 +91997,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "200746",
-                  "fn": "LaMarcus",
-                  "ln": "Aldridge",
-                  "val": "25",
-                  "tid": 1610612759,
-                  "ta": "SAS",
-                  "tn": "Spurs",
-                  "tc": "San Antonio"
-                },
-                {
                   "pid": "1628402",
                   "fn": "Frank",
                   "ln": "Jackson",
@@ -92015,6 +92005,16 @@ export const DBInitializer = {
                   "ta": "NOP",
                   "tn": "Pelicans",
                   "tc": "New Orleans"
+                },
+                {
+                  "pid": "200746",
+                  "fn": "LaMarcus",
+                  "ln": "Aldridge",
+                  "val": "25",
+                  "tid": 1610612759,
+                  "ta": "SAS",
+                  "tn": "Spurs",
+                  "tc": "San Antonio"
                 }
               ]
             },
@@ -93204,16 +93204,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "201942",
-                  "fn": "DeMar",
-                  "ln": "DeRozan",
-                  "val": "24",
-                  "tid": 1610612759,
-                  "ta": "SAS",
-                  "tn": "Spurs",
-                  "tc": "San Antonio"
-                },
-                {
                   "pid": "1628963",
                   "fn": "Marvin",
                   "ln": "Bagley III",
@@ -93222,6 +93212,16 @@ export const DBInitializer = {
                   "ta": "SAC",
                   "tn": "Kings",
                   "tc": "Sacramento"
+                },
+                {
+                  "pid": "201942",
+                  "fn": "DeMar",
+                  "ln": "DeRozan",
+                  "val": "24",
+                  "tid": 1610612759,
+                  "ta": "SAS",
+                  "tn": "Spurs",
+                  "tc": "San Antonio"
                 }
               ]
             },
@@ -101244,16 +101244,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "202397",
-                  "fn": "Ish",
-                  "ln": "Smith",
-                  "val": "22",
-                  "tid": 1610612765,
-                  "ta": "DET",
-                  "tn": "Pistons",
-                  "tc": "Detroit"
-                },
-                {
                   "pid": "1626196",
                   "fn": "Josh",
                   "ln": "Richardson",
@@ -101262,6 +101252,16 @@ export const DBInitializer = {
                   "ta": "MIA",
                   "tn": "Heat",
                   "tc": "Miami"
+                },
+                {
+                  "pid": "202397",
+                  "fn": "Ish",
+                  "ln": "Smith",
+                  "val": "22",
+                  "tid": 1610612765,
+                  "ta": "DET",
+                  "tn": "Pistons",
+                  "tc": "Detroit"
                 }
               ]
             },
@@ -105199,16 +105199,6 @@ export const DBInitializer = {
                   "tc": "Los Angeles"
                 },
                 {
-                  "pid": "202339",
-                  "fn": "Eric",
-                  "ln": "Bledsoe",
-                  "val": "31",
-                  "tid": 1610612749,
-                  "ta": "MIL",
-                  "tn": "Bucks",
-                  "tc": "Milwaukee"
-                },
-                {
                   "pid": "1627742",
                   "fn": "Brandon",
                   "ln": "Ingram",
@@ -105217,6 +105207,16 @@ export const DBInitializer = {
                   "ta": "LAL",
                   "tn": "Lakers",
                   "tc": "Los Angeles"
+                },
+                {
+                  "pid": "202339",
+                  "fn": "Eric",
+                  "ln": "Bledsoe",
+                  "val": "31",
+                  "tid": 1610612749,
+                  "ta": "MIL",
+                  "tn": "Bucks",
+                  "tc": "Milwaukee"
                 }
               ]
             },
@@ -107304,16 +107304,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "202711",
-                  "fn": "Bojan",
-                  "ln": "Bogdanovic",
-                  "val": "27",
-                  "tid": 1610612754,
-                  "ta": "IND",
-                  "tn": "Pacers",
-                  "tc": "Indiana"
-                },
-                {
                   "pid": "203897",
                   "fn": "Zach",
                   "ln": "LaVine",
@@ -107322,6 +107312,16 @@ export const DBInitializer = {
                   "ta": "CHI",
                   "tn": "Bulls",
                   "tc": "Chicago"
+                },
+                {
+                  "pid": "202711",
+                  "fn": "Bojan",
+                  "ln": "Bogdanovic",
+                  "val": "27",
+                  "tid": 1610612754,
+                  "ta": "IND",
+                  "tn": "Pacers",
+                  "tc": "Indiana"
                 }
               ]
             },
@@ -108476,16 +108476,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "203084",
-                  "fn": "Harrison",
-                  "ln": "Barnes",
-                  "val": "24",
-                  "tid": 1610612758,
-                  "ta": "SAC",
-                  "tn": "Kings",
-                  "tc": "Sacramento"
-                },
-                {
                   "pid": "1628369",
                   "fn": "Jayson",
                   "ln": "Tatum",
@@ -108494,6 +108484,16 @@ export const DBInitializer = {
                   "ta": "BOS",
                   "tn": "Celtics",
                   "tc": "Boston"
+                },
+                {
+                  "pid": "203084",
+                  "fn": "Harrison",
+                  "ln": "Barnes",
+                  "val": "24",
+                  "tid": 1610612758,
+                  "ta": "SAC",
+                  "tn": "Kings",
+                  "tc": "Sacramento"
                 }
               ]
             },
@@ -109854,16 +109854,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "2544",
-                  "fn": "LeBron",
-                  "ln": "James",
-                  "val": "30",
-                  "tid": 1610612747,
-                  "ta": "LAL",
-                  "tn": "Lakers",
-                  "tc": "Los Angeles"
-                },
-                {
                   "pid": "202681",
                   "fn": "Kyrie",
                   "ln": "Irving",
@@ -109872,6 +109862,16 @@ export const DBInitializer = {
                   "ta": "BOS",
                   "tn": "Celtics",
                   "tc": "Boston"
+                },
+                {
+                  "pid": "2544",
+                  "fn": "LeBron",
+                  "ln": "James",
+                  "val": "30",
+                  "tid": 1610612747,
+                  "ta": "LAL",
+                  "tn": "Lakers",
+                  "tc": "Los Angeles"
                 }
               ]
             },
@@ -110459,16 +110459,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "201144",
-                  "fn": "Mike",
-                  "ln": "Conley",
-                  "val": "26",
-                  "tid": 1610612763,
-                  "ta": "MEM",
-                  "tn": "Grizzlies",
-                  "tc": "Memphis"
-                },
-                {
                   "pid": "202696",
                   "fn": "Nikola",
                   "ln": "Vucevic",
@@ -110477,6 +110467,16 @@ export const DBInitializer = {
                   "ta": "ORL",
                   "tn": "Magic",
                   "tc": "Orlando"
+                },
+                {
+                  "pid": "201144",
+                  "fn": "Mike",
+                  "ln": "Conley",
+                  "val": "26",
+                  "tid": 1610612763,
+                  "ta": "MEM",
+                  "tn": "Grizzlies",
+                  "tc": "Memphis"
                 }
               ]
             },
@@ -111481,16 +111481,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "1627732",
-                  "fn": "Ben",
-                  "ln": "Simmons",
-                  "val": "26",
-                  "tid": 1610612755,
-                  "ta": "PHI",
-                  "tn": "76ers",
-                  "tc": "Philadelphia"
-                },
-                {
                   "pid": "1629012",
                   "fn": "Collin",
                   "ln": "Sexton",
@@ -111499,6 +111489,16 @@ export const DBInitializer = {
                   "ta": "CLE",
                   "tn": "Cavaliers",
                   "tc": "Cleveland"
+                },
+                {
+                  "pid": "1627732",
+                  "fn": "Ben",
+                  "ln": "Simmons",
+                  "val": "26",
+                  "tid": 1610612755,
+                  "ta": "PHI",
+                  "tn": "76ers",
+                  "tc": "Philadelphia"
                 }
               ]
             },
@@ -115143,16 +115143,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "203953",
-                  "fn": "Jabari",
-                  "ln": "Parker",
-                  "val": "19",
-                  "tid": 1610612764,
-                  "ta": "WAS",
-                  "tn": "Wizards",
-                  "tc": "Washington"
-                },
-                {
                   "pid": "1628378",
                   "fn": "Donovan",
                   "ln": "Mitchell",
@@ -115161,6 +115151,16 @@ export const DBInitializer = {
                   "ta": "UTA",
                   "tn": "Jazz",
                   "tc": "Utah"
+                },
+                {
+                  "pid": "203953",
+                  "fn": "Jabari",
+                  "ln": "Parker",
+                  "val": "19",
+                  "tid": 1610612764,
+                  "ta": "WAS",
+                  "tn": "Wizards",
+                  "tc": "Washington"
                 }
               ]
             },
@@ -120182,16 +120182,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "1626181",
-                  "fn": "Norman",
-                  "ln": "Powell",
-                  "val": "20",
-                  "tid": 1610612761,
-                  "ta": "TOR",
-                  "tn": "Raptors",
-                  "tc": "Toronto"
-                },
-                {
                   "pid": "1627782",
                   "fn": "Wayne",
                   "ln": "Selden",
@@ -120200,6 +120190,16 @@ export const DBInitializer = {
                   "ta": "CHI",
                   "tn": "Bulls",
                   "tc": "Chicago"
+                },
+                {
+                  "pid": "1626181",
+                  "fn": "Norman",
+                  "ln": "Powell",
+                  "val": "20",
+                  "tid": 1610612761,
+                  "ta": "TOR",
+                  "tn": "Raptors",
+                  "tc": "Toronto"
                 }
               ]
             },
@@ -122140,16 +122140,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "201566",
-                  "fn": "Russell",
-                  "ln": "Westbrook",
-                  "val": "27",
-                  "tid": 1610612760,
-                  "ta": "OKC",
-                  "tn": "Thunder",
-                  "tc": "Oklahoma City"
-                },
-                {
                   "pid": "1627750",
                   "fn": "Jamal",
                   "ln": "Murray",
@@ -122158,6 +122148,16 @@ export const DBInitializer = {
                   "ta": "DEN",
                   "tn": "Nuggets",
                   "tc": "Denver"
+                },
+                {
+                  "pid": "201566",
+                  "fn": "Russell",
+                  "ln": "Westbrook",
+                  "val": "27",
+                  "tid": 1610612760,
+                  "ta": "OKC",
+                  "tn": "Thunder",
+                  "tc": "Oklahoma City"
                 }
               ]
             },
@@ -124184,16 +124184,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "203918",
-                  "fn": "Rodney",
-                  "ln": "Hood",
-                  "val": "21",
-                  "tid": 1610612757,
-                  "ta": "POR",
-                  "tn": "Trail Blazers",
-                  "tc": "Portland"
-                },
-                {
                   "pid": "203952",
                   "fn": "Andrew",
                   "ln": "Wiggins",
@@ -124202,6 +124192,16 @@ export const DBInitializer = {
                   "ta": "MIN",
                   "tn": "Timberwolves",
                   "tc": "Minnesota"
+                },
+                {
+                  "pid": "203918",
+                  "fn": "Rodney",
+                  "ln": "Hood",
+                  "val": "21",
+                  "tid": 1610612757,
+                  "ta": "POR",
+                  "tn": "Trail Blazers",
+                  "tc": "Portland"
                 }
               ]
             },
@@ -124946,16 +124946,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "202696",
-                  "fn": "Nikola",
-                  "ln": "Vucevic",
-                  "val": "29",
-                  "tid": 1610612753,
-                  "ta": "ORL",
-                  "tn": "Magic",
-                  "tc": "Orlando"
-                },
-                {
                   "pid": "1626209",
                   "fn": "Mario",
                   "ln": "Hezonja",
@@ -124964,6 +124954,16 @@ export const DBInitializer = {
                   "ta": "NYK",
                   "tn": "Knicks",
                   "tc": "New York"
+                },
+                {
+                  "pid": "202696",
+                  "fn": "Nikola",
+                  "ln": "Vucevic",
+                  "val": "29",
+                  "tid": 1610612753,
+                  "ta": "ORL",
+                  "tn": "Magic",
+                  "tc": "Orlando"
                 }
               ]
             },
@@ -126111,16 +126111,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "202689",
-                  "fn": "Kemba",
-                  "ln": "Walker",
-                  "val": "29",
-                  "tid": 1610612766,
-                  "ta": "CHA",
-                  "tn": "Hornets",
-                  "tc": "Charlotte"
-                },
-                {
                   "pid": "202695",
                   "fn": "Kawhi",
                   "ln": "Leonard",
@@ -126129,6 +126119,16 @@ export const DBInitializer = {
                   "ta": "TOR",
                   "tn": "Raptors",
                   "tc": "Toronto"
+                },
+                {
+                  "pid": "202689",
+                  "fn": "Kemba",
+                  "ln": "Walker",
+                  "val": "29",
+                  "tid": 1610612766,
+                  "ta": "CHA",
+                  "tn": "Hornets",
+                  "tc": "Charlotte"
                 }
               ]
             },
@@ -129884,16 +129884,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "203613",
-                  "fn": "Jonathon",
-                  "ln": "Simmons",
-                  "val": "20",
-                  "tid": 1610612755,
-                  "ta": "PHI",
-                  "tn": "76ers",
-                  "tc": "Philadelphia"
-                },
-                {
                   "pid": "1627215",
                   "fn": "Walter",
                   "ln": "Lemon Jr.",
@@ -129902,6 +129892,16 @@ export const DBInitializer = {
                   "ta": "CHI",
                   "tn": "Bulls",
                   "tc": "Chicago"
+                },
+                {
+                  "pid": "203613",
+                  "fn": "Jonathon",
+                  "ln": "Simmons",
+                  "val": "20",
+                  "tid": 1610612755,
+                  "ta": "PHI",
+                  "tn": "76ers",
+                  "tc": "Philadelphia"
                 }
               ]
             },
@@ -134869,16 +134869,6 @@ export const DBInitializer = {
             "ptsls": {
               "pl": [
                 {
-                  "pid": "202695",
-                  "fn": "Kawhi",
-                  "ln": "Leonard",
-                  "val": "33",
-                  "tid": 1610612761,
-                  "ta": "TOR",
-                  "tn": "Raptors",
-                  "tc": "Toronto"
-                },
-                {
                   "pid": "203954",
                   "fn": "Joel",
                   "ln": "Embiid",
@@ -134887,6 +134877,16 @@ export const DBInitializer = {
                   "ta": "PHI",
                   "tn": "76ers",
                   "tc": "Philadelphia"
+                },
+                {
+                  "pid": "202695",
+                  "fn": "Kawhi",
+                  "ln": "Leonard",
+                  "val": "33",
+                  "tid": 1610612761,
+                  "ta": "TOR",
+                  "tn": "Raptors",
+                  "tc": "Toronto"
                 }
               ]
             },
@@ -136943,7 +136943,7 @@ export const DBInitializer = {
           {
             "gid": "0041800401",
             "gcode": "20190530/GSWTOR",
-            "seri": "Series tied 0-0",
+            "seri": "TOR leads series 1-0",
             "is": 1,
             "gdte": "2019-05-30",
             "htm": "2019-05-30T21:00:00",
@@ -136952,8 +136952,8 @@ export const DBInitializer = {
             "an": "Scotiabank Arena",
             "ac": "Toronto",
             "as": "ON",
-            "st": "1",
-            "stt": "9:00 pm ET",
+            "st": "3",
+            "stt": "Final",
             "bd": {
               "b": [
                 {
@@ -136988,24 +136988,38 @@ export const DBInitializer = {
             },
             "v": {
               "tid": 1610612744,
-              "re": "12-4",
+              "re": "12-5",
               "ta": "GSW",
               "tn": "Warriors",
               "tc": "Golden State",
-              "s": ""
+              "s": "109"
             },
             "h": {
               "tid": 1610612761,
-              "re": "12-6",
+              "re": "13-6",
               "ta": "TOR",
               "tn": "Raptors",
               "tc": "Toronto",
-              "s": ""
+              "s": "118"
             },
             "gweek": null,
             "gdtutc": "2019-05-31",
             "utctm": "01:00",
             "ppdst": "I",
+            "ptsls": {
+              "pl": [
+                {
+                  "pid": "201939",
+                  "fn": "Stephen",
+                  "ln": "Curry",
+                  "val": "34",
+                  "tid": 1610612744,
+                  "ta": "GSW",
+                  "tn": "Warriors",
+                  "tc": "Golden State"
+                }
+              ]
+            },
             "seq": 1
           }
         ]
@@ -137018,7 +137032,7 @@ export const DBInitializer = {
           {
             "gid": "0041800402",
             "gcode": "20190602/GSWTOR",
-            "seri": "Series tied 0-0",
+            "seri": "Series tied 1-1",
             "is": 1,
             "gdte": "2019-06-02",
             "htm": "2019-06-02T20:00:00",
@@ -137027,8 +137041,8 @@ export const DBInitializer = {
             "an": "Scotiabank Arena",
             "ac": "Toronto",
             "as": "ON",
-            "st": "1",
-            "stt": "8:00 pm ET",
+            "st": "3",
+            "stt": "Final",
             "bd": {
               "b": [
                 {
@@ -137040,14 +137054,14 @@ export const DBInitializer = {
                 },
                 {
                   "seq": 2,
-                  "disp": "TSNN+RDS+CTV2",
+                  "disp": "TSN+RDS+CTV2",
                   "scope": "home",
                   "type": "tv",
                   "lan": "English"
                 },
                 {
                   "seq": 3,
-                  "disp": "TSNN+RDS+CTV2",
+                  "disp": "TSN+RDS+CTV2",
                   "scope": "can",
                   "type": "tv",
                   "lan": "English"
@@ -137063,30 +137077,44 @@ export const DBInitializer = {
             },
             "v": {
               "tid": 1610612744,
-              "re": "12-4",
+              "re": "13-5",
               "ta": "GSW",
               "tn": "Warriors",
               "tc": "Golden State",
-              "s": ""
+              "s": "109"
             },
             "h": {
               "tid": 1610612761,
-              "re": "12-6",
+              "re": "13-7",
               "ta": "TOR",
               "tn": "Raptors",
               "tc": "Toronto",
-              "s": ""
+              "s": "104"
             },
             "gweek": null,
             "gdtutc": "2019-06-03",
             "utctm": "00:00",
             "ppdst": "I",
+            "ptsls": {
+              "pl": [
+                {
+                  "pid": "202695",
+                  "fn": "Kawhi",
+                  "ln": "Leonard",
+                  "val": "34",
+                  "tid": 1610612761,
+                  "ta": "TOR",
+                  "tn": "Raptors",
+                  "tc": "Toronto"
+                }
+              ]
+            },
             "seq": 1
           },
           {
             "gid": "0041800403",
             "gcode": "20190605/TORGSW",
-            "seri": "Series tied 0-0",
+            "seri": "TOR leads series 2-1",
             "is": 1,
             "gdte": "2019-06-05",
             "htm": "2019-06-05T18:00:00",
@@ -137095,8 +137123,8 @@ export const DBInitializer = {
             "an": "ORACLE Arena",
             "ac": "Oakland",
             "as": "CA",
-            "st": "1",
-            "stt": "9:00 pm ET",
+            "st": "3",
+            "stt": "Final",
             "bd": {
               "b": [
                 {
@@ -137131,30 +137159,44 @@ export const DBInitializer = {
             },
             "v": {
               "tid": 1610612761,
-              "re": "12-6",
+              "re": "14-7",
               "ta": "TOR",
               "tn": "Raptors",
               "tc": "Toronto",
-              "s": ""
+              "s": "123"
             },
             "h": {
               "tid": 1610612744,
-              "re": "12-4",
+              "re": "13-6",
               "ta": "GSW",
               "tn": "Warriors",
               "tc": "Golden State",
-              "s": ""
+              "s": "109"
             },
             "gweek": null,
             "gdtutc": "2019-06-06",
             "utctm": "01:00",
             "ppdst": "I",
+            "ptsls": {
+              "pl": [
+                {
+                  "pid": "201939",
+                  "fn": "Stephen",
+                  "ln": "Curry",
+                  "val": "47",
+                  "tid": 1610612744,
+                  "ta": "GSW",
+                  "tn": "Warriors",
+                  "tc": "Golden State"
+                }
+              ]
+            },
             "seq": 1
           },
           {
             "gid": "0041800404",
             "gcode": "20190607/TORGSW",
-            "seri": "Series tied 0-0",
+            "seri": "TOR leads series 3-1",
             "is": 1,
             "gdte": "2019-06-07",
             "htm": "2019-06-07T18:00:00",
@@ -137163,8 +137205,8 @@ export const DBInitializer = {
             "an": "ORACLE Arena",
             "ac": "Oakland",
             "as": "CA",
-            "st": "1",
-            "stt": "9:00 pm ET",
+            "st": "3",
+            "stt": "Final",
             "bd": {
               "b": [
                 {
@@ -137176,14 +137218,14 @@ export const DBInitializer = {
                 },
                 {
                   "seq": 2,
-                  "disp": "TSNN+RDS+CTV2",
+                  "disp": "TSN+RDS+CTV2",
                   "scope": "away",
                   "type": "tv",
                   "lan": "English"
                 },
                 {
                   "seq": 3,
-                  "disp": "TSNN+RDS+CTV2",
+                  "disp": "TSN+RDS+CTV2",
                   "scope": "can",
                   "type": "tv",
                   "lan": "English"
@@ -137199,31 +137241,45 @@ export const DBInitializer = {
             },
             "v": {
               "tid": 1610612761,
-              "re": "12-6",
+              "re": "15-7",
               "ta": "TOR",
               "tn": "Raptors",
               "tc": "Toronto",
-              "s": ""
+              "s": "105"
             },
             "h": {
               "tid": 1610612744,
-              "re": "12-4",
+              "re": "13-7",
               "ta": "GSW",
               "tn": "Warriors",
               "tc": "Golden State",
-              "s": ""
+              "s": "92"
             },
             "gweek": null,
             "gdtutc": "2019-06-08",
             "utctm": "01:00",
             "ppdst": "I",
+            "ptsls": {
+              "pl": [
+                {
+                  "pid": "202695",
+                  "fn": "Kawhi",
+                  "ln": "Leonard",
+                  "val": "36",
+                  "tid": 1610612761,
+                  "ta": "TOR",
+                  "tn": "Raptors",
+                  "tc": "Toronto"
+                }
+              ]
+            },
             "seq": 1
           },
           {
             "gid": "0041800405",
             "gcode": "20190610/GSWTOR",
-            "seri": "Series tied 0-0",
-            "is": 0,
+            "seri": "TOR leads series 3-2",
+            "is": 1,
             "gdte": "2019-06-10",
             "htm": "2019-06-10T21:00:00",
             "vtm": "2019-06-10T18:00:00",
@@ -137231,8 +137287,8 @@ export const DBInitializer = {
             "an": "Scotiabank Arena",
             "ac": "Toronto",
             "as": "ON",
-            "st": "1",
-            "stt": "9:00 pm ET",
+            "st": "3",
+            "stt": "Final",
             "bd": {
               "b": [
                 {
@@ -137267,31 +137323,45 @@ export const DBInitializer = {
             },
             "v": {
               "tid": 1610612744,
-              "re": "12-4",
+              "re": "14-7",
               "ta": "GSW",
               "tn": "Warriors",
               "tc": "Golden State",
-              "s": ""
+              "s": "106"
             },
             "h": {
               "tid": 1610612761,
-              "re": "12-6",
+              "re": "15-8",
               "ta": "TOR",
               "tn": "Raptors",
               "tc": "Toronto",
-              "s": ""
+              "s": "105"
             },
             "gweek": null,
             "gdtutc": "2019-06-11",
             "utctm": "01:00",
             "ppdst": "I",
+            "ptsls": {
+              "pl": [
+                {
+                  "pid": "201939",
+                  "fn": "Stephen",
+                  "ln": "Curry",
+                  "val": "31",
+                  "tid": 1610612744,
+                  "ta": "GSW",
+                  "tn": "Warriors",
+                  "tc": "Golden State"
+                }
+              ]
+            },
             "seq": 1
           },
           {
             "gid": "0041800406",
             "gcode": "20190613/TORGSW",
-            "seri": "Series tied 0-0",
-            "is": 0,
+            "seri": "TOR wins series 4-2",
+            "is": 1,
             "gdte": "2019-06-13",
             "htm": "2019-06-13T18:00:00",
             "vtm": "2019-06-13T21:00:00",
@@ -137299,8 +137369,8 @@ export const DBInitializer = {
             "an": "ORACLE Arena",
             "ac": "Oakland",
             "as": "CA",
-            "st": "1",
-            "stt": "9:00 pm ET",
+            "st": "3",
+            "stt": "Final",
             "bd": {
               "b": [
                 {
@@ -137312,14 +137382,14 @@ export const DBInitializer = {
                 },
                 {
                   "seq": 2,
-                  "disp": "TSN+RDS+CTV2",
+                  "disp": "TSN1/4+RDS+CTV2",
                   "scope": "away",
                   "type": "tv",
                   "lan": "English"
                 },
                 {
                   "seq": 3,
-                  "disp": "TSN+RDS+CTV2",
+                  "disp": "TSN1/4+RDS+CTV2",
                   "scope": "can",
                   "type": "tv",
                   "lan": "English"
@@ -137335,92 +137405,38 @@ export const DBInitializer = {
             },
             "v": {
               "tid": 1610612761,
-              "re": "12-6",
+              "re": "16-8",
               "ta": "TOR",
               "tn": "Raptors",
               "tc": "Toronto",
-              "s": ""
+              "s": "114"
             },
             "h": {
               "tid": 1610612744,
-              "re": "12-4",
+              "re": "14-8",
               "ta": "GSW",
               "tn": "Warriors",
               "tc": "Golden State",
-              "s": ""
+              "s": "110"
             },
             "gweek": null,
             "gdtutc": "2019-06-14",
             "utctm": "01:00",
             "ppdst": "I",
-            "seq": 1
-          },
-          {
-            "gid": "0041800407",
-            "gcode": "20190616/GSWTOR",
-            "seri": "Series tied 0-0",
-            "is": 0,
-            "gdte": "2019-06-16",
-            "htm": "2019-06-16T20:00:00",
-            "vtm": "2019-06-16T17:00:00",
-            "etm": "2019-06-16T20:00:00",
-            "an": "Scotiabank Arena",
-            "ac": "Toronto",
-            "as": "ON",
-            "st": "1",
-            "stt": "8:00 pm ET",
-            "bd": {
-              "b": [
+            "ptsls": {
+              "pl": [
                 {
-                  "seq": 1,
-                  "disp": "ABC",
-                  "scope": "natl",
-                  "type": "tv",
-                  "lan": "English"
-                },
-                {
-                  "seq": 2,
-                  "disp": "SN1/E/O/W/P+RDS+CityTV",
-                  "scope": "home",
-                  "type": "tv",
-                  "lan": "English"
-                },
-                {
-                  "seq": 3,
-                  "disp": "SN1/E/O/W/P+RDS+CityTV",
-                  "scope": "can",
-                  "type": "tv",
-                  "lan": "English"
-                },
-                {
-                  "seq": 4,
-                  "disp": "ESPNR",
-                  "scope": "natl",
-                  "type": "radio",
-                  "lan": "English"
+                  "pid": "202691",
+                  "fn": "Klay",
+                  "ln": "Thompson",
+                  "val": "30",
+                  "tid": 1610612744,
+                  "ta": "GSW",
+                  "tn": "Warriors",
+                  "tc": "Golden State"
                 }
               ]
             },
-            "v": {
-              "tid": 1610612744,
-              "re": "12-4",
-              "ta": "GSW",
-              "tn": "Warriors",
-              "tc": "Golden State",
-              "s": ""
-            },
-            "h": {
-              "tid": 1610612761,
-              "re": "12-6",
-              "ta": "TOR",
-              "tn": "Raptors",
-              "tc": "Toronto",
-              "s": ""
-            },
-            "gweek": null,
-            "gdtutc": "2019-06-17",
-            "utctm": "00:00",
-            "ppdst": "I",
             "seq": 1
           }
         ]

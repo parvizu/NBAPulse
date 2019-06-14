@@ -24,6 +24,7 @@ export default class Footer extends Component {
 		return (
 			<div className="footer-container">
 				<div>
+					<a href="https://twitter.com/arvizualization?ref_src=twsrc%5Etfw" className="twitter-follow-button" data-size="large" data-show-count="false">Follow @arvizualization</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><br/>
 					<a href="https://twitter.com/sirgalahad88?ref_src=twsrc%5Etfw" className="twitter-follow-button" data-size="large" data-show-count="false">Follow @sirgalahad88</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 				</div>
 				<div className="social-buttons">
@@ -36,7 +37,7 @@ export default class Footer extends Component {
 					</a>
 				</div>
 				<div className="footer-copyrights">
-					v1.2.1 BETA (06/08/18)<br/><br/>
+					v1.3.6 BETA (06/13/19)<br/><br/>
 					Image credits: Logos and images are property of the ©NBA
 				</div>
 			</div>

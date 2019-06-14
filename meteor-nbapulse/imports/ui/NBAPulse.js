@@ -82,9 +82,9 @@ class NBAPulse extends Component {
 	}
 
 	componentDidMount() {
-		this.onSelectTeam('GSW');
+		this.onSelectTeam('TOR');
 		// NBA FINALS G5
-		this.onSelectGame('0041800405');
+		this.onSelectGame('0041800406');
 	}
 
 	onSelectTeam(teamAbbr) {
