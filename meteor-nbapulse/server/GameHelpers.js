@@ -84,17 +84,29 @@ export const GameHelpers = {
 	_processGameLog: (gameData, timeLog) => {
 		/* Function that will process the raw play by play into events inside the timeLog of the game */
 
-		let gameLog = [];
+		let gameLog = gameData.data.resultSets[0].rowSet;
+		let newGameLog = [];
 
-		gameData.data.resultSets[0].rowSet.forEach(event => {
+		// function to sort gamelog make sure events are in right order.
+		const sortGameLog = (a,b) => {
+			if (a[1] < b[1]) return -1;
+			if (a[1] > b[1]) return 1;
+			return 0;
+		};
+
+		gameLog = gameLog.sort(sortGameLog);
+
+		gameLog.forEach(event => {
 			let brokenDown = {};
 			event.forEach((stat,i) => {
 				brokenDown[GameHelpers.headers[i]] = stat;
 			});
-			gameLog = gameLog.concat(GameHelpers._processEvent(brokenDown, timeLog));
+			newGameLog = newGameLog.concat(GameHelpers._processEvent(brokenDown, timeLog));
 		});
 
-		return gameLog;
+
+
+		return newGameLog;
 	},
 
 
@@ -200,6 +212,7 @@ export const GameHelpers = {
 			return {			
 				momentId: momentId,
 				eventId: event['EVENTNUM'],
+				eventType: event['EVENTMSGTYPE'],
 				quarter: event['PERIOD'],
 				clock: event['PCTIMESTRING'],
 				margin: event['SCOREMARGIN'] !== null && event['SCOREMARGIN'] !== 'TIE' ? parseInt(event['SCOREMARGIN']) : 0,
@@ -240,30 +253,43 @@ export const GameHelpers = {
 			away: 0
 		}
 
-		for (let i = 0; i < gameLog.length; i++) {
-			let event = gameLog[i]
-			if (event.clock === '0:00' && event.score !== null && period !== event.quarter) {
-				period = event.quarter;
-				let label = period;
-				let score = event.score.split(' - ');
-				if (period > 4) {
-					label = "OT" + (period - 4);
-				}
-
-				breakdown[period] = {
-					label: label,
-					home: parseInt(score[1]) - previous.home,
-					away: parseInt(score[0]) - previous.away,
-					homeScore: parseInt(score[1]),
-					awayScore: parseInt(score[0])
-				};
-
-				previous = {
-					home: parseInt(score[1]),
-					away: parseInt(score[0])
-				};
+		let quarterBreakdown = {};
+		gameLog.forEach(event => {
+			if (!quarterBreakdown.hasOwnProperty(event.quarter)) {
+				quarterBreakdown[event.quarter] = [];
 			}
+			quarterBreakdown[event.quarter].push(event);
+		});
+
+		const sortEvents = (a, b) => {
+		    return a["momentId"] - b["momentId"] || a["eventId"] - b["eventId"];
 		}
+
+		Object.keys(quarterBreakdown).forEach(period => {
+			quarterBreakdown[period] = quarterBreakdown[period].sort(sortEvents);
+
+			// Getting last event in the quarter (EventType 13).
+			let event = quarterBreakdown[period].find(event => event.eventType === 13);
+
+			let label = period;
+			let score = event.score.split(' - ');
+			if (period > 4) {
+				label = "OT" + (period - 4);
+			}
+
+			breakdown[period] = {
+				label: label,
+				home: parseInt(score[1]) - previous.home,
+				away: parseInt(score[0]) - previous.away,
+				homeScore: parseInt(score[1]),
+				awayScore: parseInt(score[0])
+			};
+
+			previous = {
+				home: parseInt(score[1]),
+				away: parseInt(score[0])
+			};
+		})
 
 		breakdown['final'] = {
 			label: 'Final',
@@ -272,7 +298,6 @@ export const GameHelpers = {
 			homeScore: previous.home,
 			awayScore: previous.away,
 		};
-
 		return breakdown;
 	},
 
