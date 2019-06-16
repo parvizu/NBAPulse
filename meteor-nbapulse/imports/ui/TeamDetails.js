@@ -33,14 +33,18 @@ export default class TeamDetails extends Component {
 				'selected': this.props.playersSelected.indexOf(player.playerId.toString()) > -1
 			});
 
+			const playerName = player.playerName.split(' ');
+
 			return (
 				<li 
 					key={'team-roster-'+player.playerId}
 					className={classes}
 					data-playerid={player.playerId}
+					data-playernum={player.playerNum}
 					data-team={team}
 					onClick={this.handleSelectTeamPlayer} >
-						{player.playerName}
+						{player.playerNum}
+						<p> {playerName[1]}</p>
 				</li>
 			);
 		});

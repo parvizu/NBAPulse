@@ -37,7 +37,7 @@ export default class Footer extends Component {
 					</a>
 				</div>
 				<div className="footer-copyrights">
-					v1.3.6 BETA (06/13/19)<br/><br/>
+					v1.4.0 BETA (06/16/19)<br/><br/>
 					Image credits: Logos and images are property of the ©NBA
 				</div>
 			</div>
