@@ -33,6 +33,7 @@
     min-width: 50px;
 }
 
+.stat-control .stat,
 .stat:hover {
 	cursor: pointer;
 }

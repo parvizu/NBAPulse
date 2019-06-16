@@ -35,7 +35,7 @@ export default class Header extends Component {
 					teamList={this.props.leagueDetails.teamsAbbr}
 					gamesData={this.props.teamGames}
 					onSelectGame={this.props.onSelectGame} 
-					onSelectTeam={this.props.onSelectTeam} 
+					onSelectTeam={this.props.onSelectTeam}
 					/>
 			);
 		}
@@ -54,10 +54,6 @@ export default class Header extends Component {
 		return (
 
 			<div id="header">
-				<div id="updated">
-	                <div className="addthis_inline_share_toolbox"></div>
-				</div>
-
 				<div className="header-top">
 					<div className="header-section header-section-left header-top-left">
 						<img src="/img/logos/nbaLogo.svg" /> 
@@ -82,6 +78,7 @@ export default class Header extends Component {
 							onSelectGame={this.props.onSelectGame}
 							gameSelected={this.props.gameSelected}
 							gamesList={this.props.teamGamesList}
+							calendarType={this.props.calendarType}
 							/>
 						
 					</div>
