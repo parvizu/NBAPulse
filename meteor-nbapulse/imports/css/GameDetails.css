@@ -6,6 +6,21 @@
     border-radius: 2px;
     text-align: center;
     height: 265px;
+    margin-top: 50px;
+}
+
+.game-banner {
+    border-top: 7px solid;
+    height: 15px;
+}
+
+.game-banner img {
+    background-color: ghostwhite;
+    height: 35px;
+    border-radius: 2px;
+    padding: 5px 15px;
+    position: relative;
+    top: -26px;
 }
 
 .period-scoring:last-of-type {
@@ -528,7 +543,7 @@ h2.team-name.team-name-away {
 }
 
 .team-players-list {
-    width: 270px;
+    width: 425px;
     text-align: left;
     padding: 5px;
     height: 100%;
@@ -737,24 +752,36 @@ h2.team-name.team-name-away {
 li.team-details-player-item {
     display: inline-block;
     margin: 2px;
-    width: 46px;
-    font-size: 8pt;
-    height: 30px;
+    width: 45px;
+    font-size: 14pt;
+    height: 38px;
     overflow: hidden;
-    background-color: ghostwhite;
-    color: black;
-    /*border-radius: 2px;*/
+    /* background-color: ghostwhite; */
+    color: gray;
+    /* border-radius: 2px; */
     padding: 2px;
     text-align: center;
+    margin-bottom: 5px;
+}
+
+li.team-details-player-item p {
+     margin-top: 2px;
+    font-size: 9pt;
 }
 
 li.team-details-player-item.selected {
-	background-color: darkorange;
-	color: white;
+    background-color: ghostwhite;
+    color: black;
+}
+
+li.team-details-player-item.selected:hover {
+    background-color: ghostwhite;
+    color: black;
 }
 
 li.team-details-player-item:hover {
     cursor: pointer;
+    color: white;
 }
 
 li.team-details-player-item img {

@@ -78,35 +78,75 @@
 }
 
 
-li.team-games-item {
-    background-color: white;
-    height: 18px;
-    width: 30px;
+.playoff-series .series-label {
+    /* text-align: center; */
+    font-size: 7pt;
+    /*padding: 4px;*/
+    /* background-color: lightgray; */
+    color: lightgray;
+    /* background: rgba(10,10,10,.2); */
+    /* border-top: solid 1px lightgray; */
+}
+
+.games-list .playoff-series {
     display: inline-block;
-    font-size: 11px;
+    margin: 5px;
+    margin-right: 10px;
+}
+
+
+li.team-games-item {
+    /* background-color: white; */
+    /* height: 8px; */
+    width: 24px;
+    display: inline-block;
+    font-size: 12px;
     text-align: center;
-    color: black;
+    color: gray;
     font-family: helvetica;
     /* margin-right: 1px; */
     vertical-align: middle;
-    padding-top: 7px;
+    /* padding-top: 7px; */
     border-bottom: 3px solid white;
+    margin: 1px;
+    margin-top: 3px;
+    padding: 6px 6px;
+    /* font-weight: 400; */
 }
+
 
 li.team-games-item:hover {
 	cursor: pointer;
-    border-bottom-color: darkorange;
-    color: darkorange;
+    /*border-bottom-color: darkorange;*/
+    color: white;
 }
 
 li.team-games-item.selected {
     /*background-color: darkorange;*/
     /*border-bottom-color: darkorange;*/
     /*color: darkorange;*/
-    background-color: darkorange;
-    border-bottom-color: darkorange;
+    background-color: ghostwhite;
+    /*border-bottom-color: darkorange;*/
+    color: black;
+}
+
+/*li.team-games-item.new-series {
+    margin-left: 12px;
+}*/
+
+/*li.team-games-item.selected.team-game-victory,
+li.team-games-item.team-game-victory:hover {
+    background-color: green;
     color: white;
 }
+
+li.team-games-item.selected.team-game-defeat,
+li.team-games-item.team-game-defeat:hover {
+    background-color: red;
+    color: white;
+}*/
+
+
 
 li.team-games-item.home {
     /*border-bottom: solid 3px green;*/
@@ -114,5 +154,14 @@ li.team-games-item.home {
 
 li.team-games-item.away {
     /*border-bottom: solid 3px red;*/
-    background-image: url('./img/away_background.png');
+    /*background-image: url('./img/away_background.png');*/
+}
+
+
+li.team-games-item.team-game-victory {
+    border-bottom: solid 2px rgba(0,128,0,.75);
+}
+
+li.team-games-item.team-game-defeat {
+    border-bottom: solid 2px rgb(255,0,0,.75);
 }

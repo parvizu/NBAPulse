@@ -7,29 +7,46 @@ export default class StatControl extends Component {
 	constructor(props) {
 		super(props);
 		this.handleClick = this.handleClick.bind(this);
-
-		this.count = 0;
+		this.handleChartClick = this.handleChartClick.bind(this);
+		this.getStatsOption = this.getStatsOption.bind(this);
 	}
 
 	handleClick(e) {
 		e.preventDefault();
 
-		let stat = e.target.getAttribute('value');
+		let stat = e.target.getAttribute('value') !== null ? e.target.getAttribute('value') : e.target.parentElement.getAttribute('value');
 		this.props.onStatClick(stat);
+	}
+
+	handleChartClick(e) {
+		e.preventDefault();
+		const chartType = e.target.getAttribute('value');
+		this.props.onChangeChartType(chartType);
+	}
+
+	getStatsOption(stat, label) {
+		return (
+			<div className={"stat  "+this.props.selectedStats[stat]} value={stat} onClick={this.handleClick}>
+					<div className={"cord stat-"+stat}></div>
+					<div className={"rect stat-"+stat}></div>
+					<div className="stat-label">{label}</div>
+			</div>
+		);
 	}
 
 	render() {
 		//console.log("RENDERING", "StatControl.js", this.count++);
+
 		return (
-			<div id="stat-control">
-				<div className={"stat stat-made "+this.props.selectedStats.made} value="made" onClick={this.handleClick}>MADE BASKET</div>
-				<div className={"stat stat-missed "+this.props.selectedStats.missed} value="missed" onClick={this.handleClick}>MISSED BASKET</div>
-				<div className={"stat stat-assist "+this.props.selectedStats.assist} value="assist" onClick={this.handleClick}>ASSISTS</div>
-				<div className={"stat stat-rebound "+this.props.selectedStats.rebound} value="rebound" onClick={this.handleClick}>REBOUNDS</div>
-				<div className={"stat stat-steal "+this.props.selectedStats.steal} value="steal" onClick={this.handleClick}>STEALS</div>
-				<div className={"stat stat-block "+this.props.selectedStats.block} value="block" onClick={this.handleClick}>BLOCKS</div>
-				<div className={"stat stat-turnover "+this.props.selectedStats.turnover} value="turnover" onClick={this.handleClick}>TURNOVERS</div>
-				<div className={"stat stat-foul "+this.props.selectedStats.foul} value="foul" onClick={this.handleClick}>FOULS</div>
+			<div className="stat-control">
+				{this.getStatsOption('made', 'MADE BASKET')}
+				{this.getStatsOption('missed', 'MISSED BASKET')}
+				{this.getStatsOption('assist', 'ASSISTS')}
+				{this.getStatsOption('rebound', 'REBOUNDS')}
+				{this.getStatsOption('steal', 'STEALS')}
+				{this.getStatsOption('block', 'BLOCKS')}
+				{this.getStatsOption('turnover', 'TURNOVERS')}
+				{this.getStatsOption('foul', 'FOULS')}
 			</div>
 		);
 	}

@@ -35,7 +35,7 @@ export default class Header extends Component {
 					teamList={this.props.leagueDetails.teamsAbbr}
 					gamesData={this.props.teamGames}
 					onSelectGame={this.props.onSelectGame} 
-					onSelectTeam={this.props.onSelectTeam} 
+					onSelectTeam={this.props.onSelectTeam}
 					/>
 			);
 		}
@@ -54,7 +54,6 @@ export default class Header extends Component {
 		return (
 
 			<div id="header">
-				<div id="updated">v1.0.2 (4/23/18)</div>
 				<div className="header-top">
 					<div className="header-section header-section-left header-top-left">
 						<img src="/img/logos/nbaLogo.svg" /> 
@@ -69,26 +68,19 @@ export default class Header extends Component {
 						<a href="http://www.parvizu.com" target="_blank" id="madeby">by Pablo Arvizu</a> <a href="https://twitter.com/sirgalahad88" target="_blank" id="twitterLink"><img src="/img/twitter-256.png" /></a>
 					</div>
 					<div className="header-section header-section-main header-bottom-main">
+						<div className="calendar-types">
+							<li className="selected" data-calendar="playoffs">
+								<img src="/img/logos/playoffsLogo.png" />
+							</li>
+						</div>
 						<GamesMenu
 							teamSelected={this.props.teamSelected}
 							onSelectGame={this.props.onSelectGame}
 							gameSelected={this.props.gameSelected}
 							gamesList={this.props.teamGamesList}
+							calendarType={this.props.calendarType}
 							/>
-						<div className="calendar-types">
-							<li
-								className={seasonClasses}
-								onClick={this.handleSelectCalendar}
-								data-calendar="season">
-									Season
-							</li>
-							<li
-								className={playoffsClasses}
-								onClick={this.handleSelectCalendar}
-								data-calendar="playoffs">
-									Playoffs
-							</li>
-						</div>
+						
 					</div>
 				</div>
 				<div className="addthis_sharing_toolbox"></div>

@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import classnames from 'classnames';
 
 import ScoringMarginChart from './ScoringMarginChart.js';
-import PlayerGameCord from './PlayerGameCord.js';
+import PlayerGameChart from './PlayerGameChart.js';
 import PlayerGameDNP from './PlayerGameDNP';
 import TeamsGameCard from './TeamsGameCard';
+import GameTimeLine from './GameTimeLine';
 
 import styles from '../css/GameVisualization.css';
 
@@ -16,7 +17,7 @@ export default class GameVisualization extends Component {
 		this.state = {
 			specs: {
 				width: 1175,
-				height: 150,
+				height: 120,
 				padding: 25,
 				xParam: 'sec',
 				yParam: 'dif'
@@ -24,8 +25,52 @@ export default class GameVisualization extends Component {
 			config: {
 				height: 350,
 				label: ''
+			},
+			filter: {
+				active: false,
+				criteria: {},
+				data : {}
 			}
 		};
+
+		this.onFilterSelection = this.onFilterSelection.bind(this);
+	}
+
+	componentWillReceiveProps(nextProps) {
+		if (nextProps.gameId !== this.props.gameId) {
+			this.setState({
+				filter: {
+					active: false,
+					criteria: {},
+					data: {}
+				}
+			});
+		}
+	}
+
+	onFilterSelection(selection) {
+
+		const filter = {
+			active: false,
+			criteria: {},
+			data: {}
+		};
+
+		if (selection.quarter !== this.state.filter.criteria.quarter) {
+			Meteor.call('getFilterStats', selection, this.props.gameId, this.props.gameData, (error, results) => {
+				this.setState({
+					filter: {
+						active: true,
+						criteria: selection,
+						data: results
+					}
+				});
+			});
+		} else {
+			this.setState({
+				filter:filter
+			});
+		}
 	}
 
 	getTeamPlayersViz(team, playersSelected) {
@@ -34,7 +79,8 @@ export default class GameVisualization extends Component {
 
 
 		const teamPlayers = team.players.map((player,index) => {
-			if (teamSelectedPlayers.indexOf(player.playerId.toString()) > -1) {
+			const playerId = player.playerId.toString();
+			if (teamSelectedPlayers.indexOf(playerId) > -1) {
 
 				let playerData = {};
 				playerData = this.props.gameData.playerLogs[player.playerId];
@@ -44,16 +90,24 @@ export default class GameVisualization extends Component {
 				// CLEANUP: This check shouldn't be necessary. If player didn't play then its gamelog should be empty not 'undefined'.
 				const playerKey = this.props.gameId+"-"+player.playerId+"-cord";
 				if (typeof playerData !== 'undefined') {
+
+					// If filtered applied, pass player filtered statistics not the full game for the player card.
+					const playerStats = this.state.filter.active ? this.state.filter.data[playerId] : playerData.playerStats;
+
 					return (
-						<PlayerGameCord
+						<PlayerGameChart
 							key={playerKey}
 							playerDetails={player}
 							playerData={playerData}
+							playerStats={playerStats}
 							playerSubs={playerSubs}
 							timeLog={this.props.gameData.timeLog}
 							periods={this.props.gameData.periods}
 							specs={this.state.specs}
 							selectedStats={this.props.selectedStats}
+							filter={this.state.filter}
+							chartType={this.props.chartType}
+							team={team}
 							/>
 					);
 				}
@@ -63,6 +117,7 @@ export default class GameVisualization extends Component {
 						key={playerKey}
 						playerDetails={player}
 						selectedStats={this.props.selectedStats}
+						team={team}
 						/>
 				);
 			}
@@ -74,6 +129,13 @@ export default class GameVisualization extends Component {
 	render() {
 		return (
 			<div className="main-visualization-container">
+				<GameTimeLine 
+					timeLog={this.props.gameData.timeLog}
+					specs={this.state.specs}
+					periods={this.props.gameData.periods}
+					height={50}
+					onFilterSelection={this.onFilterSelection}
+					/>
 
 				<div className="home-players-visualization-container">
 					{ this.getTeamPlayersViz(this.props.homeTeam, this.props.playersSelected.home) }
@@ -81,6 +143,7 @@ export default class GameVisualization extends Component {
 				<div className="game-scoring-margin">
 					<TeamsGameCard
 						home={this.props.homeTeam}
+						gameScore={this.props.gameData.breakdown}
 						away={this.props.awayTeam}
 						/>
 

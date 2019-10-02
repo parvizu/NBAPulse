@@ -33,15 +33,23 @@ export default class PlayerCard extends Component {
 		const stats = this.props.playerStats !== null ? this.props.playerStats : this.emptyStats;
 		const dnp = this.props.playerStats === null ? 'hidden' : '';
 
+		const classes = classNames(
+				'chart-label',
+				'player-label',
+				this.props.team.teamKey
+			);
+
 		return(
-			<div className="chart-label player-label"> 
-				<h4>{this.props.label}</h4>
-				<div className={dnp + " player-stat player-points " + selectedStats['made']}>
-					{stats.points}
-					<div className="player-stat-label">POINTS</div>
+			<div className={classes} style={{height: this.props.height+'px'}}>
+				<div className={dnp + " player-stats top-section"}>
+					<h4>{this.props.label}</h4>
+					<div className={dnp + " player-stat player-points " + selectedStats['made']}>
+						{stats.points}
+						<div className="player-stat-label">POINTS</div>
+					</div>
+					<img src={imgUrl} />
 				</div>
-				<img src={imgUrl} />
-				<div className={dnp + " player-stats"}>
+				<div className={dnp + " player-stats bottom-section"}>
 					<div className={"player-stat player-fg " + selectedStats['made']}>
 						{stats['made-fg']+"/"+(stats['made-fg']+stats['missed-fg'] )}
 						<div className="player-stat-label">FG</div>

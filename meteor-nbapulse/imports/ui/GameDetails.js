@@ -16,13 +16,30 @@ export default class GameDetails extends Component {
 
 		}
 
-		this.count = 0;
+		this.shouldShowBanner = this.shouldShowBanner.bind(this);
+	}
+
+	shouldShowBanner() {
+
+		let logoImg = "/img/logos/playoffsLogo.png";
+		if (this.props.gameDetails.gid >= '0041800401') {
+			logoImg = "/img/logos/nbafinalslogo2019trimmed.png";
+		}
+
+		return (
+			<div className="game-banner">
+				<img src={logoImg} />
+			</div>
+		);
 	}
 
 	render() {
 		//console.log("RENDERING", "GameDetails.js", this.count++);
 		return (
 			<div>
+				{ 
+					this.shouldShowBanner()
+				}
 				<GameHeader 
 					homeTeam={this.props.homeTeam}
 					awayTeam={this.props.awayTeam}
